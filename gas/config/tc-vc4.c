@@ -1097,7 +1097,7 @@ md_assemble (char * str)
 	   matches[0].bfd_fixup,
 	   matches[0].param->num_width,
 	   vc4_bfd_fixup_get_width(matches[0].bfd_fixup),
-	   vc4_bfd_fixup_get_length(matches[0].bfd_fixup),
+	   vc4_bfd_fixup_get_ins_length(matches[0].bfd_fixup),
 	   vc4_bfd_fixup_get_divide(matches[0].bfd_fixup),
 	   dump_op_info(matches[0].op_inf, buf));
 
@@ -1116,7 +1116,7 @@ md_assemble (char * str)
 	       matches[0].bfd_fixup,
 	       matches[0].param->num_width,
 	       vc4_bfd_fixup_get_width(matches[0].bfd_fixup),
-	       vc4_bfd_fixup_get_length(matches[0].bfd_fixup),
+	       vc4_bfd_fixup_get_ins_length(matches[0].bfd_fixup),
 	       vc4_bfd_fixup_get_divide(matches[0].bfd_fixup),
 	       dump_op_info(matches[0].op_inf, buf));
 	
@@ -1132,7 +1132,7 @@ md_assemble (char * str)
 	       matches[0].bfd_fixup,
 	       matches[0].param->num_width,
 	       vc4_bfd_fixup_get_width(matches[0].bfd_fixup),
-	       vc4_bfd_fixup_get_length(matches[0].bfd_fixup),
+	       vc4_bfd_fixup_get_ins_length(matches[0].bfd_fixup),
 	       vc4_bfd_fixup_get_divide(matches[0].bfd_fixup),
 	       dump_op_info(matches[0].op_inf, buf));
       }
