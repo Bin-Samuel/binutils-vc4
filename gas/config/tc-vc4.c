@@ -23,7 +23,6 @@
 #include "as.h"
 #include "subsegs.h"
 #include "symcat.h"
-#include "vc4.h"
 #include "safe-ctype.h"
 #include <inttypes.h>
 #include <limits.h>
