@@ -31,7 +31,7 @@
 #include "elf/vc4.h"
 #include "opcode/vc4.h"
 
-const char vc4_comment_chars[] = ";#";
+const char vc4_comment_chars[] = ";";
 const char line_comment_chars[]   = "#";
 const char line_separator_chars[] = "@";
 const char EXP_CHARS[]            = "eE";
@@ -429,6 +429,9 @@ static char *vc4_get_operand(char *str, struct op_info *inf)
     inf->type = ot_cpuid;
     return str;
   }
+
+  if (*str == '#')
+    str++;
 
   input_line_pointer = str;
   expression/*_and_evaluate*/(&inf->exp);
