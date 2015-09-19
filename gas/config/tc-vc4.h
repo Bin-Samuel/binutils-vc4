@@ -124,3 +124,7 @@ extern int vc4_relax_frag(asection *, struct frag *, long);
 
 #define LISTING_WORD_SIZE 2
 
+#define TARGET_USE_CFIPOP 1
+#define DWARF2_LINE_MIN_INSN_LENGTH 2
+#define DWARF2_DEFAULT_RETURN_COLUMN 26
+#define DWARF2_CIE_DATA_ALIGNMENT (-4)
