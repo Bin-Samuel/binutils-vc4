@@ -51,13 +51,13 @@
 (define-table c ["eq", "ne", "cs/lo", "cc/hs", "mi", "pl", "vs", "vc", "hi", "ls", "ge", "lt", "gt", "le", "", "f"])
 
 # Common Operations
-(define-table q ["mov", "add", "mul", "sub", "mvn", "cmp", "btst", "extu", "bset", "bclr", "bchg", "adds8", "exts", "lsr", "lsl", "asr"])
+(define-table q ["mov", "add", "mul", "sub", "not", "cmp", "btest", "bmask", "bset", "bclr", "bchg", "adds8", "signext", "lsr", "lsl", "asr"])
 
 # All operations
-(define-table p ["mov", "cmn", "add", "bic", "mul", "eor", "sub", "and", "mvn", "ror", "cmp", "rsb", "btst", "or", "extu", "max", "bset", "min", "bclr", "adds2", "bchg", "adds4", "adds8", "adds16", "exts", "neg", "lsr", "clz", "lsl", "brev", "asr", "abs"])
+(define-table p ["mov", "cmn", "add", "bic", "mul", "eor", "sub", "and", "not", "ror", "cmp", "rsub", "btst", "or", "bmask", "max", "bset", "min", "bclr", "adds2", "bchg", "adds4", "adds8", "adds16", "signext", "neg", "lsr", "count", "lsl", "brev", "asr", "abs"])
 
 # Floating point
-(define-table f ["fadd", "fsub", "fmul", "fdiv", "fcmp", "fabs", "frsb", "fmax", "frcp", "frsqrt", "fnmul", "fmin", "fld1", "fld0", "fop14", "fop15"])
+(define-table f ["fadd", "fsub", "fmul", "fdiv", "fcmp", "fabs", "frsub", "fmax", "frcp", "frsqrt", "fnmul", "fmin", "fld1", "fld0", "fop14", "fop15"])
 
 # Width of Memory Operation   
 #   00 Long/Word  (32 bits)
@@ -213,14 +213,14 @@
 1100 0100 010 d:5  a:5 c:4 10 u:5                       "; mulhd.us%s{c} r%i{d}, r%i{a}, #%d{u}"
 1100 0100 011 d:5  a:5 c:4 10 u:5                       "; mulhd.uu%s{c} r%i{d}, r%i{a}, #%d{u}"
 
-1100 0100 100 d:5  a:5 c:4 00 b:5                       "; divs%s{c} r%i{d}, r%i{a}, r%i{b}"
+1100 0100 100 d:5  a:5 c:4 00 b:5                       "; divss%s{c} r%i{d}, r%i{a}, r%i{b}"
 1100 0100 101 d:5  a:5 c:4 00 b:5                       "; divsu%s{c} r%i{d}, r%i{a}, r%i{b}"
 1100 0100 110 d:5  a:5 c:4 00 b:5                       "; divus%s{c} r%i{d}, r%i{a}, r%i{b}"
-1100 0100 111 d:5  a:5 c:4 00 b:5                       "; divu%s{c} r%i{d}, r%i{a}, r%i{b}"
-1100 0100 100 d:5  a:5 c:4 10 u:5                       "; divs%s{c} r%i{d}, r%i{a}, #%d{u}"
+1100 0100 111 d:5  a:5 c:4 00 b:5                       "; divuu%s{c} r%i{d}, r%i{a}, r%i{b}"
+1100 0100 100 d:5  a:5 c:4 10 u:5                       "; divss%s{c} r%i{d}, r%i{a}, #%d{u}"
 1100 0100 101 d:5  a:5 c:4 10 u:5                       "; divsu%s{c} r%i{d}, r%i{a}, #%d{u}"
 1100 0100 110 d:5  a:5 c:4 10 u:5                       "; divus%s{c} r%i{d}, r%i{a}, #%d{u}"
-1100 0100 111 d:5  a:5 c:4 10 u:5                       "; divu%s{c} r%i{d}, r%i{a}, #%d{u}"
+1100 0100 111 d:5  a:5 c:4 10 u:5                       "; divuu%s{c} r%i{d}, r%i{a}, #%d{u}"
 
 1100 0101 111 d:5  a:5 c:4 00 b:5                       "; add%s{c} r%d{d}, r%d{a}, r%d{b} shl 8"
 
