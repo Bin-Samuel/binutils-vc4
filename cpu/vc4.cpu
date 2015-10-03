@@ -63,14 +63,24 @@
   (name h-reg)
   (comment "32-bit registers")
   (type register SI (32))
-  (indices keyword "" (("r0" 0)   ("r1" 1)   ("r2" 2)   ("r3" 3)
-		       ("r4" 4)   ("r5" 5)   ("r6" 6)   ("r7" 7)
-		       ("r8" 8)   ("r9" 9)   ("r10" 10) ("r11" 11)
+  (indices keyword "" (("r0"  0)  ("r1"  1)  ("r2"  2)  ("r3"  3)
+		       ("r4"  4)  ("r5"  5)  ("r6"  6)  ("r7"  7)
+		       ("r8"  8)  ("r9"  9)  ("r10" 10) ("r11" 11)
 		       ("r12" 12) ("r13" 13) ("r14" 14) ("r15" 15)
 		       ("r16" 16) ("r17" 17) ("r18" 18) ("r19" 19)
 		       ("r20" 20) ("r21" 21) ("r22" 22) ("r23" 23)
-		       ("gp" 24)  ("sp" 25)  ("lr" 26)  ("r27" 27)
+		       ("gp"  24) ("sp"  25) ("lr"  26) ("r27" 27)
 		       ("r28" 28) ("r29" 29) ("r30" 30) ("r31" 31)))
+)
+
+(define-hardware
+  (name h-fastreg)
+  (comment "32-bit fast registers")
+  (type register SI (16))
+  (indices keyword "" (("r0"  0)  ("r1"  1)  ("r2"  2)  ("r3"  3)
+		       ("r4"  4)  ("r5"  5)  ("r6"  6)  ("r7"  7)
+		       ("r8"  8)  ("r9"  9)  ("r10" 10) ("r11" 11)
+		       ("r12" 12) ("r13" 13) ("r14" 14) ("r15" 15)))
 )
 
 (define-hardware
@@ -107,16 +117,87 @@
      ("sh" 3)))
 )
 
-(df f-opc1 "Opcode 1 field" 12 4 UINT #f #f)
+(df f-oplen "Opcode length field" () 0 4 UINT #f #f)
+
+(df f-op0-2 "Opcode bits 0-2" () 0 3 UINT #f #f)
+
+(df f-op4-7 "Opcode bits 4-7" () 4 4 UINT #f #f)
+
+(df f-aluop "ALU opcodes" () 3 5 UINT #f #f)
+
+(df f-op8-11 "Opcode bits 8-11" () 8 4 UINT #f #f)
+
+(df f-op8-10 "Opcode bits 8-10" () 8 3 UINT #f #f)
+
+(df f-op11 "Opcode bit 11" () 11 1 UINT #f #f)
+
+(df f-op12-15 "Opcode bits 12-15" () 12 4 UINT #f #f)
 
 (define-normal-insn-enum
-  insn-opc1 "field 1 insns" () f-opc1 OP1_
-  (HALT NOP WAIT USER EI DI CLR INC
-   CHG DEC RTI UNK1 UNK2 UNK3 UNK4 UNK5)
+  insn-oplen "length field" () OPLEN_ f-oplen
+  (.map .str (.iota 16))
 )
 
-;(define-normal-insn
-;  (name halt)
-;  (comment "halt insn")
-;  (syntax "halt")
-;  (format (+ (
+(define-normal-insn-enum
+  insn-op0-2 "insn bits 0-2" () OP0_2_ f-op0-2
+  (.map .str (.iota 8))
+)
+
+(define-normal-insn-enum
+  insn-aluop "insn alu ops" () ALUOP_ f-aluop
+  (MOV CMN ADD BIC MUL EOR SUB AND
+   NOT ROR CMP RSUB BTST OR BMASK MAX
+   BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
+   SIGNEXT NEG LSR COUNT LSL BREV ASR ABS)
+)
+
+(define-normal-insn-enum
+  insn-op4-7 "insn bits 4-7" () OP4_7_ f-op4-7
+  (.map .str (.iota 16))
+)
+
+(define-normal-insn-enum
+  insn-op8-11 "insn bits 8-11" () OP8_11_ f-op8-11
+  (.map .str (.iota 16))
+)
+
+(define-normal-insn-enum
+  insn-op8-10 "insn bits 8-10" () OP8_10_ f-op8-10
+  (.map .str (.iota 8))
+)
+
+(define-normal-insn-enum
+  insn-op11 "insn bit 11" () OP11_ f-op11
+  ("0" "1")
+)
+
+(define-normal-insn-enum
+  insn-op12-15 "insn bits 12-15" () OP12_15_ f-op12-15
+  (.map .str (.iota 16))
+)
+
+(define-normal-operand
+  alu16sreg
+  "" ()
+  h-fastreg
+  f-op8-11)
+
+(define-normal-operand
+  alu16dreg
+  "" ()
+  h-fastreg
+  f-op12-15)
+
+(define-normal-insn
+  halt "HALT" ()
+  "halt"
+  (+ OPLEN_0 OP4_7_0 OP8_10_0 OP11_0 OP12_15_0)
+  () ()
+)
+
+(define-normal-insn
+  add-narrow "ADD" ()
+  "add $alu16dreg,$alu16sreg"
+  (+ OP0_2_2 ALUOP_ADD alu16sreg alu16dreg)
+  () ()
+)

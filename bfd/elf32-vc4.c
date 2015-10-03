@@ -29,6 +29,9 @@
 #include "safe-ctype.h"
 #include <assert.h>
 
+#define DEBUGn(X, ...)
+#define DEBUG(X, ...)
+
 bfd_reloc_status_type
 vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 	       arelent *reloc_entry,
@@ -1106,12 +1109,8 @@ static void string_to_mask(const char *str, char code,
   count = 0;
 
   for (; *str; str++ ) {
-<<<<<<< 7358d3aa32b58a88d6e43643ed2fdfa7c46e9299
-    if (ISBLANK(*str)) {
-=======
 
     if (isblank(*str)) {
->>>>>>> Re-work the endianness of 48-bit scalar instructions
       continue;
     }
 
