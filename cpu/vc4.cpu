@@ -117,6 +117,8 @@
      ("sh" 3)))
 )
 
+(dnh h-pc "program counter" (PC) (pc) () () ())
+
 (df f-oplen "Opcode length field" () 0 4 UINT #f #f)
 
 (df f-op0-2 "Opcode bits 0-2" () 0 3 UINT #f #f)

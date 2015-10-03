@@ -48,7 +48,7 @@ extern const char vc4_comment_chars [];
 /* Values passed to md_apply_fix don't include the symbol value.  */
 #define MD_APPLY_SYM_VALUE(FIX) 0
 
-struct vc4_param;
+/*struct vc4_param;
 struct vc4_asm;
 
 enum op_type
@@ -89,22 +89,22 @@ struct vc4_frag_type
   size_t cur;
   struct op_info op_inf;
   struct vc4_frag_option d[3];
-};
+};*/
 
 #include "write.h"
 
-void vc4_init_frag(fragS *f);
-void vc4_init_fix(fixS *f);
+/*void vc4_init_frag(fragS *f);
+void vc4_init_fix(fixS *f);*/
 
-#define TC_FRAG_TYPE		struct vc4_frag_type
+/*#define TC_FRAG_TYPE		struct vc4_frag_type
 #define TC_FRAG_INIT(fragp)	vc4_init_frag(fragp)
 #define TC_FIX_TYPE             int
-#define TC_INIT_FIX_DATA(fixp)  vc4_init_fix(fixp)
+#define TC_INIT_FIX_DATA(fixp)  vc4_init_fix(fixp)*/
 
-#define md_apply_fix md_apply_fix
+/*#define md_apply_fix md_apply_fix*/
 
-extern bfd_boolean vc4_fix_adjustable (struct fix *);
-#define tc_fix_adjustable(FIX) vc4_fix_adjustable (FIX)
+/*extern bfd_boolean vc4_fix_adjustable (struct fix *);
+#define tc_fix_adjustable(FIX) vc4_fix_adjustable (FIX)*/
 
 #define tc_gen_reloc vc4_tc_gen_reloc
 
@@ -118,9 +118,9 @@ extern long md_pcrel_from_section (struct fix *, segT);
 #define md_operand(x)
 
 
-#define md_relax_frag(segment, fragp, stretch)	\
+/*#define md_relax_frag(segment, fragp, stretch)	\
   vc4_relax_frag (segment, fragp, stretch)
-extern int vc4_relax_frag(asection *, struct frag *, long);
+extern int vc4_relax_frag(asection *, struct frag *, long);*/
 
 #define LISTING_WORD_SIZE 2
 

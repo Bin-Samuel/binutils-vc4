@@ -376,6 +376,10 @@ changequote([,])dnl
         fi
 	;;
 
+      vc4)
+	using_cgen=yes
+	;;
+
       xstormy16)
 	using_cgen=yes
 	;;

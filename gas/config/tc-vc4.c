@@ -24,12 +24,26 @@
 #include "subsegs.h"
 #include "symcat.h"
 #include "safe-ctype.h"
+#include "opcodes/vc4-desc.h"
+#include "opcodes/vc4-opc.h"
+#include "cgen.h"
 #include <inttypes.h>
 #include <limits.h>
 #include <assert.h>
-
+#ifdef OBJ_ELF
 #include "elf/vc4.h"
-#include "opcode/vc4.h"
+#endif
+
+typedef struct
+{
+  const CGEN_INSN *insn;
+  CGEN_FIELDS fields;
+#if CGEN_INT_INSN_P
+  CGEN_INSN_INT buffer[1];
+#else
+  unsigned char buffer [CGEN_MAX_INSN_SIZE];
+#endif
+} vc4_insn;
 
 const char vc4_comment_chars[] = ";";
 const char line_comment_chars[]   = "#";
@@ -60,6 +74,7 @@ md_show_usage (FILE * stream ATTRIBUTE_UNUSED)
 {
 }
 
+#if 0
 static const char *get_name(symbolS *s)
 {
   const char *n;
@@ -89,6 +104,7 @@ ignore_pseudo (int val ATTRIBUTE_UNUSED)
   discard_rest_of_line ();
 }
 */
+#endif
 
 /* The target specific pseudo-ops which we support.  */
 const pseudo_typeS md_pseudo_table[] =
@@ -96,6 +112,175 @@ const pseudo_typeS md_pseudo_table[] =
   {0, 0, 0}
 };
 
+void
+md_begin (void)
+{
+  /* Initialize the `cgen' interface.  */
+
+  /* Set the machine number and endian.  */
+  gas_cgen_cpu_desc = vc4_cgen_cpu_open (CGEN_CPU_OPEN_MACHS, 0,
+					 CGEN_CPU_OPEN_ENDIAN,
+					 CGEN_ENDIAN_LITTLE,
+					 CGEN_CPU_OPEN_END);
+  vc4_cgen_init_asm (gas_cgen_cpu_desc);
+
+  /* This is a callback from cgen to gas to parse operands.  */
+  cgen_set_parse_operand_fn (gas_cgen_cpu_desc, gas_cgen_parse_operand);
+}
+
+void
+md_assemble (char *str)
+{
+  vc4_insn insn;
+  char *errmsg;
+
+  /* Initialize GAS's cgen interface for a new instruction.  */
+  gas_cgen_init_parse ();
+
+  insn.insn = vc4_cgen_assemble_insn
+    (gas_cgen_cpu_desc, str, & insn.fields, insn.buffer, & errmsg);
+
+  if (!insn.insn)
+    {
+      as_bad ("%s", errmsg);
+      return;
+    }
+
+  /* Doesn't really matter what we pass for RELAX_P here.  */
+  gas_cgen_finish_insn (insn.insn, insn.buffer,
+			CGEN_FIELDS_BITSIZE (& insn.fields), 1, NULL);
+}
+
+/* Return the bfd reloc type for OPERAND of INSN at fixup FIXP.
+   Returns BFD_RELOC_NONE if no reloc type can be found.
+   *FIXP may be modified if desired.  */
+
+bfd_reloc_code_real_type
+md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
+		      const CGEN_OPERAND *operand,
+		      fixS *fixP)
+{
+  return BFD_RELOC_NONE;
+}
+
+/* Write a value out to the object file, using the appropriate endianness.  */
+
+void
+md_number_to_chars (char * buf, valueT val, int n)
+{
+  number_to_chars_littleendian (buf, val, n);
+}
+
+char *
+md_atof (int type, char * litP, int *  sizeP)
+{
+  return ieee_md_atof (type, litP, sizeP, TRUE);
+}
+
+valueT
+md_section_align (segT segment, valueT size)
+{
+  int align = bfd_get_section_alignment (stdoutput, segment);
+  return ((size + (1 << align) - 1) & (-1 << align));
+}
+
+symbolS *
+md_undefined_symbol (char * name ATTRIBUTE_UNUSED)
+{
+  return 0;
+}
+
+int
+md_estimate_size_before_relax (fragS *fragP ATTRIBUTE_UNUSED,
+			       segT segment_type ATTRIBUTE_UNUSED)
+{
+  printf (_("call to md_estimate_size_before_relax \n"));
+  abort ();
+}
+
+long
+md_pcrel_from (fixS *fixP)
+{
+  long temp_val;
+  temp_val=fixP->fx_size + fixP->fx_where + fixP->fx_frag->fr_address;
+
+  return temp_val;
+}
+
+long
+md_pcrel_from_section (fixS *fixP, segT sec)
+{
+  if (fixP->fx_addsy != (symbolS *) NULL
+      && (! S_IS_DEFINED (fixP->fx_addsy)
+	  || S_GET_SEGMENT (fixP->fx_addsy) != sec
+          || S_IS_EXTERNAL (fixP->fx_addsy)
+          || S_IS_WEAK (fixP->fx_addsy)))
+    {
+      return 0;
+    }
+
+  return md_pcrel_from (fixP);
+}
+
+arelent *
+tc_gen_reloc (asection *section ATTRIBUTE_UNUSED, fixS *fixp)
+{
+  arelent *rel;
+  bfd_reloc_code_real_type r_type;
+
+  if (fixp->fx_addsy && fixp->fx_subsy)
+    {
+      if ((S_GET_SEGMENT (fixp->fx_addsy) != S_GET_SEGMENT (fixp->fx_subsy))
+	  || S_GET_SEGMENT (fixp->fx_addsy) == undefined_section)
+	{
+	  as_bad_where (fixp->fx_file, fixp->fx_line,
+			_("Difference of symbols in different sections is not supported"));
+	  return NULL;
+	}
+    }
+
+  rel = xmalloc (sizeof (arelent));
+  rel->sym_ptr_ptr = xmalloc (sizeof (asymbol *));
+  *rel->sym_ptr_ptr = symbol_get_bfdsym (fixp->fx_addsy);
+  rel->address = fixp->fx_frag->fr_address + fixp->fx_where;
+  rel->addend = fixp->fx_offset;
+
+  r_type = fixp->fx_r_type;
+
+#define DEBUG 0
+#if DEBUG
+  fprintf (stderr, "%s\n", bfd_get_reloc_code_name (r_type));
+  fflush (stderr);
+#endif
+
+  rel->howto = bfd_reloc_type_lookup (stdoutput, r_type);
+   if (rel->howto == NULL)
+    {
+      as_bad_where (fixp->fx_file, fixp->fx_line,
+		    _("Cannot represent relocation type %s"),
+		    bfd_get_reloc_code_name (r_type));
+      return NULL;
+    }
+
+  return rel;
+}
+
+void
+md_apply_fix (fixS *fixP, valueT *valP, segT seg ATTRIBUTE_UNUSED)
+{
+  gas_cgen_md_apply_fix (fixP, valP, seg);
+}
+
+void
+md_convert_frag (bfd *headers ATTRIBUTE_UNUSED,
+		 segT seg ATTRIBUTE_UNUSED,
+		 fragS *fragP ATTRIBUTE_UNUSED)
+{
+  printf (_("call to md_convert_frag \n"));
+  abort ();
+}
+
+#if 0
 #define UNUSED(x) ((void)&x)
 
 
@@ -1150,18 +1335,6 @@ md_assemble (char * str)
   DEBUG(BASIC, "%s\n", dump_uint16s(buf, matches[0].ins, opcode->op->length));
 }
 
-valueT
-md_section_align (segT segment, valueT size)
-{
-  int align = bfd_get_section_alignment (stdoutput, segment);
-  return ((size + (1 << align) - 1) & (-1 << align));
-}
-
-symbolS *
-md_undefined_symbol (char * name ATTRIBUTE_UNUSED)
-{
-  return 0;
-}
 
 
 /* Interface to relax_segment.  */
@@ -1357,13 +1530,6 @@ md_pcrel_from_section (fixS * fixP, segT sec)
 
 
 
-/* Write a value out to the object file, using the appropriate endianness.  */
-
-void
-md_number_to_chars (char * buf, valueT val, int n)
-{
-  number_to_chars_littleendian (buf, val, n);
-}
 
 /* Turn a string in input_line_pointer into a floating point constant of type
    type, and store the appropriate bytes in *litP.  The number of LITTLENUMS
@@ -1372,12 +1538,6 @@ md_number_to_chars (char * buf, valueT val, int n)
 
 /* Equal to MAX_PRECISION in atof-ieee.c */
 #define MAX_LITTLENUMS 6
-
-char *
-md_atof (int type, char * litP, int *  sizeP)
-{
-  return ieee_md_atof (type, litP, sizeP, TRUE);
-}
 
 bfd_boolean
 vc4_fix_adjustable (fixS * fixP)
@@ -1618,3 +1778,4 @@ vc4_tc_gen_reloc (asection *seg ATTRIBUTE_UNUSED,
 
   return reloc;
 }
+#endif
