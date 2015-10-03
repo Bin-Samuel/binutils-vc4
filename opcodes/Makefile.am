@@ -67,6 +67,7 @@ HFILES = \
 	sh-opc.h \
 	sh64-opc.h \
 	sysdep.h \
+	vc4-opc.h \
 	w65-opc.h \
 	xc16x-desc.h xc16x-opc.h \
 	xstormy16-desc.h xstormy16-opc.h \
@@ -334,7 +335,7 @@ po/POTFILES.in: @MAINT@ Makefile
 CLEANFILES = \
 	stamp-epiphany stamp-fr30 stamp-frv stamp-ip2k stamp-iq2000 stamp-lm32 \
 	stamp-m32c stamp-m32r stamp-mep stamp-mt \
-	stamp-openrisc stamp-xc16x stamp-xstormy16 \
+	stamp-openrisc stamp-vc4 stamp-xc16x stamp-xstormy16 \
 	libopcodes.a stamp-lib
 
 
@@ -350,7 +351,7 @@ CGENDEPS = \
 	$(CGENDIR)/opc-opinst.scm \
 	cgen-asm.in cgen-dis.in cgen-ibld.in
 
-CGEN_CPUS = epiphany fr30 frv ip2k iq2000 lm32 m32c m32r mep mt openrisc xc16x xstormy16
+CGEN_CPUS = epiphany fr30 frv ip2k iq2000 lm32 m32c m32r mep mt openrisc vc4 xc16x xstormy16
 
 if CGEN_MAINT
 EPIPHANY_DEPS = stamp-epiphany
@@ -364,6 +365,7 @@ M32R_DEPS = stamp-m32r
 MEP_DEPS = stamp-mep
 MT_DEPS = stamp-mt
 OPENRISC_DEPS = stamp-openrisc
+VC4_DEPS = stamp-vc4
 XC16X_DEPS = stamp-xc16x
 XSTORMY16_DEPS = stamp-xstormy16
 else
@@ -378,6 +380,7 @@ M32R_DEPS =
 MEP_DEPS =
 MT_DEPS =
 OPENRISC_DEPS = 
+VC4_DEPS =
 XC16X_DEPS = 
 XSTORMY16_DEPS = 
 endif
@@ -476,6 +479,14 @@ $(srcdir)/openrisc-desc.h $(srcdir)/openrisc-desc.c $(srcdir)/openrisc-opc.h $(s
 stamp-openrisc: $(CGENDEPS) $(CPUDIR)/openrisc.cpu $(CPUDIR)/openrisc.opc
 	$(MAKE) run-cgen arch=openrisc prefix=openrisc options= \
 		archfile=$(CPUDIR)/openrisc.cpu opcfile=$(CPUDIR)/openrisc.opc extrafiles=
+
+$(srcdir)/vc4-desc.h $(srcdir)/vc4-desc.c $(srcdir)/vc4-opc.h $(srcdir)/vc4-opc.c $(srcdir)/vc4-ibld.c $(srcdir)/vc4-asm.c $(srcdir)/vc4-dis.c: $(VC4_DEPS)
+	@true
+stamp-vc4: $(CGENDEPS) $(CPUDIR)/vc4.cpu $(CPUDIR)/vc4.opc
+	$(MAKE) run-cgen arch=vc4 prefix=vc4 options= \
+		archfile=$(CPUDIR)/vc4.cpu \
+		opcfile=$(CPUDIR)/vc4.opc \
+		extrafiles=
 
 $(srcdir)/xc16x-desc.h $(srcdir)/xc16x-desc.c $(srcdir)/xc16x-opc.h $(srcdir)/xc16x-opc.c $(srcdir)/xc16x-ibld.c $(srcdir)/xc16x-asm.c $(srcdir)/xc16x-dis.c: $(XC16X_DEPS)
 	@true

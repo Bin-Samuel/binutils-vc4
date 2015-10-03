@@ -1,0 +1,122 @@
+; Broadcom Videocore4 CPU description.  -*- Scheme -*-
+;
+; Copyright 2015 Free Software Foundation, Inc.
+;
+; Contributed by Red Hat Inc; developed under contract from Renesas.
+;
+; This file is part of the GNU Binutils.
+;
+; This program is free software; you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation; either version 3 of the License, or
+; (at your option) any later version.
+;
+; This program is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
+;
+; You should have received a copy of the GNU General Public License
+; along with this program; if not, write to the Free Software
+; Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston,
+; MA 02110-1301, USA.
+
+(include "simplify.inc")
+
+(define-arch
+  (name videocore)
+  (comment "Broadcom Videocore")
+  (default-alignment aligned)
+  (insn-lsb0? #f)
+  (machs vc4)
+  (isas vc4))
+
+(define-isa
+  (name vc4)
+  (comment "Videocore4 instruction set")
+  (base-insn-bitsize 16))
+
+(define-cpu
+  (name videocore4)
+  (comment "Videocore4 processor")
+  (endian little)
+  (word-bitsize 32))
+
+(define-mach
+  (name vc4)
+  (comment "Videocore4 machine")
+  (cpu videocore4))
+
+(define-model
+  (name vc4)
+  (comment "Videocore4 processor")
+  (mach vc4)
+  (unit u-exec "Execution unit" ()
+      1 1 ; issue done
+      () ; state
+      () ; inputs
+      () ; outputs
+      ()) ; profile action (default)
+)
+
+(define-hardware
+  (name h-reg)
+  (comment "32-bit registers")
+  (type register SI (32))
+  (indices keyword "" (("r0" 0)   ("r1" 1)   ("r2" 2)   ("r3" 3)
+		       ("r4" 4)   ("r5" 5)   ("r6" 6)   ("r7" 7)
+		       ("r8" 8)   ("r9" 9)   ("r10" 10) ("r11" 11)
+		       ("r12" 12) ("r13" 13) ("r14" 14) ("r15" 15)
+		       ("r16" 16) ("r17" 17) ("r18" 18) ("r19" 19)
+		       ("r20" 20) ("r21" 21) ("r22" 22) ("r23" 23)
+		       ("gp" 24)  ("sp" 25)  ("lr" 26)  ("r27" 27)
+		       ("r28" 28) ("r29" 29) ("r30" 30) ("r31" 31)))
+)
+
+(define-hardware
+  (name "h-cond")
+  (comment "Condition codes")
+  (type immediate UQI)
+  (values keyword ""
+    (("eq" 0)
+     ("ne" 1)
+     ("cs" 2) ("lo" 2)
+     ("cc" 3) ("hs" 3)
+     ("mi" 4)
+     ("pl" 5)
+     ("vs" 6)
+     ("vc" 7)
+     ("hi" 8)
+     ("ls" 9)
+     ("ge" 10)
+     ("lt" 11)
+     ("gt" 12)
+     ("le" 13)
+     ("" 14)
+     ("f" 15)))
+)
+
+(define-hardware
+  (name "h-accsz")
+  (comment "Access size")
+  (type immediate UQI)
+  (values keyword ""
+    (("" 0)
+     ("h" 1)
+     ("b" 2)
+     ("sh" 3)))
+)
+
+(df f-opc1 "Opcode 1 field" 12 4 UINT #f #f)
+
+(define-normal-insn-enum
+  insn-opc1 "field 1 insns" () f-opc1 OP1_
+  (HALT NOP WAIT USER EI DI CLR INC
+   CHG DEC RTI UNK1 UNK2 UNK3 UNK4 UNK5)
+)
+
+;(define-normal-insn
+;  (name halt)
+;  (comment "halt insn")
+;  (syntax "halt")
+;  (format (+ (
