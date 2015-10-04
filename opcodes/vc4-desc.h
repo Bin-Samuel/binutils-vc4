@@ -34,7 +34,7 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 /* Selected cpu families.  */
 #define HAVE_CPU_VIDEOCORE4
 
-#define CGEN_INSN_LSB0_P 0
+#define CGEN_INSN_LSB0_P 1
 
 /* Minimum size of any insn (in bytes).  */
 #define CGEN_MIN_INSN_SIZE 2

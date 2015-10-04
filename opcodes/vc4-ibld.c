@@ -567,10 +567,10 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
   switch (opindex)
     {
     case VC4_OPERAND_ALU16DREG :
-      errmsg = insert_normal (cd, fields->f_op12_15, 0, 0, 12, 4, 16, total_length, buffer);
+      errmsg = insert_normal (cd, fields->f_op12_15, 0, 0, 3, 4, 16, total_length, buffer);
       break;
     case VC4_OPERAND_ALU16SREG :
-      errmsg = insert_normal (cd, fields->f_op8_11, 0, 0, 8, 4, 16, total_length, buffer);
+      errmsg = insert_normal (cd, fields->f_op8_11, 0, 0, 7, 4, 16, total_length, buffer);
       break;
 
     default :
@@ -616,10 +616,10 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
   switch (opindex)
     {
     case VC4_OPERAND_ALU16DREG :
-      length = extract_normal (cd, ex_info, insn_value, 0, 0, 12, 4, 16, total_length, pc, & fields->f_op12_15);
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 3, 4, 16, total_length, pc, & fields->f_op12_15);
       break;
     case VC4_OPERAND_ALU16SREG :
-      length = extract_normal (cd, ex_info, insn_value, 0, 0, 8, 4, 16, total_length, pc, & fields->f_op8_11);
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 4, 16, total_length, pc, & fields->f_op8_11);
       break;
 
     default :

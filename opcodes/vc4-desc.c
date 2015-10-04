@@ -269,14 +269,14 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
 {
   { VC4_F_NIL, "f-nil", 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_ANYOF, "f-anyof", 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OPLEN, "f-oplen", 0, 16, 0, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP0_2, "f-op0-2", 0, 16, 0, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP4_7, "f-op4-7", 0, 16, 4, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_ALUOP, "f-aluop", 0, 16, 3, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP8_11, "f-op8-11", 0, 16, 8, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP8_10, "f-op8-10", 0, 16, 8, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP11, "f-op11", 0, 16, 11, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP12_15, "f-op12-15", 0, 16, 12, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OPLEN, "f-oplen", 0, 16, 15, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP0_2, "f-op0-2", 0, 16, 15, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP4_7, "f-op4-7", 0, 16, 11, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_ALUOP, "f-aluop", 0, 16, 12, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP8_11, "f-op8-11", 0, 16, 7, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP8_10, "f-op8-10", 0, 16, 7, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP11, "f-op11", 0, 16, 4, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP12_15, "f-op12-15", 0, 16, 3, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { 0, 0, 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
 };
 
@@ -303,11 +303,11 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_NIL] } }, 
     { 0|A(SEM_ONLY), { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu16sreg:  */
-  { "alu16sreg", VC4_OPERAND_ALU16SREG, HW_H_FASTREG, 8, 4,
+  { "alu16sreg", VC4_OPERAND_ALU16SREG, HW_H_FASTREG, 7, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP8_11] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu16dreg:  */
-  { "alu16dreg", VC4_OPERAND_ALU16DREG, HW_H_FASTREG, 12, 4,
+  { "alu16dreg", VC4_OPERAND_ALU16DREG, HW_H_FASTREG, 3, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP12_15] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */

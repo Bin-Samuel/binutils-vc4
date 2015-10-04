@@ -27,25 +27,31 @@
   (name videocore)
   (comment "Broadcom Videocore")
   (default-alignment aligned)
-  (insn-lsb0? #f)
+  (insn-lsb0? #t)
   (machs vc4)
-  (isas vc4))
+  (isas vc4)
+)
 
 (define-isa
   (name vc4)
   (comment "Videocore4 instruction set")
-  (base-insn-bitsize 16))
+  (base-insn-bitsize 16)
+  (default-insn-bitsize 16)
+  (default-insn-word-bitsize 16)
+)
 
 (define-cpu
   (name videocore4)
   (comment "Videocore4 processor")
   (endian little)
-  (word-bitsize 32))
+  (word-bitsize 32)
+)
 
 (define-mach
   (name vc4)
   (comment "Videocore4 machine")
-  (cpu videocore4))
+  (cpu videocore4)
+)
 
 (define-model
   (name vc4)
@@ -119,21 +125,21 @@
 
 (dnh h-pc "program counter" (PC) (pc) () () ())
 
-(df f-oplen "Opcode length field" () 0 4 UINT #f #f)
+(df f-oplen "Opcode length field" () 15 4 UINT #f #f)
 
-(df f-op0-2 "Opcode bits 0-2" () 0 3 UINT #f #f)
+(df f-op0-2 "Opcode bits 0-2" () 15 3 UINT #f #f)
 
-(df f-op4-7 "Opcode bits 4-7" () 4 4 UINT #f #f)
+(df f-op4-7 "Opcode bits 4-7" () 11 4 UINT #f #f)
 
-(df f-aluop "ALU opcodes" () 3 5 UINT #f #f)
+(df f-aluop "ALU opcodes" () 12 5 UINT #f #f)
 
-(df f-op8-11 "Opcode bits 8-11" () 8 4 UINT #f #f)
+(df f-op8-11 "Opcode bits 8-11" () 7 4 UINT #f #f)
 
-(df f-op8-10 "Opcode bits 8-10" () 8 3 UINT #f #f)
+(df f-op8-10 "Opcode bits 8-10" () 7 3 UINT #f #f)
 
-(df f-op11 "Opcode bit 11" () 11 1 UINT #f #f)
+(df f-op11 "Opcode bit 11" () 4 1 UINT #f #f)
 
-(df f-op12-15 "Opcode bits 12-15" () 12 4 UINT #f #f)
+(df f-op12-15 "Opcode bits 12-15" () 3 4 UINT #f #f)
 
 (define-normal-insn-enum
   insn-oplen "length field" () OPLEN_ f-oplen
