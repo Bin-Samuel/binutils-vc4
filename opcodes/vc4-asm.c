@@ -79,10 +79,22 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
   switch (opindex)
     {
     case VC4_OPERAND_ALU16DREG :
-      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op12_15);
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op3_0);
       break;
     case VC4_OPERAND_ALU16SREG :
-      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op8_11);
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op7_4);
+      break;
+    case VC4_OPERAND_ALU32AREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op31_27);
+      break;
+    case VC4_OPERAND_ALU32BREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op20_16);
+      break;
+    case VC4_OPERAND_ALU32COND :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_cond, & fields->f_op26_23);
+      break;
+    case VC4_OPERAND_ALU32DREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0);
       break;
 
     default :

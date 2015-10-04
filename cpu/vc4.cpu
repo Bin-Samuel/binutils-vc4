@@ -90,7 +90,7 @@
 )
 
 (define-hardware
-  (name "h-cond")
+  (name h-cond)
   (comment "Condition codes")
   (type immediate UQI)
   (values keyword ""
@@ -127,19 +127,33 @@
 
 (df f-oplen "Opcode length field" () 15 4 UINT #f #f)
 
-(df f-op0-2 "Opcode bits 0-2" () 15 3 UINT #f #f)
+(df f-op15-13 "Opcode bits 15-13" () 15 3 UINT #f #f)
 
-(df f-op4-7 "Opcode bits 4-7" () 11 4 UINT #f #f)
+(df f-op11-8 "Opcode bits 11-8" () 11 4 UINT #f #f)
 
-(df f-aluop "ALU opcodes" () 12 5 UINT #f #f)
+(df f-op11-10 "Opcode bits 11-10" () 11 2 UINT #f #f)
 
-(df f-op8-11 "Opcode bits 8-11" () 7 4 UINT #f #f)
+(df f-alu16op "ALU16 opcodes" () 12 5 UINT #f #f)
 
-(df f-op8-10 "Opcode bits 8-10" () 7 3 UINT #f #f)
+(df f-alu32op "ALU32 opcodes" () 9 5 UINT #f #f)
 
-(df f-op11 "Opcode bit 11" () 4 1 UINT #f #f)
+(df f-op7-4 "Opcode bits 7-4" () 7 4 UINT #f #f)
 
-(df f-op12-15 "Opcode bits 12-15" () 3 4 UINT #f #f)
+(df f-op7-5 "Opcode bits 7-5" () 7 3 UINT #f #f)
+
+(df f-op4 "Opcode bit 4" () 4 1 UINT #f #f)
+
+(df f-op4-0 "Opcode bits 4-0" () 4 5 UINT #f #f)
+
+(df f-op3-0 "Opcode bits 3-0" () 3 4 UINT #f #f)
+
+(df f-op20-16 "Opcode bits 20-16" () 20 5 UINT #f #f)
+
+(df f-op22-21 "Opcode bits 22-21" () 22 2 UINT #f #f)
+
+(df f-op26-23 "Opcode bits 26-23" () 26 4 UINT #f #f)
+
+(df f-op31-27 "Opcode bits 31-27" () 31 5 UINT #f #f)
 
 (define-normal-insn-enum
   insn-oplen "length field" () OPLEN_ f-oplen
@@ -147,12 +161,12 @@
 )
 
 (define-normal-insn-enum
-  insn-op0-2 "insn bits 0-2" () OP0_2_ f-op0-2
+  insn-op15-13 "insn bits 15-13" () OP15_13_ f-op15-13
   (.map .str (.iota 8))
 )
 
 (define-normal-insn-enum
-  insn-aluop "insn alu ops" () ALUOP_ f-aluop
+  insn-alu16op "insn alu16 ops" () ALU16OP_ f-alu16op
   (MOV CMN ADD BIC MUL EOR SUB AND
    NOT ROR CMP RSUB BTST OR BMASK MAX
    BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
@@ -160,52 +174,123 @@
 )
 
 (define-normal-insn-enum
-  insn-op4-7 "insn bits 4-7" () OP4_7_ f-op4-7
+  insn-alu32op "insn alu32 ops" () ALU32OP_ f-alu32op
+  (MOV CMN ADD BIC MUL EOR SUB AND
+   NOT ROR CMP RSUB BTST OR BMASK MAX
+   BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
+   SIGNEXT NEG LSR COUNT LSL BREV ASR ABS)
+)
+
+(define-normal-insn-enum
+  insn-op11-8 "insn bits 11-8" () OP11_8_ f-op11-8
   (.map .str (.iota 16))
 )
 
 (define-normal-insn-enum
-  insn-op8-11 "insn bits 8-11" () OP8_11_ f-op8-11
+  insn-op11-10 "insn bits 11-10" () OP11_10_ f-op11-10
+  (.map .str (.iota 4))
+)
+
+(define-normal-insn-enum
+  insn-op7-4 "insn bits 7-4" () OP4_7_ f-op7-4
   (.map .str (.iota 16))
 )
 
 (define-normal-insn-enum
-  insn-op8-10 "insn bits 8-10" () OP8_10_ f-op8-10
+  insn-op7-5 "insn bits 7-5" () OP7_5_ f-op7-5
   (.map .str (.iota 8))
 )
 
 (define-normal-insn-enum
-  insn-op11 "insn bit 11" () OP11_ f-op11
+  insn-op4 "insn bit 4" () OP4_ f-op4
   ("0" "1")
 )
 
 (define-normal-insn-enum
-  insn-op12-15 "insn bits 12-15" () OP12_15_ f-op12-15
+  insn-op3-0 "insn bits 3-0" () OP3_0_ f-op3-0
   (.map .str (.iota 16))
+)
+
+(define-normal-insn-enum
+  insn-op20-16 "insn bits 20-16" () OP16_20_ f-op20-16
+  (.map .str (.iota 32))
+)
+
+(define-normal-insn-enum
+  insn-op22-21 "insn bits 22-21" () OP22_21_ f-op22-21
+  (.map .str (.iota 4))
+)
+
+(define-normal-insn-enum
+  insn-op26-23 "insn bits 26-23" () OP26_23_ f-op26-23
+  (.map .str (.iota 16))
+)
+
+(define-normal-insn-enum
+  insn-op31-27 "insn bits 31-27" () OP31_27_ f-op31-27
+  (.map .str (.iota 32))
 )
 
 (define-normal-operand
   alu16sreg
   "" ()
   h-fastreg
-  f-op8-11)
+  f-op7-4
+)
 
 (define-normal-operand
   alu16dreg
   "" ()
   h-fastreg
-  f-op12-15)
+  f-op3-0
+)
+
+(define-normal-operand
+  alu32dreg
+  "" ()
+  h-reg
+  f-op4-0
+)
+
+(define-normal-operand
+  alu32breg
+  "" ()
+  h-reg
+  f-op20-16
+)
+
+(define-normal-operand
+  alu32areg
+  "" ()
+  h-reg
+  f-op31-27
+)
+
+(define-normal-operand
+  alu32cond
+  "" ()
+  h-cond
+  f-op26-23
+)
 
 (define-normal-insn
   halt "HALT" ()
   "halt"
-  (+ OPLEN_0 OP4_7_0 OP8_10_0 OP11_0 OP12_15_0)
+  (+ OPLEN_0 OP11_8_0 OP7_5_0 OP4_0 OP3_0_0)
   () ()
 )
 
 (define-normal-insn
-  add-narrow "ADD" ()
+  add16 "ADD16" ()
   "add $alu16dreg,$alu16sreg"
-  (+ OP0_2_2 ALUOP_ADD alu16sreg alu16dreg)
+  (+ OP15_13_2 ALU16OP_ADD alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  add32 "ADD32" ()
+  "add$alu32cond $alu32dreg,$alu32areg,$alu32breg"
+  (+ OPLEN_12 OP11_10_0 ALU32OP_ADD alu32dreg alu32areg alu32cond OP22_21_0
+     alu32breg)
   () ()
 )

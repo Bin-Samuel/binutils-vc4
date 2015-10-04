@@ -91,10 +91,22 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
   switch (opindex)
     {
     case VC4_OPERAND_ALU16DREG :
-      print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op12_15, 0);
+      print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op3_0, 0);
       break;
     case VC4_OPERAND_ALU16SREG :
-      print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op8_11, 0);
+      print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op7_4, 0);
+      break;
+    case VC4_OPERAND_ALU32AREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op31_27, 0);
+      break;
+    case VC4_OPERAND_ALU32BREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op20_16, 0);
+      break;
+    case VC4_OPERAND_ALU32COND :
+      print_keyword (cd, info, & vc4_cgen_opval_h_cond, fields->f_op26_23, 0);
+      break;
+    case VC4_OPERAND_ALU32DREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0, 0);
       break;
 
     default :

@@ -40,12 +40,12 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 #define CGEN_MIN_INSN_SIZE 2
 
 /* Maximum size of any insn (in bytes).  */
-#define CGEN_MAX_INSN_SIZE 2
+#define CGEN_MAX_INSN_SIZE 4
 
 #define CGEN_INT_INSN_P 1
 
 /* Maximum number of syntax elements in an instruction.  */
-#define CGEN_ACTUAL_MAX_SYNTAX_ELEMENTS 9
+#define CGEN_ACTUAL_MAX_SYNTAX_ELEMENTS 12
 
 /* CGEN_MNEMONIC_OPERANDS is defined if mnemonics have operands.
    e.g. In "b,a foo" the ",a" is an operand.  If mnemonics have operands
@@ -53,7 +53,7 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 #define CGEN_MNEMONIC_OPERANDS
 
 /* Maximum number of fields in an instruction.  */
-#define CGEN_ACTUAL_MAX_IFMT_OPERANDS 5
+#define CGEN_ACTUAL_MAX_IFMT_OPERANDS 8
 
 /* Enums.  */
 
@@ -65,58 +65,112 @@ typedef enum insn_oplen {
  , OPLEN_12, OPLEN_13, OPLEN_14, OPLEN_15
 } INSN_OPLEN;
 
-/* Enum declaration for insn bits 0-2.  */
-typedef enum insn_op0_2 {
-  OP0_2_0, OP0_2_1, OP0_2_2, OP0_2_3
- , OP0_2_4, OP0_2_5, OP0_2_6, OP0_2_7
-} INSN_OP0_2;
+/* Enum declaration for insn bits 15-13.  */
+typedef enum insn_op15_13 {
+  OP15_13_0, OP15_13_1, OP15_13_2, OP15_13_3
+ , OP15_13_4, OP15_13_5, OP15_13_6, OP15_13_7
+} INSN_OP15_13;
 
-/* Enum declaration for insn alu ops.  */
-typedef enum insn_aluop {
-  ALUOP_MOV, ALUOP_CMN, ALUOP_ADD, ALUOP_BIC
- , ALUOP_MUL, ALUOP_EOR, ALUOP_SUB, ALUOP_AND
- , ALUOP_NOT, ALUOP_ROR, ALUOP_CMP, ALUOP_RSUB
- , ALUOP_BTST, ALUOP_OR, ALUOP_BMASK, ALUOP_MAX
- , ALUOP_BSET, ALUOP_MIN, ALUOP_BCLR, ALUOP_ADDS2
- , ALUOP_BCHG, ALUOP_ADDS4, ALUOP_ADDS8, ALUOP_ADDS16
- , ALUOP_SIGNEXT, ALUOP_NEG, ALUOP_LSR, ALUOP_COUNT
- , ALUOP_LSL, ALUOP_BREV, ALUOP_ASR, ALUOP_ABS
-} INSN_ALUOP;
+/* Enum declaration for insn alu16 ops.  */
+typedef enum insn_alu16op {
+  ALU16OP_MOV, ALU16OP_CMN, ALU16OP_ADD, ALU16OP_BIC
+ , ALU16OP_MUL, ALU16OP_EOR, ALU16OP_SUB, ALU16OP_AND
+ , ALU16OP_NOT, ALU16OP_ROR, ALU16OP_CMP, ALU16OP_RSUB
+ , ALU16OP_BTST, ALU16OP_OR, ALU16OP_BMASK, ALU16OP_MAX
+ , ALU16OP_BSET, ALU16OP_MIN, ALU16OP_BCLR, ALU16OP_ADDS2
+ , ALU16OP_BCHG, ALU16OP_ADDS4, ALU16OP_ADDS8, ALU16OP_ADDS16
+ , ALU16OP_SIGNEXT, ALU16OP_NEG, ALU16OP_LSR, ALU16OP_COUNT
+ , ALU16OP_LSL, ALU16OP_BREV, ALU16OP_ASR, ALU16OP_ABS
+} INSN_ALU16OP;
 
-/* Enum declaration for insn bits 4-7.  */
-typedef enum insn_op4_7 {
+/* Enum declaration for insn alu32 ops.  */
+typedef enum insn_alu32op {
+  ALU32OP_MOV, ALU32OP_CMN, ALU32OP_ADD, ALU32OP_BIC
+ , ALU32OP_MUL, ALU32OP_EOR, ALU32OP_SUB, ALU32OP_AND
+ , ALU32OP_NOT, ALU32OP_ROR, ALU32OP_CMP, ALU32OP_RSUB
+ , ALU32OP_BTST, ALU32OP_OR, ALU32OP_BMASK, ALU32OP_MAX
+ , ALU32OP_BSET, ALU32OP_MIN, ALU32OP_BCLR, ALU32OP_ADDS2
+ , ALU32OP_BCHG, ALU32OP_ADDS4, ALU32OP_ADDS8, ALU32OP_ADDS16
+ , ALU32OP_SIGNEXT, ALU32OP_NEG, ALU32OP_LSR, ALU32OP_COUNT
+ , ALU32OP_LSL, ALU32OP_BREV, ALU32OP_ASR, ALU32OP_ABS
+} INSN_ALU32OP;
+
+/* Enum declaration for insn bits 11-8.  */
+typedef enum insn_op11_8 {
+  OP11_8_0, OP11_8_1, OP11_8_2, OP11_8_3
+ , OP11_8_4, OP11_8_5, OP11_8_6, OP11_8_7
+ , OP11_8_8, OP11_8_9, OP11_8_10, OP11_8_11
+ , OP11_8_12, OP11_8_13, OP11_8_14, OP11_8_15
+} INSN_OP11_8;
+
+/* Enum declaration for insn bits 11-10.  */
+typedef enum insn_op11_10 {
+  OP11_10_0, OP11_10_1, OP11_10_2, OP11_10_3
+} INSN_OP11_10;
+
+/* Enum declaration for insn bits 7-4.  */
+typedef enum insn_op7_4 {
   OP4_7_0, OP4_7_1, OP4_7_2, OP4_7_3
  , OP4_7_4, OP4_7_5, OP4_7_6, OP4_7_7
  , OP4_7_8, OP4_7_9, OP4_7_10, OP4_7_11
  , OP4_7_12, OP4_7_13, OP4_7_14, OP4_7_15
-} INSN_OP4_7;
+} INSN_OP7_4;
 
-/* Enum declaration for insn bits 8-11.  */
-typedef enum insn_op8_11 {
-  OP8_11_0, OP8_11_1, OP8_11_2, OP8_11_3
- , OP8_11_4, OP8_11_5, OP8_11_6, OP8_11_7
- , OP8_11_8, OP8_11_9, OP8_11_10, OP8_11_11
- , OP8_11_12, OP8_11_13, OP8_11_14, OP8_11_15
-} INSN_OP8_11;
+/* Enum declaration for insn bits 7-5.  */
+typedef enum insn_op7_5 {
+  OP7_5_0, OP7_5_1, OP7_5_2, OP7_5_3
+ , OP7_5_4, OP7_5_5, OP7_5_6, OP7_5_7
+} INSN_OP7_5;
 
-/* Enum declaration for insn bits 8-10.  */
-typedef enum insn_op8_10 {
-  OP8_10_0, OP8_10_1, OP8_10_2, OP8_10_3
- , OP8_10_4, OP8_10_5, OP8_10_6, OP8_10_7
-} INSN_OP8_10;
+/* Enum declaration for insn bit 4.  */
+typedef enum insn_op4 {
+  OP4_0, OP4_1
+} INSN_OP4;
 
-/* Enum declaration for insn bit 11.  */
-typedef enum insn_op11 {
-  OP11_0, OP11_1
-} INSN_OP11;
+/* Enum declaration for insn bits 3-0.  */
+typedef enum insn_op3_0 {
+  OP3_0_0, OP3_0_1, OP3_0_2, OP3_0_3
+ , OP3_0_4, OP3_0_5, OP3_0_6, OP3_0_7
+ , OP3_0_8, OP3_0_9, OP3_0_10, OP3_0_11
+ , OP3_0_12, OP3_0_13, OP3_0_14, OP3_0_15
+} INSN_OP3_0;
 
-/* Enum declaration for insn bits 12-15.  */
-typedef enum insn_op12_15 {
-  OP12_15_0, OP12_15_1, OP12_15_2, OP12_15_3
- , OP12_15_4, OP12_15_5, OP12_15_6, OP12_15_7
- , OP12_15_8, OP12_15_9, OP12_15_10, OP12_15_11
- , OP12_15_12, OP12_15_13, OP12_15_14, OP12_15_15
-} INSN_OP12_15;
+/* Enum declaration for insn bits 20-16.  */
+typedef enum insn_op20_16 {
+  OP16_20_0, OP16_20_1, OP16_20_2, OP16_20_3
+ , OP16_20_4, OP16_20_5, OP16_20_6, OP16_20_7
+ , OP16_20_8, OP16_20_9, OP16_20_10, OP16_20_11
+ , OP16_20_12, OP16_20_13, OP16_20_14, OP16_20_15
+ , OP16_20_16, OP16_20_17, OP16_20_18, OP16_20_19
+ , OP16_20_20, OP16_20_21, OP16_20_22, OP16_20_23
+ , OP16_20_24, OP16_20_25, OP16_20_26, OP16_20_27
+ , OP16_20_28, OP16_20_29, OP16_20_30, OP16_20_31
+} INSN_OP20_16;
+
+/* Enum declaration for insn bits 22-21.  */
+typedef enum insn_op22_21 {
+  OP22_21_0, OP22_21_1, OP22_21_2, OP22_21_3
+} INSN_OP22_21;
+
+/* Enum declaration for insn bits 26-23.  */
+typedef enum insn_op26_23 {
+  OP26_23_0, OP26_23_1, OP26_23_2, OP26_23_3
+ , OP26_23_4, OP26_23_5, OP26_23_6, OP26_23_7
+ , OP26_23_8, OP26_23_9, OP26_23_10, OP26_23_11
+ , OP26_23_12, OP26_23_13, OP26_23_14, OP26_23_15
+} INSN_OP26_23;
+
+/* Enum declaration for insn bits 31-27.  */
+typedef enum insn_op31_27 {
+  OP31_27_0, OP31_27_1, OP31_27_2, OP31_27_3
+ , OP31_27_4, OP31_27_5, OP31_27_6, OP31_27_7
+ , OP31_27_8, OP31_27_9, OP31_27_10, OP31_27_11
+ , OP31_27_12, OP31_27_13, OP31_27_14, OP31_27_15
+ , OP31_27_16, OP31_27_17, OP31_27_18, OP31_27_19
+ , OP31_27_20, OP31_27_21, OP31_27_22, OP31_27_23
+ , OP31_27_24, OP31_27_25, OP31_27_26, OP31_27_27
+ , OP31_27_28, OP31_27_29, OP31_27_30, OP31_27_31
+} INSN_OP31_27;
 
 /* Attributes.  */
 
@@ -159,9 +213,11 @@ typedef enum cgen_ifld_attr {
 
 /* Enum declaration for vc4 ifield types.  */
 typedef enum ifield_type {
-  VC4_F_NIL, VC4_F_ANYOF, VC4_F_OPLEN, VC4_F_OP0_2
- , VC4_F_OP4_7, VC4_F_ALUOP, VC4_F_OP8_11, VC4_F_OP8_10
- , VC4_F_OP11, VC4_F_OP12_15, VC4_F_MAX
+  VC4_F_NIL, VC4_F_ANYOF, VC4_F_OPLEN, VC4_F_OP15_13
+ , VC4_F_OP11_8, VC4_F_OP11_10, VC4_F_ALU16OP, VC4_F_ALU32OP
+ , VC4_F_OP7_4, VC4_F_OP7_5, VC4_F_OP4, VC4_F_OP4_0
+ , VC4_F_OP3_0, VC4_F_OP20_16, VC4_F_OP22_21, VC4_F_OP26_23
+ , VC4_F_OP31_27, VC4_F_MAX
 } IFIELD_TYPE;
 
 #define MAX_IFLD ((int) VC4_F_MAX)
@@ -218,11 +274,12 @@ typedef enum cgen_operand_attr {
 
 /* Enum declaration for vc4 operand types.  */
 typedef enum cgen_operand_type {
-  VC4_OPERAND_PC, VC4_OPERAND_ALU16SREG, VC4_OPERAND_ALU16DREG, VC4_OPERAND_MAX
+  VC4_OPERAND_PC, VC4_OPERAND_ALU16SREG, VC4_OPERAND_ALU16DREG, VC4_OPERAND_ALU32DREG
+ , VC4_OPERAND_ALU32BREG, VC4_OPERAND_ALU32AREG, VC4_OPERAND_ALU32COND, VC4_OPERAND_MAX
 } CGEN_OPERAND_TYPE;
 
 /* Number of operands types.  */
-#define MAX_OPERANDS 3
+#define MAX_OPERANDS 7
 
 /* Maximum number of operands referenced by any insn.  */
 #define MAX_OPERAND_INSTANCES 8

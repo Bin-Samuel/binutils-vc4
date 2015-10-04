@@ -113,7 +113,7 @@ const CGEN_ATTR_TABLE vc4_cgen_insn_attr_table[] =
 /* Instruction set variants.  */
 
 static const CGEN_ISA vc4_cgen_isa_table[] = {
-  { "vc4", 16, 16, 16, 16 },
+  { "vc4", 16, 16, 16, 32 },
   { 0, 0, 0, 0, 0 }
 };
 
@@ -270,13 +270,20 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_NIL, "f-nil", 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_ANYOF, "f-anyof", 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OPLEN, "f-oplen", 0, 16, 15, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP0_2, "f-op0-2", 0, 16, 15, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP4_7, "f-op4-7", 0, 16, 11, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_ALUOP, "f-aluop", 0, 16, 12, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP8_11, "f-op8-11", 0, 16, 7, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP8_10, "f-op8-10", 0, 16, 7, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP11, "f-op11", 0, 16, 4, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP12_15, "f-op12-15", 0, 16, 3, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP15_13, "f-op15-13", 0, 16, 15, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP11_8, "f-op11-8", 0, 16, 11, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP11_10, "f-op11-10", 0, 16, 11, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_ALU16OP, "f-alu16op", 0, 16, 12, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_ALU32OP, "f-alu32op", 0, 16, 9, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP7_4, "f-op7-4", 0, 16, 7, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP7_5, "f-op7-5", 0, 16, 7, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP4, "f-op4", 0, 16, 4, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP4_0, "f-op4-0", 0, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP3_0, "f-op3-0", 0, 16, 3, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP20_16, "f-op20-16", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP22_21, "f-op22-21", 16, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP26_23, "f-op26-23", 16, 16, 10, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP31_27, "f-op31-27", 16, 16, 15, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { 0, 0, 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
 };
 
@@ -304,11 +311,27 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
     { 0|A(SEM_ONLY), { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu16sreg:  */
   { "alu16sreg", VC4_OPERAND_ALU16SREG, HW_H_FASTREG, 7, 4,
-    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP8_11] } }, 
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP7_4] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu16dreg:  */
   { "alu16dreg", VC4_OPERAND_ALU16DREG, HW_H_FASTREG, 3, 4,
-    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP12_15] } }, 
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP3_0] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu32dreg:  */
+  { "alu32dreg", VC4_OPERAND_ALU32DREG, HW_H_REG, 4, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP4_0] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu32breg:  */
+  { "alu32breg", VC4_OPERAND_ALU32BREG, HW_H_REG, 4, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP20_16] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu32areg:  */
+  { "alu32areg", VC4_OPERAND_ALU32AREG, HW_H_REG, 15, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP31_27] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu32cond:  */
+  { "alu32cond", VC4_OPERAND_ALU32COND, HW_H_COND, 10, 4,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP26_23] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
@@ -337,7 +360,12 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
   },
 /* add $alu16dreg,$alu16sreg */
   {
-    VC4_INSN_ADD_NARROW, "add-narrow", "add", 16,
+    VC4_INSN_ADD16, "add16", "add", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_ADD32, "add32", "add", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 };
