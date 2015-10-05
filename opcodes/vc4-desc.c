@@ -113,7 +113,7 @@ const CGEN_ATTR_TABLE vc4_cgen_insn_attr_table[] =
 /* Instruction set variants.  */
 
 static const CGEN_ISA vc4_cgen_isa_table[] = {
-  { "vc4", 16, 16, 16, 32 },
+  { "vc4", 16, 16, 16, 48 },
   { 0, 0, 0, 0, 0 }
 };
 
@@ -276,7 +276,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP11_10, "f-op11-10", 0, 16, 11, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP10_7, "f-op10-7", 0, 16, 10, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_ALU16OP, "f-alu16op", 0, 16, 12, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_ALU32OP, "f-alu32op", 0, 16, 9, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP9_5, "f-op9-5", 0, 16, 9, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7_4, "f-op7-4", 0, 16, 7, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7_5, "f-op7-5", 0, 16, 7, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP4, "f-op4", 0, 16, 4, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -286,6 +286,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP22_21, "f-op22-21", 16, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP26_23, "f-op26-23", 16, 16, 10, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP31_27, "f-op31-27", 16, 16, 15, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP47_16, "f-op47-16", 16, 32, 31, 32, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { 0, 0, 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
 };
 
@@ -335,6 +336,18 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "alu32cond", VC4_OPERAND_ALU32COND, HW_H_COND, 10, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP26_23] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu48isreg:  */
+  { "alu48isreg", VC4_OPERAND_ALU48ISREG, HW_H_REG, 9, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP9_5] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu48idreg:  */
+  { "alu48idreg", VC4_OPERAND_ALU48IDREG, HW_H_REG, 4, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP4_0] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* alu48immu:  */
+  { "alu48immu", VC4_OPERAND_ALU48IMMU, HW_H_UINT, 31, 32,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP47_16] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
     { 0, { (const PTR) 0 } },
@@ -368,6 +381,11 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     VC4_INSN_ADD32, "add32", "add", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add $alu48idreg,$alu48isreg,#$alu48immu */
+  {
+    VC4_INSN_ADD48I, "add48i", "add", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 };

@@ -108,6 +108,15 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU32DREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0, 0);
       break;
+    case VC4_OPERAND_ALU48IDREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0, 0);
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      print_normal (cd, info, fields->f_op47_16, 0, pc, length);
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op9_5, 0);
+      break;
 
     default :
       /* xgettext:c-format */

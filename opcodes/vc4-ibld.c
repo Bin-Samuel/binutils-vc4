@@ -584,6 +584,15 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU32DREG :
       errmsg = insert_normal (cd, fields->f_op4_0, 0, 0, 4, 5, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_ALU48IDREG :
+      errmsg = insert_normal (cd, fields->f_op4_0, 0, 0, 4, 5, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      errmsg = insert_normal (cd, fields->f_op47_16, 0, 16, 31, 32, 32, total_length, buffer);
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      errmsg = insert_normal (cd, fields->f_op9_5, 0, 0, 9, 5, 16, total_length, buffer);
+      break;
 
     default :
       /* xgettext:c-format */
@@ -645,6 +654,15 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU32DREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 4, 5, 16, total_length, pc, & fields->f_op4_0);
       break;
+    case VC4_OPERAND_ALU48IDREG :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 4, 5, 16, total_length, pc, & fields->f_op4_0);
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      length = extract_normal (cd, ex_info, insn_value, 0, 16, 31, 32, 32, total_length, pc, & fields->f_op47_16);
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 9, 5, 16, total_length, pc, & fields->f_op9_5);
+      break;
 
     default :
       /* xgettext:c-format */
@@ -701,6 +719,15 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU32DREG :
       value = fields->f_op4_0;
       break;
+    case VC4_OPERAND_ALU48IDREG :
+      value = fields->f_op4_0;
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      value = fields->f_op47_16;
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      value = fields->f_op9_5;
+      break;
 
     default :
       /* xgettext:c-format */
@@ -738,6 +765,15 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU32DREG :
       value = fields->f_op4_0;
+      break;
+    case VC4_OPERAND_ALU48IDREG :
+      value = fields->f_op4_0;
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      value = fields->f_op47_16;
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      value = fields->f_op9_5;
       break;
 
     default :
@@ -784,6 +820,15 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU32DREG :
       fields->f_op4_0 = value;
       break;
+    case VC4_OPERAND_ALU48IDREG :
+      fields->f_op4_0 = value;
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      fields->f_op47_16 = value;
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      fields->f_op9_5 = value;
+      break;
 
     default :
       /* xgettext:c-format */
@@ -818,6 +863,15 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU32DREG :
       fields->f_op4_0 = value;
+      break;
+    case VC4_OPERAND_ALU48IDREG :
+      fields->f_op4_0 = value;
+      break;
+    case VC4_OPERAND_ALU48IMMU :
+      fields->f_op47_16 = value;
+      break;
+    case VC4_OPERAND_ALU48ISREG :
+      fields->f_op9_5 = value;
       break;
 
     default :

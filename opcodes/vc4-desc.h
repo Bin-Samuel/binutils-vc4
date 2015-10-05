@@ -40,9 +40,9 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 #define CGEN_MIN_INSN_SIZE 2
 
 /* Maximum size of any insn (in bytes).  */
-#define CGEN_MAX_INSN_SIZE 4
+#define CGEN_MAX_INSN_SIZE 6
 
-#define CGEN_INT_INSN_P 1
+#define CGEN_INT_INSN_P 0
 
 /* Maximum number of syntax elements in an instruction.  */
 #define CGEN_ACTUAL_MAX_SYNTAX_ELEMENTS 12
@@ -175,9 +175,10 @@ typedef enum cgen_ifld_attr {
 typedef enum ifield_type {
   VC4_F_NIL, VC4_F_ANYOF, VC4_F_OPLEN, VC4_F_OP15_13
  , VC4_F_OP15_11, VC4_F_OP11_8, VC4_F_OP11_10, VC4_F_OP10_7
- , VC4_F_ALU16OP, VC4_F_ALU32OP, VC4_F_OP7_4, VC4_F_OP7_5
+ , VC4_F_ALU16OP, VC4_F_OP9_5, VC4_F_OP7_4, VC4_F_OP7_5
  , VC4_F_OP4, VC4_F_OP4_0, VC4_F_OP3_0, VC4_F_OP20_16
- , VC4_F_OP22_21, VC4_F_OP26_23, VC4_F_OP31_27, VC4_F_MAX
+ , VC4_F_OP22_21, VC4_F_OP26_23, VC4_F_OP31_27, VC4_F_OP47_16
+ , VC4_F_MAX
 } IFIELD_TYPE;
 
 #define MAX_IFLD ((int) VC4_F_MAX)
@@ -235,11 +236,12 @@ typedef enum cgen_operand_attr {
 /* Enum declaration for vc4 operand types.  */
 typedef enum cgen_operand_type {
   VC4_OPERAND_PC, VC4_OPERAND_ALU16SREG, VC4_OPERAND_ALU16DREG, VC4_OPERAND_ALU32DREG
- , VC4_OPERAND_ALU32BREG, VC4_OPERAND_ALU32AREG, VC4_OPERAND_ALU32COND, VC4_OPERAND_MAX
+ , VC4_OPERAND_ALU32BREG, VC4_OPERAND_ALU32AREG, VC4_OPERAND_ALU32COND, VC4_OPERAND_ALU48ISREG
+ , VC4_OPERAND_ALU48IDREG, VC4_OPERAND_ALU48IMMU, VC4_OPERAND_MAX
 } CGEN_OPERAND_TYPE;
 
 /* Number of operands types.  */
-#define MAX_OPERANDS 7
+#define MAX_OPERANDS 10
 
 /* Maximum number of operands referenced by any insn.  */
 #define MAX_OPERAND_INSTANCES 8

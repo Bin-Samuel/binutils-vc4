@@ -28,13 +28,14 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 /* Enum declaration for vc4 instruction types.  */
 typedef enum cgen_insn_type {
   VC4_INSN_INVALID, VC4_INSN_HALT, VC4_INSN_ADD16, VC4_INSN_ADD32
+ , VC4_INSN_ADD48I
 } CGEN_INSN_TYPE;
 
 /* Index of `invalid' insn place holder.  */
 #define CGEN_INSN_INVALID VC4_INSN_INVALID
 
 /* Total number of insns in table.  */
-#define MAX_INSNS ((int) VC4_INSN_ADD32 + 1)
+#define MAX_INSNS ((int) VC4_INSN_ADD48I + 1)
 
 /* This struct records data prior to insertion or after extraction.  */
 struct cgen_fields
@@ -49,7 +50,7 @@ struct cgen_fields
   long f_op11_10;
   long f_op10_7;
   long f_alu16op;
-  long f_alu32op;
+  long f_op9_5;
   long f_op7_4;
   long f_op7_5;
   long f_op4;
@@ -59,6 +60,7 @@ struct cgen_fields
   long f_op22_21;
   long f_op26_23;
   long f_op31_27;
+  long f_op47_16;
 };
 
 #define CGEN_INIT_PARSE(od) \

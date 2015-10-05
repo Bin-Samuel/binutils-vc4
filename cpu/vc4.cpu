@@ -139,7 +139,7 @@
 
 (df f-alu16op "ALU16 opcodes" () 12 5 UINT #f #f)
 
-(df f-alu32op "ALU32 opcodes" () 9 5 UINT #f #f)
+(df f-op9-5 "Opcode bits 9-5" () 9 5 UINT #f #f)
 
 (df f-op7-4 "Opcode bits 7-4" () 7 4 UINT #f #f)
 
@@ -195,6 +195,17 @@
   (mode UINT)
 )
 
+(define-ifield
+  (name f-op47-16)
+  (comment "Opcode bits 47-16")
+  (attrs)
+  (word-offset 16)
+  (word-length 32)
+  (start 31)
+  (length 32)
+  (mode UINT)
+)
+
 (define-normal-insn-enum
   insn-oplen "length field" () OPLEN_ f-oplen
   (.map .str (.iota 16))
@@ -214,7 +225,7 @@
 )
 
 (define-normal-insn-enum
-  insn-alu32op "insn alu32 ops" () ALU32OP_ f-alu32op
+  insn-alu32op "insn alu32 ops" () ALU32OP_ f-op9-5
   (MOV CMN ADD BIC MUL EOR SUB AND
    NOT ROR CMP RSUB BTST OR BMASK MAX
    BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
@@ -293,6 +304,27 @@
   f-op26-23
 )
 
+(define-normal-operand
+  alu48isreg
+  "" ()
+  h-reg
+  f-op9-5
+)
+
+(define-normal-operand
+  alu48idreg
+  "" ()
+  h-reg
+  f-op4-0
+)
+
+(define-normal-operand
+  alu48immu
+  "" ()
+  h-uint
+  f-op47-16
+)
+
 (define-normal-insn
   halt "HALT" ()
   "halt"
@@ -312,5 +344,13 @@
   "add$alu32cond $alu32dreg,$alu32areg,$alu32breg"
   (+ OPLEN_12 OP11_10_0 ALU32OP_ADD alu32dreg
      alu32areg alu32cond OP22_21_0 alu32breg)
+  () ()
+)
+
+(define-normal-insn
+  add48i "ADD48I" ()
+  "add $alu48idreg,$alu48isreg,#$alu48immu"
+  (+ OPLEN_14 OP11_10_3 alu48isreg alu48idreg
+     alu48immu)
   () ()
 )
