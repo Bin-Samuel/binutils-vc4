@@ -39,9 +39,11 @@ typedef struct
   const CGEN_INSN *insn;
   CGEN_FIELDS fields;
 #if CGEN_INT_INSN_P
-  CGEN_INSN_INT buffer[1];
+  CGEN_INSN_INT buffer[CGEN_MAX_INSN_SIZE / sizeof (CGEN_INSN_INT)];
+#define INSN_VALUE(buf) (*(buf))
 #else
   unsigned char buffer [CGEN_MAX_INSN_SIZE];
+#define INSN_VALUE(buf) (buf)
 #endif
 } vc4_insn;
 

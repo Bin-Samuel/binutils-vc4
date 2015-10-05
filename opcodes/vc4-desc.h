@@ -108,14 +108,6 @@ typedef enum insn_op11_10 {
   OP11_10_0, OP11_10_1, OP11_10_2, OP11_10_3
 } INSN_OP11_10;
 
-/* Enum declaration for insn bits 7-4.  */
-typedef enum insn_op7_4 {
-  OP4_7_0, OP4_7_1, OP4_7_2, OP4_7_3
- , OP4_7_4, OP4_7_5, OP4_7_6, OP4_7_7
- , OP4_7_8, OP4_7_9, OP4_7_10, OP4_7_11
- , OP4_7_12, OP4_7_13, OP4_7_14, OP4_7_15
-} INSN_OP7_4;
-
 /* Enum declaration for insn bits 7-5.  */
 typedef enum insn_op7_5 {
   OP7_5_0, OP7_5_1, OP7_5_2, OP7_5_3
@@ -135,42 +127,10 @@ typedef enum insn_op3_0 {
  , OP3_0_12, OP3_0_13, OP3_0_14, OP3_0_15
 } INSN_OP3_0;
 
-/* Enum declaration for insn bits 20-16.  */
-typedef enum insn_op20_16 {
-  OP16_20_0, OP16_20_1, OP16_20_2, OP16_20_3
- , OP16_20_4, OP16_20_5, OP16_20_6, OP16_20_7
- , OP16_20_8, OP16_20_9, OP16_20_10, OP16_20_11
- , OP16_20_12, OP16_20_13, OP16_20_14, OP16_20_15
- , OP16_20_16, OP16_20_17, OP16_20_18, OP16_20_19
- , OP16_20_20, OP16_20_21, OP16_20_22, OP16_20_23
- , OP16_20_24, OP16_20_25, OP16_20_26, OP16_20_27
- , OP16_20_28, OP16_20_29, OP16_20_30, OP16_20_31
-} INSN_OP20_16;
-
 /* Enum declaration for insn bits 22-21.  */
 typedef enum insn_op22_21 {
   OP22_21_0, OP22_21_1, OP22_21_2, OP22_21_3
 } INSN_OP22_21;
-
-/* Enum declaration for insn bits 26-23.  */
-typedef enum insn_op26_23 {
-  OP26_23_0, OP26_23_1, OP26_23_2, OP26_23_3
- , OP26_23_4, OP26_23_5, OP26_23_6, OP26_23_7
- , OP26_23_8, OP26_23_9, OP26_23_10, OP26_23_11
- , OP26_23_12, OP26_23_13, OP26_23_14, OP26_23_15
-} INSN_OP26_23;
-
-/* Enum declaration for insn bits 31-27.  */
-typedef enum insn_op31_27 {
-  OP31_27_0, OP31_27_1, OP31_27_2, OP31_27_3
- , OP31_27_4, OP31_27_5, OP31_27_6, OP31_27_7
- , OP31_27_8, OP31_27_9, OP31_27_10, OP31_27_11
- , OP31_27_12, OP31_27_13, OP31_27_14, OP31_27_15
- , OP31_27_16, OP31_27_17, OP31_27_18, OP31_27_19
- , OP31_27_20, OP31_27_21, OP31_27_22, OP31_27_23
- , OP31_27_24, OP31_27_25, OP31_27_26, OP31_27_27
- , OP31_27_28, OP31_27_29, OP31_27_30, OP31_27_31
-} INSN_OP31_27;
 
 /* Attributes.  */
 
@@ -214,10 +174,10 @@ typedef enum cgen_ifld_attr {
 /* Enum declaration for vc4 ifield types.  */
 typedef enum ifield_type {
   VC4_F_NIL, VC4_F_ANYOF, VC4_F_OPLEN, VC4_F_OP15_13
- , VC4_F_OP11_8, VC4_F_OP11_10, VC4_F_ALU16OP, VC4_F_ALU32OP
- , VC4_F_OP7_4, VC4_F_OP7_5, VC4_F_OP4, VC4_F_OP4_0
- , VC4_F_OP3_0, VC4_F_OP20_16, VC4_F_OP22_21, VC4_F_OP26_23
- , VC4_F_OP31_27, VC4_F_MAX
+ , VC4_F_OP15_11, VC4_F_OP11_8, VC4_F_OP11_10, VC4_F_OP10_7
+ , VC4_F_ALU16OP, VC4_F_ALU32OP, VC4_F_OP7_4, VC4_F_OP7_5
+ , VC4_F_OP4, VC4_F_OP4_0, VC4_F_OP3_0, VC4_F_OP20_16
+ , VC4_F_OP22_21, VC4_F_OP26_23, VC4_F_OP31_27, VC4_F_MAX
 } IFIELD_TYPE;
 
 #define MAX_IFLD ((int) VC4_F_MAX)

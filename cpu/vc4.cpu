@@ -129,9 +129,13 @@
 
 (df f-op15-13 "Opcode bits 15-13" () 15 3 UINT #f #f)
 
+(df f-op15-11 "Opcode bits 15-11" () 15 5 UINT #f #f)
+
 (df f-op11-8 "Opcode bits 11-8" () 11 4 UINT #f #f)
 
 (df f-op11-10 "Opcode bits 11-10" () 11 2 UINT #f #f)
+
+(df f-op10-7 "Opcode bits 10-7" () 10 4 UINT #f #f)
 
 (df f-alu16op "ALU16 opcodes" () 12 5 UINT #f #f)
 
@@ -147,13 +151,49 @@
 
 (df f-op3-0 "Opcode bits 3-0" () 3 4 UINT #f #f)
 
-(df f-op20-16 "Opcode bits 20-16" () 20 5 UINT #f #f)
+(define-ifield
+  (name f-op20-16)
+  (comment "Opcode bits 20-16")
+  (attrs)
+  (word-offset 16)
+  (word-length 16)
+  (start 4)
+  (length 5)
+  (mode UINT)
+)
 
-(df f-op22-21 "Opcode bits 22-21" () 22 2 UINT #f #f)
+(define-ifield
+  (name f-op22-21)
+  (comment "Opcode bits 22-21")
+  (attrs)
+  (word-offset 16)
+  (word-length 16)
+  (start 6)
+  (length 2)
+  (mode UINT)
+)
 
-(df f-op26-23 "Opcode bits 26-23" () 26 4 UINT #f #f)
+(define-ifield
+  (name f-op26-23)
+  (comment "Opcode bits 26-23")
+  (attrs)
+  (word-offset 16)
+  (word-length 16)
+  (start 10)
+  (length 4)
+  (mode UINT)
+)
 
-(df f-op31-27 "Opcode bits 31-27" () 31 5 UINT #f #f)
+(define-ifield
+  (name f-op31-27)
+  (comment "Opcode bits 31-27")
+  (attrs)
+  (word-offset 16)
+  (word-length 16)
+  (start 15)
+  (length 5)
+  (mode UINT)
+)
 
 (define-normal-insn-enum
   insn-oplen "length field" () OPLEN_ f-oplen
@@ -192,11 +232,6 @@
 )
 
 (define-normal-insn-enum
-  insn-op7-4 "insn bits 7-4" () OP4_7_ f-op7-4
-  (.map .str (.iota 16))
-)
-
-(define-normal-insn-enum
   insn-op7-5 "insn bits 7-5" () OP7_5_ f-op7-5
   (.map .str (.iota 8))
 )
@@ -212,23 +247,8 @@
 )
 
 (define-normal-insn-enum
-  insn-op20-16 "insn bits 20-16" () OP16_20_ f-op20-16
-  (.map .str (.iota 32))
-)
-
-(define-normal-insn-enum
   insn-op22-21 "insn bits 22-21" () OP22_21_ f-op22-21
   (.map .str (.iota 4))
-)
-
-(define-normal-insn-enum
-  insn-op26-23 "insn bits 26-23" () OP26_23_ f-op26-23
-  (.map .str (.iota 16))
-)
-
-(define-normal-insn-enum
-  insn-op31-27 "insn bits 31-27" () OP31_27_ f-op31-27
-  (.map .str (.iota 32))
 )
 
 (define-normal-operand
@@ -290,7 +310,7 @@
 (define-normal-insn
   add32 "ADD32" ()
   "add$alu32cond $alu32dreg,$alu32areg,$alu32breg"
-  (+ OPLEN_12 OP11_10_0 ALU32OP_ADD alu32dreg alu32areg alu32cond OP22_21_0
-     alu32breg)
+  (+ OPLEN_12 OP11_10_0 ALU32OP_ADD alu32dreg
+     alu32areg alu32cond OP22_21_0 alu32breg)
   () ()
 )

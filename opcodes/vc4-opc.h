@@ -44,8 +44,10 @@ struct cgen_fields
   long f_anyof;
   long f_oplen;
   long f_op15_13;
+  long f_op15_11;
   long f_op11_8;
   long f_op11_10;
+  long f_op10_7;
   long f_alu16op;
   long f_alu32op;
   long f_op7_4;
