@@ -423,6 +423,26 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_RTI, "rti", "rti", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* swi $alu32dreg */
+  {
+    VC4_INSN_SWIREG, "swireg", "swi", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* rts */
+  {
+    VC4_INSN_RTS, "rts", "rts", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* b $alu32dreg */
+  {
+    VC4_INSN_BREG, "breg", "b", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* bl $alu32dreg */
+  {
+    VC4_INSN_BLREG, "blreg", "bl", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* add $alu16dreg,$alu16sreg */
   {
     VC4_INSN_ADD16, "add16", "add", 16,

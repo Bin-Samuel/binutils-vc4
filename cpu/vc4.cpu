@@ -347,6 +347,34 @@
 (nulop16 rti  "RTI"  "rti"  OP3_0_10)
 
 (define-normal-insn
+  swireg "SWIREG" ()
+  "swi $alu32dreg"
+  (+ OPLEN_0 OP11_8_0 OP7_5_1 alu32dreg)
+  () ()
+)
+
+(define-normal-insn
+  rts "RTS" ()
+  "rts"
+  (+ OPLEN_0 OP11_8_0 OP7_5_2 OP4_1 OP3_0_10)
+  () ()
+)
+
+(define-normal-insn
+  breg "BREG" ()
+  "b $alu32dreg"
+  (+ OPLEN_0 OP11_8_0 OP7_5_2 alu32dreg)
+  () ()
+)
+
+(define-normal-insn
+  blreg "BLREG" ()
+  "bl $alu32dreg"
+  (+ OPLEN_0 OP11_8_0 OP7_5_3 alu32dreg)
+  () ()
+)
+
+(define-normal-insn
   add16 "ADD16" ()
   "add $alu16dreg,$alu16sreg"
   (+ OP15_13_2 ALU16OP_ADD alu16sreg alu16dreg)
