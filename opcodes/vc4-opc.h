@@ -27,8 +27,10 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 
 /* Enum declaration for vc4 instruction types.  */
 typedef enum cgen_insn_type {
-  VC4_INSN_INVALID, VC4_INSN_HALT, VC4_INSN_ADD16, VC4_INSN_ADD32
- , VC4_INSN_ADD48I
+  VC4_INSN_INVALID, VC4_INSN_HALT, VC4_INSN_NOP, VC4_INSN_WAIT
+ , VC4_INSN_USER, VC4_INSN_EI, VC4_INSN_DI, VC4_INSN_CLR
+ , VC4_INSN_INC, VC4_INSN_CHG, VC4_INSN_DEC, VC4_INSN_RTI
+ , VC4_INSN_ADD16, VC4_INSN_ADD32, VC4_INSN_ADD48I
 } CGEN_INSN_TYPE;
 
 /* Index of `invalid' insn place holder.  */

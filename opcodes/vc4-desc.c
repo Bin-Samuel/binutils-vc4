@@ -373,6 +373,56 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_HALT, "halt", "halt", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* nop */
+  {
+    VC4_INSN_NOP, "nop", "nop", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* wait */
+  {
+    VC4_INSN_WAIT, "wait", "wait", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* user */
+  {
+    VC4_INSN_USER, "user", "user", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ei */
+  {
+    VC4_INSN_EI, "ei", "ei", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* di */
+  {
+    VC4_INSN_DI, "di", "di", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* clr */
+  {
+    VC4_INSN_CLR, "clr", "clr", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* inc */
+  {
+    VC4_INSN_INC, "inc", "inc", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* chg */
+  {
+    VC4_INSN_CHG, "chg", "chg", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* dec */
+  {
+    VC4_INSN_DEC, "dec", "dec", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* rti */
+  {
+    VC4_INSN_RTI, "rti", "rti", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* add $alu16dreg,$alu16sreg */
   {
     VC4_INSN_ADD16, "add16", "add", 16,

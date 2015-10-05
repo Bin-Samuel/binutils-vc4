@@ -216,8 +216,7 @@
   (.map .str (.iota 8))
 )
 
-(define-normal-insn-enum
-  insn-alu16op "insn alu16 ops" () ALU16OP_ f-alu16op
+(define-pmacro ops5bit
   (MOV CMN ADD BIC MUL EOR SUB AND
    NOT ROR CMP RSUB BTST OR BMASK MAX
    BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
@@ -225,11 +224,13 @@
 )
 
 (define-normal-insn-enum
+  insn-alu16op "insn alu16 ops" () ALU16OP_ f-alu16op
+  ops5bit
+)
+
+(define-normal-insn-enum
   insn-alu32op "insn alu32 ops" () ALU32OP_ f-op9-5
-  (MOV CMN ADD BIC MUL EOR SUB AND
-   NOT ROR CMP RSUB BTST OR BMASK MAX
-   BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
-   SIGNEXT NEG LSR COUNT LSL BREV ASR ABS)
+  ops5bit
 )
 
 (define-normal-insn-enum
@@ -325,12 +326,25 @@
   f-op47-16
 )
 
-(define-normal-insn
-  halt "HALT" ()
-  "halt"
-  (+ OPLEN_0 OP11_8_0 OP7_5_0 OP4_0 OP3_0_0)
-  () ()
+(define-pmacro (nulop16 x-name x-comment x-syntax x-opcode)
+  (define-normal-insn
+    x-name x-comment ()
+    x-syntax
+    (+ OPLEN_0 OP11_8_0 OP7_5_0 OP4_0 x-opcode)
+    () ())
 )
+
+(nulop16 halt "HALT" "halt" OP3_0_0)
+(nulop16 nop  "NOP"  "nop"  OP3_0_1)
+(nulop16 wait "WAIT" "wait" OP3_0_2)
+(nulop16 user "USER" "user" OP3_0_3)
+(nulop16 ei   "EI"   "ei"   OP3_0_4)
+(nulop16 di   "DI"   "di"   OP3_0_5)
+(nulop16 clr  "CLR"  "clr"  OP3_0_6)
+(nulop16 inc  "INC"  "inc"  OP3_0_7)
+(nulop16 chg  "CHG"  "chg"  OP3_0_8)
+(nulop16 dec  "DEC"  "dec"  OP3_0_9)
+(nulop16 rti  "RTI"  "rti"  OP3_0_10)
 
 (define-normal-insn
   add16 "ADD16" ()

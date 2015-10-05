@@ -82,6 +82,66 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, 0 } },
     & ifmt_halt, { 0x0 }
   },
+/* nop */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x1 }
+  },
+/* wait */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x2 }
+  },
+/* user */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x3 }
+  },
+/* ei */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x4 }
+  },
+/* di */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x5 }
+  },
+/* clr */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x6 }
+  },
+/* inc */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x7 }
+  },
+/* chg */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x8 }
+  },
+/* dec */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0x9 }
+  },
+/* rti */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, 0 } },
+    & ifmt_halt, { 0xa }
+  },
 /* add $alu16dreg,$alu16sreg */
   {
     { 0, 0, 0, 0 },
