@@ -566,6 +566,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      errmsg = insert_normal (cd, fields->f_op10_9, 0, 0, 10, 2, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_ALU16DREG :
       errmsg = insert_normal (cd, fields->f_op3_0, 0, 0, 3, 4, 16, total_length, buffer);
       break;
@@ -624,6 +627,13 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       errmsg = insert_normal (cd, fields->f_op6_5, 0, 0, 6, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_SPOFFSET :
+      {
+        long value = fields->f_spoffset;
+        value = ((UINT) (value) >> (2));
+        errmsg = insert_normal (cd, value, 0, 0, 8, 5, 16, total_length, buffer);
+      }
+      break;
     case VC4_OPERAND_SWI_IMM :
       errmsg = insert_normal (cd, fields->f_op5_0, 0, 0, 5, 6, 16, total_length, buffer);
       break;
@@ -670,6 +680,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 2, 16, total_length, pc, & fields->f_op10_9);
+      break;
     case VC4_OPERAND_ALU16DREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 3, 4, 16, total_length, pc, & fields->f_op3_0);
       break;
@@ -732,6 +745,14 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 2, 16, total_length, pc, & fields->f_op6_5);
       break;
+    case VC4_OPERAND_SPOFFSET :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 8, 5, 16, total_length, pc, & value);
+        value = ((value) << (2));
+        fields->f_spoffset = value;
+      }
+      break;
     case VC4_OPERAND_SWI_IMM :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 5, 6, 16, total_length, pc, & fields->f_op5_0);
       break;
@@ -773,6 +794,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      value = fields->f_op10_9;
+      break;
     case VC4_OPERAND_ALU16DREG :
       value = fields->f_op3_0;
       break;
@@ -814,6 +838,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
+      break;
+    case VC4_OPERAND_SPOFFSET :
+      value = fields->f_spoffset;
       break;
     case VC4_OPERAND_SWI_IMM :
       value = fields->f_op5_0;
@@ -838,6 +865,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      value = fields->f_op10_9;
+      break;
     case VC4_OPERAND_ALU16DREG :
       value = fields->f_op3_0;
       break;
@@ -879,6 +909,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
+      break;
+    case VC4_OPERAND_SPOFFSET :
+      value = fields->f_spoffset;
       break;
     case VC4_OPERAND_SWI_IMM :
       value = fields->f_op5_0;
@@ -910,6 +943,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 {
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      fields->f_op10_9 = value;
+      break;
     case VC4_OPERAND_ALU16DREG :
       fields->f_op3_0 = value;
       break;
@@ -951,6 +987,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
+      break;
+    case VC4_OPERAND_SPOFFSET :
+      fields->f_spoffset = value;
       break;
     case VC4_OPERAND_SWI_IMM :
       fields->f_op5_0 = value;
@@ -972,6 +1011,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 {
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      fields->f_op10_9 = value;
+      break;
     case VC4_OPERAND_ALU16DREG :
       fields->f_op3_0 = value;
       break;
@@ -1013,6 +1055,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
+      break;
+    case VC4_OPERAND_SPOFFSET :
+      fields->f_spoffset = value;
       break;
     case VC4_OPERAND_SWI_IMM :
       fields->f_op5_0 = value;

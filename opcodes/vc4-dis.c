@@ -90,6 +90,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op10_9, 0);
+      break;
     case VC4_OPERAND_ALU16DREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op3_0, 0);
       break;
@@ -131,6 +134,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_PPSTARTREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_ppreg, fields->f_op6_5, 0);
+      break;
+    case VC4_OPERAND_SPOFFSET :
+      print_normal (cd, info, fields->f_spoffset, 0, pc, length);
       break;
     case VC4_OPERAND_SWI_IMM :
       print_normal (cd, info, fields->f_op5_0, 0, pc, length);

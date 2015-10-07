@@ -78,6 +78,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
+    case VC4_OPERAND_ACCSZ :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_accsz, & fields->f_op10_9);
+      break;
     case VC4_OPERAND_ALU16DREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op3_0);
       break;
@@ -119,6 +122,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_PPSTARTREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_ppreg, & fields->f_op6_5);
+      break;
+    case VC4_OPERAND_SPOFFSET :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SPOFFSET, (unsigned long *) (& fields->f_spoffset));
       break;
     case VC4_OPERAND_SWI_IMM :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SWI_IMM, (unsigned long *) (& fields->f_op5_0));

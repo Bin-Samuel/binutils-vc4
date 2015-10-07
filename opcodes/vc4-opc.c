@@ -77,6 +77,14 @@ static const CGEN_IFMT ifmt_pushrnrm24 ATTRIBUTE_UNUSED = {
   16, 16, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7) }, { F (F_OP6_5) }, { F (F_OP4_0_BASE_24) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_ldsp ATTRIBUTE_UNUSED = {
+  16, 16, 0xfe00, { { F (F_OPLEN) }, { F (F_OP11_9) }, { F (F_SPOFFSET) }, { F (F_OP3_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_ldind ATTRIBUTE_UNUSED = {
+  16, 16, 0xf900, { { F (F_OPLEN) }, { F (F_OP11) }, { F (F_OP10_9) }, { F (F_OP8) }, { F (F_OP7_4) }, { F (F_OP3_0) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_add16 ATTRIBUTE_UNUSED = {
   16, 16, 0xff00, { { F (F_OP15_13) }, { F (F_ALU16OP) }, { F (F_OP7_4) }, { F (F_OP3_0) }, { 0 } }
 };
@@ -337,6 +345,30 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', 'r', '2', '4', '-', OP (PPENDREG24), ',', 'p', 'c', 0 } },
     & ifmt_pushrnrm24, { 0x360 }
+  },
+/* ld $alu16dreg,$spoffset(sp) */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU16DREG), ',', OP (SPOFFSET), '(', 's', 'p', ')', 0 } },
+    & ifmt_ldsp, { 0x400 }
+  },
+/* st $alu16dreg,$spoffset(sp) */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU16DREG), ',', OP (SPOFFSET), '(', 's', 'p', ')', 0 } },
+    & ifmt_ldsp, { 0x600 }
+  },
+/* ld$accsz $alu16dreg,($alu16sreg) */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (ACCSZ), ' ', OP (ALU16DREG), ',', '(', OP (ALU16SREG), ')', 0 } },
+    & ifmt_ldind, { 0x800 }
+  },
+/* st$accsz $alu16dreg,($alu16sreg) */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (ACCSZ), ' ', OP (ALU16DREG), ',', '(', OP (ALU16SREG), ')', 0 } },
+    & ifmt_ldind, { 0x900 }
   },
 /* add $alu16dreg,$alu16sreg */
   {

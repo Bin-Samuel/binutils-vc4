@@ -120,7 +120,7 @@
 )
 
 (define-hardware
-  (name "h-accsz")
+  (name h-accsz)
   (comment "Access size")
   (type immediate UQI)
   (values keyword ""
@@ -140,13 +140,25 @@
 
 (df f-op11-8 "Opcode bits 11-8" () 11 4 UINT #f #f)
 
+(df f-op11-9 "Opcode bits 11-9" () 11 3 UINT #f #f)
+
 (df f-op11-10 "Opcode bits 11-10" () 11 2 UINT #f #f)
+
+(df f-op11 "Opcode bit 11" () 11 1 UINT #f #f)
+
+(df f-op10-9 "Opcode bits 10-9" () 10 2 UINT #f #f)
 
 (df f-op10-7 "Opcode bits 10-7" () 10 4 UINT #f #f)
 
 (df f-alu16op "ALU16 opcodes" () 12 5 UINT #f #f)
 
 (df f-op9-5 "Opcode bits 9-5" () 9 5 UINT #f #f)
+
+(df f-spoffset "SP offset" () 8 5 UINT
+  ((value pc) (srl UINT value 2))
+  ((value pc) (sll UINT value 2)))
+
+(df f-op8 "Opcode bit 8" () 8 1 UINT #f #f)
 
 (df f-op7-4 "Opcode bits 7-4" () 7 4 UINT #f #f)
 
@@ -240,6 +252,16 @@
 (define-normal-insn-enum
   insn-op11-10 "insn bits 11-10" () OP11_10_ f-op11-10
   (.map .str (.iota 4))
+)
+
+(define-normal-insn-enum
+  insn-op11 "insn bit 11" () OP11_ f-op11
+  ("0" "1")
+)
+
+(define-normal-insn-enum
+  insn-op8 "insn bit 8" () OP8_ f-op8
+  ("0" "1")
 )
 
 (define-normal-insn-enum
@@ -338,6 +360,13 @@
 )
 
 (define-normal-operand
+  spoffset
+  "" ()
+  h-uint
+  f-spoffset
+)
+
+(define-normal-operand
   alu32areg
   "" ()
   h-reg
@@ -370,6 +399,13 @@
   "" ()
   h-uint
   f-op47-16
+)
+
+(define-normal-operand
+  accsz
+  "" ()
+  h-accsz
+  f-op10-9
 )
 
 (define-pmacro (nulop16 x-name x-comment x-syntax x-opcode)
@@ -511,6 +547,34 @@
 (poprnbase 6 ",pc" OP11_8_3)
 (poprnbase 16 ",pc" OP11_8_3)
 (poprnbase 24 ",pc" OP11_8_3)
+
+(define-normal-insn
+  ldsp "LDSP" ()
+  "ld $alu16dreg,$spoffset(sp)"
+  (+ OPLEN_0 (f-op11-9 2) spoffset alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  stsp "STSP" ()
+  "st $alu16dreg,$spoffset(sp)"
+  (+ OPLEN_0 (f-op11-9 3) spoffset alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  ldind "LDIND" ()
+  "ld$accsz $alu16dreg,($alu16sreg)"
+  (+ OPLEN_0 OP11_1 accsz OP8_0 alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  stind "STIND" ()
+  "st$accsz $alu16dreg,($alu16sreg)"
+  (+ OPLEN_0 OP11_1 accsz OP8_1 alu16sreg alu16dreg)
+  () ()
+)
 
 (define-normal-insn
   add16 "ADD16" ()

@@ -37,6 +37,7 @@ typedef enum cgen_insn_type {
  , VC4_INSN_PUSHRNRM16_LR, VC4_INSN_PUSHRNRM24_LR, VC4_INSN_POPRN, VC4_INSN_POPRNPC
  , VC4_INSN_POPRNRM0, VC4_INSN_POPRNRM6, VC4_INSN_POPRNRM16, VC4_INSN_POPRNRM24
  , VC4_INSN_POPRNRM0_PC, VC4_INSN_POPRNRM6_PC, VC4_INSN_POPRNRM16_PC, VC4_INSN_POPRNRM24_PC
+ , VC4_INSN_LDSP, VC4_INSN_STSP, VC4_INSN_LDIND, VC4_INSN_STIND
  , VC4_INSN_ADD16, VC4_INSN_ADD32, VC4_INSN_ADD48I
 } CGEN_INSN_TYPE;
 
@@ -56,10 +57,15 @@ struct cgen_fields
   long f_op15_13;
   long f_op15_11;
   long f_op11_8;
+  long f_op11_9;
   long f_op11_10;
+  long f_op11;
+  long f_op10_9;
   long f_op10_7;
   long f_alu16op;
   long f_op9_5;
+  long f_spoffset;
+  long f_op8;
   long f_op7_4;
   long f_op7_5;
   long f_op7_6;
