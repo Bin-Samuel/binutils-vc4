@@ -105,6 +105,24 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op9_5);
       break;
+    case VC4_OPERAND_PPENDREG0 :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_0);
+      break;
+    case VC4_OPERAND_PPENDREG16 :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_16);
+      break;
+    case VC4_OPERAND_PPENDREG24 :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_24);
+      break;
+    case VC4_OPERAND_PPENDREG6 :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_6);
+      break;
+    case VC4_OPERAND_PPSTARTREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_ppreg, & fields->f_op6_5);
+      break;
+    case VC4_OPERAND_SWI_IMM :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SWI_IMM, (unsigned long *) (& fields->f_op5_0));
+      break;
 
     default :
       /* xgettext:c-format */

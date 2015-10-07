@@ -45,7 +45,7 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 #define CGEN_INT_INSN_P 0
 
 /* Maximum number of syntax elements in an instruction.  */
-#define CGEN_ACTUAL_MAX_SYNTAX_ELEMENTS 12
+#define CGEN_ACTUAL_MAX_SYNTAX_ELEMENTS 15
 
 /* CGEN_MNEMONIC_OPERANDS is defined if mnemonics have operands.
    e.g. In "b,a foo" the ",a" is an operand.  If mnemonics have operands
@@ -114,6 +114,33 @@ typedef enum insn_op7_5 {
  , OP7_5_4, OP7_5_5, OP7_5_6, OP7_5_7
 } INSN_OP7_5;
 
+/* Enum declaration for insn bits 7-6.  */
+typedef enum insn_op7_6 {
+  OP7_6_0, OP7_6_1, OP7_6_2, OP7_6_3
+} INSN_OP7_6;
+
+/* Enum declaration for insn bit 7.  */
+typedef enum insn_op7 {
+  OP7_0, OP7_1
+} INSN_OP7;
+
+/* Enum declaration for insn bits 6-5.  */
+typedef enum insn_op6_5 {
+  OP6_5_0, OP6_5_6, OP6_5_16, OP6_5_24
+} INSN_OP6_5;
+
+/* Enum declaration for insn bits 4-0.  */
+typedef enum insn_op4_0 {
+  OP4_0_0, OP4_0_1, OP4_0_2, OP4_0_3
+ , OP4_0_4, OP4_0_5, OP4_0_6, OP4_0_7
+ , OP4_0_8, OP4_0_9, OP4_0_10, OP4_0_11
+ , OP4_0_12, OP4_0_13, OP4_0_14, OP4_0_15
+ , OP4_0_16, OP4_0_17, OP4_0_18, OP4_0_19
+ , OP4_0_20, OP4_0_21, OP4_0_22, OP4_0_23
+ , OP4_0_24, OP4_0_25, OP4_0_26, OP4_0_27
+ , OP4_0_28, OP4_0_29, OP4_0_30, OP4_0_31
+} INSN_OP4_0;
+
 /* Enum declaration for insn bit 4.  */
 typedef enum insn_op4 {
   OP4_0, OP4_1
@@ -176,7 +203,9 @@ typedef enum ifield_type {
   VC4_F_NIL, VC4_F_ANYOF, VC4_F_OPLEN, VC4_F_OP15_13
  , VC4_F_OP15_11, VC4_F_OP11_8, VC4_F_OP11_10, VC4_F_OP10_7
  , VC4_F_ALU16OP, VC4_F_OP9_5, VC4_F_OP7_4, VC4_F_OP7_5
- , VC4_F_OP4, VC4_F_OP4_0, VC4_F_OP3_0, VC4_F_OP20_16
+ , VC4_F_OP7_6, VC4_F_OP7, VC4_F_OP6_5, VC4_F_OP5_0
+ , VC4_F_OP4, VC4_F_OP4_0, VC4_F_OP3_0, VC4_F_OP4_0_BASE_0
+ , VC4_F_OP4_0_BASE_6, VC4_F_OP4_0_BASE_16, VC4_F_OP4_0_BASE_24, VC4_F_OP20_16
  , VC4_F_OP22_21, VC4_F_OP26_23, VC4_F_OP31_27, VC4_F_OP47_16
  , VC4_F_MAX
 } IFIELD_TYPE;
@@ -204,8 +233,8 @@ typedef enum cgen_hw_attr {
 /* Enum declaration for vc4 hardware types.  */
 typedef enum cgen_hw_type {
   HW_H_MEMORY, HW_H_SINT, HW_H_UINT, HW_H_ADDR
- , HW_H_IADDR, HW_H_REG, HW_H_FASTREG, HW_H_COND
- , HW_H_ACCSZ, HW_H_PC, HW_MAX
+ , HW_H_IADDR, HW_H_REG, HW_H_FASTREG, HW_H_PPREG
+ , HW_H_COND, HW_H_ACCSZ, HW_H_PC, HW_MAX
 } CGEN_HW_TYPE;
 
 #define MAX_HW ((int) HW_MAX)
@@ -236,12 +265,14 @@ typedef enum cgen_operand_attr {
 /* Enum declaration for vc4 operand types.  */
 typedef enum cgen_operand_type {
   VC4_OPERAND_PC, VC4_OPERAND_ALU16SREG, VC4_OPERAND_ALU16DREG, VC4_OPERAND_ALU32DREG
- , VC4_OPERAND_ALU32BREG, VC4_OPERAND_ALU32AREG, VC4_OPERAND_ALU32COND, VC4_OPERAND_ALU48ISREG
- , VC4_OPERAND_ALU48IDREG, VC4_OPERAND_ALU48IMMU, VC4_OPERAND_MAX
+ , VC4_OPERAND_ALU32BREG, VC4_OPERAND_PPSTARTREG, VC4_OPERAND_PPENDREG0, VC4_OPERAND_PPENDREG6
+ , VC4_OPERAND_PPENDREG16, VC4_OPERAND_PPENDREG24, VC4_OPERAND_SWI_IMM, VC4_OPERAND_ALU32AREG
+ , VC4_OPERAND_ALU32COND, VC4_OPERAND_ALU48ISREG, VC4_OPERAND_ALU48IDREG, VC4_OPERAND_ALU48IMMU
+ , VC4_OPERAND_MAX
 } CGEN_OPERAND_TYPE;
 
 /* Number of operands types.  */
-#define MAX_OPERANDS 10
+#define MAX_OPERANDS 16
 
 /* Maximum number of operands referenced by any insn.  */
 #define MAX_OPERAND_INSTANCES 8
@@ -287,6 +318,7 @@ extern const CGEN_ATTR_TABLE vc4_cgen_insn_attr_table[];
 
 extern CGEN_KEYWORD vc4_cgen_opval_h_reg;
 extern CGEN_KEYWORD vc4_cgen_opval_h_fastreg;
+extern CGEN_KEYWORD vc4_cgen_opval_h_ppreg;
 extern CGEN_KEYWORD vc4_cgen_opval_h_cond;
 extern CGEN_KEYWORD vc4_cgen_opval_h_accsz;
 
