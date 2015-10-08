@@ -49,6 +49,22 @@ static const char * parse_insn_normal
 
 /* -- assembler routines inserted here.  */
 
+/* -- asm.c */
+
+static const char *
+parse_imm31 (CGEN_CPU_DESC cd,
+	     const char **strp,
+	     int opindex,
+	     unsigned long *valuep)
+{
+  const char *errmsg;
+  
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
+  
+  return errmsg;
+}
+
+/* -- */
 
 const char * vc4_cgen_parse_operand
   (CGEN_CPU_DESC, int, const char **, CGEN_FIELDS *);
@@ -81,8 +97,17 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_accsz, & fields->f_op10_9);
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ADDSPOFFSET, (unsigned long *) (& fields->f_addspoffset));
+      break;
     case VC4_OPERAND_ALU16DREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op3_0);
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ALU16IMM, (unsigned long *) (& fields->f_op8_4));
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ALU16IMM_SHL3, (unsigned long *) (& fields->f_op8_4_shl3));
       break;
     case VC4_OPERAND_ALU16SREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op7_4);
@@ -107,6 +132,19 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_ALU48ISREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op9_5);
+      break;
+    case VC4_OPERAND_CONDCODE :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_cond, & fields->f_op10_7);
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
+      break;
+    case VC4_OPERAND_PCRELCC :
+      {
+        bfd_vma value = 0;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_PCRELCC, 0, NULL,  & value);
+        fields->f_pcrelcc = value;
+      }
       break;
     case VC4_OPERAND_PPENDREG0 :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_0);

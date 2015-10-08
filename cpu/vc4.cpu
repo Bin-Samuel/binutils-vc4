@@ -140,6 +140,11 @@
 
 (df f-op11-8 "Opcode bits 11-8" () 11 4 UINT #f #f)
 
+(df f-ldstoff "Load/store offset" () 11 4 UINT
+  ((value pc) (srl UINT value 2))
+  ((value pc) (sll UINT value 2))
+)
+
 (df f-op11-9 "Opcode bits 11-9" () 11 3 UINT #f #f)
 
 (df f-op11-10 "Opcode bits 11-10" () 11 2 UINT #f #f)
@@ -150,13 +155,28 @@
 
 (df f-op10-7 "Opcode bits 10-7" () 10 4 UINT #f #f)
 
-(df f-alu16op "ALU16 opcodes" () 12 5 UINT #f #f)
+(df f-addspoffset "Add SP offset" () 10 6 UINT
+  ((value pc) (srl UINT value 2))
+  ((value pc) (sll UINT value 2))
+)
+
+(df f-alu16op "ALU16 5-bit opcodes" () 12 5 UINT #f #f)
+
+(df f-ALU16OPI_ "ALU16 4-bit opcodes" () 12 4 UINT #f #f)
 
 (df f-op9-5 "Opcode bits 9-5" () 9 5 UINT #f #f)
 
 (df f-spoffset "SP offset" () 8 5 UINT
   ((value pc) (srl UINT value 2))
-  ((value pc) (sll UINT value 2)))
+  ((value pc) (sll UINT value 2))
+)
+
+(df f-op8-4 "Opcode bits 8-4" () 8 5 UINT #f #f)
+
+(df f-op8-4-shl3 "Opcode bits 8-4 (shl 3)" () 8 5 UINT
+  ((value pc) (srl UINT value 3))
+  ((value pc) (sll UINT value 3))
+)
 
 (df f-op8 "Opcode bit 8" () 8 1 UINT #f #f)
 
@@ -169,6 +189,11 @@
 (df f-op7 "Opcode bit 7" () 7 1 UINT #f #f)
 
 (df f-op6-5 "Opcode bits 6-5" () 6 2 UINT #f #f)
+
+(df f-pcrelcc "PC relative for cond branch" () 6 7 UINT
+  ((value pc) (sra INT (sub INT pc value) 2))
+  ((value pc) (add INT pc (sll INT value 2)))
+)
 
 (df f-op5-0 "Opcode bits 5-0" () 5 6 UINT #f #f)
 
@@ -231,12 +256,22 @@
   (MOV CMN ADD BIC MUL EOR SUB AND
    NOT ROR CMP RSUB BTST OR BMASK MAX
    BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
-   SIGNEXT NEG LSR COUNT LSL BREV ASR ABS)
+   SIGNEXT NEG LSR MSB SHL BITREV ASR ABS)
+)
+
+(define-pmacro ops4bit
+  (MOV ADD MUL SUB NOT CMP BTST BMASK
+   BSET BCLR BCHG ADDS8 SIGNEXT LSR SHL ASR)
 )
 
 (define-normal-insn-enum
   insn-alu16op "insn alu16 ops" () ALU16OP_ f-alu16op
   ops5bit
+)
+
+(define-normal-insn-enum
+  insn-alu16opi "insn alu16 imm ops" () ALU16OPI_ f-ALU16OPI_
+  ops4bit
 )
 
 (define-normal-insn-enum
@@ -305,10 +340,45 @@
 )
 
 (define-normal-operand
+  condcode
+  "" ()
+  h-cond
+  f-op10-7
+)
+
+(define-normal-operand
+  pcrelcc
+  "" ()
+  h-iaddr
+  f-pcrelcc
+)
+
+(define-normal-operand
+  ldstoff
+  "" ()
+  h-uint
+  f-ldstoff
+)
+
+(define-normal-operand
   alu16sreg
   "" ()
   h-fastreg
   f-op7-4
+)
+
+(define-normal-operand
+  alu16imm
+  "" ()
+  h-uint
+  f-op8-4
+)
+
+(define-normal-operand
+  alu16imm_shl3
+  "" ()
+  h-uint
+  f-op8-4-shl3
 )
 
 (define-normal-operand
@@ -367,6 +437,13 @@
 )
 
 (define-normal-operand
+  addspoffset
+  "" ()
+  h-uint
+  f-addspoffset
+)
+
+(define-normal-operand
   alu32areg
   "" ()
   h-reg
@@ -416,17 +493,17 @@
     () ())
 )
 
-(nulop16 halt "HALT" "halt" OP3_0_0)
-(nulop16 nop  "NOP"  "nop"  OP3_0_1)
-(nulop16 wait "WAIT" "wait" OP3_0_2)
-(nulop16 user "USER" "user" OP3_0_3)
-(nulop16 ei   "EI"   "ei"   OP3_0_4)
-(nulop16 di   "DI"   "di"   OP3_0_5)
-(nulop16 clr  "CLR"  "clr"  OP3_0_6)
-(nulop16 inc  "INC"  "inc"  OP3_0_7)
-(nulop16 chg  "CHG"  "chg"  OP3_0_8)
-(nulop16 dec  "DEC"  "dec"  OP3_0_9)
-(nulop16 rti  "RTI"  "rti"  OP3_0_10)
+(nulop16 bkpt  "BKPT"  "bkpt"  OP3_0_0)
+(nulop16 nop   "NOP"   "nop"   OP3_0_1)
+(nulop16 sleep "SLEEP" "sleep" OP3_0_2)
+(nulop16 user  "USER"  "user"  OP3_0_3)
+(nulop16 ei    "EI"    "ei"    OP3_0_4)
+(nulop16 di    "DI"    "di"    OP3_0_5)
+(nulop16 cbclr "CBCLR" "cbclr" OP3_0_6)
+(nulop16 cbinc "CBINC" "cbinc" OP3_0_7)
+(nulop16 cbchg "CBCHG" "cbchg" OP3_0_8)
+(nulop16 cbdec "CBDEC" "cbdec" OP3_0_9)
+(nulop16 rti   "RTI"   "rti"   OP3_0_10)
 
 (define-normal-insn
   swireg "SWIREG" ()
@@ -577,11 +654,105 @@
 )
 
 (define-normal-insn
-  add16 "ADD16" ()
-  "add $alu16dreg,$alu16sreg"
-  (+ OP15_13_2 ALU16OP_ADD alu16sreg alu16dreg)
+  addsp "ADDSP" ()
+  "add sp,#$addspoffset"
+  (+ OPLEN_1 OP11_0 addspoffset OP4_0_25)
   () ()
 )
+
+(define-normal-insn
+  lea "LEA" ()
+  "lea $alu32dreg,$addspoffset(sp)"
+  (+ OPLEN_1 OP11_0 addspoffset alu32dreg)
+  () ()
+)
+
+(define-normal-insn
+  bcc "BCC" ()
+  "b$condcode $pcrelcc"
+  (+ OPLEN_1 OP11_1 condcode pcrelcc)
+  () ()
+)
+
+(define-normal-insn
+  ldoff "LDOFF" ()
+  "ld $alu16dreg,$ldstoff($alu16sreg)"
+  (+ OPLEN_2 ldstoff alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  stoff "STOFF" ()
+  "st $alu16dreg,$ldstoff($alu16sreg)"
+  (+ OPLEN_3 ldstoff alu16sreg alu16dreg)
+  () ()
+)
+
+(define-pmacro (alu16opr x-name x-comment x-opcode x-suffix x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode " $alu16dreg,$alu16sreg" x-suffix)
+    (+ OP15_13_2 x-encoding alu16sreg alu16dreg)
+    () ())
+)
+
+(alu16opr mov16     "MOV16"     "mov"      ""     ALU16OP_MOV)
+(alu16opr cmn16     "CMN16"     "cmn"      ""     ALU16OP_CMN)
+(alu16opr add16     "ADD16"     "add"      ""     ALU16OP_ADD)
+(alu16opr bic16     "BIC16"     "bic"      ""     ALU16OP_BIC)
+(alu16opr mul16     "MUL16"     "mul"      ""     ALU16OP_MUL)
+(alu16opr eor16     "EOR16"     "eor"      ""     ALU16OP_EOR)
+(alu16opr sub16     "SUB16"     "sub"      ""     ALU16OP_SUB)
+(alu16opr and16     "AND16"     "and"      ""     ALU16OP_AND)
+(alu16opr not16     "NOT16"     "not"      ""     ALU16OP_NOT)
+(alu16opr ror16     "ROR16"     "ror"      ""     ALU16OP_ROR)
+(alu16opr cmp16     "CMP16"     "cmp"      ""     ALU16OP_CMP)
+(alu16opr rsub16    "RSUB16"    "rsub"     ""     ALU16OP_RSUB)
+(alu16opr btst16    "BTST16"    "btst"     ""     ALU16OP_BTST)
+(alu16opr or16      "OR16"      "or"       ""     ALU16OP_OR)
+(alu16opr bmask16   "BMASK16"   "bmask"    ""     ALU16OP_BMASK)
+(alu16opr max16     "MAX16"     "max"      ""     ALU16OP_MAX)
+(alu16opr bset16    "BSET16"    "bset"     ""     ALU16OP_BSET)
+(alu16opr min16     "MIN16"     "min"      ""     ALU16OP_MIN)
+(alu16opr bclr16    "BCLR16"    "bclr"     ""     ALU16OP_BCLR)
+(alu16opr adds216   "ADDS216"   "addscale" "<<1"  ALU16OP_ADDS2)
+(alu16opr bchg16    "BCHG16"    "bchg"     ""     ALU16OP_BCHG)
+(alu16opr adds416   "ADDS416"   "addscale" "<<2"  ALU16OP_ADDS4)
+(alu16opr adds816   "ADDS816"   "addscale" "<<3"  ALU16OP_ADDS8)
+(alu16opr adds1616  "ADDS1616"  "addscale" "<<4"  ALU16OP_ADDS16)
+(alu16opr signext16 "SIGNEXT16" "signext"  ""     ALU16OP_SIGNEXT)
+(alu16opr neg16     "NEG16"     "neg"      ""     ALU16OP_NEG)
+(alu16opr lsr16     "LSR16"     "lsr"      ""     ALU16OP_LSR)
+(alu16opr msb16     "MSB16"     "msb"      ""     ALU16OP_MSB)
+(alu16opr shl16     "SHL16"     "shl"      ""     ALU16OP_SHL)
+(alu16opr bitrev16  "BITREV16"  "bitrev"   ""     ALU16OP_BITREV)
+(alu16opr asr16     "ASR16"     "asr"      ""     ALU16OP_ASR)
+(alu16opr abs16     "ABS16"     "abs"      ""     ALU16OP_ABS)
+
+(define-pmacro (alu16opi x-name x-comment x-opcode x-suffix x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode " $alu16dreg,#$" alu16imm x-suffix)
+    (+ OP15_13_3 x-encoding (.sym alu16imm x-suffix) alu16dreg)
+    () ())
+)
+
+(alu16opi movi16     "MOVI16"     "mov"      ""       ALU16OPI_MOV)
+(alu16opi addi16     "ADDI16"     "add"      ""       ALU16OPI_ADD)
+(alu16opi muli16     "MULI16"     "mul"      ""       ALU16OPI_MUL)
+(alu16opi subi16     "SUBI16"     "sub"      ""       ALU16OPI_SUB)
+(alu16opi noti16     "NOTI16"     "not"      ""       ALU16OPI_NOT)
+(alu16opi cmpi16     "CMPI16"     "cmp"      ""       ALU16OPI_CMP)
+(alu16opi btsti16    "BTSTI16"    "btst"     ""       ALU16OPI_BTST)
+(alu16opi bmaski16   "BMASKI16"   "bmask"    ""       ALU16OPI_BMASK)
+(alu16opi bseti16    "BSETI16"    "bset"     ""       ALU16OPI_BSET)
+(alu16opi bclri16    "BCLRI16"    "bclr"     ""       ALU16OPI_BCLR)
+(alu16opi bchgi16    "BCHGI16"    "bchg"     ""       ALU16OPI_BCHG)
+(alu16opi adds8i16   "ADDS8I16"   "addscale" "_shl3"  ALU16OPI_ADDS8)
+(alu16opi signexti16 "SIGNEXTI16" "signext"  ""       ALU16OPI_SIGNEXT)
+(alu16opi lsri16     "LSRI16"     "lsr"      ""       ALU16OPI_LSR)
+(alu16opi shli16     "SHLI16"     "shl"      ""       ALU16OPI_SHL)
+(alu16opi asri16     "ASRI16"     "asr"      ""       ALU16OPI_ASR)
 
 (define-normal-insn
   add32 "ADD32" ()

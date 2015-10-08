@@ -93,8 +93,17 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op10_9, 0);
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      print_normal (cd, info, fields->f_addspoffset, 0, pc, length);
+      break;
     case VC4_OPERAND_ALU16DREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op3_0, 0);
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      print_normal (cd, info, fields->f_op8_4, 0, pc, length);
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      print_normal (cd, info, fields->f_op8_4_shl3, 0, pc, length);
       break;
     case VC4_OPERAND_ALU16SREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op7_4, 0);
@@ -119,6 +128,15 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_ALU48ISREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op9_5, 0);
+      break;
+    case VC4_OPERAND_CONDCODE :
+      print_keyword (cd, info, & vc4_cgen_opval_h_cond, fields->f_op10_7, 0);
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      print_normal (cd, info, fields->f_ldstoff, 0, pc, length);
+      break;
+    case VC4_OPERAND_PCRELCC :
+      print_address (cd, info, fields->f_pcrelcc, 0, pc, length);
       break;
     case VC4_OPERAND_PPENDREG0 :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0_base_0, 0);

@@ -569,8 +569,25 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       errmsg = insert_normal (cd, fields->f_op10_9, 0, 0, 10, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      {
+        long value = fields->f_addspoffset;
+        value = ((UINT) (value) >> (2));
+        errmsg = insert_normal (cd, value, 0, 0, 10, 6, 16, total_length, buffer);
+      }
+      break;
     case VC4_OPERAND_ALU16DREG :
       errmsg = insert_normal (cd, fields->f_op3_0, 0, 0, 3, 4, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      errmsg = insert_normal (cd, fields->f_op8_4, 0, 0, 8, 5, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      {
+        long value = fields->f_op8_4_shl3;
+        value = ((UINT) (value) >> (3));
+        errmsg = insert_normal (cd, value, 0, 0, 8, 5, 16, total_length, buffer);
+      }
       break;
     case VC4_OPERAND_ALU16SREG :
       errmsg = insert_normal (cd, fields->f_op7_4, 0, 0, 7, 4, 16, total_length, buffer);
@@ -595,6 +612,23 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_ALU48ISREG :
       errmsg = insert_normal (cd, fields->f_op9_5, 0, 0, 9, 5, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_CONDCODE :
+      errmsg = insert_normal (cd, fields->f_op10_7, 0, 0, 10, 4, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      {
+        long value = fields->f_ldstoff;
+        value = ((UINT) (value) >> (2));
+        errmsg = insert_normal (cd, value, 0, 0, 11, 4, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_PCRELCC :
+      {
+        long value = fields->f_pcrelcc;
+        value = ((INT) (((pc) - (value))) >> (2));
+        errmsg = insert_normal (cd, value, 0, 0, 6, 7, 16, total_length, buffer);
+      }
       break;
     case VC4_OPERAND_PPENDREG0 :
       {
@@ -683,8 +717,27 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 2, 16, total_length, pc, & fields->f_op10_9);
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 6, 16, total_length, pc, & value);
+        value = ((value) << (2));
+        fields->f_addspoffset = value;
+      }
+      break;
     case VC4_OPERAND_ALU16DREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 3, 4, 16, total_length, pc, & fields->f_op3_0);
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 8, 5, 16, total_length, pc, & fields->f_op8_4);
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 8, 5, 16, total_length, pc, & value);
+        value = ((value) << (3));
+        fields->f_op8_4_shl3 = value;
+      }
       break;
     case VC4_OPERAND_ALU16SREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 4, 16, total_length, pc, & fields->f_op7_4);
@@ -709,6 +762,25 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_ALU48ISREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 9, 5, 16, total_length, pc, & fields->f_op9_5);
+      break;
+    case VC4_OPERAND_CONDCODE :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 4, 16, total_length, pc, & fields->f_op10_7);
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 11, 4, 16, total_length, pc, & value);
+        value = ((value) << (2));
+        fields->f_ldstoff = value;
+      }
+      break;
+    case VC4_OPERAND_PCRELCC :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 7, 16, total_length, pc, & value);
+        value = ((pc) + (((value) << (2))));
+        fields->f_pcrelcc = value;
+      }
       break;
     case VC4_OPERAND_PPENDREG0 :
       {
@@ -797,8 +869,17 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       value = fields->f_op10_9;
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      value = fields->f_addspoffset;
+      break;
     case VC4_OPERAND_ALU16DREG :
       value = fields->f_op3_0;
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      value = fields->f_op8_4;
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      value = fields->f_op8_4_shl3;
       break;
     case VC4_OPERAND_ALU16SREG :
       value = fields->f_op7_4;
@@ -823,6 +904,15 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU48ISREG :
       value = fields->f_op9_5;
+      break;
+    case VC4_OPERAND_CONDCODE :
+      value = fields->f_op10_7;
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      value = fields->f_ldstoff;
+      break;
+    case VC4_OPERAND_PCRELCC :
+      value = fields->f_pcrelcc;
       break;
     case VC4_OPERAND_PPENDREG0 :
       value = fields->f_op4_0_base_0;
@@ -868,8 +958,17 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       value = fields->f_op10_9;
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      value = fields->f_addspoffset;
+      break;
     case VC4_OPERAND_ALU16DREG :
       value = fields->f_op3_0;
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      value = fields->f_op8_4;
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      value = fields->f_op8_4_shl3;
       break;
     case VC4_OPERAND_ALU16SREG :
       value = fields->f_op7_4;
@@ -894,6 +993,15 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU48ISREG :
       value = fields->f_op9_5;
+      break;
+    case VC4_OPERAND_CONDCODE :
+      value = fields->f_op10_7;
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      value = fields->f_ldstoff;
+      break;
+    case VC4_OPERAND_PCRELCC :
+      value = fields->f_pcrelcc;
       break;
     case VC4_OPERAND_PPENDREG0 :
       value = fields->f_op4_0_base_0;
@@ -946,8 +1054,17 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       fields->f_op10_9 = value;
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      fields->f_addspoffset = value;
+      break;
     case VC4_OPERAND_ALU16DREG :
       fields->f_op3_0 = value;
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      fields->f_op8_4 = value;
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      fields->f_op8_4_shl3 = value;
       break;
     case VC4_OPERAND_ALU16SREG :
       fields->f_op7_4 = value;
@@ -972,6 +1089,15 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU48ISREG :
       fields->f_op9_5 = value;
+      break;
+    case VC4_OPERAND_CONDCODE :
+      fields->f_op10_7 = value;
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      fields->f_ldstoff = value;
+      break;
+    case VC4_OPERAND_PCRELCC :
+      fields->f_pcrelcc = value;
       break;
     case VC4_OPERAND_PPENDREG0 :
       fields->f_op4_0_base_0 = value;
@@ -1014,8 +1140,17 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       fields->f_op10_9 = value;
       break;
+    case VC4_OPERAND_ADDSPOFFSET :
+      fields->f_addspoffset = value;
+      break;
     case VC4_OPERAND_ALU16DREG :
       fields->f_op3_0 = value;
+      break;
+    case VC4_OPERAND_ALU16IMM :
+      fields->f_op8_4 = value;
+      break;
+    case VC4_OPERAND_ALU16IMM_SHL3 :
+      fields->f_op8_4_shl3 = value;
       break;
     case VC4_OPERAND_ALU16SREG :
       fields->f_op7_4 = value;
@@ -1040,6 +1175,15 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU48ISREG :
       fields->f_op9_5 = value;
+      break;
+    case VC4_OPERAND_CONDCODE :
+      fields->f_op10_7 = value;
+      break;
+    case VC4_OPERAND_LDSTOFF :
+      fields->f_ldstoff = value;
+      break;
+    case VC4_OPERAND_PCRELCC :
+      fields->f_pcrelcc = value;
       break;
     case VC4_OPERAND_PPENDREG0 :
       fields->f_op4_0_base_0 = value;
