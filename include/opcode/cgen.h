@@ -963,6 +963,8 @@ typedef struct
   CGEN_IVALUE value;
 #define CGEN_OPCODE_VALUE(opc) (& (opc)->value)
 #define CGEN_OPCODE_BASE_VALUE(opc) (CGEN_OPCODE_VALUE (opc)->base_value)
+#define CGEN_OPCODE_IFIELD_VALUE(opc,num) \
+  (CGEN_OPCODE_VALUE (opc)->ifield_values[(num)])
 #define CGEN_OPCODE_BASE_MASK(opc) CGEN_IFMT_MASK (CGEN_OPCODE_FORMAT (opc))
 } CGEN_OPCODE;
 
@@ -1111,6 +1113,9 @@ extern int cgen_macro_insn_count (CGEN_CPU_DESC);
 /* Return value of base part of INSN.  */
 #define CGEN_INSN_BASE_VALUE(insn) \
   CGEN_OPCODE_BASE_VALUE (CGEN_INSN_OPCODE (insn))
+
+#define CGEN_INSN_IFIELD_VALUE(insn, num) \
+  CGEN_OPCODE_IFIELD_VALUE (CGEN_INSN_OPCODE (insn), (num))
 
 /* Standard way to test whether INSN is supported by MACH.
    MACH is one of enum mach_attr.

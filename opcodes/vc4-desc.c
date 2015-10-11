@@ -709,6 +709,11 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_LEA, "lea", "lea", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* b$condcode $pcrelcc */
+  {
+    VC4_INSN_BCC, "bcc", "b", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* ld $alu16dreg,$ldstoff($alu16sreg) */
   {
     VC4_INSN_LDOFF, "ldoff", "ld", 16,

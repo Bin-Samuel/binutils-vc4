@@ -247,12 +247,12 @@
 (df2 f-op26-23 "Opcode bits 26-23" () 16 16 10 4 UINT (#f) (#f))
 
 (df2 f-offset10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
-  ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
+  ((value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
   ((value pc) (add SI pc (sll SI value 1)))
 )
 
 (df2 f-offset8 "8-bit offset" (PCREL-ADDR) 16 16 7 8 SI
-  ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
+  ((value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
   ((value pc) (add SI pc (sll SI value 1)))
 )
 
@@ -736,12 +736,12 @@
   () ()
 )
 
-;(define-normal-insn
-;  bcc "BCC" ()
-;  "b$condcode $pcrelcc"
-;  (+ OPLEN_1 OP11_1 condcode pcrelcc)
-;  () ()
-;)
+(define-normal-insn
+  bcc "BCC" ()
+  "b$condcode $pcrelcc"
+  (+ OPLEN_1 OP11_1 condcode pcrelcc)
+  () ()
+)
 
 (define-normal-insn
   ldoff "LDOFF" ()

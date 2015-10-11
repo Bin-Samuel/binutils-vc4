@@ -93,6 +93,10 @@ static const CGEN_IFMT ifmt_lea ATTRIBUTE_UNUSED = {
   16, 16, 0xf800, { { F (F_OPLEN) }, { F (F_OP11) }, { F (F_ADDSPOFFSET) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_bcc ATTRIBUTE_UNUSED = {
+  16, 16, 0xf800, { { F (F_OPLEN) }, { F (F_OP11) }, { F (F_OP10_7) }, { F (F_PCRELCC) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_ldoff ATTRIBUTE_UNUSED = {
   16, 16, 0xf000, { { F (F_OPLEN) }, { F (F_LDSTOFF) }, { F (F_OP7_4) }, { F (F_OP3_0) }, { 0 } }
 };
@@ -410,6 +414,12 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (ALU32DREG), ',', OP (ADDSPOFFSET), '(', 's', 'p', ')', 0 } },
     & ifmt_lea, { 0x1000 }
   },
+/* b$condcode $pcrelcc */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (CONDCODE), ' ', OP (PCRELCC), 0 } },
+    & ifmt_bcc, { 0x1800 }
+  },
 /* ld $alu16dreg,$ldstoff($alu16sreg) */
   {
     { 0, 0, 0, 0 },
@@ -714,25 +724,25 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', OP (BCC32SREG), ',', OP (OFFSET10BITS), 0 } },
-    & ifmt_bcc32r, { 0xc000 }
+    & ifmt_bcc32r, { 0x8000, { 0x4000 } }
   },
 /* b$condcodebcc32 $alu16dreg,#$bcc32imm,$offset8bits */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
-    & ifmt_bcc32i, { 0x14000 }
+    & ifmt_bcc32i, { 0x8000, { 0xc000 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc040 }
+    & ifmt_add32, { 0xc040, {  } }
   },
 /* add $alu48idreg,$alu48isreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48ISREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_add48i, { 0xec00 }
+    & ifmt_add48i, { 0xec00, {  } }
   },
 };
 

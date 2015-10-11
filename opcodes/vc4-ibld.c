@@ -247,6 +247,9 @@ insert_insn_normal (CGEN_CPU_DESC cd,
   const CGEN_SYNTAX *syntax = CGEN_INSN_SYNTAX (insn);
   unsigned long value;
   const CGEN_SYNTAX_CHAR_TYPE * syn;
+#ifdef CGEN_MAX_EXTRA_OPCODE_OPERANDS
+  unsigned int i, extra_field;
+#endif
 
   CGEN_INIT_INSERT (cd);
   value = CGEN_INSN_BASE_VALUE (insn);
@@ -264,6 +267,17 @@ insert_insn_normal (CGEN_CPU_DESC cd,
   cgen_put_insn_value (cd, buffer, min ((unsigned) cd->base_insn_bitsize,
 					(unsigned) CGEN_FIELDS_BITSIZE (fields)),
 		       value);
+
+#ifdef CGEN_MAX_EXTRA_OPCODE_OPERANDS
+  for (i = cd->base_insn_bitsize, extra_field = 0;
+       i < (unsigned) CGEN_FIELDS_BITSIZE (fields);
+       i += cd->base_insn_bitsize, extra_field++)
+    {
+      cgen_put_insn_value (cd, &buffer[cd->base_insn_bitsize / 8],
+			   cd->base_insn_bitsize,
+			   CGEN_INSN_IFIELD_VALUE (insn, extra_field));
+    }
+#endif /* ! CGEN_MAX_EXTRA_OPCODE_OPERANDS */
 
 #endif /* ! CGEN_INT_INSN_P */
 
@@ -635,14 +649,14 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_OFFSET10BITS :
       {
         long value = fields->f_offset10;
-        value = ((SI) (((value) - (((pc) - (2))))) >> (1));
+        value = ((SI) (((value) - (((pc) - (4))))) >> (1));
         errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, buffer);
       }
       break;
     case VC4_OPERAND_OFFSET8BITS :
       {
         long value = fields->f_offset8;
-        value = ((SI) (((value) - (((pc) - (2))))) >> (1));
+        value = ((SI) (((value) - (((pc) - (4))))) >> (1));
         errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 7, 8, 16, total_length, buffer);
       }
       break;
