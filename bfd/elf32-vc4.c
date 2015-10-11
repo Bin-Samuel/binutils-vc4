@@ -59,17 +59,17 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 FALSE),		/* pcrel_offset */
 
   /* A PC relative 7 bit relocation.  */
-  HOWTO (R_VC4_PCREL7_MUL2,    /* type */
+  HOWTO (R_VC4_PCREL7_MUL2,	/* type */
 	 1,			/* rightshift */
 	 1,			/* size (0 = byte, 1 = short, 2 = long) */
 	 7,			/* bitsize */
 	 TRUE,			/* pc_relative */
 	 0,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
-	 "R_VC4_PCREL7",       /* name */
+	 bfd_elf_generic_reloc,	/* special_function */
+	 "R_VC4_PCREL7",	/* name */
 	 FALSE,			/* partial_inplace */
-	 0x0000,		/* src_mask */
+	 0x007f,		/* src_mask */
 	 0x007f,		/* dst_mask */
 	 FALSE),		/* pcrel_offset */
 
@@ -81,7 +81,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 TRUE,			/* pc_relative */
 	 16,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL8",        /* name */
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
@@ -96,7 +96,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 TRUE,			/* pc_relative */
 	 0,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL10",      /* name */
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
@@ -577,11 +577,13 @@ vc4_final_link_relocate (reloc_howto_type *howto,
   bfd_signed_vma srel;
   bfd_signed_vma temp;
 
+  fprintf (stderr, "vc4_final_link_relocate\n");
+
   switch (howto->type)
     {
-    case R_VC4_PCREL7_MUL2:
+    /*case R_VC4_PCREL7_MUL2:
     case R_VC4_PCREL8_MUL2:
-    case R_VC4_PCREL10_MUL2:
+    case R_VC4_PCREL10_MUL2:*/
     case R_VC4_PCREL16:
     case R_VC4_PCREL23_MUL2:
     case R_VC4_PCREL27:
@@ -700,6 +702,9 @@ vc4_elf_relocate_section (bfd *output_bfd,
 
   DEBUGn(RELOC, "\n");
 
+  fprintf (stderr, "vc4_elf_relocate_section, count=%d\n",
+	   input_section->reloc_count);
+
   symtab_hdr = &elf_tdata (input_bfd)->symtab_hdr;
   sym_hashes = elf_sym_hashes (input_bfd);
   relend = relocs + input_section->reloc_count;
@@ -734,6 +739,8 @@ vc4_elf_relocate_section (bfd *output_bfd,
       h = NULL;
       sym = NULL;
       sec = NULL;
+
+      fprintf (stderr, "vc4_elf_relocate_section: howto %p\n", howto);
 
       if (r_symndx < symtab_hdr->sh_info)
 	{
@@ -826,6 +833,8 @@ vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
   bfd_vma output_base = 0;
   reloc_howto_type *howto = reloc_entry->howto;
   asection *reloc_target_output_section;
+
+  fprintf (stderr, "vc4_elf_reloc\n");
 
   DEBUGn(RELOC, "\n");
 

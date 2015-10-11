@@ -126,16 +126,24 @@ typedef enum insn_op8 {
   OP8_0, OP8_1
 } INSN_OP8;
 
+/* Enum declaration for insn bits 7-6.  */
+typedef enum insn_op7_6 {
+  OP7_6_0, OP7_6_1, OP7_6_2, OP7_6_3
+} INSN_OP7_6;
+
 /* Enum declaration for insn bits 7-5.  */
 typedef enum insn_op7_5 {
   OP7_5_0, OP7_5_1, OP7_5_2, OP7_5_3
  , OP7_5_4, OP7_5_5, OP7_5_6, OP7_5_7
 } INSN_OP7_5;
 
-/* Enum declaration for insn bits 7-6.  */
-typedef enum insn_op7_6 {
-  OP7_6_0, OP7_6_1, OP7_6_2, OP7_6_3
-} INSN_OP7_6;
+/* Enum declaration for insn bits 7-4.  */
+typedef enum insn_op7_4 {
+  OP7_4_0, OP7_4_1, OP7_4_2, OP7_4_3
+ , OP7_4_4, OP7_4_5, OP7_4_6, OP7_4_7
+ , OP7_4_8, OP7_4_9, OP7_4_10, OP7_4_11
+ , OP7_4_12, OP7_4_13, OP7_4_14, OP7_4_15
+} INSN_OP7_4;
 
 /* Enum declaration for insn bit 7.  */
 typedef enum insn_op7 {
@@ -171,6 +179,11 @@ typedef enum insn_op3_0 {
  , OP3_0_8, OP3_0_9, OP3_0_10, OP3_0_11
  , OP3_0_12, OP3_0_13, OP3_0_14, OP3_0_15
 } INSN_OP3_0;
+
+/* Enum declaration for insn bits 31-30.  */
+typedef enum insn_op31_30 {
+  OP31_30_0, OP31_30_1, OP31_30_2, OP31_30_3
+} INSN_OP31_30;
 
 /* Enum declaration for insn bits 22-21.  */
 typedef enum insn_op22_21 {
@@ -226,8 +239,10 @@ typedef enum ifield_type {
  , VC4_F_OP7_4, VC4_F_OP7_5, VC4_F_OP7_6, VC4_F_OP7
  , VC4_F_OP6_5, VC4_F_PCRELCC, VC4_F_OP5_0, VC4_F_OP4
  , VC4_F_OP4_0, VC4_F_OP3_0, VC4_F_OP4_0_BASE_0, VC4_F_OP4_0_BASE_6
- , VC4_F_OP4_0_BASE_16, VC4_F_OP4_0_BASE_24, VC4_F_OP20_16, VC4_F_OP22_21
- , VC4_F_OP26_23, VC4_F_OP31_27, VC4_F_OP47_16, VC4_F_MAX
+ , VC4_F_OP4_0_BASE_16, VC4_F_OP4_0_BASE_24, VC4_F_OP31_27, VC4_F_OP31_30
+ , VC4_F_OP29_26, VC4_F_OP29_24, VC4_F_OP26_23, VC4_F_OFFSET10
+ , VC4_F_OFFSET8, VC4_F_OP22_21, VC4_F_OP20_16, VC4_F_OP47_16
+ , VC4_F_MAX
 } IFIELD_TYPE;
 
 #define MAX_IFLD ((int) VC4_F_MAX)
@@ -290,11 +305,12 @@ typedef enum cgen_operand_type {
  , VC4_OPERAND_PPENDREG6, VC4_OPERAND_PPENDREG16, VC4_OPERAND_PPENDREG24, VC4_OPERAND_SWI_IMM
  , VC4_OPERAND_SPOFFSET, VC4_OPERAND_ADDSPOFFSET, VC4_OPERAND_ALU32AREG, VC4_OPERAND_ALU32COND
  , VC4_OPERAND_ALU48ISREG, VC4_OPERAND_ALU48IDREG, VC4_OPERAND_ALU48IMMU, VC4_OPERAND_ACCSZ
- , VC4_OPERAND_MAX
+ , VC4_OPERAND_CONDCODEBCC32, VC4_OPERAND_BCC32SREG, VC4_OPERAND_OFFSET10BITS, VC4_OPERAND_OFFSET8BITS
+ , VC4_OPERAND_BCC32IMM, VC4_OPERAND_MAX
 } CGEN_OPERAND_TYPE;
 
 /* Number of operands types.  */
-#define MAX_OPERANDS 24
+#define MAX_OPERANDS 29
 
 /* Maximum number of operands referenced by any insn.  */
 #define MAX_OPERAND_INSTANCES 8

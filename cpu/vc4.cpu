@@ -132,6 +132,8 @@
 
 (dnh h-pc "program counter" (PC) (pc) () () ())
 
+;; Fields in the first instruction word.
+
 (df f-oplen "Opcode length field" () 15 4 UINT #f #f)
 
 (df f-op15-13 "Opcode bits 15-13" () 15 3 UINT #f #f)
@@ -190,9 +192,9 @@
 
 (df f-op6-5 "Opcode bits 6-5" () 6 2 UINT #f #f)
 
-(df f-pcrelcc "PC relative for cond branch" () 6 7 UINT
-  ((value pc) (sra INT (sub INT pc value) 2))
-  ((value pc) (add INT pc (sll INT value 2)))
+(df f-pcrelcc "PC relative for cond branch" (PCREL-ADDR) 6 7 SI
+  ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
+  ((value pc) (add SI pc (sll SI value 1)))
 )
 
 (df f-op5-0 "Opcode bits 5-0" () 5 6 UINT #f #f)
@@ -218,7 +220,7 @@
 ;; Define fields in subsequent instruction (16-bit) words, after the first.
 
 (define-pmacro (df2 x-name x-comment x-attrs x-offset x-wordlen
-		    x-start x-length x-enc x-dec)
+		    x-start x-length x-mode x-enc x-dec)
   (define-ifield
     (name x-name)
     (comment x-comment)
@@ -227,20 +229,40 @@
     (word-length x-wordlen)
     (start x-start)
     (length x-length)
-    (mode UINT)
+    (mode x-mode)
     (.splice encode (.unsplice x-enc))
     (.splice decode (.unsplice x-dec)))
 )
 
-(df2 f-op20-16 "Opcode bits 20-16" () 16 16 4 5 (#f) (#f))
+;; Fields in the second word.
 
-(df2 f-op22-21 "Opcode bits 22-21" () 16 16 6 2 (#f) (#f))
+(df2 f-op31-27 "Opcode bits 31-27" () 16 16 15 5 UINT (#f) (#f))
 
-(df2 f-op26-23 "Opcode bits 26-23" () 16 16 10 4 (#f) (#f))
+(df2 f-op31-30 "Opcode bits 31-30" () 16 16 15 2 UINT (#f) (#f))
 
-(df2 f-op31-27 "Opcode bits 31-27" () 16 16 15 5 (#f) (#f))
+(df2 f-op29-26 "Opcode bits 29-26" () 16 16 13 4 UINT (#f) (#f))
 
-(df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 (#f) (#f))
+(df2 f-op29-24 "Opcode bits 29-24" () 16 16 13 6 UINT (#f) (#f))
+
+(df2 f-op26-23 "Opcode bits 26-23" () 16 16 10 4 UINT (#f) (#f))
+
+(df2 f-offset10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
+  ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
+  ((value pc) (add SI pc (sll SI value 1)))
+)
+
+(df2 f-offset8 "8-bit offset" (PCREL-ADDR) 16 16 7 8 SI
+  ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
+  ((value pc) (add SI pc (sll SI value 1)))
+)
+
+(df2 f-op22-21 "Opcode bits 22-21" () 16 16 6 2 UINT (#f) (#f))
+
+(df2 f-op20-16 "Opcode bits 20-16" () 16 16 4 5 UINT (#f) (#f))
+
+;; Fields beyond the second word.
+
+(df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 UINT (#f) (#f))
 
 (define-normal-insn-enum
   insn-oplen "length field" () OPLEN_ f-oplen
@@ -300,13 +322,18 @@
 )
 
 (define-normal-insn-enum
+  insn-op7-6 "insn bits 7-6" () OP7_6_ f-op7-6
+  (.map .str (.iota 4))
+)
+
+(define-normal-insn-enum
   insn-op7-5 "insn bits 7-5" () OP7_5_ f-op7-5
   (.map .str (.iota 8))
 )
 
 (define-normal-insn-enum
-  insn-op7-6 "insn bits 7-6" () OP7_6_ f-op7-6
-  (.map .str (.iota 4))
+  insn-op7-4 "insn bits 7-4" () OP7_4_ f-op7-4
+  (.map .str (.iota 16))
 )
 
 (define-normal-insn-enum
@@ -332,6 +359,11 @@
 (define-normal-insn-enum
   insn-op3-0 "insn bits 3-0" () OP3_0_ f-op3-0
   (.map .str (.iota 16))
+)
+
+(define-normal-insn-enum
+  insn-op31-30 "insn bits 31-30" () OP31_30_ f-op31-30
+  (.map .str (.iota 4))
 )
 
 (define-normal-insn-enum
@@ -484,6 +516,43 @@
   h-accsz
   f-op10-9
 )
+
+(define-normal-operand
+  condcodebcc32
+  "" ()
+  h-cond
+  f-op11-8
+)
+
+(define-normal-operand
+  bcc32sreg
+  "" ()
+  h-fastreg
+  f-op29-26
+)
+
+(define-normal-operand
+  offset10bits
+  "" ()
+  h-iaddr
+  f-offset10
+)
+
+(define-normal-operand
+  offset8bits
+  "" ()
+  h-iaddr
+  f-offset8
+)
+
+(define-normal-operand
+  bcc32imm
+  "" ()
+  h-uint
+  f-op29-24
+)
+
+;; 16-bit instructions.
 
 (define-pmacro (nulop16 x-name x-comment x-syntax x-opcode)
   (define-normal-insn
@@ -667,12 +736,12 @@
   () ()
 )
 
-(define-normal-insn
-  bcc "BCC" ()
-  "b$condcode $pcrelcc"
-  (+ OPLEN_1 OP11_1 condcode pcrelcc)
-  () ()
-)
+;(define-normal-insn
+;  bcc "BCC" ()
+;  "b$condcode $pcrelcc"
+;  (+ OPLEN_1 OP11_1 condcode pcrelcc)
+;  () ()
+;)
 
 (define-normal-insn
   ldoff "LDOFF" ()
@@ -754,6 +823,24 @@
 (alu16opi shli16     "SHLI16"     "shl"      ""       ALU16OPI_SHL)
 (alu16opi asri16     "ASRI16"     "asr"      ""       ALU16OPI_ASR)
 
+;; 32-bit instructions.
+
+(define-normal-insn
+  bcc32r "BCC32R" ()
+  "b$condcodebcc32 $alu16dreg,$bcc32sreg,$offset10bits"
+  (+ OPLEN_8 condcodebcc32 OP7_4_0 alu16dreg
+     OP31_30_1 bcc32sreg offset10bits)
+  () ()
+)
+
+(define-normal-insn
+  bcc32i "BCC32I" ()
+  "b$condcodebcc32 $alu16dreg,#$bcc32imm,$offset8bits"
+  (+ OPLEN_8 condcodebcc32 (f-op7-4 0) alu16dreg
+     OP31_30_3 bcc32imm offset8bits)
+  () ()
+)
+
 (define-normal-insn
   add32 "ADD32" ()
   "add$alu32cond $alu32dreg,$alu32areg,$alu32breg"
@@ -762,6 +849,8 @@
   () ()
 )
 
+;; 48-bit instructions.
+
 (define-normal-insn
   add48i "ADD48I" ()
   "add $alu48idreg,$alu48isreg,#$alu48immu"
@@ -769,3 +858,5 @@
      alu48immu)
   () ()
 )
+
+;; 80-bit instructions.

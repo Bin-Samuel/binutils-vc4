@@ -106,7 +106,10 @@ void vc4_init_fix(fixS *f);*/
 /*extern bfd_boolean vc4_fix_adjustable (struct fix *);
 #define tc_fix_adjustable(FIX) vc4_fix_adjustable (FIX)*/
 
+#define md_cgen_record_fixup_exp vc4_cgen_record_fixup_exp
+
 #define tc_gen_reloc vc4_tc_gen_reloc
+#define md_apply_fix vc4_apply_fix
 
 /* Call md_pcrel_from_section(), not md_pcrel_from().  */
 extern long md_pcrel_from_section (struct fix *, segT);
@@ -121,6 +124,14 @@ extern long md_pcrel_from_section (struct fix *, segT);
 /*#define md_relax_frag(segment, fragp, stretch)	\
   vc4_relax_frag (segment, fragp, stretch)
 extern int vc4_relax_frag(asection *, struct frag *, long);*/
+
+#define TC_CONS_FIX_NEW(FRAG, WHERE, NBYTES, EXP) \
+  vc4_cons_fix_new (FRAG, WHERE, NBYTES, EXP)
+extern void vc4_cons_fix_new (fragS *, int, int, expressionS *);
+
+#define TC_CGEN_PARSE_FIX_EXP(opinfo, exp) \
+  vc4_cgen_parse_fix_exp(opinfo, exp)
+extern int vc4_cgen_parse_fix_exp (int, expressionS *);
 
 #define LISTING_WORD_SIZE 2
 

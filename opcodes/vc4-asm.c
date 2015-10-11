@@ -133,11 +133,34 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op9_5);
       break;
+    case VC4_OPERAND_BCC32IMM :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
+      break;
+    case VC4_OPERAND_BCC32SREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op29_26);
+      break;
     case VC4_OPERAND_CONDCODE :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_cond, & fields->f_op10_7);
       break;
+    case VC4_OPERAND_CONDCODEBCC32 :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_cond, & fields->f_op11_8);
+      break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
+      break;
+    case VC4_OPERAND_OFFSET10BITS :
+      {
+        bfd_vma value = 0;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_OFFSET10BITS, 0, NULL,  & value);
+        fields->f_offset10 = value;
+      }
+      break;
+    case VC4_OPERAND_OFFSET8BITS :
+      {
+        bfd_vma value = 0;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_OFFSET8BITS, 0, NULL,  & value);
+        fields->f_offset8 = value;
+      }
       break;
     case VC4_OPERAND_PCRELCC :
       {
