@@ -304,6 +304,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP8_4_SHL3, "f-op8-4-shl3", 0, 16, 8, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP8, "f-op8", 0, 16, 8, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7_4, "f-op7-4", 0, 16, 7, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP7_4S, "f-op7-4s", 0, 16, 7, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7_5, "f-op7-5", 0, 16, 7, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7_6, "f-op7-6", 0, 16, 7, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7, "f-op7", 0, 16, 7, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -463,6 +464,14 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* bcc32imm:  */
   { "bcc32imm", VC4_OPERAND_BCC32IMM, HW_H_UINT, 13, 6,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP29_24] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* addcmpbareg:  */
+  { "addcmpbareg", VC4_OPERAND_ADDCMPBAREG, HW_H_FASTREG, 7, 4,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP7_4] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* addcmpbimm:  */
+  { "addcmpbimm", VC4_OPERAND_ADDCMPBIMM, HW_H_SINT, 7, 4,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP7_4S] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
@@ -972,6 +981,26 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* b$condcodebcc32 $alu16dreg,#$bcc32imm,$offset8bits */
   {
     VC4_INSN_BCC32I, "bcc32i", "b", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32sreg,$offset10bits */
+  {
+    VC4_INSN_ADDCMPBRR, "addcmpbrr", "addcmpb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$offset10bits */
+  {
+    VC4_INSN_ADDCMPBRI, "addcmpbri", "addcmpb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$offset8bits */
+  {
+    VC4_INSN_ADDCMPBIR, "addcmpbir", "addcmpb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits */
+  {
+    VC4_INSN_ADDCMPBII, "addcmpbii", "addcmpb", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg */

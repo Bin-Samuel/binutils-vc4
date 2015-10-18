@@ -121,6 +121,22 @@ static const CGEN_IFMT ifmt_bcc32i ATTRIBUTE_UNUSED = {
   16, 32, 0xf0f0, { { F (F_OPLEN) }, { F (F_OP31_30) }, { F (F_OP29_24) }, { F (F_OP11_8) }, { F (F_OP7_4) }, { F (F_OFFSET8) }, { F (F_OP3_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_addcmpbrr ATTRIBUTE_UNUSED = {
+  16, 32, 0xf000, { { F (F_OPLEN) }, { F (F_OP31_30) }, { F (F_OP29_26) }, { F (F_OP11_8) }, { F (F_OFFSET10) }, { F (F_OP7_4) }, { F (F_OP3_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_addcmpbri ATTRIBUTE_UNUSED = {
+  16, 32, 0xf000, { { F (F_OPLEN) }, { F (F_OP31_30) }, { F (F_OP29_26) }, { F (F_OP11_8) }, { F (F_OFFSET10) }, { F (F_OP7_4S) }, { F (F_OP3_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_addcmpbir ATTRIBUTE_UNUSED = {
+  16, 32, 0xf000, { { F (F_OPLEN) }, { F (F_OP31_30) }, { F (F_OP29_24) }, { F (F_OP11_8) }, { F (F_OP7_4) }, { F (F_OFFSET8) }, { F (F_OP3_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_addcmpbii ATTRIBUTE_UNUSED = {
+  16, 32, 0xf000, { { F (F_OPLEN) }, { F (F_OP31_30) }, { F (F_OP29_24) }, { F (F_OP11_8) }, { F (F_OP7_4S) }, { F (F_OFFSET8) }, { F (F_OP3_0) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_add32 ATTRIBUTE_UNUSED = {
   16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_10) }, { F (F_OP26_23) }, { F (F_OP9_5) }, { F (F_OP22_21) }, { F (F_OP4_0) }, { F (F_OP20_16) }, { 0 } }
 };
@@ -732,17 +748,41 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
     & ifmt_bcc32i, { 0x8000, { 0xc000 } }
   },
+/* addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32sreg,$offset10bits */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', OP (ADDCMPBAREG), ',', OP (BCC32SREG), ',', OP (OFFSET10BITS), 0 } },
+    & ifmt_addcmpbrr, { 0x8000, { 0x0 } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$offset10bits */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (ADDCMPBIMM), ',', OP (BCC32SREG), ',', OP (OFFSET10BITS), 0 } },
+    & ifmt_addcmpbri, { 0x8000, { 0x4000 } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$offset8bits */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', OP (ADDCMPBAREG), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
+    & ifmt_addcmpbir, { 0x8000, { 0x8000 } }
+  },
+/* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (ADDCMPBIMM), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
+    & ifmt_addcmpbii, { 0x8000, { 0xc000 } }
+  },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc040, {  } }
+    & ifmt_add32, { 0xc040, { 0x0 } }
   },
 /* add $alu48idreg,$alu48isreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48ISREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_add48i, { 0xec00, {  } }
+    & ifmt_add48i, { 0xec00 }
   },
 };
 

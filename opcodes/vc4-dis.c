@@ -93,6 +93,12 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op10_9, 0);
       break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op7_4, 0);
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      print_normal (cd, info, fields->f_op7_4s, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
     case VC4_OPERAND_ADDSPOFFSET :
       print_normal (cd, info, fields->f_addspoffset, 0, pc, length);
       break;

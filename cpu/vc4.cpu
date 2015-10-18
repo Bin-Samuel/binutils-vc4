@@ -184,6 +184,8 @@
 
 (df f-op7-4 "Opcode bits 7-4" () 7 4 UINT #f #f)
 
+(df f-op7-4s "Opcode bits 7-4, signed" () 7 4 INT #f #f)
+
 (df f-op7-5 "Opcode bits 7-5" () 7 3 UINT #f #f)
 
 (df f-op7-6 "Opcode bits 7-6" () 7 2 UINT #f #f)
@@ -552,6 +554,20 @@
   f-op29-24
 )
 
+(define-normal-operand
+  addcmpbareg
+  "" ()
+  h-fastreg
+  f-op7-4
+)
+
+(define-normal-operand
+  addcmpbimm
+  "" ()
+  h-sint
+  f-op7-4s
+)
+
 ;; 16-bit instructions.
 
 (define-pmacro (nulop16 x-name x-comment x-syntax x-opcode)
@@ -837,6 +853,38 @@
   bcc32i "BCC32I" ()
   "b$condcodebcc32 $alu16dreg,#$bcc32imm,$offset8bits"
   (+ OPLEN_8 condcodebcc32 (f-op7-4 0) alu16dreg
+     OP31_30_3 bcc32imm offset8bits)
+  () ()
+)
+
+(define-normal-insn
+  addcmpbrr "ADDCMPBRR" ()
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32sreg,$offset10bits"
+  (+ OPLEN_8 condcodebcc32 addcmpbareg alu16dreg
+     OP31_30_0 bcc32sreg offset10bits)
+  () ()
+)
+
+(define-normal-insn
+  addcmpbri "ADDCMPBRI" ()
+  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$offset10bits"
+  (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
+     OP31_30_1 bcc32sreg offset10bits)
+  () ()
+)
+
+(define-normal-insn
+  addcmpbir "ADDCMPBIR" ()
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$offset8bits"
+  (+ OPLEN_8 condcodebcc32 addcmpbareg alu16dreg
+     OP31_30_2 bcc32imm offset8bits)
+  () ()
+)
+
+(define-normal-insn
+  addcmpbii "ADDCMPBII" ()
+  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits"
+  (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
      OP31_30_3 bcc32imm offset8bits)
   () ()
 )

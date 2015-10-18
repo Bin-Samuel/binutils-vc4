@@ -583,6 +583,12 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       errmsg = insert_normal (cd, fields->f_op10_9, 0, 0, 10, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      errmsg = insert_normal (cd, fields->f_op7_4, 0, 0, 7, 4, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      errmsg = insert_normal (cd, fields->f_op7_4s, 0|(1<<CGEN_IFLD_SIGNED), 0, 7, 4, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_ADDSPOFFSET :
       {
         long value = fields->f_addspoffset;
@@ -753,6 +759,12 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     {
     case VC4_OPERAND_ACCSZ :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 2, 16, total_length, pc, & fields->f_op10_9);
+      break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 4, 16, total_length, pc, & fields->f_op7_4);
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 0, 7, 4, 16, total_length, pc, & fields->f_op7_4s);
       break;
     case VC4_OPERAND_ADDSPOFFSET :
       {
@@ -931,6 +943,12 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       value = fields->f_op10_9;
       break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      value = fields->f_op7_4;
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      value = fields->f_op7_4s;
+      break;
     case VC4_OPERAND_ADDSPOFFSET :
       value = fields->f_addspoffset;
       break;
@@ -1034,6 +1052,12 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     {
     case VC4_OPERAND_ACCSZ :
       value = fields->f_op10_9;
+      break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      value = fields->f_op7_4;
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      value = fields->f_op7_4s;
       break;
     case VC4_OPERAND_ADDSPOFFSET :
       value = fields->f_addspoffset;
@@ -1146,6 +1170,12 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       fields->f_op10_9 = value;
       break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      fields->f_op7_4 = value;
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      fields->f_op7_4s = value;
+      break;
     case VC4_OPERAND_ADDSPOFFSET :
       fields->f_addspoffset = value;
       break;
@@ -1246,6 +1276,12 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     {
     case VC4_OPERAND_ACCSZ :
       fields->f_op10_9 = value;
+      break;
+    case VC4_OPERAND_ADDCMPBAREG :
+      fields->f_op7_4 = value;
+      break;
+    case VC4_OPERAND_ADDCMPBIMM :
+      fields->f_op7_4s = value;
       break;
     case VC4_OPERAND_ADDSPOFFSET :
       fields->f_addspoffset = value;
