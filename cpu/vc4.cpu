@@ -194,10 +194,14 @@
 
 (df f-op6-5 "Opcode bits 6-5" () 6 2 UINT #f #f)
 
+(df f-op6-0 "Opcode bits 6-0" () 6 7 UINT #f #f)
+
 (df f-pcrelcc "PC relative for cond branch" (PCREL-ADDR) 6 7 SI
   ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
   ((value pc) (add SI pc (sll SI value 1)))
 )
+
+(df f-op5 "Opcode bit 5" () 5 1 UINT #f #f)
 
 (df f-op5-0 "Opcode bits 5-0" () 5 6 UINT #f #f)
 
@@ -238,15 +242,19 @@
 
 ;; Fields in the second word.
 
+(df2 f-op31-30 "Opcode bits 31-30" () 16 16 15 2 UINT (#f) (#f))
+
 (df2 f-op31-27 "Opcode bits 31-27" () 16 16 15 5 UINT (#f) (#f))
 
-(df2 f-op31-30 "Opcode bits 31-30" () 16 16 15 2 UINT (#f) (#f))
+(df2 f-op31-16 "Opcode bits 31-16" () 16 16 15 16 UINT (#f) (#f))
 
 (df2 f-op29-26 "Opcode bits 29-26" () 16 16 13 4 UINT (#f) (#f))
 
 (df2 f-op29-24 "Opcode bits 29-24" () 16 16 13 6 UINT (#f) (#f))
 
 (df2 f-op26-23 "Opcode bits 26-23" () 16 16 10 4 UINT (#f) (#f))
+
+(df2 f-op26-16 "Opcode bits 26-16" () 16 16 10 11 UINT (#f) (#f))
 
 (df2 f-offset10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
   ((value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
@@ -265,6 +273,56 @@
 ;; Fields beyond the second word.
 
 (df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 UINT (#f) (#f))
+
+;; Multi-ifields.
+
+(define-multi-ifield
+  (name f-offset23bits)
+  (comment "23-bit offset for conditional branch")
+  (attrs PCREL-ADDR)
+  (mode SI)
+  (subfields f-op6-0 f-op31-16)
+  (insert (sequence ()
+	    (set (ifield f-op6-0) (and (srl (ifield f-offset23bits) 16) 127))
+	    (set (ifield f-op31-16) (and (ifield f-offset23bits) 65535))))
+  (extract (sequence ()
+	     (set (ifield f-offset23bits) (or (sll (ifield f-op6-0) 16)
+					      (ifield f-op31-16)))))
+  (encode (value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
+  (decode (value pc) (add SI pc (sll SI value 1)))
+)
+
+(define-multi-ifield
+  (name f-offset27bits)
+  (comment "27-bit offset for call")
+  (attrs PCREL-ADDR)
+  (mode SI)
+  (subfields f-op11-8 f-op6-0 f-op31-16)
+  (insert (sequence ()
+	    (set (ifield f-op11-8) (and (srl (ifield f-offset27bits) 23) 15))
+	    (set (ifield f-op6-0) (and (srl (ifield f-offset27bits) 16) 127))
+	    (set (ifield f-op31-16) (and (ifield f-offset27bits) 65535))))
+  (extract (sequence ()
+	     (set (ifield f-offset27bits) (or (or (sll (ifield f-op11-8) 23)
+						  (sll (ifield f-op6-0) 16))
+					      (ifield f-op31-16)))))
+  (encode (value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
+  (decode (value pc) (add SI pc (sll SI value 1)))
+)
+
+(define-multi-ifield
+  (name f-offset12)
+  (comment "12-bit offset for ld/st")
+  (attrs)
+  (mode SI)
+  (subfields f-op8 f-op26-16)
+  (insert (sequence ()
+	    (set (ifield f-op8) (and (srl (ifield f-offset12) 11) 1))
+	    (set (ifield f-op26-16) (and (ifield f-offset12) #x7ff))))
+  (extract (sequence ()
+	     (set (ifield f-offset12) (or (sll (ifield f-op8) 11)
+					  (ifield f-op26-16)))))
+)
 
 (define-normal-insn-enum
   insn-oplen "length field" () OPLEN_ f-oplen
@@ -326,6 +384,11 @@
 (define-normal-insn-enum
   insn-op7-6 "insn bits 7-6" () OP7_6_ f-op7-6
   (.map .str (.iota 4))
+)
+
+(define-normal-insn-enum
+  accsz-op7-6 "access sizes" () ACCSZ7_6_ f-op7-6
+  ("" "H" "B" "SH")
 )
 
 (define-normal-insn-enum
@@ -437,6 +500,13 @@
 )
 
 (define-normal-operand
+  disp5
+  "" ()
+  h-uint
+  f-op20-16
+)
+
+(define-normal-operand
   ppstartreg
   "" ()
   h-ppreg
@@ -520,6 +590,13 @@
 )
 
 (define-normal-operand
+  accsz32
+  "" ()
+  h-accsz
+  f-op7-6
+)
+
+(define-normal-operand
   condcodebcc32
   "" ()
   h-cond
@@ -566,6 +643,27 @@
   "" ()
   h-sint
   f-op7-4s
+)
+
+(define-normal-operand
+  offset23bits
+  "" ()
+  h-iaddr
+  f-offset23bits
+)
+
+(define-normal-operand
+  offset27bits
+  "" ()
+  h-iaddr
+  f-offset27bits
+)
+
+(define-normal-operand
+  offset12
+  "" ()
+  h-sint
+  f-offset12
 )
 
 ;; 16-bit instructions.
@@ -710,6 +808,76 @@
 (poprnbase 16 ",pc" OP11_8_3)
 (poprnbase 24 ",pc" OP11_8_3)
 
+(define-pmacro (ldstcndidx x-name x-comment x-opcode x-accsz x-bit5 x-shift)
+  (define-normal-insn
+    (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
+    (.str x-opcode x-accsz "${alu32cond} $alu32dreg,($alu32areg,$alu32breg"
+	  x-shift ")")
+    (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(ldstcndidx ldcndidx "LDCNDIDX" "ld" "" (f-op5 0) "<<2")
+(ldstcndidx ldcndidx "LDCNDIDX" "ld" "h" (f-op5 0) "<<1")
+(ldstcndidx ldcndidx "LDCNDIDX" "ld" "b" (f-op5 0) "")
+(ldstcndidx ldcndidx "LDCNDIDX" "ld" "sh" (f-op5 0) "<<1")
+
+(ldstcndidx stcndidx "STCNDIDX" "st" "" (f-op5 1) "<<2")
+(ldstcndidx stcndidx "STCNDIDX" "st" "h" (f-op5 1) "<<1")
+(ldstcndidx stcndidx "STCNDIDX" "st" "b" (f-op5 1) "")
+(ldstcndidx stcndidx "STCNDIDX" "st" "sh" (f-op5 1) "<<1")
+
+(define-pmacro (ldstcnddisp x-name x-comment x-opcode x-accsz x-bit5)
+  (define-normal-insn
+    (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
+    (.str x-opcode x-accsz "${alu32cond} $alu32dreg,$disp5($alu32areg)")
+    (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
+       alu32areg alu32cond OP22_21_2 disp5)
+    () ())
+)
+
+(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "" (f-op5 0))
+(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "h" (f-op5 0))
+(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "b" (f-op5 0))
+(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "sh" (f-op5 0))
+
+(ldstcnddisp stcnddisp "STCNDDISP" "st" "" (f-op5 1))
+(ldstcnddisp stcnddisp "STCNDDISP" "st" "h" (f-op5 1))
+(ldstcnddisp stcnddisp "STCNDDISP" "st" "b" (f-op5 1))
+(ldstcnddisp stcnddisp "STCNDDISP" "st" "sh" (f-op5 1))
+
+(define-pmacro (ldstincdec x-name x-comment x-opcode x-accsz x-bits11-8 x-bit5
+			   x-pre x-post)
+  (define-normal-insn
+    (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
+    (.str x-opcode x-accsz "${alu32cond} $alu32dreg," x-pre "($alu32areg)"
+	  x-post)
+    (+ OPLEN_10 x-bits11-8 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
+       alu32areg alu32cond OP22_21_0 (f-op20-16 0))
+    () ())
+)
+
+(ldstincdec ldpredec "LDPREDEC" "ld" "" OP11_8_4 (f-op5 0) "--" "")
+(ldstincdec ldpredec "LDPREDEC" "ld" "h" OP11_8_4 (f-op5 0) "--" "")
+(ldstincdec ldpredec "LDPREDEC" "ld" "b" OP11_8_4 (f-op5 0) "--" "")
+(ldstincdec ldpredec "LDPREDEC" "ld" "sh" OP11_8_4 (f-op5 0) "--" "")
+
+(ldstincdec stpredec "STPREDEC" "st" "" OP11_8_4 (f-op5 1) "--" "")
+(ldstincdec stpredec "STPREDEC" "st" "h" OP11_8_4 (f-op5 1) "--" "")
+(ldstincdec stpredec "STPREDEC" "st" "b" OP11_8_4 (f-op5 1) "--" "")
+(ldstincdec stpredec "STPREDEC" "st" "sh" OP11_8_4 (f-op5 1) "--" "")
+
+(ldstincdec ldpostinc "LDPOSTINC" "ld" "" OP11_8_5 (f-op5 0) "" "++")
+(ldstincdec ldpostinc "LDPOSTINC" "ld" "h" OP11_8_5 (f-op5 0) "" "++")
+(ldstincdec ldpostinc "LDPOSTINC" "ld" "b" OP11_8_5 (f-op5 0) "" "++")
+(ldstincdec ldpostinc "LDPOSTINC" "ld" "sh" OP11_8_5 (f-op5 0) "" "++")
+
+(ldstincdec stpostinc "STPOSTINC" "st" "" OP11_8_5 (f-op5 1) "" "++")
+(ldstincdec stpostinc "STPOSTINC" "st" "h" OP11_8_5 (f-op5 1) "" "++")
+(ldstincdec stpostinc "STPOSTINC" "st" "b" OP11_8_5 (f-op5 1) "" "++")
+(ldstincdec stpostinc "STPOSTINC" "st" "sh" OP11_8_5 (f-op5 1) "" "++")
+
 (define-normal-insn
   ldsp "LDSP" ()
   "ld $alu16dreg,$spoffset(sp)"
@@ -770,6 +938,22 @@
   stoff "STOFF" ()
   "st $alu16dreg,$ldstoff($alu16sreg)"
   (+ OPLEN_3 ldstoff alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  ldoff12 "LDOFF12" ()
+  "ld$accsz32 $alu32dreg,$offset12($alu32areg)"
+  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 0) alu32dreg
+     alu32areg offset12)
+  () ()
+)
+
+(define-normal-insn
+  stoff12 "STOFF12" ()
+  "st$accsz32 $alu32dreg,$offset12($alu32areg)"
+  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 1) alu32dreg
+     alu32areg offset12)
   () ()
 )
 
@@ -886,6 +1070,20 @@
   "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits"
   (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
      OP31_30_3 bcc32imm offset8bits)
+  () ()
+)
+
+(define-normal-insn
+  bcc32 "BCC32" ()
+  "b$condcodebcc32.l $offset23bits"
+  (+ OPLEN_9 condcodebcc32 OP7_0 offset23bits)
+  () ()
+)
+
+(define-normal-insn
+  bl32 "BL32" ()
+  "bl $offset27bits"
+  (+ OPLEN_9 OP7_1 offset27bits)
   () ()
 )
 

@@ -139,6 +139,8 @@ md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
       return BFD_RELOC_VC4_REL10_MUL2;
     case VC4_OPERAND_OFFSET8BITS:
       return BFD_RELOC_VC4_REL8_MUL2;
+    case VC4_OPERAND_OFFSET23BITS:
+      return BFD_RELOC_VC4_REL23_MUL2;
     default:
       break;
     }

@@ -583,6 +583,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       errmsg = insert_normal (cd, fields->f_op10_9, 0, 0, 10, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      errmsg = insert_normal (cd, fields->f_op7_6, 0, 0, 7, 2, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       errmsg = insert_normal (cd, fields->f_op7_4, 0, 0, 7, 4, 16, total_length, buffer);
       break;
@@ -645,6 +648,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_CONDCODEBCC32 :
       errmsg = insert_normal (cd, fields->f_op11_8, 0, 0, 11, 4, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_DISP5 :
+      errmsg = insert_normal (cd, fields->f_op20_16, 0, 16, 4, 5, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value = fields->f_ldstoff;
@@ -657,6 +663,54 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
         long value = fields->f_offset10;
         value = ((SI) (((value) - (((pc) - (4))))) >> (1));
         errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      {
+{
+  FLD (f_op8) = ((((USI) (FLD (f_offset12)) >> (11))) & (1));
+  FLD (f_op26_16) = ((FLD (f_offset12)) & (2047));
+}
+        errmsg = insert_normal (cd, fields->f_op8, 0, 0, 8, 1, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op26_16, 0, 16, 10, 11, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      {
+        fields->f_offset23bits = ((SI) (((fields->f_offset23bits) - (((pc) - (4))))) >> (1));
+{
+  FLD (f_op6_0) = ((((USI) (FLD (f_offset23bits)) >> (16))) & (127));
+  FLD (f_op31_16) = ((FLD (f_offset23bits)) & (65535));
+}
+        errmsg = insert_normal (cd, fields->f_op6_0, 0, 0, 6, 7, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op31_16, 0, 16, 15, 16, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      {
+        fields->f_offset27bits = ((SI) (((fields->f_offset27bits) - (((pc) - (4))))) >> (1));
+{
+  FLD (f_op11_8) = ((((USI) (FLD (f_offset27bits)) >> (23))) & (15));
+  FLD (f_op6_0) = ((((USI) (FLD (f_offset27bits)) >> (16))) & (127));
+  FLD (f_op31_16) = ((FLD (f_offset27bits)) & (65535));
+}
+        errmsg = insert_normal (cd, fields->f_op11_8, 0, 0, 11, 4, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op6_0, 0, 0, 6, 7, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op31_16, 0, 16, 15, 16, 16, total_length, buffer);
+        if (errmsg)
+          break;
       }
       break;
     case VC4_OPERAND_OFFSET8BITS :
@@ -760,6 +814,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 2, 16, total_length, pc, & fields->f_op10_9);
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 2, 16, total_length, pc, & fields->f_op7_6);
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 4, 16, total_length, pc, & fields->f_op7_4);
       break;
@@ -824,6 +881,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_CONDCODEBCC32 :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 11, 4, 16, total_length, pc, & fields->f_op11_8);
       break;
+    case VC4_OPERAND_DISP5 :
+      length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & fields->f_op20_16);
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value;
@@ -838,6 +898,43 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, pc, & value);
         value = ((pc) + (((value) << (1))));
         fields->f_offset10 = value;
+      }
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 8, 1, 16, total_length, pc, & fields->f_op8);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 10, 11, 16, total_length, pc, & fields->f_op26_16);
+        if (length <= 0) break;
+{
+  FLD (f_offset12) = ((((FLD (f_op8)) << (11))) | (FLD (f_op26_16)));
+}
+      }
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 7, 16, total_length, pc, & fields->f_op6_0);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 15, 16, 16, total_length, pc, & fields->f_op31_16);
+        if (length <= 0) break;
+{
+  FLD (f_offset23bits) = ((((FLD (f_op6_0)) << (16))) | (FLD (f_op31_16)));
+}
+        fields->f_offset23bits = ((pc) + (((fields->f_offset23bits) << (1))));
+      }
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 11, 4, 16, total_length, pc, & fields->f_op11_8);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 7, 16, total_length, pc, & fields->f_op6_0);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 15, 16, 16, total_length, pc, & fields->f_op31_16);
+        if (length <= 0) break;
+{
+  FLD (f_offset27bits) = ((((((FLD (f_op11_8)) << (23))) | (((FLD (f_op6_0)) << (16))))) | (FLD (f_op31_16)));
+}
+        fields->f_offset27bits = ((pc) + (((fields->f_offset27bits) << (1))));
       }
       break;
     case VC4_OPERAND_OFFSET8BITS :
@@ -943,6 +1040,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       value = fields->f_op10_9;
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      value = fields->f_op7_6;
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       value = fields->f_op7_4;
       break;
@@ -997,11 +1097,23 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_CONDCODEBCC32 :
       value = fields->f_op11_8;
       break;
+    case VC4_OPERAND_DISP5 :
+      value = fields->f_op20_16;
+      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
     case VC4_OPERAND_OFFSET10BITS :
       value = fields->f_offset10;
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      value = fields->f_offset12;
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      value = fields->f_offset23bits;
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      value = fields->f_offset27bits;
       break;
     case VC4_OPERAND_OFFSET8BITS :
       value = fields->f_offset8;
@@ -1053,6 +1165,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       value = fields->f_op10_9;
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      value = fields->f_op7_6;
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       value = fields->f_op7_4;
       break;
@@ -1107,11 +1222,23 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_CONDCODEBCC32 :
       value = fields->f_op11_8;
       break;
+    case VC4_OPERAND_DISP5 :
+      value = fields->f_op20_16;
+      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
     case VC4_OPERAND_OFFSET10BITS :
       value = fields->f_offset10;
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      value = fields->f_offset12;
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      value = fields->f_offset23bits;
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      value = fields->f_offset27bits;
       break;
     case VC4_OPERAND_OFFSET8BITS :
       value = fields->f_offset8;
@@ -1170,6 +1297,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       fields->f_op10_9 = value;
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      fields->f_op7_6 = value;
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       fields->f_op7_4 = value;
       break;
@@ -1224,11 +1354,23 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_CONDCODEBCC32 :
       fields->f_op11_8 = value;
       break;
+    case VC4_OPERAND_DISP5 :
+      fields->f_op20_16 = value;
+      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
     case VC4_OPERAND_OFFSET10BITS :
       fields->f_offset10 = value;
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      fields->f_offset12 = value;
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      fields->f_offset23bits = value;
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      fields->f_offset27bits = value;
       break;
     case VC4_OPERAND_OFFSET8BITS :
       fields->f_offset8 = value;
@@ -1277,6 +1419,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ACCSZ :
       fields->f_op10_9 = value;
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      fields->f_op7_6 = value;
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       fields->f_op7_4 = value;
       break;
@@ -1331,11 +1476,23 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_CONDCODEBCC32 :
       fields->f_op11_8 = value;
       break;
+    case VC4_OPERAND_DISP5 :
+      fields->f_op20_16 = value;
+      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
     case VC4_OPERAND_OFFSET10BITS :
       fields->f_offset10 = value;
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      fields->f_offset12 = value;
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      fields->f_offset23bits = value;
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      fields->f_offset27bits = value;
       break;
     case VC4_OPERAND_OFFSET8BITS :
       fields->f_offset8 = value;

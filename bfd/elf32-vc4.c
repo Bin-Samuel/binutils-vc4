@@ -127,7 +127,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 0,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
 	 vc4_elf_reloc,		/* special_function */
-	 "R_VC4_PCREL23",      /* name */
+	 "R_VC4_PCREL23_MUL2",  /* name */
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
 	 0x007fffff,		/* dst_mask */

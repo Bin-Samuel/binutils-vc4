@@ -309,7 +309,9 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP7_6, "f-op7-6", 0, 16, 7, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP7, "f-op7", 0, 16, 7, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP6_5, "f-op6-5", 0, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP6_0, "f-op6-0", 0, 16, 6, 7, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_PCRELCC, "f-pcrelcc", 0, 16, 6, 7, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP5, "f-op5", 0, 16, 5, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP5_0, "f-op5-0", 0, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP4, "f-op4", 0, 16, 4, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP4_0, "f-op4-0", 0, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -318,16 +320,21 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP4_0_BASE_6, "f-op4-0-base-6", 0, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP4_0_BASE_16, "f-op4-0-base-16", 0, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP4_0_BASE_24, "f-op4-0-base-24", 0, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OP31_27, "f-op31-27", 16, 16, 15, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP31_30, "f-op31-30", 16, 16, 15, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP31_27, "f-op31-27", 16, 16, 15, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP31_16, "f-op31-16", 16, 16, 15, 16, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP29_26, "f-op29-26", 16, 16, 13, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP29_24, "f-op29-24", 16, 16, 13, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP26_23, "f-op26-23", 16, 16, 10, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP26_16, "f-op26-16", 16, 16, 10, 11, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET10, "f-offset10", 16, 16, 9, 10, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET8, "f-offset8", 16, 16, 7, 8, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP22_21, "f-op22-21", 16, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16, "f-op20-16", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP47_16, "f-op47-16", 16, 32, 31, 32, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OFFSET23BITS, "f-offset23bits", 0, 0, 0, 0,{ 0|A(PCREL_ADDR)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OFFSET27BITS, "f-offset27bits", 0, 0, 0, 0,{ 0|A(PCREL_ADDR)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OFFSET12, "f-offset12", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { 0, 0, 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
 };
 
@@ -337,10 +344,32 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
 
 /* multi ifield declarations */
 
+const CGEN_MAYBE_MULTI_IFLD VC4_F_OFFSET23BITS_MULTI_IFIELD [];
+const CGEN_MAYBE_MULTI_IFLD VC4_F_OFFSET27BITS_MULTI_IFIELD [];
+const CGEN_MAYBE_MULTI_IFLD VC4_F_OFFSET12_MULTI_IFIELD [];
 
 
 /* multi ifield definitions */
 
+const CGEN_MAYBE_MULTI_IFLD VC4_F_OFFSET23BITS_MULTI_IFIELD [] =
+{
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP6_0] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP31_16] } },
+    { 0, { (const PTR) 0 } }
+};
+const CGEN_MAYBE_MULTI_IFLD VC4_F_OFFSET27BITS_MULTI_IFIELD [] =
+{
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP11_8] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP6_0] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP31_16] } },
+    { 0, { (const PTR) 0 } }
+};
+const CGEN_MAYBE_MULTI_IFLD VC4_F_OFFSET12_MULTI_IFIELD [] =
+{
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP8] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP26_16] } },
+    { 0, { (const PTR) 0 } }
+};
 
 /* The operand table.  */
 
@@ -387,6 +416,10 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu32breg:  */
   { "alu32breg", VC4_OPERAND_ALU32BREG, HW_H_REG, 4, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP20_16] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* disp5:  */
+  { "disp5", VC4_OPERAND_DISP5, HW_H_UINT, 4, 5,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP20_16] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* ppstartreg:  */
@@ -445,6 +478,10 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "accsz", VC4_OPERAND_ACCSZ, HW_H_ACCSZ, 10, 2,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP10_9] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* accsz32:  */
+  { "accsz32", VC4_OPERAND_ACCSZ32, HW_H_ACCSZ, 7, 2,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP7_6] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* condcodebcc32:  */
   { "condcodebcc32", VC4_OPERAND_CONDCODEBCC32, HW_H_COND, 11, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP11_8] } }, 
@@ -473,6 +510,18 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "addcmpbimm", VC4_OPERAND_ADDCMPBIMM, HW_H_SINT, 7, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP7_4S] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* offset23bits:  */
+  { "offset23bits", VC4_OPERAND_OFFSET23BITS, HW_H_IADDR, 6, 23,
+    { 2, { (const PTR) &VC4_F_OFFSET23BITS_MULTI_IFIELD[0] } }, 
+    { 0|A(PCREL_ADDR)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+/* offset27bits:  */
+  { "offset27bits", VC4_OPERAND_OFFSET27BITS, HW_H_IADDR, 6, 27,
+    { 3, { (const PTR) &VC4_F_OFFSET27BITS_MULTI_IFIELD[0] } }, 
+    { 0|A(PCREL_ADDR)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+/* offset12:  */
+  { "offset12", VC4_OPERAND_OFFSET12, HW_H_SINT, 8, 12,
+    { 2, { (const PTR) &VC4_F_OFFSET12_MULTI_IFIELD[0] } }, 
+    { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
     { 0, { (const PTR) 0 } },
@@ -688,6 +737,166 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_POPRNRM24_PC, "poprnrm24,pc", "pop", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* ld${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<2) */
+  {
+    VC4_INSN_LDCNDIDX, "ldcndidx", "ld", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldh${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
+  {
+    VC4_INSN_LDCNDIDXH, "ldcndidxh", "ldh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldb${alu32cond} $alu32dreg,($alu32areg,$alu32breg) */
+  {
+    VC4_INSN_LDCNDIDXB, "ldcndidxb", "ldb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldsh${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
+  {
+    VC4_INSN_LDCNDIDXSH, "ldcndidxsh", "ldsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* st${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<2) */
+  {
+    VC4_INSN_STCNDIDX, "stcndidx", "st", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sth${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
+  {
+    VC4_INSN_STCNDIDXH, "stcndidxh", "sth", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stb${alu32cond} $alu32dreg,($alu32areg,$alu32breg) */
+  {
+    VC4_INSN_STCNDIDXB, "stcndidxb", "stb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stsh${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
+  {
+    VC4_INSN_STCNDIDXSH, "stcndidxsh", "stsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ld${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_LDCNDDISP, "ldcnddisp", "ld", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldh${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_LDCNDDISPH, "ldcnddisph", "ldh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldb${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_LDCNDDISPB, "ldcnddispb", "ldb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldsh${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_LDCNDDISPSH, "ldcnddispsh", "ldsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* st${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_STCNDDISP, "stcnddisp", "st", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sth${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_STCNDDISPH, "stcnddisph", "sth", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stb${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_STCNDDISPB, "stcnddispb", "stb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stsh${alu32cond} $alu32dreg,$disp5($alu32areg) */
+  {
+    VC4_INSN_STCNDDISPSH, "stcnddispsh", "stsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ld${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_LDPREDEC, "ldpredec", "ld", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldh${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_LDPREDECH, "ldpredech", "ldh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldb${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_LDPREDECB, "ldpredecb", "ldb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldsh${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_LDPREDECSH, "ldpredecsh", "ldsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* st${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_STPREDEC, "stpredec", "st", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sth${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_STPREDECH, "stpredech", "sth", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stb${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_STPREDECB, "stpredecb", "stb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stsh${alu32cond} $alu32dreg,--($alu32areg) */
+  {
+    VC4_INSN_STPREDECSH, "stpredecsh", "stsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ld${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_LDPOSTINC, "ldpostinc", "ld", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldh${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_LDPOSTINCH, "ldpostinch", "ldh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldb${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_LDPOSTINCB, "ldpostincb", "ldb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldsh${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_LDPOSTINCSH, "ldpostincsh", "ldsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* st${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_STPOSTINC, "stpostinc", "st", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sth${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_STPOSTINCH, "stpostinch", "sth", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stb${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_STPOSTINCB, "stpostincb", "stb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* stsh${alu32cond} $alu32dreg,($alu32areg)++ */
+  {
+    VC4_INSN_STPOSTINCSH, "stpostincsh", "stsh", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* ld $alu16dreg,$spoffset(sp) */
   {
     VC4_INSN_LDSP, "ldsp", "ld", 16,
@@ -731,6 +940,16 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* st $alu16dreg,$ldstoff($alu16sreg) */
   {
     VC4_INSN_STOFF, "stoff", "st", 16,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ld$accsz32 $alu32dreg,$offset12($alu32areg) */
+  {
+    VC4_INSN_LDOFF12, "ldoff12", "ld", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* st$accsz32 $alu32dreg,$offset12($alu32areg) */
+  {
+    VC4_INSN_STOFF12, "stoff12", "st", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* mov $alu16dreg,$alu16sreg */
@@ -1001,6 +1220,16 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits */
   {
     VC4_INSN_ADDCMPBII, "addcmpbii", "addcmpb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* b$condcodebcc32.l $offset23bits */
+  {
+    VC4_INSN_BCC32, "bcc32", "b", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* bl $offset27bits */
+  {
+    VC4_INSN_BL32, "bl32", "bl", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg */

@@ -93,6 +93,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ACCSZ :
       print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op10_9, 0);
       break;
+    case VC4_OPERAND_ACCSZ32 :
+      print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op7_6, 0);
+      break;
     case VC4_OPERAND_ADDCMPBAREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op7_4, 0);
       break;
@@ -147,11 +150,23 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_CONDCODEBCC32 :
       print_keyword (cd, info, & vc4_cgen_opval_h_cond, fields->f_op11_8, 0);
       break;
+    case VC4_OPERAND_DISP5 :
+      print_normal (cd, info, fields->f_op20_16, 0, pc, length);
+      break;
     case VC4_OPERAND_LDSTOFF :
       print_normal (cd, info, fields->f_ldstoff, 0, pc, length);
       break;
     case VC4_OPERAND_OFFSET10BITS :
       print_address (cd, info, fields->f_offset10, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
+      break;
+    case VC4_OPERAND_OFFSET12 :
+      print_normal (cd, info, fields->f_offset12, 0|(1<<CGEN_OPERAND_SIGNED)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_OFFSET23BITS :
+      print_address (cd, info, fields->f_offset23bits, 0|(1<<CGEN_OPERAND_PCREL_ADDR)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_OFFSET27BITS :
+      print_address (cd, info, fields->f_offset27bits, 0|(1<<CGEN_OPERAND_PCREL_ADDR)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
     case VC4_OPERAND_OFFSET8BITS :
       print_address (cd, info, fields->f_offset8, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
