@@ -97,6 +97,13 @@
 )
 
 (define-hardware
+  (name h-basereg)
+  (comment "Base reg for 16-bit displacement ld/st forms")
+  (type register SI (4))
+  (indices keyword "" (("r24" 0) ("sp" 1) ("pc" 2) ("r0" 3)))
+)
+
+(define-hardware
   (name h-cond)
   (comment "Condition codes")
   (type immediate UQI)
@@ -165,6 +172,8 @@
 (df f-alu16op "ALU16 5-bit opcodes" () 12 5 UINT #f #f)
 
 (df f-ALU16OPI_ "ALU16 4-bit opcodes" () 12 4 UINT #f #f)
+
+(df f-op9-8 "Opcode bits 9-8" () 9 2 UINT #f #f)
 
 (df f-op9-5 "Opcode bits 9-5" () 9 5 UINT #f #f)
 
@@ -247,6 +256,8 @@
 (df2 f-op31-27 "Opcode bits 31-27" () 16 16 15 5 UINT (#f) (#f))
 
 (df2 f-op31-16 "Opcode bits 31-16" () 16 16 15 16 UINT (#f) (#f))
+
+(df2 f-op31-16s "Opcode bits 31-16, signed" () 16 16 15 16 INT (#f) (#f))
 
 (df2 f-op29-26 "Opcode bits 29-26" () 16 16 13 4 UINT (#f) (#f))
 
@@ -666,6 +677,20 @@
   f-offset12
 )
 
+(define-normal-operand
+  offset16
+  "" ()
+  h-sint
+  f-op31-16s
+)
+
+(define-normal-operand
+  off16basereg
+  "" ()
+  h-basereg
+  f-op9-8
+)
+
 ;; 16-bit instructions.
 
 (define-pmacro (nulop16 x-name x-comment x-syntax x-opcode)
@@ -954,6 +979,22 @@
   "st$accsz32 $alu32dreg,$offset12($alu32areg)"
   (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 1) alu32dreg
      alu32areg offset12)
+  () ()
+)
+
+(define-normal-insn
+  ldoff16 "LDOFF16" ()
+  "ld$accsz32 $alu32dreg,$offset16($off16basereg)"
+  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 0) alu32dreg
+     offset16)
+  () ()
+)
+
+(define-normal-insn
+  stoff16 "STOFF16" ()
+  "st$accsz32 $alu32dreg,$offset16($off16basereg)"
+  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 1) alu32dreg
+     offset16)
   () ()
 )
 

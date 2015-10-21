@@ -209,6 +209,21 @@ CGEN_KEYWORD vc4_cgen_opval_h_ppreg =
   0, 0, 0, 0, ""
 };
 
+static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_basereg_entries[] =
+{
+  { "r24", 0, {0, {{{0, 0}}}}, 0, 0 },
+  { "sp", 1, {0, {{{0, 0}}}}, 0, 0 },
+  { "pc", 2, {0, {{{0, 0}}}}, 0, 0 },
+  { "r0", 3, {0, {{{0, 0}}}}, 0, 0 }
+};
+
+CGEN_KEYWORD vc4_cgen_opval_h_basereg =
+{
+  & vc4_cgen_opval_h_basereg_entries[0],
+  4,
+  0, 0, 0, 0, ""
+};
+
 static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_cond_entries[] =
 {
   { "eq", 0, {0, {{{0, 0}}}}, 0, 0 },
@@ -268,6 +283,7 @@ const CGEN_HW_ENTRY vc4_cgen_hw_table[] =
   { "h-reg", HW_H_REG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_reg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-fastreg", HW_H_FASTREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_fastreg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-ppreg", HW_H_PPREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_ppreg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
+  { "h-basereg", HW_H_BASEREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_basereg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-cond", HW_H_COND, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_cond, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-accsz", HW_H_ACCSZ, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_accsz, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-pc", HW_H_PC, CGEN_ASM_NONE, 0, { 0|A(PC), { { { (1<<MACH_BASE), 0 } } } } },
@@ -298,6 +314,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_ADDSPOFFSET, "f-addspoffset", 0, 16, 10, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_ALU16OP, "f-alu16op", 0, 16, 12, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_ALU16OPI_, "f-ALU16OPI_", 0, 16, 12, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP9_8, "f-op9-8", 0, 16, 9, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP9_5, "f-op9-5", 0, 16, 9, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_SPOFFSET, "f-spoffset", 0, 16, 8, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP8_4, "f-op8-4", 0, 16, 8, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -323,6 +340,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP31_30, "f-op31-30", 16, 16, 15, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP31_27, "f-op31-27", 16, 16, 15, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP31_16, "f-op31-16", 16, 16, 15, 16, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP31_16S, "f-op31-16s", 16, 16, 15, 16, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP29_26, "f-op29-26", 16, 16, 13, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP29_24, "f-op29-24", 16, 16, 13, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP26_23, "f-op26-23", 16, 16, 10, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -522,6 +540,14 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "offset12", VC4_OPERAND_OFFSET12, HW_H_SINT, 8, 12,
     { 2, { (const PTR) &VC4_F_OFFSET12_MULTI_IFIELD[0] } }, 
     { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+/* offset16:  */
+  { "offset16", VC4_OPERAND_OFFSET16, HW_H_SINT, 15, 16,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP31_16S] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* off16basereg:  */
+  { "off16basereg", VC4_OPERAND_OFF16BASEREG, HW_H_BASEREG, 9, 2,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP9_8] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
     { 0, { (const PTR) 0 } },
@@ -950,6 +976,16 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* st$accsz32 $alu32dreg,$offset12($alu32areg) */
   {
     VC4_INSN_STOFF12, "stoff12", "st", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ld$accsz32 $alu32dreg,$offset16($off16basereg) */
+  {
+    VC4_INSN_LDOFF16, "ldoff16", "ld", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* st$accsz32 $alu32dreg,$offset16($off16basereg) */
+  {
+    VC4_INSN_STOFF16, "stoff16", "st", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* mov $alu16dreg,$alu16sreg */

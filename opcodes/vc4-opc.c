@@ -117,6 +117,10 @@ static const CGEN_IFMT ifmt_ldoff12 ATTRIBUTE_UNUSED = {
   16, 32, 0xfe20, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_9) }, { F (F_OFFSET12) }, { F (F_OP7_6) }, { F (F_OP5) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_ldoff16 ATTRIBUTE_UNUSED = {
+  16, 32, 0xfc20, { { F (F_OPLEN) }, { F (F_OP31_16S) }, { F (F_OP11_10) }, { F (F_OP9_8) }, { F (F_OP7_6) }, { F (F_OP5) }, { F (F_OP4_0) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_mov16 ATTRIBUTE_UNUSED = {
   16, 16, 0xff00, { { F (F_OP15_13) }, { F (F_ALU16OP) }, { F (F_OP7_4) }, { F (F_OP3_0) }, { 0 } }
 };
@@ -675,6 +679,18 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { 0, 0, 0, 0 },
     { { MNEM, OP (ACCSZ32), ' ', OP (ALU32DREG), ',', OP (OFFSET12), '(', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldoff12, { 0xa220 }
+  },
+/* ld$accsz32 $alu32dreg,$offset16($off16basereg) */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (ACCSZ32), ' ', OP (ALU32DREG), ',', OP (OFFSET16), '(', OP (OFF16BASEREG), ')', 0 } },
+    & ifmt_ldoff16, { 0xa800 }
+  },
+/* st$accsz32 $alu32dreg,$offset16($off16basereg) */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, OP (ACCSZ32), ' ', OP (ALU32DREG), ',', OP (OFFSET16), '(', OP (OFF16BASEREG), ')', 0 } },
+    & ifmt_ldoff16, { 0xa820 }
   },
 /* mov $alu16dreg,$alu16sreg */
   {

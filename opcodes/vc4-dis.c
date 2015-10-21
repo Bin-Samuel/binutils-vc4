@@ -156,11 +156,17 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_LDSTOFF :
       print_normal (cd, info, fields->f_ldstoff, 0, pc, length);
       break;
+    case VC4_OPERAND_OFF16BASEREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_basereg, fields->f_op9_8, 0);
+      break;
     case VC4_OPERAND_OFFSET10BITS :
       print_address (cd, info, fields->f_offset10, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
     case VC4_OPERAND_OFFSET12 :
       print_normal (cd, info, fields->f_offset12, 0|(1<<CGEN_OPERAND_SIGNED)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_OFFSET16 :
+      print_normal (cd, info, fields->f_op31_16s, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
       break;
     case VC4_OPERAND_OFFSET23BITS :
       print_address (cd, info, fields->f_offset23bits, 0|(1<<CGEN_OPERAND_PCREL_ADDR)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);

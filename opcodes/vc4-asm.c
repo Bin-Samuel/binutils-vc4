@@ -160,6 +160,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;
+    case VC4_OPERAND_OFF16BASEREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_basereg, & fields->f_op9_8);
+      break;
     case VC4_OPERAND_OFFSET10BITS :
       {
         bfd_vma value = 0;
@@ -169,6 +172,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_OFFSET12 :
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_OFFSET12, (long *) (& fields->f_offset12));
+      break;
+    case VC4_OPERAND_OFFSET16 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_OFFSET16, (long *) (& fields->f_op31_16s));
       break;
     case VC4_OPERAND_OFFSET23BITS :
       {
