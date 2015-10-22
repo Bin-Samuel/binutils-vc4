@@ -1320,6 +1320,43 @@
 (mulhdivi "divi"   "div"   "us" 6)
 (mulhdivi "divi"   "div"   "uu" 7)
 
+(define-pmacro (satsclr3 x-name x-opcode x-suffix x-op11-8 x-op7-5)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$alu32breg" x-suffix)
+    (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(satsclr3 "addsat" "adds"   ""    5 0)
+(satsclr3 "subsat" "subs"   ""    5 1)
+(satsclr3 "shlsat" "shls"   ""    5 2)
+(satsclr3 "adds5"  "add"    "<<5" 5 4)
+(satsclr3 "adds6"  "add"    "<<6" 5 5)
+(satsclr3 "adds7"  "add"    "<<7" 5 6)
+(satsclr3 "adds8"  "add"    "<<8" 5 7)
+(satsclr3 "subs1"  "sub"    "<<1" 6 1)
+(satsclr3 "subs2"  "sub"    "<<2" 6 2)
+(satsclr3 "subs3"  "sub"    "<<3" 6 3)
+(satsclr3 "subs4"  "sub"    "<<4" 6 4)
+(satsclr3 "subs5"  "sub"    "<<5" 6 5)
+(satsclr3 "subs6"  "sub"    "<<6" 6 6)
+(satsclr3 "subs7"  "sub"    "<<7" 6 7)
+(satsclr3 "subs8"  "sub"    "<<8" 7 0)
+
+(define-pmacro (clmpcnt2 x-name x-opcode x-op11-8 x-op7-5)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32breg")
+    (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
+       (f-op31-27 0) alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(clmpcnt2 "clamp16" "clamp16" 5 3)
+(clmpcnt2 "count"   "count"   6 0)
+
 ;; 48-bit instructions.
 
 (define-normal-insn
