@@ -281,6 +281,18 @@
 
 (df2 f-op20-16 "Opcode bits 20-16" () 16 16 4 5 UINT (#f) (#f))
 
+(define-pmacro (shifted-op20-16 x-amount)
+  (df2 (.sym f-op20-16-shl x-amount)
+    (.str "Opcode bits 20-16, lsr " x-amount) () 16 16 4 5 UINT
+    ((value pc) (srl UINT value x-amount))
+    ((value pc) (sll UINT value x-amount)))
+)
+
+(shifted-op20-16 1)
+(shifted-op20-16 2)
+(shifted-op20-16 3)
+(shifted-op20-16 4)
+
 ;; Fields beyond the second word.
 
 (df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 UINT (#f) (#f))
@@ -516,6 +528,19 @@
   h-uint
   f-op20-16
 )
+
+(define-pmacro (disp5_shifted x-amount)
+  (define-normal-operand
+    (.sym disp5_shl x-amount)
+    "" ()
+    h-uint
+    (.sym f-op20-16-shl x-amount))
+)
+
+(disp5_shifted 1)
+(disp5_shifted 2)
+(disp5_shifted 3)
+(disp5_shifted 4)
 
 (define-normal-operand
   ppstartreg
@@ -1128,13 +1153,125 @@
   () ()
 )
 
-(define-normal-insn
-  add32 "ADD32" ()
-  "add$alu32cond $alu32dreg,$alu32areg,$alu32breg"
-  (+ OPLEN_12 OP11_10_0 ALU32OP_ADD alu32dreg
-     alu32areg alu32cond OP22_21_0 alu32breg)
-  () ()
+(define-pmacro (alu32opr3 x-name x-comment x-opcode x-suffix x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,$alu32breg" x-suffix)
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
 )
+
+(define-pmacro (alu32opr2 x-name x-comment x-opcode x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32breg")
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
+       (f-op31-27 0) alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(define-pmacro (alu32oprc x-name x-comment x-opcode x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode "${alu32cond} $alu32areg,$alu32breg")
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) (f-op4-0 0)
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(alu32opr2 mov32     "MOV32"     "mov"           MOV)
+(alu32oprc cmn32     "CMN32"     "cmn"           CMN)
+(alu32opr3 add32     "ADD32"     "add"     ""    ADD)
+(alu32opr3 bic32     "BIC32"     "bic"     ""    BIC)
+(alu32opr3 mul32     "MUL32"     "mul"     ""    MUL)
+(alu32opr3 eor32     "EOR32"     "eor"     ""    EOR)
+(alu32opr3 sub32     "SUB32"     "sub"     ""    SUB)
+(alu32opr3 and32     "AND32"     "and"     ""    AND)
+(alu32opr2 not32     "NOT32"     "not"           NOT)
+(alu32opr3 ror32     "ROR32"     "ror"     ""    ROR)
+(alu32oprc cmp32     "CMP32"     "cmp"           CMP)
+(alu32opr3 rsub32    "RSUB32"    "rsub"    ""    RSUB)
+(alu32oprc btst32    "BTST32"    "btst"          BTST)
+(alu32opr3 or32      "OR32"      "or"      ""    OR)
+(alu32opr3 bmask32   "BMASK32"   "bmask"   ""    BMASK)
+(alu32opr3 max32     "MAX32"     "max"     ""    MAX)
+(alu32opr3 bset32    "BSET32"    "bset"    ""    BSET)
+(alu32opr3 min32     "MIN32"     "min"     ""    MIN)
+(alu32opr3 bclr32    "BCLR32"    "bclr"    ""    BCLR)
+(alu32opr3 adds232   "ADDS232"   "add"     "<<1" ADDS2)
+(alu32opr3 bchg32    "BCHG32"    "bchg"    ""    BCHG)
+(alu32opr3 adds432   "ADDS432"   "add"     "<<2" ADDS4)
+(alu32opr3 adds832   "ADDS832"   "add"     "<<3" ADDS8)
+(alu32opr3 adds1632  "ADDS1632"  "add"     "<<4" ADDS16)
+(alu32opr3 signext32 "SIGNEXT32" "signext" ""    SIGNEXT)
+(alu32opr2 neg32     "NEG32"     "neg"           NEG)
+(alu32opr3 lsr32     "LSR32"     "lsr"     ""    LSR)
+(alu32opr2 msb32     "MSB32"     "msb"           MSB)
+(alu32opr3 shl32     "SHL32"     "shl"     ""    SHL)
+(alu32opr2 bitrev32  "BITREV32"  "bitrev"        BITREV)
+(alu32opr3 asr32     "ASR32"     "asr"     ""    ASR)
+(alu32opr2 abs32     "ABS32"     "abs"           ABS)
+
+(define-pmacro (alu32opi3 x-name x-comment x-opcode x-suffix x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,#$disp5" x-suffix)
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
+       alu32areg alu32cond OP22_21_2 (.sym disp5 x-suffix))
+    () ())
+)
+
+(define-pmacro (alu32opi2 x-name x-comment x-opcode x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode "${alu32cond} $alu32dreg,#$disp5")
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
+       (f-op31-27 0) alu32cond OP22_21_2 disp5)
+    () ())
+)
+
+(define-pmacro (alu32opic x-name x-comment x-opcode x-encoding)
+  (define-normal-insn
+    x-name x-comment ()
+    (.str x-opcode "${alu32cond} $alu32areg,#$disp5")
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) (f-op4-0 0)
+       alu32areg alu32cond OP22_21_2 disp5)
+    () ())
+)
+
+(alu32opi2 movi32     "MOVI32"     "mov"             MOV)
+(alu32opic cmni32     "CMNI32"     "cmn"             CMN)
+(alu32opi3 addi32     "ADDI32"     "add"     ""      ADD)
+(alu32opi3 bici32     "BICI32"     "bic"     ""      BIC)
+(alu32opi3 muli32     "MULI32"     "mul"     ""      MUL)
+(alu32opi3 eori32     "EORI32"     "eor"     ""      EOR)
+(alu32opi3 subi32     "SUBI32"     "sub"     ""      SUB)
+(alu32opi3 andi32     "ANDI32"     "and"     ""      AND)
+(alu32opi2 noti32     "NOTI32"     "not"             NOT)
+(alu32opi3 rori32     "RORI32"     "ror"     ""      ROR)
+(alu32opic cmpi32     "CMPI32"     "cmp"             CMP)
+(alu32opi3 rsubi32    "RSUBI32"    "rsub"    ""      RSUB)
+(alu32opic btsti32    "BTSTI32"    "btst"            BTST)
+(alu32opi3 ori32      "ORI32"      "or"      ""      OR)
+(alu32opi3 bmaski32   "BMASKI32"   "bmask"   ""      BMASK)
+(alu32opi3 maxi32     "MAXI32"     "max"     ""      MAX)
+(alu32opi3 bseti32    "BSETI32"    "bset"    ""      BSET)
+(alu32opi3 mini32     "MINI32"     "min"     ""      MIN)
+(alu32opi3 bclri32    "BCLRI32"    "bclr"    ""      BCLR)
+(alu32opi3 adds2i32   "ADDS2I32"   "add"     "_shl1" ADDS2)
+(alu32opi3 bchgi32    "BCHGI32"    "bchg"    ""      BCHG)
+(alu32opi3 adds4i32   "ADDS4I32"   "add"     "_shl2" ADDS4)
+(alu32opi3 adds8i32   "ADDS8I32"   "add"     "_shl3" ADDS8)
+(alu32opi3 adds16i32  "ADDS16I32"  "add"     "_shl4" ADDS16)
+(alu32opi3 signexti32 "SIGNEXTI32" "signext" ""      SIGNEXT)
+(alu32opi2 negi32     "NEGI32"     "neg"             NEG)
+(alu32opi3 lsri32     "LSRI32"     "lsr"     ""      LSR)
+(alu32opi2 msbi32     "MSBI32"     "msb"             MSB)
+(alu32opi3 shli32     "SHLI32"     "shl"     ""      SHL)
+(alu32opi2 bitrevi32  "BITREVI32"  "bitrev"          BITREV)
+(alu32opi3 asri32     "ASRI32"     "asr"     ""      ASR)
+(alu32opi2 absi32     "ABSI32"     "abs"             ABS)
 
 ;; 48-bit instructions.
 

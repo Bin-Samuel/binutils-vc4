@@ -651,6 +651,34 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_DISP5 :
       errmsg = insert_normal (cd, fields->f_op20_16, 0, 16, 4, 5, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      {
+        long value = fields->f_op20_16_shl1;
+        value = ((UINT) (value) >> (1));
+        errmsg = insert_normal (cd, value, 0, 16, 4, 5, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      {
+        long value = fields->f_op20_16_shl2;
+        value = ((UINT) (value) >> (2));
+        errmsg = insert_normal (cd, value, 0, 16, 4, 5, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      {
+        long value = fields->f_op20_16_shl3;
+        value = ((UINT) (value) >> (3));
+        errmsg = insert_normal (cd, value, 0, 16, 4, 5, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      {
+        long value = fields->f_op20_16_shl4;
+        value = ((UINT) (value) >> (4));
+        errmsg = insert_normal (cd, value, 0, 16, 4, 5, 16, total_length, buffer);
+      }
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value = fields->f_ldstoff;
@@ -890,6 +918,38 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_DISP5 :
       length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & fields->f_op20_16);
       break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & value);
+        value = ((value) << (1));
+        fields->f_op20_16_shl1 = value;
+      }
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & value);
+        value = ((value) << (2));
+        fields->f_op20_16_shl2 = value;
+      }
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & value);
+        value = ((value) << (3));
+        fields->f_op20_16_shl3 = value;
+      }
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & value);
+        value = ((value) << (4));
+        fields->f_op20_16_shl4 = value;
+      }
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value;
@@ -1112,6 +1172,18 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_DISP5 :
       value = fields->f_op20_16;
       break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      value = fields->f_op20_16_shl1;
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      value = fields->f_op20_16_shl2;
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      value = fields->f_op20_16_shl3;
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      value = fields->f_op20_16_shl4;
+      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
@@ -1242,6 +1314,18 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5 :
       value = fields->f_op20_16;
+      break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      value = fields->f_op20_16_shl1;
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      value = fields->f_op20_16_shl2;
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      value = fields->f_op20_16_shl3;
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      value = fields->f_op20_16_shl4;
       break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
@@ -1381,6 +1465,18 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_DISP5 :
       fields->f_op20_16 = value;
       break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      fields->f_op20_16_shl1 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      fields->f_op20_16_shl2 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      fields->f_op20_16_shl3 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      fields->f_op20_16_shl4 = value;
+      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
@@ -1508,6 +1604,18 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5 :
       fields->f_op20_16 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      fields->f_op20_16_shl1 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      fields->f_op20_16_shl2 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      fields->f_op20_16_shl3 = value;
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      fields->f_op20_16_shl4 = value;
       break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;

@@ -157,6 +157,18 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_DISP5 :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5, (unsigned long *) (& fields->f_op20_16));
       break;
+    case VC4_OPERAND_DISP5_SHL1 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL1, (unsigned long *) (& fields->f_op20_16_shl1));
+      break;
+    case VC4_OPERAND_DISP5_SHL2 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL2, (unsigned long *) (& fields->f_op20_16_shl2));
+      break;
+    case VC4_OPERAND_DISP5_SHL3 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL3, (unsigned long *) (& fields->f_op20_16_shl3));
+      break;
+    case VC4_OPERAND_DISP5_SHL4 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL4, (unsigned long *) (& fields->f_op20_16_shl4));
+      break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;
