@@ -348,6 +348,8 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OFFSET10, "f-offset10", 16, 16, 9, 10, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET8, "f-offset8", 16, 16, 7, 8, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP22_21, "f-op22-21", 16, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP22, "f-op22", 16, 16, 6, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S, "f-op21-16s", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16, "f-op20-16", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16_SHL1, "f-op20-16-shl1", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16_SHL2, "f-op20-16-shl2", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -435,6 +437,10 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* alu32dreg:  */
   { "alu32dreg", VC4_OPERAND_ALU32DREG, HW_H_REG, 4, 5,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP4_0] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6:  */
+  { "imm6", VC4_OPERAND_IMM6, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu32breg:  */
   { "alu32breg", VC4_OPERAND_ALU32BREG, HW_H_REG, 4, 5,
@@ -1606,6 +1612,86 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* abs${alu32cond} $alu32dreg,#$disp5 */
   {
     VC4_INSN_ABSI32, "absi32", "abs", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.ss $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_MULHDRSS, "mulhdrss", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.su $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_MULHDRSU, "mulhdrsu", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.us $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_MULHDRUS, "mulhdrus", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.uu $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_MULHDRUU, "mulhdruu", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.ss $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_DIVRSS, "divrss", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.su $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_DIVRSU, "divrsu", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.us $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_DIVRUS, "divrus", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.uu $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_DIVRUU, "divruu", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.ss $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_MULHDISS, "mulhdiss", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.su $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_MULHDISU, "mulhdisu", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.us $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_MULHDIUS, "mulhdius", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mulhd$alu32cond.uu $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_MULHDIUU, "mulhdiuu", "mulhd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.ss $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_DIVISS, "diviss", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.su $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_DIVISU, "divisu", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.us $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_DIVIUS, "divius", "div", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* div$alu32cond.uu $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_DIVIUU, "diviuu", "div", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add $alu48idreg,$alu48isreg,#$alu48immu */

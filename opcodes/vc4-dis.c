@@ -165,6 +165,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_DISP5_SHL4 :
       print_normal (cd, info, fields->f_op20_16_shl4, 0, pc, length);
       break;
+    case VC4_OPERAND_IMM6 :
+      print_normal (cd, info, fields->f_op21_16s, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
     case VC4_OPERAND_LDSTOFF :
       print_normal (cd, info, fields->f_ldstoff, 0, pc, length);
       break;

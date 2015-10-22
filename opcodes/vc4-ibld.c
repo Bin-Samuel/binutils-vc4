@@ -679,6 +679,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
         errmsg = insert_normal (cd, value, 0, 16, 4, 5, 16, total_length, buffer);
       }
       break;
+    case VC4_OPERAND_IMM6 :
+      errmsg = insert_normal (cd, fields->f_op21_16s, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value = fields->f_ldstoff;
@@ -950,6 +953,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         fields->f_op20_16_shl4 = value;
       }
       break;
+    case VC4_OPERAND_IMM6 :
+      length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & fields->f_op21_16s);
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value;
@@ -1184,6 +1190,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_DISP5_SHL4 :
       value = fields->f_op20_16_shl4;
       break;
+    case VC4_OPERAND_IMM6 :
+      value = fields->f_op21_16s;
+      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
@@ -1326,6 +1335,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5_SHL4 :
       value = fields->f_op20_16_shl4;
+      break;
+    case VC4_OPERAND_IMM6 :
+      value = fields->f_op21_16s;
       break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
@@ -1477,6 +1489,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_DISP5_SHL4 :
       fields->f_op20_16_shl4 = value;
       break;
+    case VC4_OPERAND_IMM6 :
+      fields->f_op21_16s = value;
+      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
@@ -1616,6 +1631,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5_SHL4 :
       fields->f_op20_16_shl4 = value;
+      break;
+    case VC4_OPERAND_IMM6 :
+      fields->f_op21_16s = value;
       break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;

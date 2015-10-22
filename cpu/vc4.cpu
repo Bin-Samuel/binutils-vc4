@@ -279,6 +279,10 @@
 
 (df2 f-op22-21 "Opcode bits 22-21" () 16 16 6 2 UINT (#f) (#f))
 
+(df2 f-op22 "Opcode bit 22" () 16 16 6 1 UINT (#f) (#f))
+
+(df2 f-op21-16s "Opcode bits 21-16, signed" () 16 16 5 6 INT (#f) (#f))
+
 (df2 f-op20-16 "Opcode bits 20-16" () 16 16 4 5 UINT (#f) (#f))
 
 (define-pmacro (shifted-op20-16 x-amount)
@@ -513,6 +517,13 @@
   "" ()
   h-reg
   f-op4-0
+)
+
+(define-normal-operand
+  imm6
+  "" ()
+  h-sint
+  f-op21-16s
 )
 
 (define-normal-operand
@@ -1272,6 +1283,42 @@
 (alu32opi2 bitrevi32  "BITREVI32"  "bitrev"          BITREV)
 (alu32opi3 asri32     "ASRI32"     "asr"     ""      ASR)
 (alu32opi2 absi32     "ABSI32"     "abs"             ABS)
+
+(define-pmacro (mulhdivr x-name x-opcode x-signs x-encoding)
+  (define-normal-insn
+    (.sym x-name x-signs) (.str (.upcase x-name) (.upcase x-signs)) ()
+    (.str x-opcode "$alu32cond." x-signs " $alu32dreg,$alu32areg,$alu32breg")
+    (+ OPLEN_12 OP11_8_4 (f-op7-5 x-encoding) alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(mulhdivr "mulhdr" "mulhd" "ss" 0)
+(mulhdivr "mulhdr" "mulhd" "su" 1)
+(mulhdivr "mulhdr" "mulhd" "us" 2)
+(mulhdivr "mulhdr" "mulhd" "uu" 3)
+(mulhdivr "divr"   "div"   "ss" 4)
+(mulhdivr "divr"   "div"   "su" 5)
+(mulhdivr "divr"   "div"   "us" 6)
+(mulhdivr "divr"   "div"   "uu" 7)
+
+(define-pmacro (mulhdivi x-name x-opcode x-signs x-encoding)
+  (define-normal-insn
+    (.sym x-name x-signs) (.str (.upcase x-name) (.upcase x-signs)) ()
+    (.str x-opcode "$alu32cond." x-signs " $alu32dreg,$alu32areg,#$imm6")
+    (+ OPLEN_12 OP11_8_4 (f-op7-5 x-encoding) alu32dreg
+       alu32areg alu32cond (f-op22 1) imm6)
+    () ())
+)
+
+(mulhdivi "mulhdi" "mulhd" "ss" 0)
+(mulhdivi "mulhdi" "mulhd" "su" 1)
+(mulhdivi "mulhdi" "mulhd" "us" 2)
+(mulhdivi "mulhdi" "mulhd" "uu" 3)
+(mulhdivi "divi"   "div"   "ss" 4)
+(mulhdivi "divi"   "div"   "su" 5)
+(mulhdivi "divi"   "div"   "us" 6)
+(mulhdivi "divi"   "div"   "uu" 7)
 
 ;; 48-bit instructions.
 
