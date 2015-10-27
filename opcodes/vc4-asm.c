@@ -172,6 +172,30 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_IMM6 :
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6, (long *) (& fields->f_op21_16s));
       break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL1, (long *) (& fields->f_op21_16s_shl1));
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL2, (long *) (& fields->f_op21_16s_shl2));
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL3, (long *) (& fields->f_op21_16s_shl3));
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL4, (long *) (& fields->f_op21_16s_shl4));
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL5, (long *) (& fields->f_op21_16s_shl5));
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL6, (long *) (& fields->f_op21_16s_shl6));
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL7, (long *) (& fields->f_op21_16s_shl7));
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL8, (long *) (& fields->f_op21_16s_shl8));
+      break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;

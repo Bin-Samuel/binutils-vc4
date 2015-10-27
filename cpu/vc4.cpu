@@ -283,6 +283,22 @@
 
 (df2 f-op21-16s "Opcode bits 21-16, signed" () 16 16 5 6 INT (#f) (#f))
 
+(define-pmacro (shifted-op21-16s x-amount)
+  (df2 (.sym f-op21-16s-shl x-amount)
+    (.str "Opcode bits 21-16, signed, asr " x-amount) () 16 16 5 6 INT
+    ((value pc) (sra INT value x-amount))
+    ((value pc) (sll INT value x-amount)))
+)
+
+(shifted-op21-16s 1)
+(shifted-op21-16s 2)
+(shifted-op21-16s 3)
+(shifted-op21-16s 4)
+(shifted-op21-16s 5)
+(shifted-op21-16s 6)
+(shifted-op21-16s 7)
+(shifted-op21-16s 8)
+
 (df2 f-op20-16 "Opcode bits 20-16" () 16 16 4 5 UINT (#f) (#f))
 
 (define-pmacro (shifted-op20-16 x-amount)
@@ -525,6 +541,23 @@
   h-sint
   f-op21-16s
 )
+
+(define-pmacro (shifted_imm6 x-amount)
+  (define-normal-operand
+    (.sym imm6_shl x-amount)
+    "" ()
+    h-sint
+    (.sym f-op21-16s-shl x-amount))
+)
+
+(shifted_imm6 1)
+(shifted_imm6 2)
+(shifted_imm6 3)
+(shifted_imm6 4)
+(shifted_imm6 5)
+(shifted_imm6 6)
+(shifted_imm6 7)
+(shifted_imm6 8)
 
 (define-normal-operand
   alu32breg
@@ -1329,23 +1362,23 @@
     () ())
 )
 
-(satsclr3 "addsat" "adds"   ""    5 0)
-(satsclr3 "subsat" "subs"   ""    5 1)
-(satsclr3 "shlsat" "shls"   ""    5 2)
-(satsclr3 "adds5"  "add"    "<<5" 5 4)
-(satsclr3 "adds6"  "add"    "<<6" 5 5)
-(satsclr3 "adds7"  "add"    "<<7" 5 6)
-(satsclr3 "adds8"  "add"    "<<8" 5 7)
-(satsclr3 "subs1"  "sub"    "<<1" 6 1)
-(satsclr3 "subs2"  "sub"    "<<2" 6 2)
-(satsclr3 "subs3"  "sub"    "<<3" 6 3)
-(satsclr3 "subs4"  "sub"    "<<4" 6 4)
-(satsclr3 "subs5"  "sub"    "<<5" 6 5)
-(satsclr3 "subs6"  "sub"    "<<6" 6 6)
-(satsclr3 "subs7"  "sub"    "<<7" 6 7)
-(satsclr3 "subs8"  "sub"    "<<8" 7 0)
+(satsclr3 "addsatr" "adds"   ""    5 0)
+(satsclr3 "subsatr" "subs"   ""    5 1)
+(satsclr3 "shlsatr" "shls"   ""    5 2)
+(satsclr3 "adds5r"  "add"    "<<5" 5 4)
+(satsclr3 "adds6r"  "add"    "<<6" 5 5)
+(satsclr3 "adds7r"  "add"    "<<7" 5 6)
+(satsclr3 "adds8r"  "add"    "<<8" 5 7)
+(satsclr3 "subs1r"  "sub"    "<<1" 6 1)
+(satsclr3 "subs2r"  "sub"    "<<2" 6 2)
+(satsclr3 "subs3r"  "sub"    "<<3" 6 3)
+(satsclr3 "subs4r"  "sub"    "<<4" 6 4)
+(satsclr3 "subs5r"  "sub"    "<<5" 6 5)
+(satsclr3 "subs6r"  "sub"    "<<6" 6 6)
+(satsclr3 "subs7r"  "sub"    "<<7" 6 7)
+(satsclr3 "subs8r"  "sub"    "<<8" 7 0)
 
-(define-pmacro (clmpcnt2 x-name x-opcode x-op11-8 x-op7-5)
+(define-pmacro (clmpcntr2 x-name x-opcode x-op11-8 x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32dreg,$alu32breg")
@@ -1354,8 +1387,45 @@
     () ())
 )
 
-(clmpcnt2 "clamp16" "clamp16" 5 3)
-(clmpcnt2 "count"   "count"   6 0)
+(clmpcntr2 "clamp16r" "clamp16" 5 3)
+(clmpcntr2 "countr"   "count"   6 0)
+
+(define-pmacro (satscli3 x-name x-opcode x-suffix x-op11-8 x-op7-5)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,#$imm6" x-suffix)
+    (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
+       alu32areg alu32cond (f-op22 1) (.sym imm6 x-suffix))
+    () ())
+)
+
+(satscli3 "addsati" "adds"   ""    5 0)
+(satscli3 "subsati" "subs"   ""    5 1)
+(satscli3 "shlsati" "shls"   ""    5 2)
+(satscli3 "adds5i"  "add"    "_shl5" 5 4)
+(satscli3 "adds6i"  "add"    "_shl6" 5 5)
+(satscli3 "adds7i"  "add"    "_shl7" 5 6)
+(satscli3 "adds8i"  "add"    "_shl8" 5 7)
+(satscli3 "subs1i"  "sub"    "_shl1" 6 1)
+(satscli3 "subs2i"  "sub"    "_shl2" 6 2)
+(satscli3 "subs3i"  "sub"    "_shl3" 6 3)
+(satscli3 "subs4i"  "sub"    "_shl4" 6 4)
+(satscli3 "subs5i"  "sub"    "_shl5" 6 5)
+(satscli3 "subs6i"  "sub"    "_shl6" 6 6)
+(satscli3 "subs7i"  "sub"    "_shl7" 6 7)
+(satscli3 "subs8i"  "sub"    "_shl8" 7 0)
+
+(define-pmacro (clmpcnti2 x-name x-opcode x-op11-8 x-op7-5)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,#$imm6")
+    (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
+       (f-op31-27 0) alu32cond (f-op22 1) imm6)
+    () ())
+)
+
+(clmpcnti2 "clamp16i" "clamp16" 5 3)
+(clmpcnti2 "counti"   "count"   6 0)
 
 ;; 48-bit instructions.
 

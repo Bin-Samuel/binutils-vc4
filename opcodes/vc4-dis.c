@@ -168,6 +168,30 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_IMM6 :
       print_normal (cd, info, fields->f_op21_16s, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
       break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      print_normal (cd, info, fields->f_op21_16s_shl1, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      print_normal (cd, info, fields->f_op21_16s_shl2, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      print_normal (cd, info, fields->f_op21_16s_shl3, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      print_normal (cd, info, fields->f_op21_16s_shl4, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      print_normal (cd, info, fields->f_op21_16s_shl5, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      print_normal (cd, info, fields->f_op21_16s_shl6, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      print_normal (cd, info, fields->f_op21_16s_shl7, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      print_normal (cd, info, fields->f_op21_16s_shl8, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
     case VC4_OPERAND_LDSTOFF :
       print_normal (cd, info, fields->f_ldstoff, 0, pc, length);
       break;

@@ -350,6 +350,14 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP22_21, "f-op22-21", 16, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP22, "f-op22", 16, 16, 6, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP21_16S, "f-op21-16s", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL1, "f-op21-16s-shl1", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL2, "f-op21-16s-shl2", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL3, "f-op21-16s-shl3", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL4, "f-op21-16s-shl4", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL5, "f-op21-16s-shl5", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL6, "f-op21-16s-shl6", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL7, "f-op21-16s-shl7", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16S_SHL8, "f-op21-16s-shl8", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16, "f-op20-16", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16_SHL1, "f-op20-16-shl1", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16_SHL2, "f-op20-16-shl2", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -441,6 +449,38 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* imm6:  */
   { "imm6", VC4_OPERAND_IMM6, HW_H_SINT, 5, 6,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl1:  */
+  { "imm6_shl1", VC4_OPERAND_IMM6_SHL1, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL1] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl2:  */
+  { "imm6_shl2", VC4_OPERAND_IMM6_SHL2, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL2] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl3:  */
+  { "imm6_shl3", VC4_OPERAND_IMM6_SHL3, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL3] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl4:  */
+  { "imm6_shl4", VC4_OPERAND_IMM6_SHL4, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL4] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl5:  */
+  { "imm6_shl5", VC4_OPERAND_IMM6_SHL5, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL5] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl6:  */
+  { "imm6_shl6", VC4_OPERAND_IMM6_SHL6, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL6] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl7:  */
+  { "imm6_shl7", VC4_OPERAND_IMM6_SHL7, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL7] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* imm6_shl8:  */
+  { "imm6_shl8", VC4_OPERAND_IMM6_SHL8, HW_H_SINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S_SHL8] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu32breg:  */
   { "alu32breg", VC4_OPERAND_ALU32BREG, HW_H_REG, 4, 5,
@@ -1696,87 +1736,172 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
   },
 /* adds$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
-    VC4_INSN_ADDSAT, "addsat", "adds", 32,
+    VC4_INSN_ADDSATR, "addsatr", "adds", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* subs$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
-    VC4_INSN_SUBSAT, "subsat", "subs", 32,
+    VC4_INSN_SUBSATR, "subsatr", "subs", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* shls$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
-    VC4_INSN_SHLSAT, "shlsat", "shls", 32,
+    VC4_INSN_SHLSATR, "shlsatr", "shls", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<5 */
   {
-    VC4_INSN_ADDS5, "adds5", "add", 32,
+    VC4_INSN_ADDS5R, "adds5r", "add", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<6 */
   {
-    VC4_INSN_ADDS6, "adds6", "add", 32,
+    VC4_INSN_ADDS6R, "adds6r", "add", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<7 */
   {
-    VC4_INSN_ADDS7, "adds7", "add", 32,
+    VC4_INSN_ADDS7R, "adds7r", "add", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<8 */
   {
-    VC4_INSN_ADDS8, "adds8", "add", 32,
+    VC4_INSN_ADDS8R, "adds8r", "add", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<1 */
   {
-    VC4_INSN_SUBS1, "subs1", "sub", 32,
+    VC4_INSN_SUBS1R, "subs1r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<2 */
   {
-    VC4_INSN_SUBS2, "subs2", "sub", 32,
+    VC4_INSN_SUBS2R, "subs2r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<3 */
   {
-    VC4_INSN_SUBS3, "subs3", "sub", 32,
+    VC4_INSN_SUBS3R, "subs3r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<4 */
   {
-    VC4_INSN_SUBS4, "subs4", "sub", 32,
+    VC4_INSN_SUBS4R, "subs4r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<5 */
   {
-    VC4_INSN_SUBS5, "subs5", "sub", 32,
+    VC4_INSN_SUBS5R, "subs5r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<6 */
   {
-    VC4_INSN_SUBS6, "subs6", "sub", 32,
+    VC4_INSN_SUBS6R, "subs6r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<7 */
   {
-    VC4_INSN_SUBS7, "subs7", "sub", 32,
+    VC4_INSN_SUBS7R, "subs7r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<8 */
   {
-    VC4_INSN_SUBS8, "subs8", "sub", 32,
+    VC4_INSN_SUBS8R, "subs8r", "sub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* clamp16$alu32cond $alu32dreg,$alu32breg */
   {
-    VC4_INSN_CLAMP16, "clamp16", "clamp16", 32,
+    VC4_INSN_CLAMP16R, "clamp16r", "clamp16", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* count$alu32cond $alu32dreg,$alu32breg */
   {
-    VC4_INSN_COUNT, "count", "count", 32,
+    VC4_INSN_COUNTR, "countr", "count", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* adds$alu32cond $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_ADDSATI, "addsati", "adds", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* subs$alu32cond $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_SUBSATI, "subsati", "subs", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* shls$alu32cond $alu32dreg,$alu32areg,#$imm6 */
+  {
+    VC4_INSN_SHLSATI, "shlsati", "shls", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl5 */
+  {
+    VC4_INSN_ADDS5I, "adds5i", "add", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl6 */
+  {
+    VC4_INSN_ADDS6I, "adds6i", "add", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl7 */
+  {
+    VC4_INSN_ADDS7I, "adds7i", "add", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl8 */
+  {
+    VC4_INSN_ADDS8I, "adds8i", "add", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl1 */
+  {
+    VC4_INSN_SUBS1I, "subs1i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl2 */
+  {
+    VC4_INSN_SUBS2I, "subs2i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl3 */
+  {
+    VC4_INSN_SUBS3I, "subs3i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl4 */
+  {
+    VC4_INSN_SUBS4I, "subs4i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl5 */
+  {
+    VC4_INSN_SUBS5I, "subs5i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl6 */
+  {
+    VC4_INSN_SUBS6I, "subs6i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl7 */
+  {
+    VC4_INSN_SUBS7I, "subs7i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl8 */
+  {
+    VC4_INSN_SUBS8I, "subs8i", "sub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* clamp16$alu32cond $alu32dreg,#$imm6 */
+  {
+    VC4_INSN_CLAMP16I, "clamp16i", "clamp16", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* count$alu32cond $alu32dreg,#$imm6 */
+  {
+    VC4_INSN_COUNTI, "counti", "count", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add $alu48idreg,$alu48isreg,#$alu48immu */

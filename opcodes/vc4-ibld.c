@@ -682,6 +682,62 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_IMM6 :
       errmsg = insert_normal (cd, fields->f_op21_16s, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      {
+        long value = fields->f_op21_16s_shl1;
+        value = ((INT) (value) >> (1));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      {
+        long value = fields->f_op21_16s_shl2;
+        value = ((INT) (value) >> (2));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      {
+        long value = fields->f_op21_16s_shl3;
+        value = ((INT) (value) >> (3));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      {
+        long value = fields->f_op21_16s_shl4;
+        value = ((INT) (value) >> (4));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      {
+        long value = fields->f_op21_16s_shl5;
+        value = ((INT) (value) >> (5));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      {
+        long value = fields->f_op21_16s_shl6;
+        value = ((INT) (value) >> (6));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      {
+        long value = fields->f_op21_16s_shl7;
+        value = ((INT) (value) >> (7));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      {
+        long value = fields->f_op21_16s_shl8;
+        value = ((INT) (value) >> (8));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
+      }
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value = fields->f_ldstoff;
@@ -956,6 +1012,70 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_IMM6 :
       length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & fields->f_op21_16s);
       break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (1));
+        fields->f_op21_16s_shl1 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (2));
+        fields->f_op21_16s_shl2 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (3));
+        fields->f_op21_16s_shl3 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (4));
+        fields->f_op21_16s_shl4 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (5));
+        fields->f_op21_16s_shl5 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (6));
+        fields->f_op21_16s_shl6 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (7));
+        fields->f_op21_16s_shl7 = value;
+      }
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, pc, & value);
+        value = ((value) << (8));
+        fields->f_op21_16s_shl8 = value;
+      }
+      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value;
@@ -1193,6 +1313,30 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_IMM6 :
       value = fields->f_op21_16s;
       break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      value = fields->f_op21_16s_shl1;
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      value = fields->f_op21_16s_shl2;
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      value = fields->f_op21_16s_shl3;
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      value = fields->f_op21_16s_shl4;
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      value = fields->f_op21_16s_shl5;
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      value = fields->f_op21_16s_shl6;
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      value = fields->f_op21_16s_shl7;
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      value = fields->f_op21_16s_shl8;
+      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
@@ -1338,6 +1482,30 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_IMM6 :
       value = fields->f_op21_16s;
+      break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      value = fields->f_op21_16s_shl1;
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      value = fields->f_op21_16s_shl2;
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      value = fields->f_op21_16s_shl3;
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      value = fields->f_op21_16s_shl4;
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      value = fields->f_op21_16s_shl5;
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      value = fields->f_op21_16s_shl6;
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      value = fields->f_op21_16s_shl7;
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      value = fields->f_op21_16s_shl8;
       break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
@@ -1492,6 +1660,30 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_IMM6 :
       fields->f_op21_16s = value;
       break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      fields->f_op21_16s_shl1 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      fields->f_op21_16s_shl2 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      fields->f_op21_16s_shl3 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      fields->f_op21_16s_shl4 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      fields->f_op21_16s_shl5 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      fields->f_op21_16s_shl6 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      fields->f_op21_16s_shl7 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      fields->f_op21_16s_shl8 = value;
+      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
@@ -1634,6 +1826,30 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_IMM6 :
       fields->f_op21_16s = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL1 :
+      fields->f_op21_16s_shl1 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL2 :
+      fields->f_op21_16s_shl2 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL3 :
+      fields->f_op21_16s_shl3 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL4 :
+      fields->f_op21_16s_shl4 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL5 :
+      fields->f_op21_16s_shl5 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL6 :
+      fields->f_op21_16s_shl6 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL7 :
+      fields->f_op21_16s_shl7 = value;
+      break;
+    case VC4_OPERAND_IMM6_SHL8 :
+      fields->f_op21_16s_shl8 = value;
       break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
