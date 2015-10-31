@@ -182,6 +182,8 @@
   ((value pc) (sll UINT value 2))
 )
 
+(df f-op8-5 "Opcode bits 8-5" () 8 4 UINT #f #f)
+
 (df f-op8-4 "Opcode bits 8-4" () 8 5 UINT #f #f)
 
 (df f-op8-4-shl3 "Opcode bits 8-4 (shl 3)" () 8 5 UINT
@@ -280,6 +282,8 @@
 (df2 f-op22-21 "Opcode bits 22-21" () 16 16 6 2 UINT (#f) (#f))
 
 (df2 f-op22 "Opcode bit 22" () 16 16 6 1 UINT (#f) (#f))
+
+(df2 f-op21-16 "Opcode bits 21-16" () 16 16 5 6 UINT (#f) (#f))
 
 (df2 f-op21-16s "Opcode bits 21-16, signed" () 16 16 5 6 INT (#f) (#f))
 
@@ -387,6 +391,12 @@
 (define-pmacro ops4bit
   (MOV ADD MUL SUB NOT CMP BTST BMASK
    BSET BCLR BCHG ADDS8 SIGNEXT LSR SHL ASR)
+)
+
+(define-normal-insn-enum
+  insn-floatops "insn float ops" () ALUFOP_ f-op8-5
+  (FADD FSUB FMUL FDIV FCMP FABS FRSB FMAX
+   FRCP FRSQRT FNMUL FMIN FCEIL FFLOOR FLOG2 FEXP2)
 )
 
 (define-normal-insn-enum
@@ -540,6 +550,15 @@
   "" ()
   h-sint
   f-op21-16s
+)
+
+(define-operand
+  (name floatimm6)
+  (comment "6-bit floating-point immediate")
+  (attrs)
+  (type h-uint)
+  (index f-op21-16)
+  (handlers (parse "floatimm6"))
 )
 
 (define-pmacro (shifted_imm6 x-amount)
@@ -1426,6 +1445,96 @@
 
 (clmpcnti2 "clamp16i" "clamp16" 5 3)
 (clmpcnti2 "counti"   "count"   6 0)
+
+;; Floating-point ops.
+
+(define-pmacro (floatopr3 x-name x-opcode x-fop)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$alu32breg")
+    (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(define-pmacro (floatoprc x-name x-opcode x-fop)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32areg,$alu32breg")
+    (+ OPLEN_12 (f-op11-9 4) x-fop (f-op4-0 0)
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(define-pmacro (floatopr2 x-name x-opcode x-fop)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32breg")
+    (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
+       (f-op31-27 0) alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(floatopr3 "faddr"   "fadd"   ALUFOP_FADD)
+(floatopr3 "fsubr"   "fsub"   ALUFOP_FSUB)
+(floatopr3 "fmulr"   "fmul"   ALUFOP_FMUL)
+(floatopr3 "fdivr"   "fdiv"   ALUFOP_FDIV)
+(floatoprc "fcmpr"   "fcmp"   ALUFOP_FCMP)
+(floatopr2 "fabsr"   "fabs"   ALUFOP_FABS)
+(floatopr3 "frsbr"   "frsb"   ALUFOP_FRSB)
+(floatopr3 "fmaxr"   "fmax"   ALUFOP_FMAX)
+(floatopr2 "frcpr"   "frcp"   ALUFOP_FRCP)
+(floatopr2 "frsqrtr" "frsqrt" ALUFOP_FRSQRT)
+(floatopr3 "fnmulr"  "fnmul"  ALUFOP_FNMUL)
+(floatopr3 "fminr"   "fmin"   ALUFOP_FMIN)
+(floatopr2 "fceilr"  "fceil"  ALUFOP_FCEIL)
+(floatopr2 "ffloorr" "ffloor" ALUFOP_FFLOOR)
+(floatopr2 "flog2r"  "flog2"  ALUFOP_FLOG2)
+(floatopr2 "fexp2r"  "fexp2"  ALUFOP_FEXP2)
+
+(define-pmacro (floatopi3 x-name x-opcode x-fop)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,#$floatimm6")
+    (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
+       alu32areg alu32cond (f-op22 1) floatimm6)
+    () ())
+)
+
+(define-pmacro (floatopic x-name x-opcode x-fop)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32areg,#$floatimm6")
+    (+ OPLEN_12 (f-op11-9 4) x-fop (f-op4-0 0)
+       alu32areg alu32cond (f-op22 1) floatimm6)
+    () ())
+)
+
+(define-pmacro (floatopi2 x-name x-opcode x-fop)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,#$floatimm6")
+    (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
+       (f-op31-27 0) alu32cond OP22_21_0 floatimm6)
+    () ())
+)
+
+(floatopi3 "faddi"   "fadd"   ALUFOP_FADD)
+(floatopi3 "fsubi"   "fsub"   ALUFOP_FSUB)
+(floatopi3 "fmuli"   "fmul"   ALUFOP_FMUL)
+(floatopi3 "fdivi"   "fdiv"   ALUFOP_FDIV)
+(floatopic "fcmpi"   "fcmp"   ALUFOP_FCMP)
+(floatopi2 "fabsi"   "fabs"   ALUFOP_FABS)
+(floatopi3 "frsbi"   "frsb"   ALUFOP_FRSB)
+(floatopi3 "fmaxi"   "fmax"   ALUFOP_FMAX)
+(floatopi2 "frcpi"   "frcp"   ALUFOP_FRCP)
+(floatopi2 "frsqrti" "frsqrt" ALUFOP_FRSQRT)
+(floatopi3 "fnmuli"  "fnmul"  ALUFOP_FNMUL)
+(floatopi3 "fmini"   "fmin"   ALUFOP_FMIN)
+(floatopi2 "fceili"  "fceil"  ALUFOP_FCEIL)
+(floatopi2 "ffloori" "ffloor" ALUFOP_FFLOOR)
+(floatopi2 "flog2i"  "flog2"  ALUFOP_FLOG2)
+(floatopi2 "fexp2i"  "fexp2"  ALUFOP_FEXP2)
 
 ;; 48-bit instructions.
 

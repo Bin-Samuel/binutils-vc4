@@ -317,6 +317,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP9_8, "f-op9-8", 0, 16, 9, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP9_5, "f-op9-5", 0, 16, 9, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_SPOFFSET, "f-spoffset", 0, 16, 8, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP8_5, "f-op8-5", 0, 16, 8, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP8_4, "f-op8-4", 0, 16, 8, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP8_4_SHL3, "f-op8-4-shl3", 0, 16, 8, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP8, "f-op8", 0, 16, 8, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -349,6 +350,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OFFSET8, "f-offset8", 16, 16, 7, 8, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP22_21, "f-op22-21", 16, 16, 6, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP22, "f-op22", 16, 16, 6, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_16, "f-op21-16", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP21_16S, "f-op21-16s", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP21_16S_SHL1, "f-op21-16s-shl1", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP21_16S_SHL2, "f-op21-16s-shl2", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
@@ -449,6 +451,10 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* imm6:  */
   { "imm6", VC4_OPERAND_IMM6, HW_H_SINT, 5, 6,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16S] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* floatimm6: 6-bit floating-point immediate */
+  { "floatimm6", VC4_OPERAND_FLOATIMM6, HW_H_UINT, 5, 6,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP21_16] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* imm6_shl1:  */
   { "imm6_shl1", VC4_OPERAND_IMM6_SHL1, HW_H_SINT, 5, 6,
@@ -1902,6 +1908,166 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* count$alu32cond $alu32dreg,#$imm6 */
   {
     VC4_INSN_COUNTI, "counti", "count", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fadd$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FADDR, "faddr", "fadd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fsub$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FSUBR, "fsubr", "fsub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fmul$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FMULR, "fmulr", "fmul", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fdiv$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FDIVR, "fdivr", "fdiv", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fcmp$alu32cond $alu32areg,$alu32breg */
+  {
+    VC4_INSN_FCMPR, "fcmpr", "fcmp", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fabs$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FABSR, "fabsr", "fabs", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* frsb$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FRSBR, "frsbr", "frsb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fmax$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FMAXR, "fmaxr", "fmax", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* frcp$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FRCPR, "frcpr", "frcp", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* frsqrt$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FRSQRTR, "frsqrtr", "frsqrt", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fnmul$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FNMULR, "fnmulr", "fnmul", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fmin$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+  {
+    VC4_INSN_FMINR, "fminr", "fmin", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fceil$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FCEILR, "fceilr", "fceil", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ffloor$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FFLOORR, "ffloorr", "ffloor", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* flog2$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FLOG2R, "flog2r", "flog2", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fexp2$alu32cond $alu32dreg,$alu32breg */
+  {
+    VC4_INSN_FEXP2R, "fexp2r", "fexp2", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fadd$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FADDI, "faddi", "fadd", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fsub$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FSUBI, "fsubi", "fsub", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fmul$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FMULI, "fmuli", "fmul", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fdiv$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FDIVI, "fdivi", "fdiv", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fcmp$alu32cond $alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FCMPI, "fcmpi", "fcmp", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fabs$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FABSI, "fabsi", "fabs", 33,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* frsb$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FRSBI, "frsbi", "frsb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fmax$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FMAXI, "fmaxi", "fmax", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* frcp$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FRCPI, "frcpi", "frcp", 33,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* frsqrt$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FRSQRTI, "frsqrti", "frsqrt", 33,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fnmul$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FNMULI, "fnmuli", "fnmul", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fmin$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
+  {
+    VC4_INSN_FMINI, "fmini", "fmin", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fceil$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FCEILI, "fceili", "fceil", 33,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ffloor$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FFLOORI, "ffloori", "ffloor", 33,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* flog2$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FLOG2I, "flog2i", "flog2", 33,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* fexp2$alu32cond $alu32dreg,#$floatimm6 */
+  {
+    VC4_INSN_FEXP2I, "fexp2i", "fexp2", 33,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* add $alu48idreg,$alu48isreg,#$alu48immu */

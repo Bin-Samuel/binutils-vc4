@@ -51,6 +51,7 @@ static const char * parse_insn_normal
 
 /* -- asm.c */
 
+#if 0
 static const char *
 parse_imm31 (CGEN_CPU_DESC cd,
 	     const char **strp,
@@ -62,6 +63,48 @@ parse_imm31 (CGEN_CPU_DESC cd,
   errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
   
   return errmsg;
+}
+#endif
+
+#include <errno.h>
+
+union floatbits {
+  float f;
+  uint32_t u;
+};
+
+static const char *
+parse_floatimm6 (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+		 const char **strp,
+		 int opindex ATTRIBUTE_UNUSED,
+		 unsigned long *valuep)
+{
+  const char *startptr = *strp;
+  char *endptr;
+  union floatbits val;
+  unsigned int exponent, signbit, mantissa;
+  
+  errno = 0;
+  val.f = (float) strtod (startptr, &endptr);
+  
+  if (errno != 0)
+    goto err_out;
+
+  signbit = (val.u & 0x80000000) ? 1 : 0;
+  exponent = (val.u >> 23) & 0xff;
+  mantissa = val.u & 0x7fffff;
+
+  if (exponent >= 124 && exponent < 132
+      && (mantissa & 0x1fffff) == 0)
+    {
+      exponent -= 124;
+      *valuep = (signbit << 5) | (exponent << 2) | (mantissa >> 21);
+      *strp = endptr;
+      return NULL;
+    }
+
+err_out:
+  return "Bad floating-point immediate";
 }
 
 /* -- */
@@ -168,6 +211,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_DISP5_SHL4 :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL4, (unsigned long *) (& fields->f_op20_16_shl4));
+      break;
+    case VC4_OPERAND_FLOATIMM6 :
+      errmsg = parse_floatimm6 (cd, strp, VC4_OPERAND_FLOATIMM6, (unsigned long *) (& fields->f_op21_16));
       break;
     case VC4_OPERAND_IMM6 :
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6, (long *) (& fields->f_op21_16s));
