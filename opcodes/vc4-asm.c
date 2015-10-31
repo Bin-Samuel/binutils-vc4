@@ -83,10 +83,10 @@ parse_floatimm6 (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
   char *endptr;
   union floatbits val;
   unsigned int exponent, signbit, mantissa;
-  
+
   errno = 0;
   val.f = (float) strtod (startptr, &endptr);
-  
+
   if (errno != 0)
     goto err_out;
 
@@ -185,6 +185,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op9_5);
       break;
+    case VC4_OPERAND_ALU48OFFSET :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_ALU48OFFSET, (long *) (& fields->f_op47_16));
+      break;
     case VC4_OPERAND_BCC32IMM :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
       break;
@@ -244,6 +247,12 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
+      break;
+    case VC4_OPERAND_MEM48OFFSET27 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_MEM48OFFSET27, (long *) (& fields->f_offset27_48));
+      break;
+    case VC4_OPERAND_MEM48SREG :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op47_43);
       break;
     case VC4_OPERAND_OFF16BASEREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_basereg, & fields->f_op9_8);

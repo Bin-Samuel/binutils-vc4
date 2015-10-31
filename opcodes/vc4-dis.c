@@ -138,6 +138,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op9_5, 0);
       break;
+    case VC4_OPERAND_ALU48OFFSET :
+      print_normal (cd, info, fields->f_op47_16, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
     case VC4_OPERAND_BCC32IMM :
       print_normal (cd, info, fields->f_op29_24, 0, pc, length);
       break;
@@ -197,6 +200,12 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_LDSTOFF :
       print_normal (cd, info, fields->f_ldstoff, 0, pc, length);
+      break;
+    case VC4_OPERAND_MEM48OFFSET27 :
+      print_normal (cd, info, fields->f_offset27_48, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      break;
+    case VC4_OPERAND_MEM48SREG :
+      print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op47_43, 0);
       break;
     case VC4_OPERAND_OFF16BASEREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_basereg, fields->f_op9_8, 0);

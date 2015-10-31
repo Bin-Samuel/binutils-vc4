@@ -171,7 +171,7 @@
 
 (df f-alu16op "ALU16 5-bit opcodes" () 12 5 UINT #f #f)
 
-(df f-ALU16OPI_ "ALU16 4-bit opcodes" () 12 4 UINT #f #f)
+(df f-alu16opi "ALU16 4-bit opcodes" () 12 4 UINT #f #f)
 
 (df f-op9-8 "Opcode bits 9-8" () 9 2 UINT #f #f)
 
@@ -321,6 +321,13 @@
 
 (df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 UINT (#f) (#f))
 
+(df2 f-op47-43 "Opcode bits 47-43" () 16 32 31 5 UINT (#f) (#f))
+
+(df2 f-offset27-48 "27-bit offset in 48-bit insn" () 16 32 26 27 SI
+  ((value pc) (sub SI value (sub SI pc 6)))
+  ((value pc) (add SI (add SI pc 6) value))
+)
+
 ;; Multi-ifields.
 
 (define-multi-ifield
@@ -405,7 +412,7 @@
 )
 
 (define-normal-insn-enum
-  insn-alu16opi "insn alu16 imm ops" () ALU16OPI_ f-ALU16OPI_
+  insn-alu16opi "insn alu16 imm ops" () ALU16OPI_ f-alu16opi
   ops4bit
 )
 
@@ -675,10 +682,31 @@
 )
 
 (define-normal-operand
+  mem48sreg
+  "" ()
+  h-reg
+  f-op47-43
+)
+
+(define-normal-operand
   alu48immu
   "" ()
   h-uint
   f-op47-16
+)
+
+(define-normal-operand
+  alu48offset
+  "" ()
+  h-sint
+  f-op47-16
+)
+
+(define-normal-operand
+  mem48offset27
+  "" ()
+  h-sint
+  f-offset27-48
 )
 
 (define-normal-operand
@@ -1536,7 +1564,79 @@
 (floatopi2 "flog2i"  "flog2"  ALUFOP_FLOG2)
 (floatopi2 "fexp2i"  "fexp2"  ALUFOP_FEXP2)
 
+; Floating-point <-> integer conversion.
+
+(define-pmacro (convopr x-name x-opcode x-shiftop x-op7-5)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg," x-shiftop " $alu32breg")
+    (+ OPLEN_12 OP11_8_10 x-op7-5 alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(convopr "ftruncr" "ftrunc" "sasl" OP7_5_0)
+(convopr "floorr"  "floor"  "sasl" OP7_5_1)
+(convopr "fltsr"   "flts"   "sasr" OP7_5_2)
+(convopr "fltur"   "fltu"   "sasr" OP7_5_3)
+
+(define-pmacro (convopi x-name x-opcode x-shiftop x-op7-5)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg," x-shiftop "#$imm6")
+    (+ OPLEN_12 OP11_8_10 x-op7-5 alu32dreg
+       alu32areg alu32cond (f-op22 1) imm6)
+    () ())
+)
+
+(convopi "ftrunci" "ftrunc" "sasl" OP7_5_0)
+(convopi "floori"  "floor"  "sasl" OP7_5_1)
+(convopi "fltsi"   "flts"   "sasr" OP7_5_2)
+(convopi "fltui"   "fltu"   "sasr" OP7_5_3)
+
 ;; 48-bit instructions.
+
+(define-normal-insn
+  lea48 "LEA48" ()
+  "lea $alu48idreg,$alu48offset(pc)"
+  (+ OPLEN_14 OP11_8_5 OP7_5_0 alu48idreg
+     alu48offset)
+  () ()
+)
+
+; FIXME: ".l" for long-offset forms here is a temporary measure.
+
+(define-normal-insn
+  ldpcrel27 "LDPCREL27" ()
+  "ld$accsz32.l $alu48idreg,$mem48offset27(pc)"
+  (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 0) alu48idreg
+     (f-op47-43 31) mem48offset27)
+  () ()
+)
+
+(define-normal-insn
+  stpcrel27 "STPCREL27" ()
+  "st$accsz32.l $alu48idreg,$mem48offset27(pc)"
+  (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 1) alu48idreg
+     (f-op47-43 31) mem48offset27)
+  () ()
+)
+
+(define-normal-insn
+  ldoff27 "LDOFF27" ()
+  "ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg)"
+  (+ OPLEN_14 OP11_8_6 accsz32 (f-op5 0) alu48idreg
+     mem48sreg mem48offset27)
+  () ()
+)
+
+(define-normal-insn
+  stoff27 "STOFF27" ()
+  "st$accsz32.l $alu48idreg,$mem48offset27($mem48sreg)"
+  (+ OPLEN_14 OP11_8_6 accsz32 (f-op5 1) alu48idreg
+     mem48sreg mem48offset27)
+  () ()
+)
 
 (define-normal-insn
   add48i "ADD48I" ()
@@ -1545,5 +1645,31 @@
      alu48immu)
   () ()
 )
+
+(define-pmacro (alu48opi2 x-name x-opcode x-encoding)
+  (define-normal-insn
+    x-name (.str (.upcase x-name)) ()
+    (.str x-opcode " $alu48idreg,#$alu48immu")
+    (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
+       alu48immu)
+    () ())
+)
+
+; These have the addscale (<<1, <<2, <<3, <<4) forms missed out, because why
+; would you?  Also shifts and bit ops, and other useless operations.
+
+(alu48opi2 movi48  "mov"  MOV)
+(alu48opi2 cmni48  "cmn"  CMN)
+(alu48opi2 addi48  "add"  ADD)
+(alu48opi2 bici48  "bic"  BIC)
+(alu48opi2 muli48  "mul"  MUL)
+(alu48opi2 eori48  "eor"  EOR)
+(alu48opi2 subi48  "sub"  SUB)
+(alu48opi2 andi48  "and"  AND)
+(alu48opi2 cmpi48  "cmp"  CMP)
+(alu48opi2 rsubi48 "rsub" RSUB)
+(alu48opi2 ori48   "or"   OR)
+(alu48opi2 maxi48  "max"  MAX)
+(alu48opi2 mini48  "min"  MIN)
 
 ;; 80-bit instructions.

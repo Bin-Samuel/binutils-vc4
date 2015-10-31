@@ -98,14 +98,21 @@ typedef enum cgen_insn_type {
  , VC4_INSN_FSUBI, VC4_INSN_FMULI, VC4_INSN_FDIVI, VC4_INSN_FCMPI
  , VC4_INSN_FABSI, VC4_INSN_FRSBI, VC4_INSN_FMAXI, VC4_INSN_FRCPI
  , VC4_INSN_FRSQRTI, VC4_INSN_FNMULI, VC4_INSN_FMINI, VC4_INSN_FCEILI
- , VC4_INSN_FFLOORI, VC4_INSN_FLOG2I, VC4_INSN_FEXP2I, VC4_INSN_ADD48I
+ , VC4_INSN_FFLOORI, VC4_INSN_FLOG2I, VC4_INSN_FEXP2I, VC4_INSN_FTRUNCR
+ , VC4_INSN_FLOORR, VC4_INSN_FLTSR, VC4_INSN_FLTUR, VC4_INSN_FTRUNCI
+ , VC4_INSN_FLOORI, VC4_INSN_FLTSI, VC4_INSN_FLTUI, VC4_INSN_LEA48
+ , VC4_INSN_LDPCREL27, VC4_INSN_STPCREL27, VC4_INSN_LDOFF27, VC4_INSN_STOFF27
+ , VC4_INSN_ADD48I, VC4_INSN_MOVI48, VC4_INSN_CMNI48, VC4_INSN_ADDI48
+ , VC4_INSN_BICI48, VC4_INSN_MULI48, VC4_INSN_EORI48, VC4_INSN_SUBI48
+ , VC4_INSN_ANDI48, VC4_INSN_CMPI48, VC4_INSN_RSUBI48, VC4_INSN_ORI48
+ , VC4_INSN_MAXI48, VC4_INSN_MINI48
 } CGEN_INSN_TYPE;
 
 /* Index of `invalid' insn place holder.  */
 #define CGEN_INSN_INVALID VC4_INSN_INVALID
 
 /* Total number of insns in table.  */
-#define MAX_INSNS ((int) VC4_INSN_ADD48I + 1)
+#define MAX_INSNS ((int) VC4_INSN_MINI48 + 1)
 
 /* This struct records data prior to insertion or after extraction.  */
 struct cgen_fields
@@ -125,7 +132,7 @@ struct cgen_fields
   long f_op10_7;
   long f_addspoffset;
   long f_alu16op;
-  long f_ALU16OPI_;
+  long f_alu16opi;
   long f_op9_8;
   long f_op9_5;
   long f_spoffset;
@@ -178,6 +185,8 @@ struct cgen_fields
   long f_op20_16_shl3;
   long f_op20_16_shl4;
   long f_op47_16;
+  long f_op47_43;
+  long f_offset27_48;
   long f_offset23bits;
   long f_offset27bits;
   long f_offset12;
