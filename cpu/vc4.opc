@@ -1,3 +1,18 @@
+/* -- opc.h */
+
+/* Most bits in the first word are variable, but we can at least hash on
+   coarse instruction types, which is better than nothing.  */
+
+#define CGEN_DIS_HASH_SIZE 8
+#define CGEN_DIS_HASH(buf, value)					\
+  ((((unsigned char *) buf)[1] & 0x80) == 0 ? 0      /* scalar16.  */	\
+   : (((unsigned char *) buf)[1] & 0xf8) == 0xf8 ? 1 /* vector80.  */	\
+   : (((unsigned char *) buf)[1] & 0xf8) == 0xf0 ? 2 /* vector48.  */	\
+   : (((unsigned char *) buf)[1] & 0xf0) == 0xe0 ? 3 /* scalar48.  */	\
+   : 4)						     /* scalar32.  */
+
+#define CGEN_ASM_HASH_SIZE 5
+
 /* -- asm.c */
 
 #if 0
