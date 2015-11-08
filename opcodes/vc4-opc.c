@@ -550,193 +550,193 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '2', ')', 0 } },
-    & ifmt_ldcndidx, { 0xa000, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa000, { 0x0 }, { 0x60 } }
   },
 /* ldh${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '1', ')', 0 } },
-    & ifmt_ldcndidx, { 0xa040, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa040, { 0x0 }, { 0x60 } }
   },
 /* ldb${alu32cond} $alu32dreg,($alu32areg,$alu32breg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), ')', 0 } },
-    & ifmt_ldcndidx, { 0xa080, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa080, { 0x0 }, { 0x60 } }
   },
 /* ldsh${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '1', ')', 0 } },
-    & ifmt_ldcndidx, { 0xa0c0, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa0c0, { 0x0 }, { 0x60 } }
   },
 /* st${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<2) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '2', ')', 0 } },
-    & ifmt_ldcndidx, { 0xa020, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa020, { 0x0 }, { 0x60 } }
   },
 /* sth${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '1', ')', 0 } },
-    & ifmt_ldcndidx, { 0xa060, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa060, { 0x0 }, { 0x60 } }
   },
 /* stb${alu32cond} $alu32dreg,($alu32areg,$alu32breg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), ')', 0 } },
-    & ifmt_ldcndidx, { 0xa0a0, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa0a0, { 0x0 }, { 0x60 } }
   },
 /* stsh${alu32cond} $alu32dreg,($alu32areg,$alu32breg<<1) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '1', ')', 0 } },
-    & ifmt_ldcndidx, { 0xa0e0, { 0x0 } }
+    & ifmt_ldcndidx, { 0xa0e0, { 0x0 }, { 0x60 } }
   },
 /* ld${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa000, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa000, { 0x40 }, { 0x60 } }
   },
 /* ldh${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa040, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa040, { 0x40 }, { 0x60 } }
   },
 /* ldb${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa080, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa080, { 0x40 }, { 0x60 } }
   },
 /* ldsh${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa0c0, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa0c0, { 0x40 }, { 0x60 } }
   },
 /* st${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa020, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa020, { 0x40 }, { 0x60 } }
   },
 /* sth${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa060, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa060, { 0x40 }, { 0x60 } }
   },
 /* stb${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa0a0, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa0a0, { 0x40 }, { 0x60 } }
   },
 /* stsh${alu32cond} $alu32dreg,$disp5($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (DISP5), '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa0e0, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa0e0, { 0x40 }, { 0x60 } }
   },
 /* ld${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa400, { 0x0 } }
+    & ifmt_ldpredec, { 0xa400, { 0x0 }, { 0x7f } }
   },
 /* ldh${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa440, { 0x0 } }
+    & ifmt_ldpredec, { 0xa440, { 0x0 }, { 0x7f } }
   },
 /* ldb${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa480, { 0x0 } }
+    & ifmt_ldpredec, { 0xa480, { 0x0 }, { 0x7f } }
   },
 /* ldsh${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa4c0, { 0x0 } }
+    & ifmt_ldpredec, { 0xa4c0, { 0x0 }, { 0x7f } }
   },
 /* st${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa420, { 0x0 } }
+    & ifmt_ldpredec, { 0xa420, { 0x0 }, { 0x7f } }
   },
 /* sth${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa460, { 0x0 } }
+    & ifmt_ldpredec, { 0xa460, { 0x0 }, { 0x7f } }
   },
 /* stb${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa4a0, { 0x0 } }
+    & ifmt_ldpredec, { 0xa4a0, { 0x0 }, { 0x7f } }
   },
 /* stsh${alu32cond} $alu32dreg,--($alu32areg) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '-', '-', '(', OP (ALU32AREG), ')', 0 } },
-    & ifmt_ldpredec, { 0xa4e0, { 0x0 } }
+    & ifmt_ldpredec, { 0xa4e0, { 0x0 }, { 0x7f } }
   },
 /* ld${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa500, { 0x0 } }
+    & ifmt_ldpredec, { 0xa500, { 0x0 }, { 0x7f } }
   },
 /* ldh${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa540, { 0x0 } }
+    & ifmt_ldpredec, { 0xa540, { 0x0 }, { 0x7f } }
   },
 /* ldb${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa580, { 0x0 } }
+    & ifmt_ldpredec, { 0xa580, { 0x0 }, { 0x7f } }
   },
 /* ldsh${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa5c0, { 0x0 } }
+    & ifmt_ldpredec, { 0xa5c0, { 0x0 }, { 0x7f } }
   },
 /* st${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa520, { 0x0 } }
+    & ifmt_ldpredec, { 0xa520, { 0x0 }, { 0x7f } }
   },
 /* sth${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa560, { 0x0 } }
+    & ifmt_ldpredec, { 0xa560, { 0x0 }, { 0x7f } }
   },
 /* stb${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa5a0, { 0x0 } }
+    & ifmt_ldpredec, { 0xa5a0, { 0x0 }, { 0x7f } }
   },
 /* stsh${alu32cond} $alu32dreg,($alu32areg)++ */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), ')', '+', '+', 0 } },
-    & ifmt_ldpredec, { 0xa5e0, { 0x0 } }
+    & ifmt_ldpredec, { 0xa5e0, { 0x0 }, { 0x7f } }
   },
 /* ld $alu16dreg,$spoffset(sp) */
   {
@@ -1108,37 +1108,37 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', OP (BCC32SREG), ',', OP (OFFSET10BITS), 0 } },
-    & ifmt_bcc32r, { 0x8000, { 0x4000 } }
+    & ifmt_bcc32r, { 0x8000, { 0x4000 }, { 0xc000 } }
   },
 /* b$condcodebcc32 $alu16dreg,#$bcc32imm,$offset8bits */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
-    & ifmt_bcc32i, { 0x8000, { 0xc000 } }
+    & ifmt_bcc32i, { 0x8000, { 0xc000 }, { 0xc000 } }
   },
 /* addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32sreg,$offset10bits */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', OP (ADDCMPBAREG), ',', OP (BCC32SREG), ',', OP (OFFSET10BITS), 0 } },
-    & ifmt_addcmpbrr, { 0x8000, { 0x0 } }
+    & ifmt_addcmpbrr, { 0x8000, { 0x0 }, { 0xc000 } }
   },
 /* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$offset10bits */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (ADDCMPBIMM), ',', OP (BCC32SREG), ',', OP (OFFSET10BITS), 0 } },
-    & ifmt_addcmpbri, { 0x8000, { 0x4000 } }
+    & ifmt_addcmpbri, { 0x8000, { 0x4000 }, { 0xc000 } }
   },
 /* addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$offset8bits */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', OP (ADDCMPBAREG), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
-    & ifmt_addcmpbir, { 0x8000, { 0x8000 } }
+    & ifmt_addcmpbir, { 0x8000, { 0x8000 }, { 0xc000 } }
   },
 /* addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (ADDCMPBIMM), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
-    & ifmt_addcmpbii, { 0x8000, { 0xc000 } }
+    & ifmt_addcmpbii, { 0x8000, { 0xc000 }, { 0xc000 } }
   },
 /* b$condcodebcc32.l $offset23bits */
   {
@@ -1156,925 +1156,925 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mov32, { 0xc000, { 0x0 } }
+    & ifmt_mov32, { 0xc000, { 0x0 }, { 0xf860 } }
   },
 /* cmn${alu32cond} $alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_cmn32, { 0xc020, { 0x0 } }
+    & ifmt_cmn32, { 0xc020, { 0x0 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc040, { 0x0 } }
+    & ifmt_add32, { 0xc040, { 0x0 }, { 0x60 } }
   },
 /* bic${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc060, { 0x0 } }
+    & ifmt_add32, { 0xc060, { 0x0 }, { 0x60 } }
   },
 /* mul${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc080, { 0x0 } }
+    & ifmt_add32, { 0xc080, { 0x0 }, { 0x60 } }
   },
 /* eor${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc0a0, { 0x0 } }
+    & ifmt_add32, { 0xc0a0, { 0x0 }, { 0x60 } }
   },
 /* sub${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc0c0, { 0x0 } }
+    & ifmt_add32, { 0xc0c0, { 0x0 }, { 0x60 } }
   },
 /* and${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc0e0, { 0x0 } }
+    & ifmt_add32, { 0xc0e0, { 0x0 }, { 0x60 } }
   },
 /* not${alu32cond} $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mov32, { 0xc100, { 0x0 } }
+    & ifmt_mov32, { 0xc100, { 0x0 }, { 0xf860 } }
   },
 /* ror${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc120, { 0x0 } }
+    & ifmt_add32, { 0xc120, { 0x0 }, { 0x60 } }
   },
 /* cmp${alu32cond} $alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_cmn32, { 0xc140, { 0x0 } }
+    & ifmt_cmn32, { 0xc140, { 0x0 }, { 0x60 } }
   },
 /* rsub${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc160, { 0x0 } }
+    & ifmt_add32, { 0xc160, { 0x0 }, { 0x60 } }
   },
 /* btst${alu32cond} $alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_cmn32, { 0xc180, { 0x0 } }
+    & ifmt_cmn32, { 0xc180, { 0x0 }, { 0x60 } }
   },
 /* or${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc1a0, { 0x0 } }
+    & ifmt_add32, { 0xc1a0, { 0x0 }, { 0x60 } }
   },
 /* bmask${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc1c0, { 0x0 } }
+    & ifmt_add32, { 0xc1c0, { 0x0 }, { 0x60 } }
   },
 /* max${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc1e0, { 0x0 } }
+    & ifmt_add32, { 0xc1e0, { 0x0 }, { 0x60 } }
   },
 /* bset${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc200, { 0x0 } }
+    & ifmt_add32, { 0xc200, { 0x0 }, { 0x60 } }
   },
 /* min${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc220, { 0x0 } }
+    & ifmt_add32, { 0xc220, { 0x0 }, { 0x60 } }
   },
 /* bclr${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc240, { 0x0 } }
+    & ifmt_add32, { 0xc240, { 0x0 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,$alu32breg<<1 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '1', 0 } },
-    & ifmt_add32, { 0xc260, { 0x0 } }
+    & ifmt_add32, { 0xc260, { 0x0 }, { 0x60 } }
   },
 /* bchg${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc280, { 0x0 } }
+    & ifmt_add32, { 0xc280, { 0x0 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,$alu32breg<<2 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '2', 0 } },
-    & ifmt_add32, { 0xc2a0, { 0x0 } }
+    & ifmt_add32, { 0xc2a0, { 0x0 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,$alu32breg<<3 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '3', 0 } },
-    & ifmt_add32, { 0xc2c0, { 0x0 } }
+    & ifmt_add32, { 0xc2c0, { 0x0 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,$alu32breg<<4 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '4', 0 } },
-    & ifmt_add32, { 0xc2e0, { 0x0 } }
+    & ifmt_add32, { 0xc2e0, { 0x0 }, { 0x60 } }
   },
 /* signext${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc300, { 0x0 } }
+    & ifmt_add32, { 0xc300, { 0x0 }, { 0x60 } }
   },
 /* neg${alu32cond} $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mov32, { 0xc320, { 0x0 } }
+    & ifmt_mov32, { 0xc320, { 0x0 }, { 0xf860 } }
   },
 /* lsr${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc340, { 0x0 } }
+    & ifmt_add32, { 0xc340, { 0x0 }, { 0x60 } }
   },
 /* msb${alu32cond} $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mov32, { 0xc360, { 0x0 } }
+    & ifmt_mov32, { 0xc360, { 0x0 }, { 0xf860 } }
   },
 /* shl${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc380, { 0x0 } }
+    & ifmt_add32, { 0xc380, { 0x0 }, { 0x60 } }
   },
 /* bitrev${alu32cond} $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mov32, { 0xc3a0, { 0x0 } }
+    & ifmt_mov32, { 0xc3a0, { 0x0 }, { 0xf860 } }
   },
 /* asr${alu32cond} $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_add32, { 0xc3c0, { 0x0 } }
+    & ifmt_add32, { 0xc3c0, { 0x0 }, { 0x60 } }
   },
 /* abs${alu32cond} $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mov32, { 0xc3e0, { 0x0 } }
+    & ifmt_mov32, { 0xc3e0, { 0x0 }, { 0xf860 } }
   },
 /* mov${alu32cond} $alu32dreg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_movi32, { 0xc000, { 0x40 } }
+    & ifmt_movi32, { 0xc000, { 0x40 }, { 0xf860 } }
   },
 /* cmn${alu32cond} $alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_cmni32, { 0xc020, { 0x40 } }
+    & ifmt_cmni32, { 0xc020, { 0x40 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc040, { 0x40 } }
+    & ifmt_addi32, { 0xc040, { 0x40 }, { 0x60 } }
   },
 /* bic${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc060, { 0x40 } }
+    & ifmt_addi32, { 0xc060, { 0x40 }, { 0x60 } }
   },
 /* mul${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc080, { 0x40 } }
+    & ifmt_addi32, { 0xc080, { 0x40 }, { 0x60 } }
   },
 /* eor${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc0a0, { 0x40 } }
+    & ifmt_addi32, { 0xc0a0, { 0x40 }, { 0x60 } }
   },
 /* sub${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc0c0, { 0x40 } }
+    & ifmt_addi32, { 0xc0c0, { 0x40 }, { 0x60 } }
   },
 /* and${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc0e0, { 0x40 } }
+    & ifmt_addi32, { 0xc0e0, { 0x40 }, { 0x60 } }
   },
 /* not${alu32cond} $alu32dreg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_movi32, { 0xc100, { 0x40 } }
+    & ifmt_movi32, { 0xc100, { 0x40 }, { 0xf860 } }
   },
 /* ror${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc120, { 0x40 } }
+    & ifmt_addi32, { 0xc120, { 0x40 }, { 0x60 } }
   },
 /* cmp${alu32cond} $alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_cmni32, { 0xc140, { 0x40 } }
+    & ifmt_cmni32, { 0xc140, { 0x40 }, { 0x60 } }
   },
 /* rsub${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc160, { 0x40 } }
+    & ifmt_addi32, { 0xc160, { 0x40 }, { 0x60 } }
   },
 /* btst${alu32cond} $alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_cmni32, { 0xc180, { 0x40 } }
+    & ifmt_cmni32, { 0xc180, { 0x40 }, { 0x60 } }
   },
 /* or${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc1a0, { 0x40 } }
+    & ifmt_addi32, { 0xc1a0, { 0x40 }, { 0x60 } }
   },
 /* bmask${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc1c0, { 0x40 } }
+    & ifmt_addi32, { 0xc1c0, { 0x40 }, { 0x60 } }
   },
 /* max${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc1e0, { 0x40 } }
+    & ifmt_addi32, { 0xc1e0, { 0x40 }, { 0x60 } }
   },
 /* bset${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc200, { 0x40 } }
+    & ifmt_addi32, { 0xc200, { 0x40 }, { 0x60 } }
   },
 /* min${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc220, { 0x40 } }
+    & ifmt_addi32, { 0xc220, { 0x40 }, { 0x60 } }
   },
 /* bclr${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc240, { 0x40 } }
+    & ifmt_addi32, { 0xc240, { 0x40 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,#$disp5_shl1 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5_SHL1), 0 } },
-    & ifmt_adds2i32, { 0xc260, { 0x40 } }
+    & ifmt_adds2i32, { 0xc260, { 0x40 }, { 0x60 } }
   },
 /* bchg${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc280, { 0x40 } }
+    & ifmt_addi32, { 0xc280, { 0x40 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,#$disp5_shl2 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5_SHL2), 0 } },
-    & ifmt_adds4i32, { 0xc2a0, { 0x40 } }
+    & ifmt_adds4i32, { 0xc2a0, { 0x40 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,#$disp5_shl3 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5_SHL3), 0 } },
-    & ifmt_adds8i32, { 0xc2c0, { 0x40 } }
+    & ifmt_adds8i32, { 0xc2c0, { 0x40 }, { 0x60 } }
   },
 /* add${alu32cond} $alu32dreg,$alu32areg,#$disp5_shl4 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5_SHL4), 0 } },
-    & ifmt_adds16i32, { 0xc2e0, { 0x40 } }
+    & ifmt_adds16i32, { 0xc2e0, { 0x40 }, { 0x60 } }
   },
 /* signext${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc300, { 0x40 } }
+    & ifmt_addi32, { 0xc300, { 0x40 }, { 0x60 } }
   },
 /* neg${alu32cond} $alu32dreg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_movi32, { 0xc320, { 0x40 } }
+    & ifmt_movi32, { 0xc320, { 0x40 }, { 0xf860 } }
   },
 /* lsr${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc340, { 0x40 } }
+    & ifmt_addi32, { 0xc340, { 0x40 }, { 0x60 } }
   },
 /* msb${alu32cond} $alu32dreg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_movi32, { 0xc360, { 0x40 } }
+    & ifmt_movi32, { 0xc360, { 0x40 }, { 0xf860 } }
   },
 /* shl${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc380, { 0x40 } }
+    & ifmt_addi32, { 0xc380, { 0x40 }, { 0x60 } }
   },
 /* bitrev${alu32cond} $alu32dreg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_movi32, { 0xc3a0, { 0x40 } }
+    & ifmt_movi32, { 0xc3a0, { 0x40 }, { 0xf860 } }
   },
 /* asr${alu32cond} $alu32dreg,$alu32areg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_addi32, { 0xc3c0, { 0x40 } }
+    & ifmt_addi32, { 0xc3c0, { 0x40 }, { 0x60 } }
   },
 /* abs${alu32cond} $alu32dreg,#$disp5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (DISP5), 0 } },
-    & ifmt_movi32, { 0xc3e0, { 0x40 } }
+    & ifmt_movi32, { 0xc3e0, { 0x40 }, { 0xf860 } }
   },
 /* mulhd$alu32cond.ss $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc400, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc400, { 0x0 }, { 0x60 } }
   },
 /* mulhd$alu32cond.su $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc420, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc420, { 0x0 }, { 0x60 } }
   },
 /* mulhd$alu32cond.us $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc440, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc440, { 0x0 }, { 0x60 } }
   },
 /* mulhd$alu32cond.uu $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc460, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc460, { 0x0 }, { 0x60 } }
   },
 /* div$alu32cond.ss $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc480, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc480, { 0x0 }, { 0x60 } }
   },
 /* div$alu32cond.su $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc4a0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc4a0, { 0x0 }, { 0x60 } }
   },
 /* div$alu32cond.us $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc4c0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc4c0, { 0x0 }, { 0x60 } }
   },
 /* div$alu32cond.uu $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc4e0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc4e0, { 0x0 }, { 0x60 } }
   },
 /* mulhd$alu32cond.ss $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc400, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc400, { 0x40 }, { 0x40 } }
   },
 /* mulhd$alu32cond.su $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc420, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc420, { 0x40 }, { 0x40 } }
   },
 /* mulhd$alu32cond.us $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc440, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc440, { 0x40 }, { 0x40 } }
   },
 /* mulhd$alu32cond.uu $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc460, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc460, { 0x40 }, { 0x40 } }
   },
 /* div$alu32cond.ss $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc480, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc480, { 0x40 }, { 0x40 } }
   },
 /* div$alu32cond.su $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 's', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc4a0, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc4a0, { 0x40 }, { 0x40 } }
   },
 /* div$alu32cond.us $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 's', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc4c0, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc4c0, { 0x40 }, { 0x40 } }
   },
 /* div$alu32cond.uu $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), '.', 'u', 'u', ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc4e0, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc4e0, { 0x40 }, { 0x40 } }
   },
 /* adds$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc500, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc500, { 0x0 }, { 0x60 } }
   },
 /* subs$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc520, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc520, { 0x0 }, { 0x60 } }
   },
 /* shls$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xc540, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc540, { 0x0 }, { 0x60 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '5', 0 } },
-    & ifmt_mulhdrss, { 0xc580, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc580, { 0x0 }, { 0x60 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '6', 0 } },
-    & ifmt_mulhdrss, { 0xc5a0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc5a0, { 0x0 }, { 0x60 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<7 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '7', 0 } },
-    & ifmt_mulhdrss, { 0xc5c0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc5c0, { 0x0 }, { 0x60 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,$alu32breg<<8 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '8', 0 } },
-    & ifmt_mulhdrss, { 0xc5e0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc5e0, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<1 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '1', 0 } },
-    & ifmt_mulhdrss, { 0xc620, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc620, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<2 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '2', 0 } },
-    & ifmt_mulhdrss, { 0xc640, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc640, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<3 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '3', 0 } },
-    & ifmt_mulhdrss, { 0xc660, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc660, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<4 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '4', 0 } },
-    & ifmt_mulhdrss, { 0xc680, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc680, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '5', 0 } },
-    & ifmt_mulhdrss, { 0xc6a0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc6a0, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '6', 0 } },
-    & ifmt_mulhdrss, { 0xc6c0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc6c0, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<7 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '7', 0 } },
-    & ifmt_mulhdrss, { 0xc6e0, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc6e0, { 0x0 }, { 0x60 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,$alu32breg<<8 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), '<', '<', '8', 0 } },
-    & ifmt_mulhdrss, { 0xc700, { 0x0 } }
+    & ifmt_mulhdrss, { 0xc700, { 0x0 }, { 0x60 } }
   },
 /* clamp16$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_clamp16r, { 0xc560, { 0x0 } }
+    & ifmt_clamp16r, { 0xc560, { 0x0 }, { 0xf860 } }
   },
 /* count$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_clamp16r, { 0xc600, { 0x0 } }
+    & ifmt_clamp16r, { 0xc600, { 0x0 }, { 0xf860 } }
   },
 /* adds$alu32cond $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc500, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc500, { 0x40 }, { 0x40 } }
   },
 /* subs$alu32cond $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc520, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc520, { 0x40 }, { 0x40 } }
   },
 /* shls$alu32cond $alu32dreg,$alu32areg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xc540, { 0x40 } }
+    & ifmt_mulhdiss, { 0xc540, { 0x40 }, { 0x40 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL5), 0 } },
-    & ifmt_adds5i, { 0xc580, { 0x40 } }
+    & ifmt_adds5i, { 0xc580, { 0x40 }, { 0x40 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL6), 0 } },
-    & ifmt_adds6i, { 0xc5a0, { 0x40 } }
+    & ifmt_adds6i, { 0xc5a0, { 0x40 }, { 0x40 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl7 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL7), 0 } },
-    & ifmt_adds7i, { 0xc5c0, { 0x40 } }
+    & ifmt_adds7i, { 0xc5c0, { 0x40 }, { 0x40 } }
   },
 /* add$alu32cond $alu32dreg,$alu32areg,#$imm6_shl8 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL8), 0 } },
-    & ifmt_adds8i, { 0xc5e0, { 0x40 } }
+    & ifmt_adds8i, { 0xc5e0, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl1 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL1), 0 } },
-    & ifmt_subs1i, { 0xc620, { 0x40 } }
+    & ifmt_subs1i, { 0xc620, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl2 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL2), 0 } },
-    & ifmt_subs2i, { 0xc640, { 0x40 } }
+    & ifmt_subs2i, { 0xc640, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl3 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL3), 0 } },
-    & ifmt_subs3i, { 0xc660, { 0x40 } }
+    & ifmt_subs3i, { 0xc660, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl4 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL4), 0 } },
-    & ifmt_subs4i, { 0xc680, { 0x40 } }
+    & ifmt_subs4i, { 0xc680, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl5 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL5), 0 } },
-    & ifmt_adds5i, { 0xc6a0, { 0x40 } }
+    & ifmt_adds5i, { 0xc6a0, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL6), 0 } },
-    & ifmt_adds6i, { 0xc6c0, { 0x40 } }
+    & ifmt_adds6i, { 0xc6c0, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl7 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL7), 0 } },
-    & ifmt_adds7i, { 0xc6e0, { 0x40 } }
+    & ifmt_adds7i, { 0xc6e0, { 0x40 }, { 0x40 } }
   },
 /* sub$alu32cond $alu32dreg,$alu32areg,#$imm6_shl8 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (IMM6_SHL8), 0 } },
-    & ifmt_adds8i, { 0xc700, { 0x40 } }
+    & ifmt_adds8i, { 0xc700, { 0x40 }, { 0x40 } }
   },
 /* clamp16$alu32cond $alu32dreg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_clamp16i, { 0xc560, { 0x40 } }
+    & ifmt_clamp16i, { 0xc560, { 0x40 }, { 0xf840 } }
   },
 /* count$alu32cond $alu32dreg,#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (IMM6), 0 } },
-    & ifmt_clamp16i, { 0xc600, { 0x40 } }
+    & ifmt_clamp16i, { 0xc600, { 0x40 }, { 0xf840 } }
   },
 /* fadd$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc800, { 0x0 } }
+    & ifmt_faddr, { 0xc800, { 0x0 }, { 0x60 } }
   },
 /* fsub$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc820, { 0x0 } }
+    & ifmt_faddr, { 0xc820, { 0x0 }, { 0x60 } }
   },
 /* fmul$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc840, { 0x0 } }
+    & ifmt_faddr, { 0xc840, { 0x0 }, { 0x60 } }
   },
 /* fdiv$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc860, { 0x0 } }
+    & ifmt_faddr, { 0xc860, { 0x0 }, { 0x60 } }
   },
 /* fcmp$alu32cond $alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fcmpr, { 0xc880, { 0x0 } }
+    & ifmt_fcmpr, { 0xc880, { 0x0 }, { 0x60 } }
   },
 /* fabs$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc8a0, { 0x0 } }
+    & ifmt_fabsr, { 0xc8a0, { 0x0 }, { 0xf860 } }
   },
 /* frsb$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc8c0, { 0x0 } }
+    & ifmt_faddr, { 0xc8c0, { 0x0 }, { 0x60 } }
   },
 /* fmax$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc8e0, { 0x0 } }
+    & ifmt_faddr, { 0xc8e0, { 0x0 }, { 0x60 } }
   },
 /* frcp$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc900, { 0x0 } }
+    & ifmt_fabsr, { 0xc900, { 0x0 }, { 0xf860 } }
   },
 /* frsqrt$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc920, { 0x0 } }
+    & ifmt_fabsr, { 0xc920, { 0x0 }, { 0xf860 } }
   },
 /* fnmul$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc940, { 0x0 } }
+    & ifmt_faddr, { 0xc940, { 0x0 }, { 0x60 } }
   },
 /* fmin$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_faddr, { 0xc960, { 0x0 } }
+    & ifmt_faddr, { 0xc960, { 0x0 }, { 0x60 } }
   },
 /* fceil$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc980, { 0x0 } }
+    & ifmt_fabsr, { 0xc980, { 0x0 }, { 0xf860 } }
   },
 /* ffloor$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc9a0, { 0x0 } }
+    & ifmt_fabsr, { 0xc9a0, { 0x0 }, { 0xf860 } }
   },
 /* flog2$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc9c0, { 0x0 } }
+    & ifmt_fabsr, { 0xc9c0, { 0x0 }, { 0xf860 } }
   },
 /* fexp2$alu32cond $alu32dreg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
-    & ifmt_fabsr, { 0xc9e0, { 0x0 } }
+    & ifmt_fabsr, { 0xc9e0, { 0x0 }, { 0xf860 } }
   },
 /* fadd$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc800, { 0x40 } }
+    & ifmt_faddi, { 0xc800, { 0x40 }, { 0x40 } }
   },
 /* fsub$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc820, { 0x40 } }
+    & ifmt_faddi, { 0xc820, { 0x40 }, { 0x40 } }
   },
 /* fmul$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc840, { 0x40 } }
+    & ifmt_faddi, { 0xc840, { 0x40 }, { 0x40 } }
   },
 /* fdiv$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc860, { 0x40 } }
+    & ifmt_faddi, { 0xc860, { 0x40 }, { 0x40 } }
   },
 /* fcmp$alu32cond $alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fcmpi, { 0xc880, { 0x40 } }
+    & ifmt_fcmpi, { 0xc880, { 0x40 }, { 0x40 } }
   },
 /* fabs$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc8a0, { 0x0 } }
+    & ifmt_fabsi, { 0xc8a0, { 0x0 }, { 0xf860 } }
   },
 /* frsb$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc8c0, { 0x40 } }
+    & ifmt_faddi, { 0xc8c0, { 0x40 }, { 0x40 } }
   },
 /* fmax$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc8e0, { 0x40 } }
+    & ifmt_faddi, { 0xc8e0, { 0x40 }, { 0x40 } }
   },
 /* frcp$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc900, { 0x0 } }
+    & ifmt_fabsi, { 0xc900, { 0x0 }, { 0xf860 } }
   },
 /* frsqrt$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc920, { 0x0 } }
+    & ifmt_fabsi, { 0xc920, { 0x0 }, { 0xf860 } }
   },
 /* fnmul$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc940, { 0x40 } }
+    & ifmt_faddi, { 0xc940, { 0x40 }, { 0x40 } }
   },
 /* fmin$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_faddi, { 0xc960, { 0x40 } }
+    & ifmt_faddi, { 0xc960, { 0x40 }, { 0x40 } }
   },
 /* fceil$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc980, { 0x0 } }
+    & ifmt_fabsi, { 0xc980, { 0x0 }, { 0xf860 } }
   },
 /* ffloor$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc9a0, { 0x0 } }
+    & ifmt_fabsi, { 0xc9a0, { 0x0 }, { 0xf860 } }
   },
 /* flog2$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc9c0, { 0x0 } }
+    & ifmt_fabsi, { 0xc9c0, { 0x0 }, { 0xf860 } }
   },
 /* fexp2$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc9e0, { 0x0 } }
+    & ifmt_fabsi, { 0xc9e0, { 0x0 }, { 0xf860 } }
   },
 /* ftrunc$alu32cond $alu32dreg,$alu32areg,sasl $alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'l', ' ', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xca00, { 0x0 } }
+    & ifmt_mulhdrss, { 0xca00, { 0x0 }, { 0x60 } }
   },
 /* floor$alu32cond $alu32dreg,$alu32areg,sasl $alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'l', ' ', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xca20, { 0x0 } }
+    & ifmt_mulhdrss, { 0xca20, { 0x0 }, { 0x60 } }
   },
 /* flts$alu32cond $alu32dreg,$alu32areg,sasr $alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', ' ', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xca40, { 0x0 } }
+    & ifmt_mulhdrss, { 0xca40, { 0x0 }, { 0x60 } }
   },
 /* fltu$alu32cond $alu32dreg,$alu32areg,sasr $alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', ' ', OP (ALU32BREG), 0 } },
-    & ifmt_mulhdrss, { 0xca60, { 0x0 } }
+    & ifmt_mulhdrss, { 0xca60, { 0x0 }, { 0x60 } }
   },
 /* ftrunc$alu32cond $alu32dreg,$alu32areg,sasl#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'l', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xca00, { 0x40 } }
+    & ifmt_mulhdiss, { 0xca00, { 0x40 }, { 0x40 } }
   },
 /* floor$alu32cond $alu32dreg,$alu32areg,sasl#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'l', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xca20, { 0x40 } }
+    & ifmt_mulhdiss, { 0xca20, { 0x40 }, { 0x40 } }
   },
 /* flts$alu32cond $alu32dreg,$alu32areg,sasr#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xca40, { 0x40 } }
+    & ifmt_mulhdiss, { 0xca40, { 0x40 }, { 0x40 } }
   },
 /* fltu$alu32cond $alu32dreg,$alu32areg,sasr#$imm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', '#', OP (IMM6), 0 } },
-    & ifmt_mulhdiss, { 0xca60, { 0x40 } }
+    & ifmt_mulhdiss, { 0xca60, { 0x40 }, { 0x40 } }
   },
 /* lea $alu48idreg,$alu48offset(pc) */
   {
@@ -2086,13 +2086,13 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48OFFSET27), '(', 'p', 'c', ')', 0 } },
-    & ifmt_ldpcrel27, { 0xe700, { 0x0, 0xf8000000 } }
+    & ifmt_ldpcrel27, { 0xe700, { 0x0, 0xf8000000 }, { 0x0, 0x0 } }
   },
 /* st$accsz32.l $alu48idreg,$mem48offset27(pc) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48OFFSET27), '(', 'p', 'c', ')', 0 } },
-    & ifmt_ldpcrel27, { 0xe720, { 0x0, 0xf8000000 } }
+    & ifmt_ldpcrel27, { 0xe720, { 0x0, 0xf8000000 }, { 0x0, 0x0 } }
   },
 /* ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg) */
   {
