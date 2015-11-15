@@ -2031,7 +2031,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
   },
 /* fabs$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FABSI, "fabsi", "fabs", 33,
+    VC4_INSN_FABSI, "fabsi", "fabs", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* frsb$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
@@ -2046,12 +2046,12 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
   },
 /* frcp$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FRCPI, "frcpi", "frcp", 33,
+    VC4_INSN_FRCPI, "frcpi", "frcp", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* frsqrt$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FRSQRTI, "frsqrti", "frsqrt", 33,
+    VC4_INSN_FRSQRTI, "frsqrti", "frsqrt", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* fnmul$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
@@ -2066,22 +2066,22 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
   },
 /* fceil$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FCEILI, "fceili", "fceil", 33,
+    VC4_INSN_FCEILI, "fceili", "fceil", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ffloor$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FFLOORI, "ffloori", "ffloor", 33,
+    VC4_INSN_FFLOORI, "ffloori", "ffloor", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* flog2$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FLOG2I, "flog2i", "flog2", 33,
+    VC4_INSN_FLOG2I, "flog2i", "flog2", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* fexp2$alu32cond $alu32dreg,#$floatimm6 */
   {
-    VC4_INSN_FEXP2I, "fexp2i", "fexp2", 33,
+    VC4_INSN_FEXP2I, "fexp2i", "fexp2", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ftrunc$alu32cond $alu32dreg,$alu32areg,sasl $alu32breg */

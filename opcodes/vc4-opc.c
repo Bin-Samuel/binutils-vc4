@@ -274,7 +274,7 @@ static const CGEN_IFMT ifmt_fcmpi ATTRIBUTE_UNUSED = {
 };
 
 static const CGEN_IFMT ifmt_fabsi ATTRIBUTE_UNUSED = {
-  16, 33, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_9) }, { F (F_OP26_23) }, { F (F_OP8_5) }, { F (F_OP22_21) }, { F (F_OP21_16) }, { F (F_OP4_0) }, { 0 } }
+  16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_9) }, { F (F_OP26_23) }, { F (F_OP8_5) }, { F (F_OP22) }, { F (F_OP21_16) }, { F (F_OP4_0) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_lea48 ATTRIBUTE_UNUSED = {
@@ -1966,7 +1966,7 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc8a0, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc8a0, { 0x40 }, { 0xf840 } }
   },
 /* frsb$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
@@ -1984,13 +1984,13 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc900, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc900, { 0x40 }, { 0xf840 } }
   },
 /* frsqrt$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc920, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc920, { 0x40 }, { 0xf840 } }
   },
 /* fnmul$alu32cond $alu32dreg,$alu32areg,#$floatimm6 */
   {
@@ -2008,25 +2008,25 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc980, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc980, { 0x40 }, { 0xf840 } }
   },
 /* ffloor$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc9a0, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc9a0, { 0x40 }, { 0xf840 } }
   },
 /* flog2$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc9c0, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc9c0, { 0x40 }, { 0xf840 } }
   },
 /* fexp2$alu32cond $alu32dreg,#$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '#', OP (FLOATIMM6), 0 } },
-    & ifmt_fabsi, { 0xc9e0, { 0x0 }, { 0xf860 } }
+    & ifmt_fabsi, { 0xc9e0, { 0x40 }, { 0xf840 } }
   },
 /* ftrunc$alu32cond $alu32dreg,$alu32areg,sasl $alu32breg */
   {
@@ -2086,13 +2086,13 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48OFFSET27), '(', 'p', 'c', ')', 0 } },
-    & ifmt_ldpcrel27, { 0xe700, { 0x0, 0xf8000000 }, { 0x0, 0x0 } }
+    & ifmt_ldpcrel27, { 0xe700, { 0x0, 0xf800 }, { 0x0, 0xf800 } }
   },
 /* st$accsz32.l $alu48idreg,$mem48offset27(pc) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48OFFSET27), '(', 'p', 'c', ')', 0 } },
-    & ifmt_ldpcrel27, { 0xe720, { 0x0, 0xf8000000 }, { 0x0, 0x0 } }
+    & ifmt_ldpcrel27, { 0xe720, { 0x0, 0xf800 }, { 0x0, 0xf800 } }
   },
 /* ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg) */
   {

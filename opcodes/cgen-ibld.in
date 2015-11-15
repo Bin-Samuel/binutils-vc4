@@ -280,7 +280,7 @@ insert_insn_normal (CGEN_CPU_DESC cd,
        i < (unsigned) CGEN_FIELDS_BITSIZE (fields);
        i += cd->base_insn_bitsize, extra_field++)
     {
-      cgen_put_insn_value (cd, &buffer[cd->base_insn_bitsize / 8],
+      cgen_put_insn_value (cd, &buffer[i / 8],
 			   cd->base_insn_bitsize,
 			   CGEN_INSN_IFIELD_VALUE (insn, extra_field));
     }

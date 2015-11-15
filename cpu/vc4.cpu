@@ -1543,7 +1543,7 @@
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32dreg,#$floatimm6")
     (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
-       (f-op31-27 0) alu32cond OP22_21_0 floatimm6)
+       (f-op31-27 0) alu32cond (f-op22 1) floatimm6)
     () ())
 )
 
