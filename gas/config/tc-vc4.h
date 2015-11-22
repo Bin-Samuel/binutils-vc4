@@ -125,9 +125,9 @@ extern long md_pcrel_from_section (struct fix *, segT);
   vc4_relax_frag (segment, fragp, stretch)
 extern int vc4_relax_frag(asection *, struct frag *, long);*/
 
-#define TC_CONS_FIX_NEW(FRAG, WHERE, NBYTES, EXP) \
+/*#define TC_CONS_FIX_NEW(FRAG, WHERE, NBYTES, EXP) \
   vc4_cons_fix_new (FRAG, WHERE, NBYTES, EXP)
-extern void vc4_cons_fix_new (fragS *, int, int, expressionS *);
+extern void vc4_cons_fix_new (fragS *, int, int, expressionS *);*/
 
 #define TC_CGEN_PARSE_FIX_EXP(opinfo, exp) \
   vc4_cgen_parse_fix_exp(opinfo, exp)

@@ -208,8 +208,8 @@
 (df f-op6-0 "Opcode bits 6-0" () 6 7 UINT #f #f)
 
 (df f-pcrelcc "PC relative for cond branch" (PCREL-ADDR) 6 7 SI
-  ((value pc) (sra SI (sub SI value (sub SI pc 2)) 1))
-  ((value pc) (add SI pc (sll SI value 1)))
+  ((value pc) (sra SI (sub SI value (add SI pc 2)) 1))
+  ((value pc) (add SI (add SI pc 2) (sll SI value 1)))
 )
 
 (df f-op5 "Opcode bit 5" () 5 1 UINT #f #f)
@@ -270,13 +270,13 @@
 (df2 f-op26-16 "Opcode bits 26-16" () 16 16 10 11 UINT (#f) (#f))
 
 (df2 f-offset10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
-  ((value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
-  ((value pc) (add SI pc (sll SI value 1)))
+  ((value pc) (sra SI (sub SI value (add SI pc 4)) 1))
+  ((value pc) (add SI (add SI pc 4) (sll SI value 1)))
 )
 
 (df2 f-offset8 "8-bit offset" (PCREL-ADDR) 16 16 7 8 SI
-  ((value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
-  ((value pc) (add SI pc (sll SI value 1)))
+  ((value pc) (sra SI (sub SI value (add SI pc 4)) 1))
+  ((value pc) (add SI (add SI pc 4) (sll SI value 1)))
 )
 
 (df2 f-op22-21 "Opcode bits 22-21" () 16 16 6 2 UINT (#f) (#f))
@@ -321,10 +321,20 @@
 
 (df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 UINT (#f) (#f))
 
+(df2 f-offset32-48 "32-bit offset in 48-bit insn" (PCREL-ADDR) 16 32 31 32 SI
+  ((value pc) (sub SI value (add SI pc 6)))
+  ((value pc) (add SI (add SI pc 6) value))
+)
+
 (df2 f-op47-43 "Opcode bits 47-43" () 16 32 31 5 UINT (#f) (#f))
 
 (df2 f-offset27-48 "27-bit offset in 48-bit insn" () 16 32 26 27 SI
-  ((value pc) (sub SI value (sub SI pc 6)))
+  ((value pc) (sub SI value (add SI pc 6)))
+  ((value pc) (add SI (add SI pc 6) value))
+)
+
+(df2 f-pcrel27-48 "27-bit offset in 48-bit insn" (PCREL-ADDR) 16 32 26 27 SI
+  ((value pc) (sub SI value (add SI pc 6)))
   ((value pc) (add SI (add SI pc 6) value))
 )
 
@@ -342,8 +352,8 @@
   (extract (sequence ()
 	     (set (ifield f-offset23bits) (or (sll (ifield f-op6-0) 16)
 					      (ifield f-op31-16)))))
-  (encode (value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
-  (decode (value pc) (add SI pc (sll SI value 1)))
+  (encode (value pc) (sra SI (sub SI value (add SI pc 4)) 1))
+  (decode (value pc) (add SI (add SI pc 4) (sll SI value 1)))
 )
 
 (define-multi-ifield
@@ -360,8 +370,8 @@
 	     (set (ifield f-offset27bits) (or (or (sll (ifield f-op11-8) 23)
 						  (sll (ifield f-op6-0) 16))
 					      (ifield f-op31-16)))))
-  (encode (value pc) (sra SI (sub SI value (sub SI pc 4)) 1))
-  (decode (value pc) (add SI pc (sll SI value 1)))
+  (encode (value pc) (sra SI (sub SI value (add SI pc 4)) 1))
+  (decode (value pc) (add SI (add SI pc 4) (sll SI value 1)))
 )
 
 (define-multi-ifield
@@ -699,7 +709,7 @@
   alu48offset
   "" ()
   h-sint
-  f-op47-16
+  f-offset32-48
 )
 
 (define-normal-operand
@@ -707,6 +717,13 @@
   "" ()
   h-sint
   f-offset27-48
+)
+
+(define-normal-operand
+  mem48pcrel27
+  "" ()
+  h-sint
+  f-pcrel27-48
 )
 
 (define-normal-operand
@@ -1598,7 +1615,7 @@
 
 (define-normal-insn
   lea48 "LEA48" ()
-  "lea $alu48idreg,$alu48offset(pc)"
+  "lea $alu48idreg,$alu48offset"
   (+ OPLEN_14 OP11_8_5 OP7_5_0 alu48idreg
      alu48offset)
   () ()
@@ -1608,7 +1625,7 @@
 
 (define-normal-insn
   ldpcrel27 "LDPCREL27" ()
-  "ld$accsz32.l $alu48idreg,$mem48offset27(pc)"
+  "ld$accsz32.l $alu48idreg,$mem48pcrel27"
   (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 0) alu48idreg
      (f-op47-43 31) mem48offset27)
   () ()
@@ -1616,7 +1633,7 @@
 
 (define-normal-insn
   stpcrel27 "STPCREL27" ()
-  "st$accsz32.l $alu48idreg,$mem48offset27(pc)"
+  "st$accsz32.l $alu48idreg,$mem48pcrel27"
   (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 1) alu48idreg
      (f-op47-43 31) mem48offset27)
   () ()

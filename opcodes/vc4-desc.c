@@ -366,8 +366,10 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP20_16_SHL3, "f-op20-16-shl3", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16_SHL4, "f-op20-16-shl4", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP47_16, "f-op47-16", 16, 32, 31, 32, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OFFSET32_48, "f-offset32-48", 16, 32, 31, 32, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP47_43, "f-op47-43", 16, 32, 31, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET27_48, "f-offset27-48", 16, 32, 26, 27, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_PCREL27_48, "f-pcrel27-48", 16, 32, 26, 27, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET23BITS, "f-offset23bits", 0, 0, 0, 0,{ 0|A(PCREL_ADDR)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET27BITS, "f-offset27bits", 0, 0, 0, 0,{ 0|A(PCREL_ADDR)|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET12, "f-offset12", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
@@ -572,12 +574,16 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu48offset:  */
   { "alu48offset", VC4_OPERAND_ALU48OFFSET, HW_H_SINT, 31, 32,
-    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP47_16] } }, 
-    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OFFSET32_48] } }, 
+    { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
 /* mem48offset27:  */
   { "mem48offset27", VC4_OPERAND_MEM48OFFSET27, HW_H_SINT, 26, 27,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OFFSET27_48] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* mem48pcrel27:  */
+  { "mem48pcrel27", VC4_OPERAND_MEM48PCREL27, HW_H_SINT, 26, 27,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_PCREL27_48] } }, 
+    { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
 /* accsz:  */
   { "accsz", VC4_OPERAND_ACCSZ, HW_H_ACCSZ, 10, 2,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP10_9] } }, 
@@ -2124,17 +2130,17 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_FLTUI, "fltui", "fltu", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* lea $alu48idreg,$alu48offset(pc) */
+/* lea $alu48idreg,$alu48offset */
   {
     VC4_INSN_LEA48, "lea48", "lea", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* ld$accsz32.l $alu48idreg,$mem48offset27(pc) */
+/* ld$accsz32.l $alu48idreg,$mem48pcrel27 */
   {
     VC4_INSN_LDPCREL27, "ldpcrel27", "ld", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* st$accsz32.l $alu48idreg,$mem48offset27(pc) */
+/* st$accsz32.l $alu48idreg,$mem48pcrel27 */
   {
     VC4_INSN_STPCREL27, "stpcrel27", "st", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }

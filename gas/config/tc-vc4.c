@@ -141,6 +141,10 @@ md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
       return BFD_RELOC_VC4_REL8_MUL2;
     case VC4_OPERAND_OFFSET23BITS:
       return BFD_RELOC_VC4_REL23_MUL2;
+    case VC4_OPERAND_MEM48PCREL27:
+      return BFD_RELOC_VC4_REL27;
+    case VC4_OPERAND_ALU48OFFSET:
+      return BFD_RELOC_VC4_REL32;
     default:
       break;
     }
@@ -185,14 +189,14 @@ md_estimate_size_before_relax (fragS *fragP ATTRIBUTE_UNUSED,
   abort ();
 }
 
-long
+/*long
 md_pcrel_from (fixS *fixP)
 {
   long temp_val;
   temp_val=fixP->fx_size + fixP->fx_where + fixP->fx_frag->fr_address;
 
   return temp_val;
-}
+}*/
 
 long
 md_pcrel_from_section (fixS *fixP, segT sec)
@@ -203,10 +207,17 @@ md_pcrel_from_section (fixS *fixP, segT sec)
           || S_IS_EXTERNAL (fixP->fx_addsy)
           || S_IS_WEAK (fixP->fx_addsy)))
     {
+      if (S_GET_SEGMENT (fixP->fx_addsy) != sec
+	  && S_IS_DEFINED (fixP->fx_addsy)
+	  && ! S_IS_EXTERNAL (fixP->fx_addsy)
+	  && ! S_IS_WEAK (fixP->fx_addsy))
+	return fixP->fx_offset;
+
+      /* The symbol is undefined (or not defined in this section).  */
       return 0;
     }
 
-  return md_pcrel_from (fixP);
+  return fixP->fx_frag->fr_address + fixP->fx_where /*+ fixP->fx_size*/;
 }
 
 arelent *
@@ -241,7 +252,8 @@ vc4_tc_gen_reloc (asection *section ATTRIBUTE_UNUSED, fixS *fixp)
 #endif
 
   rel->howto = bfd_reloc_type_lookup (stdoutput, r_type);
-   if (rel->howto == NULL)
+
+  if (rel->howto == NULL)
     {
       as_bad_where (fixp->fx_file, fixp->fx_line,
 		    _("Cannot represent relocation type %s"),
@@ -258,7 +270,7 @@ vc4_cgen_parse_fix_exp (int opinfo, expressionS *exp)
   return opinfo;
 }
 
-void
+/*void
 vc4_cons_fix_new (fragS *frag,
 		  int where,
 		  int size,
@@ -287,7 +299,7 @@ vc4_cons_fix_new (fragS *frag,
     }
 
   fix_new_exp (frag, where, (int) size, exp, 0, type);
-}
+}*/
 
 fixS *
 vc4_cgen_record_fixup_exp (fragS *frag,

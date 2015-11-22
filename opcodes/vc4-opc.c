@@ -278,7 +278,7 @@ static const CGEN_IFMT ifmt_fabsi ATTRIBUTE_UNUSED = {
 };
 
 static const CGEN_IFMT ifmt_lea48 ATTRIBUTE_UNUSED = {
-  16, 48, 0xffe0, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
+  16, 48, 0xffe0, { { F (F_OFFSET32_48) }, { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_ldpcrel27 ATTRIBUTE_UNUSED = {
@@ -2076,22 +2076,22 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', '#', OP (IMM6), 0 } },
     & ifmt_mulhdiss, { 0xca60, { 0x40 }, { 0x40 } }
   },
-/* lea $alu48idreg,$alu48offset(pc) */
+/* lea $alu48idreg,$alu48offset */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48OFFSET), '(', 'p', 'c', ')', 0 } },
+    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48OFFSET), 0 } },
     & ifmt_lea48, { 0xe500 }
   },
-/* ld$accsz32.l $alu48idreg,$mem48offset27(pc) */
+/* ld$accsz32.l $alu48idreg,$mem48pcrel27 */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48OFFSET27), '(', 'p', 'c', ')', 0 } },
+    { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48PCREL27), 0 } },
     & ifmt_ldpcrel27, { 0xe700, { 0x0, 0xf800 }, { 0x0, 0xf800 } }
   },
-/* st$accsz32.l $alu48idreg,$mem48offset27(pc) */
+/* st$accsz32.l $alu48idreg,$mem48pcrel27 */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48OFFSET27), '(', 'p', 'c', ')', 0 } },
+    { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48PCREL27), 0 } },
     & ifmt_ldpcrel27, { 0xe720, { 0x0, 0xf800 }, { 0x0, 0xf800 } }
   },
 /* ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg) */
