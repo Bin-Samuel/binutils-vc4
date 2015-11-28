@@ -208,8 +208,8 @@
 (df f-op6-0 "Opcode bits 6-0" () 6 7 UINT #f #f)
 
 (df f-pcrelcc "PC relative for cond branch" (PCREL-ADDR) 6 7 SI
-  ((value pc) (sra SI (sub SI value (add SI pc 2)) 1))
-  ((value pc) (add SI (add SI pc 2) (sll SI value 1)))
+  ((value pc) (sra SI (sub SI value pc) 1))
+  ((value pc) (add SI pc (sll SI value 1)))
 )
 
 (df f-op5 "Opcode bit 5" () 5 1 UINT #f #f)
@@ -261,6 +261,23 @@
 
 (df2 f-op31-16s "Opcode bits 31-16, signed" () 16 16 15 16 INT (#f) (#f))
 
+(define-pmacro (shifted-op31-16s x-amount)
+  (df2 (.sym f-op31-16s-shl x-amount)
+    (.str "Opcode bits 31-16, signed, shifted " x-amount) () 16 16 15 16 INT
+    ((value pc) (srl INT value x-amount))
+    ((value pc) (sll INT value x-amount)))
+)
+
+(shifted-op31-16s 1)
+(shifted-op31-16s 2)
+(shifted-op31-16s 3)
+(shifted-op31-16s 4)
+
+(df2 f-offset16 "16-bit offset" (PCREL-ADDR) 16 16 15 16 SI
+  ((value pc) (sub SI value pc))
+  ((value pc) (add SI pc value))
+)
+
 (df2 f-op29-26 "Opcode bits 29-26" () 16 16 13 4 UINT (#f) (#f))
 
 (df2 f-op29-24 "Opcode bits 29-24" () 16 16 13 6 UINT (#f) (#f))
@@ -270,13 +287,13 @@
 (df2 f-op26-16 "Opcode bits 26-16" () 16 16 10 11 UINT (#f) (#f))
 
 (df2 f-offset10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
-  ((value pc) (sra SI (sub SI value (add SI pc 4)) 1))
-  ((value pc) (add SI (add SI pc 4) (sll SI value 1)))
+  ((value pc) (sra SI (sub SI value pc) 1))
+  ((value pc) (add SI pc (sll SI value 1)))
 )
 
 (df2 f-offset8 "8-bit offset" (PCREL-ADDR) 16 16 7 8 SI
-  ((value pc) (sra SI (sub SI value (add SI pc 4)) 1))
-  ((value pc) (add SI (add SI pc 4) (sll SI value 1)))
+  ((value pc) (sra SI (sub SI value pc) 1))
+  ((value pc) (add SI pc (sll SI value 1)))
 )
 
 (df2 f-op22-21 "Opcode bits 22-21" () 16 16 6 2 UINT (#f) (#f))
@@ -322,20 +339,20 @@
 (df2 f-op47-16 "Opcode bits 47-16" () 16 32 31 32 UINT (#f) (#f))
 
 (df2 f-offset32-48 "32-bit offset in 48-bit insn" (PCREL-ADDR) 16 32 31 32 SI
-  ((value pc) (sub SI value (add SI pc 6)))
-  ((value pc) (add SI (add SI pc 6) value))
+  ((value pc) (sub SI value pc))
+  ((value pc) (add SI pc value))
 )
 
 (df2 f-op47-43 "Opcode bits 47-43" () 16 32 31 5 UINT (#f) (#f))
 
 (df2 f-offset27-48 "27-bit offset in 48-bit insn" () 16 32 26 27 SI
-  ((value pc) (sub SI value (add SI pc 6)))
-  ((value pc) (add SI (add SI pc 6) value))
+  ((value pc) (sub SI value pc))
+  ((value pc) (add SI pc value))
 )
 
 (df2 f-pcrel27-48 "27-bit offset in 48-bit insn" (PCREL-ADDR) 16 32 26 27 SI
-  ((value pc) (sub SI value (add SI pc 6)))
-  ((value pc) (add SI (add SI pc 6) value))
+  ((value pc) (sub SI value pc))
+  ((value pc) (add SI pc value))
 )
 
 ;; Multi-ifields.
@@ -352,8 +369,8 @@
   (extract (sequence ()
 	     (set (ifield f-offset23bits) (or (sll (ifield f-op6-0) 16)
 					      (ifield f-op31-16)))))
-  (encode (value pc) (sra SI (sub SI value (add SI pc 4)) 1))
-  (decode (value pc) (add SI (add SI pc 4) (sll SI value 1)))
+  (encode (value pc) (sra SI (sub SI value pc) 1))
+  (decode (value pc) (add SI pc (sll SI value 1)))
 )
 
 (define-multi-ifield
@@ -370,8 +387,8 @@
 	     (set (ifield f-offset27bits) (or (or (sll (ifield f-op11-8) 23)
 						  (sll (ifield f-op6-0) 16))
 					      (ifield f-op31-16)))))
-  (encode (value pc) (sra SI (sub SI value (add SI pc 4)) 1))
-  (decode (value pc) (add SI (add SI pc 4) (sll SI value 1)))
+  (encode (value pc) (sra SI (sub SI value pc) 1))
+  (decode (value pc) (add SI pc (sll SI value 1)))
 )
 
 (define-multi-ifield
@@ -603,26 +620,6 @@
 )
 
 (define-normal-operand
-  disp5
-  "" ()
-  h-uint
-  f-op20-16
-)
-
-(define-pmacro (disp5_shifted x-amount)
-  (define-normal-operand
-    (.sym disp5_shl x-amount)
-    "" ()
-    h-uint
-    (.sym f-op20-16-shl x-amount))
-)
-
-(disp5_shifted 1)
-(disp5_shifted 2)
-(disp5_shifted 3)
-(disp5_shifted 4)
-
-(define-normal-operand
   ppstartreg
   "" ()
   h-ppreg
@@ -811,10 +808,30 @@
 )
 
 (define-normal-operand
-  offset16
+  index16
   "" ()
   h-sint
   f-op31-16s
+)
+
+(define-pmacro (index16_shifted x-amount)
+  (define-normal-operand
+    (.sym index16_shl x-amount)
+    "" ()
+    h-sint
+    (.sym f-op31-16s-shl x-amount))
+)
+
+(index16_shifted 1)
+(index16_shifted 2)
+(index16_shifted 3)
+(index16_shifted 4)
+
+(define-normal-operand
+  offset16
+  "" ()
+  h-sint
+  f-offset16
 )
 
 (define-normal-operand
@@ -989,9 +1006,9 @@
 (define-pmacro (ldstcnddisp x-name x-comment x-opcode x-accsz x-bit5)
   (define-normal-insn
     (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
-    (.str x-opcode x-accsz "${alu32cond} $alu32dreg,$disp5($alu32areg)")
+    (.str x-opcode x-accsz "${alu32cond} $alu32dreg,$imm6($alu32areg)")
     (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
-       alu32areg alu32cond OP22_21_2 disp5)
+       alu32areg alu32cond (f-op22 1) imm6)
     () ())
 )
 
@@ -1117,17 +1134,17 @@
 
 (define-normal-insn
   ldoff16 "LDOFF16" ()
-  "ld$accsz32 $alu32dreg,$offset16($off16basereg)"
+  "ld$accsz32 $alu32dreg,$index16($off16basereg)"
   (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 0) alu32dreg
-     offset16)
+     index16)
   () ()
 )
 
 (define-normal-insn
   stoff16 "STOFF16" ()
-  "st$accsz32 $alu32dreg,$offset16($off16basereg)"
+  "st$accsz32 $alu32dreg,$index16($off16basereg)"
   (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 1) alu32dreg
-     offset16)
+     index16)
   () ()
 )
 
@@ -1275,7 +1292,7 @@
     x-name x-comment ()
     (.str x-opcode "${alu32cond} $alu32dreg,$alu32breg")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
-       (f-op31-27 0) alu32cond OP22_21_0 alu32breg)
+       alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
 )
 
@@ -1283,7 +1300,7 @@
   (define-normal-insn
     x-name x-comment ()
     (.str x-opcode "${alu32cond} $alu32areg,$alu32breg")
-    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) (f-op4-0 0)
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
 )
@@ -1324,27 +1341,27 @@
 (define-pmacro (alu32opi3 x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,#$disp5" x-suffix)
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,#$imm6" x-suffix)
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
-       alu32areg alu32cond OP22_21_2 (.sym disp5 x-suffix))
+       alu32areg alu32cond (f-op22 1) (.sym imm6 x-suffix))
     () ())
 )
 
 (define-pmacro (alu32opi2 x-name x-comment x-opcode x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond} $alu32dreg,#$disp5")
+    (.str x-opcode "${alu32cond} $alu32dreg,#$imm6")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
-       (f-op31-27 0) alu32cond OP22_21_2 disp5)
+       alu32areg alu32cond (f-op22 1) imm6)
     () ())
 )
 
 (define-pmacro (alu32opic x-name x-comment x-opcode x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond} $alu32areg,#$disp5")
-    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) (f-op4-0 0)
-       alu32areg alu32cond OP22_21_2 disp5)
+    (.str x-opcode "${alu32cond} $alu32areg,#$imm6")
+    (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
+       alu32areg alu32cond (f-op22 1) imm6)
     () ())
 )
 
@@ -1484,12 +1501,73 @@
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32dreg,#$imm6")
     (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
-       (f-op31-27 0) alu32cond (f-op22 1) imm6)
+       alu32areg alu32cond (f-op22 1) imm6)
     () ())
 )
 
 (clmpcnti2 "clamp16i" "clamp16" 5 3)
 (clmpcnti2 "counti"   "count"   6 0)
+
+; These ones aren't on the Programmer's Manual wiki page, but are in
+; videocoreiv.arch.
+
+(define-normal-insn
+  lea32r "LEA32R" ()
+  "lea $alu48idreg,$index16($alu48isreg)"
+  (+ OPLEN_11 (f-op11-10 1) alu48isreg alu48idreg
+     index16)
+  () ()
+)
+
+(define-normal-insn
+  lea32pc "LEA32PC" ()
+  "lea $alu48idreg,$offset16"
+  (+ OPLEN_11 (f-op11-10 3) (f-op9-5 31) alu48idreg
+     offset16)
+  () ()
+)
+
+(define-pmacro (alu32uni x-name x-opcode x-suffix x-encoding)
+  (define-normal-insn
+    (.sym x-name x-suffix) (.sym (.upcase x-name) x-suffix) ()
+    (.str x-opcode " $alu48idreg,#$index16")
+    (+ OPLEN_11 (f-op11-10 0) (.sym ALU32OP_ x-encoding) alu48idreg
+       (.sym index16 x-suffix))
+    () ())
+)
+
+(alu32uni moviu32     "mov"     ""      MOV)
+(alu32uni cmniu32     "cmn"     ""      CMN)
+(alu32uni addiu32     "add"     ""      ADD)
+(alu32uni biciu32     "bic"     ""      BIC)
+(alu32uni muliu32     "mul"     ""      MUL)
+(alu32uni eoriu32     "eor"     ""      EOR)
+(alu32uni subiu32     "sub"     ""      SUB)
+(alu32uni andiu32     "and"     ""      AND)
+(alu32uni notiu32     "not"     ""      NOT)
+(alu32uni roriu32     "ror"     ""      ROR)
+(alu32uni cmpiu32     "cmp"     ""      CMP)
+(alu32uni rsubiu32    "rsub"    ""      RSUB)
+(alu32uni btstiu32    "btst"    ""      BTST)
+(alu32uni oriu32      "or"      ""      OR)
+(alu32uni bmaskiu32   "bmask"   ""      BMASK)
+(alu32uni maxiu32     "max"     ""      MAX)
+(alu32uni bsetiu32    "bset"    ""      BSET)
+(alu32uni miniu32     "min"     ""      MIN)
+(alu32uni bclriu32    "bclr"    ""      BCLR)
+(alu32uni adds2iu32   "add"     "_shl1" ADDS2)
+(alu32uni bchgiu32    "bchg"    ""      BCHG)
+(alu32uni adds4iu32   "add"     "_shl2" ADDS4)
+(alu32uni adds8iu32   "add"     "_shl3" ADDS8)
+(alu32uni adds16iu32  "add"     "_shl4" ADDS16)
+(alu32uni signextiu32 "signext" ""      SIGNEXT)
+(alu32uni negiu32     "neg"     ""      NEG)
+(alu32uni lsriu32     "lsr"     ""      LSR)
+(alu32uni msbiu32     "msb"     ""      MSB)
+(alu32uni shliu32     "shl"     ""      SHL)
+(alu32uni bitreviu32  "bitrev"  ""      BITREV)
+(alu32uni asriu32     "asr"     ""      ASR)
+(alu32uni absiu32     "abs"     ""      ABS)
 
 ;; Floating-point ops.
 
@@ -1506,7 +1584,7 @@
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32areg,$alu32breg")
-    (+ OPLEN_12 (f-op11-9 4) x-fop (f-op4-0 0)
+    (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
 )
@@ -1516,7 +1594,7 @@
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32dreg,$alu32breg")
     (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
-       (f-op31-27 0) alu32cond OP22_21_0 alu32breg)
+       alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
 )
 
@@ -1550,7 +1628,7 @@
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32areg,#$floatimm6")
-    (+ OPLEN_12 (f-op11-9 4) x-fop (f-op4-0 0)
+    (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
        alu32areg alu32cond (f-op22 1) floatimm6)
     () ())
 )
@@ -1560,7 +1638,7 @@
     x-name (.str (.upcase x-name)) ()
     (.str x-opcode "$alu32cond $alu32dreg,#$floatimm6")
     (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
-       (f-op31-27 0) alu32cond (f-op22 1) floatimm6)
+       alu32areg alu32cond (f-op22 1) floatimm6)
     () ())
 )
 

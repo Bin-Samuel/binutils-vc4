@@ -200,21 +200,6 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_CONDCODEBCC32 :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_cond, & fields->f_op11_8);
       break;
-    case VC4_OPERAND_DISP5 :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5, (unsigned long *) (& fields->f_op20_16));
-      break;
-    case VC4_OPERAND_DISP5_SHL1 :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL1, (unsigned long *) (& fields->f_op20_16_shl1));
-      break;
-    case VC4_OPERAND_DISP5_SHL2 :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL2, (unsigned long *) (& fields->f_op20_16_shl2));
-      break;
-    case VC4_OPERAND_DISP5_SHL3 :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL3, (unsigned long *) (& fields->f_op20_16_shl3));
-      break;
-    case VC4_OPERAND_DISP5_SHL4 :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_DISP5_SHL4, (unsigned long *) (& fields->f_op20_16_shl4));
-      break;
     case VC4_OPERAND_FLOATIMM6 :
       errmsg = parse_floatimm6 (cd, strp, VC4_OPERAND_FLOATIMM6, (unsigned long *) (& fields->f_op21_16));
       break;
@@ -245,6 +230,21 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_IMM6_SHL8 :
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL8, (long *) (& fields->f_op21_16s_shl8));
       break;
+    case VC4_OPERAND_INDEX16 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16, (long *) (& fields->f_op31_16s));
+      break;
+    case VC4_OPERAND_INDEX16_SHL1 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL1, (long *) (& fields->f_op31_16s_shl1));
+      break;
+    case VC4_OPERAND_INDEX16_SHL2 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL2, (long *) (& fields->f_op31_16s_shl2));
+      break;
+    case VC4_OPERAND_INDEX16_SHL3 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL3, (long *) (& fields->f_op31_16s_shl3));
+      break;
+    case VC4_OPERAND_INDEX16_SHL4 :
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL4, (long *) (& fields->f_op31_16s_shl4));
+      break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;
@@ -271,7 +271,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_OFFSET12, (long *) (& fields->f_offset12));
       break;
     case VC4_OPERAND_OFFSET16 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_OFFSET16, (long *) (& fields->f_op31_16s));
+      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_OFFSET16, (long *) (& fields->f_offset16));
       break;
     case VC4_OPERAND_OFFSET23BITS :
       {
