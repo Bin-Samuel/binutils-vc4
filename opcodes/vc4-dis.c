@@ -231,6 +231,15 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_OFFSET8BITS :
       print_address (cd, info, fields->f_offset8, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
+    case VC4_OPERAND_OPERAND10_0 :
+      print_normal (cd, info, fields->f_op10_0, 0, pc, length);
+      break;
+    case VC4_OPERAND_OPERAND47_16 :
+      print_normal (cd, info, fields->f_op47_16, 0, pc, length);
+      break;
+    case VC4_OPERAND_OPERAND79_48 :
+      print_normal (cd, info, fields->f_op79_48, 0, pc, length);
+      break;
     case VC4_OPERAND_PCRELCC :
       print_address (cd, info, fields->f_pcrelcc, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;

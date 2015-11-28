@@ -147,6 +147,7 @@
 
 (df f-op15-11 "Opcode bits 15-11" () 15 5 UINT #f #f)
 
+
 (df f-op11-8 "Opcode bits 11-8" () 11 4 UINT #f #f)
 
 (df f-ldstoff "Load/store offset" () 11 4 UINT
@@ -168,6 +169,8 @@
   ((value pc) (srl UINT value 2))
   ((value pc) (sll UINT value 2))
 )
+
+(df f-op10-0 "Opcode bits 10-0" () 10 11 UINT #f #f)
 
 (df f-alu16op "ALU16 5-bit opcodes" () 12 5 UINT #f #f)
 
@@ -354,6 +357,8 @@
   ((value pc) (sub SI value pc))
   ((value pc) (add SI pc value))
 )
+
+(df2 f-op79-48 "Opcode bits 79-48" () 48 32 31 32 UINT (#f) (#f))
 
 ;; Multi-ifields.
 
@@ -839,6 +844,27 @@
   "" ()
   h-basereg
   f-op9-8
+)
+
+(define-normal-operand
+  operand10_0
+  "" ()
+  h-uint
+  f-op10-0
+)
+
+(define-normal-operand
+  operand47_16
+  "" ()
+  h-uint
+  f-op47-16
+)
+
+(define-normal-operand
+  operand79_48
+  "" ()
+  h-uint
+  f-op79-48
 )
 
 ;; 16-bit instructions.
@@ -1689,7 +1715,7 @@
 (convopi "fltsi"   "flts"   "sasr" OP7_5_2)
 (convopi "fltui"   "fltu"   "sasr" OP7_5_3)
 
-;; 48-bit instructions.
+;; 48-bit scalar instructions.
 
 (define-normal-insn
   lea48 "LEA48" ()
@@ -1767,4 +1793,20 @@
 (alu48opi2 maxi48  "max"  MAX)
 (alu48opi2 mini48  "min"  MIN)
 
-;; 80-bit instructions.
+;; 48-bit vector instructions.
+
+(define-normal-insn
+  vec48 "VEC48" ()
+  "vec48 $operand10_0,$operand47_16"
+  (+ OPLEN_15 (f-op11 0) operand10_0 operand47_16)
+  () ()
+)
+
+;; 80-bit vector instructions.
+
+(define-normal-insn
+  vec80 "VEC80" ()
+  "vec80 $operand10_0,$operand47_16,$operand79_48"
+  (+ OPLEN_15 (f-op11 1) operand10_0 operand47_16 operand79_48)
+  () ()
+)

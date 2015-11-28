@@ -294,6 +294,15 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
         fields->f_offset8 = value;
       }
       break;
+    case VC4_OPERAND_OPERAND10_0 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_OPERAND10_0, (unsigned long *) (& fields->f_op10_0));
+      break;
+    case VC4_OPERAND_OPERAND47_16 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_OPERAND47_16, (unsigned long *) (& fields->f_op47_16));
+      break;
+    case VC4_OPERAND_OPERAND79_48 :
+      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_OPERAND79_48, (unsigned long *) (& fields->f_op79_48));
+      break;
     case VC4_OPERAND_PCRELCC :
       {
         bfd_vma value = 0;

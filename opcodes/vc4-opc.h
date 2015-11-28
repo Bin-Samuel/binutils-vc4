@@ -130,13 +130,14 @@ typedef enum cgen_insn_type {
  , VC4_INSN_CMNI48, VC4_INSN_ADDI48, VC4_INSN_BICI48, VC4_INSN_MULI48
  , VC4_INSN_EORI48, VC4_INSN_SUBI48, VC4_INSN_ANDI48, VC4_INSN_CMPI48
  , VC4_INSN_RSUBI48, VC4_INSN_ORI48, VC4_INSN_MAXI48, VC4_INSN_MINI48
+ , VC4_INSN_VEC48, VC4_INSN_VEC80
 } CGEN_INSN_TYPE;
 
 /* Index of `invalid' insn place holder.  */
 #define CGEN_INSN_INVALID VC4_INSN_INVALID
 
 /* Total number of insns in table.  */
-#define MAX_INSNS ((int) VC4_INSN_MINI48 + 1)
+#define MAX_INSNS ((int) VC4_INSN_VEC80 + 1)
 
 /* This struct records data prior to insertion or after extraction.  */
 struct cgen_fields
@@ -155,6 +156,7 @@ struct cgen_fields
   long f_op10_9;
   long f_op10_7;
   long f_addspoffset;
+  long f_op10_0;
   long f_alu16op;
   long f_alu16opi;
   long f_op9_8;
@@ -218,6 +220,7 @@ struct cgen_fields
   long f_op47_43;
   long f_offset27_48;
   long f_pcrel27_48;
+  long f_op79_48;
   long f_offset23bits;
   long f_offset27bits;
   long f_offset12;

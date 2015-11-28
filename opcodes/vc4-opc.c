@@ -289,6 +289,14 @@ static const CGEN_IFMT ifmt_movi48 ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_vec48 ATTRIBUTE_UNUSED = {
+  16, 48, 0xf800, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11) }, { F (F_OP10_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_vec80 ATTRIBUTE_UNUSED = {
+  16, 80, 0xf800, { { F (F_OP47_16) }, { F (F_OP79_48) }, { F (F_OPLEN) }, { F (F_OP11) }, { F (F_OP10_0) }, { 0 } }
+};
+
 #undef F
 
 #define A(a) (1 << CGEN_INSN_##a)
@@ -2385,6 +2393,18 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
     & ifmt_movi48, { 0xea20 }
+  },
+/* vec48 $operand10_0,$operand47_16 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (OPERAND10_0), ',', OP (OPERAND47_16), 0 } },
+    & ifmt_vec48, { 0xf000 }
+  },
+/* vec80 $operand10_0,$operand47_16,$operand79_48 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (OPERAND10_0), ',', OP (OPERAND47_16), ',', OP (OPERAND79_48), 0 } },
+    & ifmt_vec80, { 0xf800 }
   },
 };
 
