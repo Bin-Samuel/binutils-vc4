@@ -1192,7 +1192,7 @@ eelf32vax.c: $(srcdir)/emulparams/elf32vax.sh \
 	${GENSCRIPTS} elf32vax "$(tdir_elf32vax)"
 eelf32vc4.c: $(srcdir)/emulparams/elf32vc4.sh \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
-	${GENSCRIPTS} elf32vc4 "$(tdir_openrisc)"
+	${GENSCRIPTS} elf32vc4 "$(tdir_vc4)"
 eelf32xc16x.c: $(srcdir)/emulparams/elf32xc16x.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/needrelax.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}

@@ -32,7 +32,7 @@
 #define DEBUGn(X, ...)
 #define DEBUG(X, ...)
 
-bfd_reloc_status_type
+static bfd_reloc_status_type
 vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 	       arelent *reloc_entry,
 	       asymbol *symbol ATTRIBUTE_UNUSED,
@@ -40,6 +40,15 @@ vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 	       asection *input_section,
 	       bfd *output_bfd,
 	       char **error_message ATTRIBUTE_UNUSED);
+
+static bfd_reloc_status_type
+vc4_pcrel27_reloc (bfd *abfd ATTRIBUTE_UNUSED,
+		   arelent *reloc_entry,
+		   asymbol *symbol ATTRIBUTE_UNUSED,
+		   void *data ATTRIBUTE_UNUSED,
+		   asection *input_section,
+		   bfd *output_bfd,
+		   char **error_message ATTRIBUTE_UNUSED);
 
 static reloc_howto_type vc4_elf_howto_table[] =
 {
@@ -71,7 +80,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 FALSE,			/* partial_inplace */
 	 0x007f,		/* src_mask */
 	 0x007f,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 8 bit relocation.  */
   HOWTO (R_VC4_PCREL8_MUL2,      /* type */
@@ -84,9 +93,9 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL8",        /* name */
 	 FALSE,			/* partial_inplace */
-	 0x00000000,		/* src_mask */
+	 0x00ff0000,		/* src_mask */
 	 0x00ff0000,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 10 bit relocation.  */
   HOWTO (R_VC4_PCREL10_MUL2,   /* type */
@@ -99,9 +108,9 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL10",      /* name */
 	 FALSE,			/* partial_inplace */
-	 0x00000000,		/* src_mask */
+	 0x03ff0000,		/* src_mask */
 	 0x03ff0000,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 16 bit relocation.  */
   HOWTO (R_VC4_PCREL16,        /* type */
@@ -116,7 +125,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 FALSE,			/* partial_inplace */
 	 0x0000,		/* src_mask */
 	 0xffff,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 23 bit relocation.  */
   HOWTO (R_VC4_PCREL23_MUL2,   /* type */
@@ -131,7 +140,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
 	 0x007fffff,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 27 bit relocation.  */
   HOWTO (R_VC4_PCREL27,        /* type */
@@ -146,7 +155,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
 	 0x07ffffff,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 27 bit relocation.  */
   HOWTO (R_VC4_PCREL27_MUL2,   /* type */
@@ -156,12 +165,12 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 TRUE,			/* pc_relative */
 	 0,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL27_MUL2",  /* name */
 	 FALSE,			/* partial_inplace */
-	 0x00000000,		/* src_mask */
+	 0x07ffffff,		/* src_mask */
 	 0x07ffffff,		/* dst_mask */
-	 FALSE),		/* pcrel_offset */
+	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 32 bit relocation.  */
   HOWTO (R_VC4_PCREL32,        /* type */
@@ -480,19 +489,204 @@ vc4_info_to_howto_rela (bfd * abfd ATTRIBUTE_UNUSED,
   cache_ptr->howto = &vc4_elf_howto_table[r_type];
 }
 
-static bfd_boolean
-vc4_elf_relocate_section (bfd *output_bfd,
-			       struct bfd_link_info *info,
-			       bfd *input_bfd,
-			       asection *input_section,
-			       bfd_byte *contents,
-			       Elf_Internal_Rela *relocs,
-			       Elf_Internal_Sym *local_syms,
-			       asection **local_sections)
+static bfd_reloc_status_type
+vc4_final_link_relocate (reloc_howto_type *howto,
+			 bfd *input_bfd,
+			 asection *input_section,
+			 bfd_byte *contents,
+			 Elf_Internal_Rela *rel,
+			 bfd_vma relocation)
 {
+  bfd_vma pc;
+  long s;
+  unsigned long u;
+  unsigned char *byte;
+  bfd_reloc_status_type r = bfd_reloc_ok;
+
+  pc = input_section->output_section->vma
+       + input_section->output_offset
+       + rel->r_offset;
+
+  s = relocation + rel->r_addend;
+
+  byte = (unsigned char *)contents + rel->r_offset;
+
+  if (howto->pc_relative)
+    s -= pc;
+
+  u = (unsigned long) s;
+
+  switch (howto->type)
+    {
+    case R_VC4_PCREL27_MUL2:
+      if (s < -0x8000000 || s >= 0x8000000 || (s & 1) != 0)
+        r = bfd_reloc_overflow;
+      byte[2] = (u >> 1) & 0xff;
+      byte[3] = (u >> 9) & 0xff;
+      byte[0] = (byte[0] & 0x80) | (u >> 17) & 0x7f;
+      byte[1] = (byte[1] & 0xf0) | (u >> 24) & 0xf;
+      break;
+
+    default:
+      abort ();
+    }
+
+  return r;
 }
 
-bfd_reloc_status_type
+/* Relocate a VC4 ELF section.
+   There is some attempt to make this function usable for many architectures,
+   both USE_REL and USE_RELA ['twould be nice if such a critter existed],
+   if only to serve as a learning tool.
+
+   The RELOCATE_SECTION function is called by the new ELF backend linker
+   to handle the relocations for a section.
+
+   The relocs are always passed as Rela structures; if the section
+   actually uses Rel structures, the r_addend field will always be
+   zero.
+
+   This function is responsible for adjusting the section contents as
+   necessary, and (if using Rela relocs and generating a relocatable
+   output file) adjusting the reloc addend as necessary.
+
+   This function does not have to worry about setting the reloc
+   address or the reloc symbol index.
+
+   LOCAL_SYMS is a pointer to the swapped in local symbols.
+
+   LOCAL_SECTIONS is an array giving the section in the input file
+   corresponding to the st_shndx field of each local symbol.
+
+   The global hash table entry for the global symbols can be found
+   via elf_sym_hashes (input_bfd).
+
+   When generating relocatable output, this function must handle
+   STB_LOCAL/STT_SECTION symbols specially.  The output symbol is
+   going to be the section symbol corresponding to the output
+   section, which means that the addend must be adjusted
+   accordingly.  */
+
+/* This is based on mep_elf_relocate_section, but RX, M32C, Microblaze,
+   IQ2000, MT and RL78 also appear to be derived from the same origin.  */
+
+static bfd_boolean
+vc4_elf_relocate_section (bfd *output_bfd,
+			  struct bfd_link_info *info,
+			  bfd *input_bfd,
+			  asection *input_section,
+			  bfd_byte *contents,
+			  Elf_Internal_Rela *relocs,
+			  Elf_Internal_Sym *local_syms,
+			  asection **local_sections)
+{
+  Elf_Internal_Shdr *           symtab_hdr;
+  struct elf_link_hash_entry ** sym_hashes;
+  Elf_Internal_Rela *           rel;
+  Elf_Internal_Rela *           relend;
+
+  symtab_hdr = & elf_tdata (input_bfd)->symtab_hdr;
+  sym_hashes = elf_sym_hashes (input_bfd);
+  relend     = relocs + input_section->reloc_count;
+
+  for (rel = relocs; rel < relend; rel ++)
+    {
+      reloc_howto_type *           howto;
+      unsigned long                r_symndx;
+      Elf_Internal_Sym *           sym;
+      asection *                   sec;
+      struct elf_link_hash_entry * h;
+      bfd_vma                      relocation;
+      bfd_reloc_status_type        r;
+      const char *                 name = NULL;
+      int                          r_type;
+
+      r_type = ELF32_R_TYPE (rel->r_info);
+      r_symndx = ELF32_R_SYM (rel->r_info);
+      howto  = vc4_elf_howto_table + ELF32_R_TYPE (rel->r_info);
+      h      = NULL;
+      sym    = NULL;
+      sec    = NULL;
+
+      if (r_symndx < symtab_hdr->sh_info)
+	{
+	  sym = local_syms + r_symndx;
+	  sec = local_sections [r_symndx];
+	  relocation = _bfd_elf_rela_local_sym (output_bfd, sym, &sec, rel);
+
+	  name = bfd_elf_string_from_elf_section
+	    (input_bfd, symtab_hdr->sh_link, sym->st_name);
+	  name = (name == NULL) ? bfd_section_name (input_bfd, sec) : name;
+	}
+      else
+	{
+	  bfd_boolean warned, unresolved_reloc;
+
+	  RELOC_FOR_GLOBAL_SYMBOL (info, input_bfd, input_section, rel,
+				   r_symndx, symtab_hdr, sym_hashes,
+				   h, sec, relocation,
+				   unresolved_reloc, warned);
+
+	  name = h->root.root.string;
+	}
+
+      if (sec != NULL && discarded_section (sec))
+	RELOC_AGAINST_DISCARDED_SECTION (info, input_bfd, input_section,
+					 rel, 1, relend, howto, 0, contents);
+
+      if (info->relocatable)
+	continue;
+
+      r = vc4_final_link_relocate (howto, input_bfd, input_section,
+				   contents, rel, relocation);
+
+      if (r != bfd_reloc_ok)
+	{
+	  const char * msg = (const char *) NULL;
+
+	  switch (r)
+	    {
+	    case bfd_reloc_overflow:
+	      r = info->callbacks->reloc_overflow
+		(info, (h ? &h->root : NULL), name, howto->name, (bfd_vma) 0,
+		 input_bfd, input_section, rel->r_offset);
+	      break;
+
+	    case bfd_reloc_undefined:
+	      r = info->callbacks->undefined_symbol
+		(info, name, input_bfd, input_section, rel->r_offset, TRUE);
+	      break;
+
+	    case bfd_reloc_outofrange:
+	      msg = _("internal error: out of range error");
+	      break;
+
+	    case bfd_reloc_notsupported:
+	      msg = _("internal error: unsupported relocation error");
+	      break;
+
+	    case bfd_reloc_dangerous:
+	      msg = _("internal error: dangerous relocation");
+	      break;
+
+	    default:
+	      msg = _("internal error: unknown error");
+	      break;
+	    }
+
+	  if (msg)
+	    r = info->callbacks->warning
+	      (info, msg, name, input_bfd, input_section, rel->r_offset);
+
+	  if (! r)
+	    return FALSE;
+	}
+    }
+
+  return TRUE;
+}
+
+static bfd_reloc_status_type
 vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 				arelent *reloc_entry,
 				asymbol *symbol ATTRIBUTE_UNUSED,
@@ -502,6 +696,20 @@ vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 				char **error_message ATTRIBUTE_UNUSED)
 {
   fprintf (stderr, "vc4_elf_reloc special function\n");
+  return bfd_reloc_notsupported;
+}
+
+static bfd_reloc_status_type
+vc4_pcrel27_reloc (bfd *abfd ATTRIBUTE_UNUSED,
+		   arelent *reloc_entry,
+		   asymbol *symbol ATTRIBUTE_UNUSED,
+		   void *data ATTRIBUTE_UNUSED,
+		   asection *input_section,
+		   bfd *output_bfd,
+		   char **error_message ATTRIBUTE_UNUSED)
+{
+  fprintf (stderr, "vc4_pcrel27_reloc\n");
+  return bfd_reloc_ok;
 }
 
 /* Return the section that should be marked against GC for a given

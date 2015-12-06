@@ -15,21 +15,6 @@
 
 /* -- asm.c */
 
-#if 0
-static const char *
-parse_imm31 (CGEN_CPU_DESC cd,
-	     const char **strp,
-	     int opindex,
-	     unsigned long *valuep)
-{
-  const char *errmsg;
-  
-  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
-  
-  return errmsg;
-}
-#endif
-
 #include <errno.h>
 
 union floatbits {
@@ -70,6 +55,62 @@ parse_floatimm6 (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 err_out:
   return "Bad floating-point immediate";
 }
+
+static const char *
+parse_uimm5_shl3 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		  unsigned long *valuep)
+{
+  const char *errmsg;
+
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
+
+  if (!errmsg && ((*valuep & 7) != 0 || *valuep > 248))
+    errmsg = "out-of-range immediate";
+
+  return errmsg;
+}
+
+static const char *
+parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		   long *valuep, unsigned bits, unsigned shift)
+{
+  const char *errmsg;
+  unsigned mask = (1 << shift) - 1;
+  long lo = -(1 << (bits - 1)), hi = 1 << (bits - 1);
+  long value;
+
+  errmsg = cgen_parse_signed_integer (cd, strp, opindex, &value);
+
+  if (!errmsg && ((value & mask) != 0 || (value >> shift) < lo
+		  || (value >> shift) >= hi))
+    errmsg = "out-of-range immediate";
+  else
+    *valuep = value;
+
+  return errmsg;
+}
+
+#define SHIFTED_IMM_FN(B,S)						\
+  static const char *							\
+  parse_imm##B##_shl##S (CGEN_CPU_DESC cd, const char **strp,		\
+			 int opindex, long *valuep)			\
+  {									\
+    return parse_shifted_imm (cd, strp, opindex, valuep, (B), (S));	\
+  }
+
+SHIFTED_IMM_FN (6, 8)
+SHIFTED_IMM_FN (6, 7)
+SHIFTED_IMM_FN (6, 6)
+SHIFTED_IMM_FN (6, 5)
+SHIFTED_IMM_FN (6, 4)
+SHIFTED_IMM_FN (6, 3)
+SHIFTED_IMM_FN (6, 2)
+SHIFTED_IMM_FN (6, 1)
+
+SHIFTED_IMM_FN (16, 4)
+SHIFTED_IMM_FN (16, 3)
+SHIFTED_IMM_FN (16, 2)
+SHIFTED_IMM_FN (16, 1)
 
 /* -- */
 

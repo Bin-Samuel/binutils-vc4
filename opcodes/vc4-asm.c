@@ -51,21 +51,6 @@ static const char * parse_insn_normal
 
 /* -- asm.c */
 
-#if 0
-static const char *
-parse_imm31 (CGEN_CPU_DESC cd,
-	     const char **strp,
-	     int opindex,
-	     unsigned long *valuep)
-{
-  const char *errmsg;
-  
-  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
-  
-  return errmsg;
-}
-#endif
-
 #include <errno.h>
 
 union floatbits {
@@ -106,6 +91,62 @@ parse_floatimm6 (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 err_out:
   return "Bad floating-point immediate";
 }
+
+static const char *
+parse_uimm5_shl3 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		  unsigned long *valuep)
+{
+  const char *errmsg;
+
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
+
+  if (!errmsg && ((*valuep & 7) != 0 || *valuep > 248))
+    errmsg = "out-of-range immediate";
+
+  return errmsg;
+}
+
+static const char *
+parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		   long *valuep, unsigned bits, unsigned shift)
+{
+  const char *errmsg;
+  unsigned mask = (1 << shift) - 1;
+  long lo = -(1 << (bits - 1)), hi = 1 << (bits - 1);
+  long value;
+
+  errmsg = cgen_parse_signed_integer (cd, strp, opindex, &value);
+
+  if (!errmsg && ((value & mask) != 0 || (value >> shift) < lo
+		  || (value >> shift) >= hi))
+    errmsg = "out-of-range immediate";
+  else
+    *valuep = value;
+
+  return errmsg;
+}
+
+#define SHIFTED_IMM_FN(B,S)						\
+  static const char *							\
+  parse_imm##B##_shl##S (CGEN_CPU_DESC cd, const char **strp,		\
+			 int opindex, long *valuep)			\
+  {									\
+    return parse_shifted_imm (cd, strp, opindex, valuep, (B), (S));	\
+  }
+
+SHIFTED_IMM_FN (6, 8)
+SHIFTED_IMM_FN (6, 7)
+SHIFTED_IMM_FN (6, 6)
+SHIFTED_IMM_FN (6, 5)
+SHIFTED_IMM_FN (6, 4)
+SHIFTED_IMM_FN (6, 3)
+SHIFTED_IMM_FN (6, 2)
+SHIFTED_IMM_FN (6, 1)
+
+SHIFTED_IMM_FN (16, 4)
+SHIFTED_IMM_FN (16, 3)
+SHIFTED_IMM_FN (16, 2)
+SHIFTED_IMM_FN (16, 1)
 
 /* -- */
 
@@ -159,7 +200,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ALU16IMM, (unsigned long *) (& fields->f_op8_4));
       break;
     case VC4_OPERAND_ALU16IMM_SHL3 :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ALU16IMM_SHL3, (unsigned long *) (& fields->f_op8_4_shl3));
+      errmsg = parse_uimm5_shl3 (cd, strp, VC4_OPERAND_ALU16IMM_SHL3, (unsigned long *) (& fields->f_op8_4_shl3));
       break;
     case VC4_OPERAND_ALU16SREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op7_4);
@@ -207,43 +248,43 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6, (long *) (& fields->f_op21_16s));
       break;
     case VC4_OPERAND_IMM6_SHL1 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL1, (long *) (& fields->f_op21_16s_shl1));
+      errmsg = parse_imm6_shl1 (cd, strp, VC4_OPERAND_IMM6_SHL1, (long *) (& fields->f_op21_16s_shl1));
       break;
     case VC4_OPERAND_IMM6_SHL2 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL2, (long *) (& fields->f_op21_16s_shl2));
+      errmsg = parse_imm6_shl2 (cd, strp, VC4_OPERAND_IMM6_SHL2, (long *) (& fields->f_op21_16s_shl2));
       break;
     case VC4_OPERAND_IMM6_SHL3 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL3, (long *) (& fields->f_op21_16s_shl3));
+      errmsg = parse_imm6_shl3 (cd, strp, VC4_OPERAND_IMM6_SHL3, (long *) (& fields->f_op21_16s_shl3));
       break;
     case VC4_OPERAND_IMM6_SHL4 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL4, (long *) (& fields->f_op21_16s_shl4));
+      errmsg = parse_imm6_shl4 (cd, strp, VC4_OPERAND_IMM6_SHL4, (long *) (& fields->f_op21_16s_shl4));
       break;
     case VC4_OPERAND_IMM6_SHL5 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL5, (long *) (& fields->f_op21_16s_shl5));
+      errmsg = parse_imm6_shl5 (cd, strp, VC4_OPERAND_IMM6_SHL5, (long *) (& fields->f_op21_16s_shl5));
       break;
     case VC4_OPERAND_IMM6_SHL6 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL6, (long *) (& fields->f_op21_16s_shl6));
+      errmsg = parse_imm6_shl6 (cd, strp, VC4_OPERAND_IMM6_SHL6, (long *) (& fields->f_op21_16s_shl6));
       break;
     case VC4_OPERAND_IMM6_SHL7 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL7, (long *) (& fields->f_op21_16s_shl7));
+      errmsg = parse_imm6_shl7 (cd, strp, VC4_OPERAND_IMM6_SHL7, (long *) (& fields->f_op21_16s_shl7));
       break;
     case VC4_OPERAND_IMM6_SHL8 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6_SHL8, (long *) (& fields->f_op21_16s_shl8));
+      errmsg = parse_imm6_shl8 (cd, strp, VC4_OPERAND_IMM6_SHL8, (long *) (& fields->f_op21_16s_shl8));
       break;
     case VC4_OPERAND_INDEX16 :
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16, (long *) (& fields->f_op31_16s));
       break;
     case VC4_OPERAND_INDEX16_SHL1 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL1, (long *) (& fields->f_op31_16s_shl1));
+      errmsg = parse_imm16_shl1 (cd, strp, VC4_OPERAND_INDEX16_SHL1, (long *) (& fields->f_op31_16s_shl1));
       break;
     case VC4_OPERAND_INDEX16_SHL2 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL2, (long *) (& fields->f_op31_16s_shl2));
+      errmsg = parse_imm16_shl2 (cd, strp, VC4_OPERAND_INDEX16_SHL2, (long *) (& fields->f_op31_16s_shl2));
       break;
     case VC4_OPERAND_INDEX16_SHL3 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL3, (long *) (& fields->f_op31_16s_shl3));
+      errmsg = parse_imm16_shl3 (cd, strp, VC4_OPERAND_INDEX16_SHL3, (long *) (& fields->f_op31_16s_shl3));
       break;
     case VC4_OPERAND_INDEX16_SHL4 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16_SHL4, (long *) (& fields->f_op31_16s_shl4));
+      errmsg = parse_imm16_shl4 (cd, strp, VC4_OPERAND_INDEX16_SHL4, (long *) (& fields->f_op31_16s_shl4));
       break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
