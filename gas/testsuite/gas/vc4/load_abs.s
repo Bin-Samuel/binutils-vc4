@@ -1,3 +1,6 @@
 	.text
 foo:
-	ld r0, 0x7e200018
+	ld r0, some_data
+	.data
+some_data:
+	.long 100

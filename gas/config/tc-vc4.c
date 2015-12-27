@@ -207,7 +207,11 @@ const relax_typeS md_relax_table[] =
   
   /* 16-bit and 32-bit conditional branch.  */
   {        126,        -128, 0, 4 }, /* 7-bit offset, left-shifted by 1.  */
-  {   0x7ffffe,   -0x800000, 2, 0 }  /* 23-bit offset, left-shifted by 1.  */
+  {   0x7ffffe,   -0x800000, 2, 0 }, /* 23-bit offset, left-shifted by 1.  */
+  
+  /* 32-bit and 48-bit LEA instructions.  */
+  {     0x7fff,     -0x8000, 0, 6 }, /* 16-bit offset.  */
+  { 0x7fffffff, -0x80000000, 2, 0 }
 };
 
 int
@@ -227,6 +231,10 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
   if ((firstword & 0xf800) == 0x1800)
     fragP->fr_subtype = 3;
 
+  /* A 32-bit LEA instruction.  */
+  else if ((firstword & 0xffe0) == 0xbfe0)
+    fragP->fr_subtype = 5;
+
   /* Undefined symbols can't be relaxed by the assembler, and should use the
      biggest insn type available (until they can be relaxed by the linker).  */
   if (S_GET_SEGMENT (fragP->fr_symbol) != segment
@@ -240,10 +248,9 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
       switch (fragP->fr_subtype)
 	{
 	case 1:
-	  fragP->fr_subtype = 2;
-	  break;
 	case 3:
-	  fragP->fr_subtype = 4;
+	case 5:
+	  fragP->fr_subtype++;
 	  break;
 	default:
 	  abort ();
@@ -465,6 +472,23 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	operand = VC4_OPERAND_OFFSET23BITS;
       }
       break;
+    case 5:
+      extension = 0;
+      break;
+    case 6:
+      {
+        unsigned int dstreg;
+	/* 32-bit LEA instruction.  */
+	gas_assert ((firstword & 0xffe0) == 0xbfe0);
+	dstreg = firstword & 0x1f;
+	/* Rebuild as 48-bit LEA instruction.  */
+	firstword = 0xe500 | dstreg;
+	opcode[0] = firstword & 0xff;
+	opcode[1] = (firstword >> 8) & 0xff;
+	extension = 2;
+	operand = VC4_OPERAND_ALU48OFFSET;
+      }
+      break;
     default:
       abort ();
     }
@@ -492,6 +516,7 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	opcode[1] = (opcode[1] & 0xfe) | ((addend >> 4) & 1);
         break;
       case 2: /* 32-bit immediate (in 48-bit instruction).  */
+      case 6: /* 32-bit PC-relative offset (in 48-bit LEA insn).  */
         opcode[2] = addend & 0xff;
 	opcode[3] = (addend >> 8) & 0xff;
 	opcode[4] = (addend >> 16) & 0xff;
@@ -504,6 +529,10 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
         opcode[2] = (addend >> 1) & 0xff;
 	opcode[3] = (addend >> 9) & 0xff;
 	opcode[0] = (addend >> 17) & 0x7f;
+        break;
+      case 5: /* 16-bit PC-relative offset (in 32-bit LEA insn).  */
+        opcode[2] = addend & 0xff;
+	opcode[3] = (addend >> 8) & 0xff;
         break;
       default:
         abort ();

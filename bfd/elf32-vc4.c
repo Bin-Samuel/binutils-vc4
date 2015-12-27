@@ -534,6 +534,7 @@ vc4_final_link_relocate (reloc_howto_type *howto,
       break;
 
     case R_VC4_IMM32:
+    case R_VC4_PCREL32:
       byte[2] = u & 0xff;
       byte[3] = (u >> 8) & 0xff;
       byte[4] = (u >> 16) & 0xff;

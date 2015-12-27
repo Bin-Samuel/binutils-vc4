@@ -2286,16 +2286,16 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48OFFSET), 0 } },
     & ifmt_lea48, { 0xe500 }
   },
-/* ld$accsz32.l $alu48idreg,$mem48pcrel27 */
+/* ld$accsz32 $alu48idreg,$mem48pcrel27 */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48PCREL27), 0 } },
+    { { MNEM, OP (ACCSZ32), ' ', OP (ALU48IDREG), ',', OP (MEM48PCREL27), 0 } },
     & ifmt_ldpcrel27, { 0xe700, { 0x0, 0xf800 }, { 0x0, 0xf800 } }
   },
-/* st$accsz32.l $alu48idreg,$mem48pcrel27 */
+/* st$accsz32 $alu48idreg,$mem48pcrel27 */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, OP (ACCSZ32), '.', 'l', ' ', OP (ALU48IDREG), ',', OP (MEM48PCREL27), 0 } },
+    { { MNEM, OP (ACCSZ32), ' ', OP (ALU48IDREG), ',', OP (MEM48PCREL27), 0 } },
     & ifmt_ldpcrel27, { 0xe720, { 0x0, 0xf800 }, { 0x0, 0xf800 } }
   },
 /* ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg) */

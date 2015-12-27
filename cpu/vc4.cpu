@@ -260,9 +260,9 @@
 
 (df2 f-op31-27 "Opcode bits 31-27" () 16 16 15 5 UINT (#f) (#f))
 
-(df2 f-op31-16 "Opcode bits 31-16" () 16 16 15 16 UINT (#f) (#f))
+(df2 f-op31-16 "Opcode bits 31-16" () 16 16 15 16 UHI (#f) (#f))
 
-(df2 f-op31-16s "Opcode bits 31-16, signed" () 16 16 15 16 INT (#f) (#f))
+(df2 f-op31-16s "Opcode bits 31-16, signed" () 16 16 15 16 HI (#f) (#f))
 
 (define-pmacro (shifted-op31-16s x-amount)
   (df2 (.sym f-op31-16s-shl x-amount)
@@ -372,8 +372,10 @@
 	    (set (ifield f-op6-0) (and (srl (ifield f-offset23bits) 16) 127))
 	    (set (ifield f-op31-16) (and (ifield f-offset23bits) 65535))))
   (extract (sequence ()
-	     (set (ifield f-offset23bits) (or (sll (ifield f-op6-0) 16)
-					      (ifield f-op31-16)))))
+	     (set (ifield f-offset23bits)
+	          (and (or (sll (ifield f-op6-0) 16)
+			   (ifield f-op31-16))
+		       8388607))))
   (encode (value pc) (sra SI (sub SI value pc) 1))
   (decode (value pc) (add SI pc (sll SI value 1)))
 )
@@ -714,7 +716,7 @@
 (define-normal-operand
   alu48offset
   "" ()
-  h-sint
+  h-addr
   f-offset32-48
 )
 
@@ -728,7 +730,7 @@
 (define-normal-operand
   mem48pcrel27
   "" ()
-  h-sint
+  h-addr
   f-pcrel27-48
 )
 
@@ -797,7 +799,7 @@
 
 (define-normal-operand
   offset23bits
-  "" ()
+  "" (RELAX)
   h-iaddr
   f-offset23bits
 )
@@ -840,8 +842,8 @@
 
 (define-normal-operand
   offset16
-  "" ()
-  h-sint
+  "" (RELAX)
+  h-addr
   f-offset16
 )
 
@@ -1552,7 +1554,7 @@
 )
 
 (define-normal-insn
-  lea32pc "LEA32PC" ()
+  lea32pc "LEA32PC" (RELAXABLE)
   "lea $alu48idreg,$offset16"
   (+ OPLEN_11 (f-op11-10 3) (f-op9-5 31) alu48idreg
      offset16)
@@ -1724,7 +1726,7 @@
 ;; 48-bit scalar instructions.
 
 (define-normal-insn
-  lea48 "LEA48" ()
+  lea48 "LEA48" (RELAXED)
   "lea $alu48idreg,$alu48offset"
   (+ OPLEN_14 OP11_8_5 OP7_5_0 alu48idreg
      alu48offset)
@@ -1735,7 +1737,7 @@
 
 (define-normal-insn
   ldpcrel27 "LDPCREL27" ()
-  "ld$accsz32.l $alu48idreg,$mem48pcrel27"
+  "ld$accsz32 $alu48idreg,$mem48pcrel27"
   (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 0) alu48idreg
      (f-op47-43 31) mem48offset27)
   () ()
@@ -1743,7 +1745,7 @@
 
 (define-normal-insn
   stpcrel27 "STPCREL27" ()
-  "st$accsz32.l $alu48idreg,$mem48pcrel27"
+  "st$accsz32 $alu48idreg,$mem48pcrel27"
   (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 1) alu48idreg
      (f-op47-43 31) mem48offset27)
   () ()
