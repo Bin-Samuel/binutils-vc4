@@ -558,7 +558,7 @@
 
 (define-normal-operand
   alu16imm
-  "" ()
+  "" (RELAX)
   h-uint
   f-op8-4
 )
@@ -566,7 +566,7 @@
 (define-operand
   (name alu16imm_shl3)
   (comment "5-bit immediate left-shifted by 3")
-  (attrs)
+  (attrs RELAX)
   (type h-uint)
   (index f-op8-4-shl3)
   (handlers (parse "uimm5_shl3"))
@@ -588,7 +588,7 @@
 
 (define-normal-operand
   imm6
-  "" ()
+  "" (RELAX)
   h-sint
   f-op21-16s
 )
@@ -606,7 +606,7 @@
   (define-operand
     (name (.sym imm6_shl x-amount))
     (comment (.str "6-bit immediate left-shifted by " x-amount))
-    (attrs)
+    (attrs RELAX)
     (type h-sint)
     (index (.sym f-op21-16s-shl x-amount))
     (handlers (parse (.str "imm6_shl" x-amount))))
@@ -706,7 +706,7 @@
 
 (define-normal-operand
   alu48immu
-  "" ()
+  "" (RELAX)
   h-uint
   f-op47-16
 )
@@ -1223,7 +1223,7 @@
 
 (define-pmacro (alu16opi x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
-    x-name x-comment ()
+    x-name x-comment (RELAXABLE)
     (.str x-opcode " $alu16dreg,#$" alu16imm x-suffix)
     (+ OP15_13_3 x-encoding (.sym alu16imm x-suffix) alu16dreg)
     () ())
@@ -1372,7 +1372,7 @@
 
 (define-pmacro (alu32opi3 x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
-    x-name x-comment ()
+    x-name x-comment (RELAXABLE)
     (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,#$imm6" x-suffix)
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond (f-op22 1) (.sym imm6 x-suffix))
@@ -1381,7 +1381,7 @@
 
 (define-pmacro (alu32opi2 x-name x-comment x-opcode x-encoding)
   (define-normal-insn
-    x-name x-comment ()
+    x-name x-comment (RELAXABLE)
     (.str x-opcode "${alu32cond} $alu32dreg,#$imm6")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
@@ -1390,7 +1390,7 @@
 
 (define-pmacro (alu32opic x-name x-comment x-opcode x-encoding)
   (define-normal-insn
-    x-name x-comment ()
+    x-name x-comment (RELAXABLE)
     (.str x-opcode "${alu32cond} $alu32areg,#$imm6")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
@@ -1766,7 +1766,7 @@
 )
 
 (define-normal-insn
-  add48i "ADD48I" ()
+  add48i "ADD48I" (RELAXED)
   "add $alu48idreg,$alu48isreg,#$alu48immu"
   (+ OPLEN_14 OP11_10_3 alu48isreg alu48idreg
      alu48immu)
@@ -1775,7 +1775,7 @@
 
 (define-pmacro (alu48opi2 x-name x-opcode x-encoding)
   (define-normal-insn
-    x-name (.str (.upcase x-name)) ()
+    x-name (.str (.upcase x-name)) (RELAXED)
     (.str x-opcode " $alu48idreg,#$alu48immu")
     (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
        alu48immu)

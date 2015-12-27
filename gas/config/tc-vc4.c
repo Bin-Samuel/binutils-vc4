@@ -30,6 +30,7 @@
 #include <inttypes.h>
 #include <limits.h>
 #include <assert.h>
+#include <stdbool.h>
 #ifdef OBJ_ELF
 #include "elf/vc4.h"
 #endif
@@ -147,6 +148,10 @@ md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
       return BFD_RELOC_VC4_REL27;
     case VC4_OPERAND_ALU48OFFSET:
       return BFD_RELOC_VC4_REL32;
+    case VC4_OPERAND_ALU16IMM:
+      return BFD_RELOC_VC4_IMM5_1;
+    case VC4_OPERAND_ALU48IMMU:
+      return BFD_RELOC_VC4_IMM32;
     default:
       break;
     }
@@ -180,15 +185,64 @@ md_section_align (segT segment, valueT size)
 symbolS *
 md_undefined_symbol (char * name ATTRIBUTE_UNUSED)
 {
-  return 0;
+  return NULL;
 }
 
-int
-md_estimate_size_before_relax (fragS *fragP ATTRIBUTE_UNUSED,
-			       segT segment_type ATTRIBUTE_UNUSED)
+/* The subtypes available for relaxable instruction fields.
+   The fields are:
+   1) most positive reach of this state,
+   2) most negative reach of this state,
+   3) how many bytes this mode will add to the size of the current frag
+   4) which index into the table to try if we can't fit into this one.  */
+
+const relax_typeS md_relax_table[] =
 {
-  printf (_("call to md_estimate_size_before_relax \n"));
-  abort ();
+  /* The first entry must be unused because an `rlx_more' value of zero ends
+     each list.  */
+  { 1, 1, 0, 0 },
+
+  /* 16-bit and 48-bit immediate ALU ops.  */
+  {          0,          31, 0, 2 }, /* 5-bit unsigned immediate.  */
+  { 0x7fffffff, -0x80000000, 4, 0 }, /* 32-bit unsigned immediate.  */
+  
+  /* 16-bit and 32-bit conditional branch.  */
+  {        126,        -128, 0, 4 }, /* 7-bit offset, left-shifted by 1.  */
+  {   0x7ffffe,   -0x800000, 2, 0 }  /* 23-bit offset, left-shifted by 1.  */
+};
+
+int
+md_estimate_size_before_relax (fragS *fragP, segT segment)
+{
+  fprintf (stderr, "md_estimate_size_before_relax: subtype=%d\n",
+	   fragP->fr_subtype);
+  /* Undefined symbols can't be relaxed by the assembler, and should use the
+     biggest insn type available (until they can be relaxed by the linker).  */
+  if (S_GET_SEGMENT (fragP->fr_symbol) != segment
+      || S_IS_EXTERNAL (fragP->fr_symbol)
+      || S_IS_WEAK (fragP->fr_symbol))
+    {
+      const CGEN_INSN *insn;
+      int i;
+      bool found = false;
+      fragP->fr_subtype = 2;
+
+      for (i = 0, insn = fragP->fr_cgen.insn; ; i++, insn++)
+        if (strcmp (CGEN_INSN_MNEMONIC (insn),
+		    CGEN_INSN_MNEMONIC (fragP->fr_cgen.insn)) == 0
+	    && CGEN_INSN_ATTR_VALUE (insn, CGEN_INSN_RELAXED))
+	  {
+	    found = true;
+	    break;
+	  }
+
+      if (!found)
+        abort ();
+
+      fragP->fr_cgen.insn = insn;
+      return 4;
+    }
+
+  return md_relax_table[fragP->fr_subtype].rlx_length;
 }
 
 /*long
@@ -326,11 +380,58 @@ vc4_apply_fix (fixS *fixP, valueT *valP, segT seg ATTRIBUTE_UNUSED)
 }
 
 void
-md_convert_frag (bfd *headers ATTRIBUTE_UNUSED,
-		 segT seg ATTRIBUTE_UNUSED,
-		 fragS *fragP ATTRIBUTE_UNUSED)
+md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 {
-  printf (_("call to md_convert_frag \n"));
-  abort ();
+  unsigned char *opcode = (unsigned char *) fragP->fr_opcode;
+  int extension;
+  int operand;
+
+  switch (fragP->fr_subtype)
+    {
+    case 1:
+      extension = 0;
+      break;
+    case 2:
+      {
+        unsigned int firstword = (opcode[1] << 8) | opcode[0];
+	unsigned int op4, dstreg;
+#if 0
+	fprintf (stderr, "converting: %.2x %.2x %.2x %.2x %.2x %.2x\n",
+		 opcode[0], opcode[1], opcode[2], opcode[3], opcode[4],
+		 opcode[5]);
+#endif
+	/* 16-bit scalar immediate insns.  */
+	gas_assert ((firstword & 0xe000) == 0x6000);
+	op4 = (firstword >> 9) & 0xf;
+	dstreg = firstword & 0xf;
+	/* Rebuild as a 48-bit immediate insn.  */
+	firstword = 0xe800 | (op4 << 6) | dstreg;
+	opcode[0] = firstword & 0xff;
+	opcode[1] = (firstword >> 8) & 0xff;
+	extension = 4;
+	operand = VC4_OPERAND_ALU48IMMU;
+      }
+      break;
+    default:
+      abort ();
+    }
+
+  if (S_GET_SEGMENT (fragP->fr_symbol) != seg
+      || S_IS_EXTERNAL (fragP->fr_symbol)
+      || S_IS_WEAK (fragP->fr_symbol))
+    {
+      fixS *fixP;
+
+      gas_assert (fragP->fr_subtype != 1 && fragP->fr_subtype != 3);
+      gas_assert (fragP->fr_cgen.insn != 0);
+
+      fixP = gas_cgen_record_fixup (fragP,
+	       opcode - (unsigned char *) fragP->fr_literal,
+	       fragP->fr_cgen.insn, 4,
+	       cgen_operand_lookup_by_num (gas_cgen_cpu_desc, operand),
+	       fragP->fr_cgen.opinfo, fragP->fr_symbol, fragP->fr_offset);
+    }
+
+  fragP->fr_fix += extension;
 }
 

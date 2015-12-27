@@ -205,16 +205,16 @@ static reloc_howto_type vc4_elf_howto_table[] =
   /* A absolute 5 bit relocation.  */
   HOWTO (R_VC4_IMM5_1,          /* type */
 	 0,			/* rightshift */
-	 2,			/* size (0 = byte, 1 = short, 2 = long) */
+	 0,			/* size (0 = byte, 1 = short, 2 = long) */
 	 5,			/* bitsize */
 	 FALSE,			/* pc_relative */
-	 0,			/* bitpos */
+	 4,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_IMM5_1",        /* name */
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
-	 0xffffffff,		/* dst_mask */
+	 0x0000001f,		/* dst_mask */
 	 FALSE),		/* pcrel_offset */
 
   /* A absolute 5 bit relocation.  */
@@ -300,7 +300,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 FALSE,			/* pc_relative */
 	 0,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_IMM16",         /* name */
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
@@ -343,9 +343,9 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 2,			/* size (0 = byte, 1 = short, 2 = long) */
 	 32,			/* bitsize */
 	 FALSE,			/* pc_relative */
-	 0,			/* bitpos */
+	 16,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_IMM32",         /* name */
 	 FALSE,			/* partial_inplace */
 	 0x00000000,		/* src_mask */
@@ -527,6 +527,20 @@ vc4_final_link_relocate (reloc_howto_type *howto,
       byte[1] = (byte[1] & 0xf0) | (u >> 24) & 0xf;
       break;
 
+    case R_VC4_IMM5_1:
+      if (u >= 0x20)
+        r = bfd_reloc_overflow;
+      byte[0] = (byte[0] & 0x0f) | ((u & 0x0f) << 4);
+      byte[1] = (byte[1] & 0xfe) | ((u >> 4) & 1);
+      break;
+
+    case R_VC4_IMM32:
+      byte[2] = u & 0xff;
+      byte[3] = (u >> 8) & 0xff;
+      byte[4] = (u >> 16) & 0xff;
+      byte[5] = (u >> 24) & 0xff;
+      break;
+
     default:
       abort ();
     }
@@ -688,12 +702,12 @@ vc4_elf_relocate_section (bfd *output_bfd,
 
 static bfd_reloc_status_type
 vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
-				arelent *reloc_entry,
-				asymbol *symbol ATTRIBUTE_UNUSED,
-				void *data ATTRIBUTE_UNUSED,
-				asection *input_section,
-				bfd *output_bfd,
-				char **error_message ATTRIBUTE_UNUSED)
+	       arelent *reloc_entry,
+	       asymbol *symbol ATTRIBUTE_UNUSED,
+	       void *data ATTRIBUTE_UNUSED,
+	       asection *input_section,
+	       bfd *output_bfd,
+	       char **error_message ATTRIBUTE_UNUSED)
 {
   fprintf (stderr, "vc4_elf_reloc special function\n");
   return bfd_reloc_notsupported;

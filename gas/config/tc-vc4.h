@@ -133,6 +133,11 @@ extern void vc4_cons_fix_new (fragS *, int, int, expressionS *);*/
   vc4_cgen_parse_fix_exp(opinfo, exp)
 extern int vc4_cgen_parse_fix_exp (int, expressionS *);
 
+extern const struct relax_type md_relax_table[];
+#define TC_GENERIC_RELAX_TABLE md_relax_table
+
+#define TC_CGEN_MAX_RELAX(insn,len) 10
+
 #define LISTING_WORD_SIZE 2
 
 #define TARGET_USE_CFIPOP 1
