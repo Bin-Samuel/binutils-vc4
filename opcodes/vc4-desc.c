@@ -430,7 +430,7 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* pcrelcc:  */
   { "pcrelcc", VC4_OPERAND_PCRELCC, HW_H_IADDR, 6, 7,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_PCRELCC] } }, 
-    { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
+    { 0|A(RELAX)|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
 /* ldstoff:  */
   { "ldstoff", VC4_OPERAND_LDSTOFF, HW_H_UINT, 11, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_LDSTOFF] } }, 
@@ -1063,7 +1063,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* b$condcode $pcrelcc */
   {
     VC4_INSN_BCC, "bcc", "b", 16,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
+    { 0|A(RELAXABLE), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ld $alu16dreg,$ldstoff($alu16sreg) */
   {
@@ -1365,10 +1365,10 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_ADDCMPBII, "addcmpbii", "addcmpb", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* b$condcodebcc32.l $offset23bits */
+/* b$condcodebcc32 $offset23bits */
   {
     VC4_INSN_BCC32, "bcc32", "b", 32,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
+    { 0|A(RELAXED), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* bl $offset27bits */
   {

@@ -213,8 +213,20 @@ const relax_typeS md_relax_table[] =
 int
 md_estimate_size_before_relax (fragS *fragP, segT segment)
 {
+  unsigned int firstword;
+  unsigned char *opcode = (unsigned char *) fragP->fr_opcode;
+
   fprintf (stderr, "md_estimate_size_before_relax: subtype=%d\n",
 	   fragP->fr_subtype);
+
+  firstword = (opcode[1] << 8) | opcode[0];
+
+  /* A short conditional branch instruction.  Change to the correct subtype
+     (an index into md_relax_table) before relaxing, because CGEN apparently
+     just defaults to 1.  */
+  if ((firstword & 0xf800) == 0x1800)
+    fragP->fr_subtype = 3;
+
   /* Undefined symbols can't be relaxed by the assembler, and should use the
      biggest insn type available (until they can be relaxed by the linker).  */
   if (S_GET_SEGMENT (fragP->fr_symbol) != segment
@@ -224,7 +236,18 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
       const CGEN_INSN *insn;
       int i;
       bool found = false;
-      fragP->fr_subtype = 2;
+
+      switch (fragP->fr_subtype)
+	{
+	case 1:
+	  fragP->fr_subtype = 2;
+	  break;
+	case 3:
+	  fragP->fr_subtype = 4;
+	  break;
+	default:
+	  abort ();
+	}
 
       for (i = 0, insn = fragP->fr_cgen.insn; ; i++, insn++)
         if (strcmp (CGEN_INSN_MNEMONIC (insn),
@@ -239,7 +262,6 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
         abort ();
 
       fragP->fr_cgen.insn = insn;
-      return 4;
     }
 
   return md_relax_table[fragP->fr_subtype].rlx_length;
@@ -379,12 +401,32 @@ vc4_apply_fix (fixS *fixP, valueT *valP, segT seg ATTRIBUTE_UNUSED)
   gas_cgen_md_apply_fix (fixP, valP, seg);
 }
 
+static int
+target_address_for (fragS *frag)
+{
+  int rv = frag->fr_offset;
+  symbolS *sym = frag->fr_symbol;
+
+  if (sym)
+    rv += S_GET_VALUE (sym);
+
+  /*printf("target_address_for returns %d\n", rv);*/
+  return rv;
+}
+
 void
 md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 {
   unsigned char *opcode = (unsigned char *) fragP->fr_opcode;
+  unsigned int firstword = (opcode[1] << 8) | opcode[0];
+  int where = fragP->fr_opcode - fragP->fr_literal;
   int extension;
   int operand;
+  int addend;
+
+  fprintf (stderr, "md_convert_frag, subtype=%d\n", fragP->fr_subtype);
+
+  addend = target_address_for (fragP) - (fragP->fr_address + where);
 
   switch (fragP->fr_subtype)
     {
@@ -393,13 +435,7 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
       break;
     case 2:
       {
-        unsigned int firstword = (opcode[1] << 8) | opcode[0];
 	unsigned int op4, dstreg;
-#if 0
-	fprintf (stderr, "converting: %.2x %.2x %.2x %.2x %.2x %.2x\n",
-		 opcode[0], opcode[1], opcode[2], opcode[3], opcode[4],
-		 opcode[5]);
-#endif
 	/* 16-bit scalar immediate insns.  */
 	gas_assert ((firstword & 0xe000) == 0x6000);
 	op4 = (firstword >> 9) & 0xf;
@@ -412,6 +448,23 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	operand = VC4_OPERAND_ALU48IMMU;
       }
       break;
+    case 3:
+      extension = 0;
+      break;
+    case 4:
+      {
+        unsigned int condcode;
+	/* 16-bit conditional branches.  */
+	gas_assert ((firstword & 0xf800) == 0x1800);
+	condcode = (firstword >> 7) & 0xf;
+	/* Rebuild as 32-bit conditional branch insn.  */
+	firstword = 0x9000 | (condcode << 8);
+	opcode[0] = firstword & 0xff;
+	opcode[1] = (firstword >> 8) & 0xff;
+	extension = 2;
+	operand = VC4_OPERAND_OFFSET23BITS;
+      }
+      break;
     default:
       abort ();
     }
@@ -420,17 +473,41 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
       || S_IS_EXTERNAL (fragP->fr_symbol)
       || S_IS_WEAK (fragP->fr_symbol))
     {
-      fixS *fixP;
-
-      gas_assert (fragP->fr_subtype != 1 && fragP->fr_subtype != 3);
       gas_assert (fragP->fr_cgen.insn != 0);
 
-      fixP = gas_cgen_record_fixup (fragP,
-	       opcode - (unsigned char *) fragP->fr_literal,
-	       fragP->fr_cgen.insn, 4,
-	       cgen_operand_lookup_by_num (gas_cgen_cpu_desc, operand),
-	       fragP->fr_cgen.opinfo, fragP->fr_symbol, fragP->fr_offset);
+      gas_cgen_record_fixup (fragP, where, fragP->fr_cgen.insn,
+			     (fragP->fr_fix - where) * 8,
+			     cgen_operand_lookup_by_num (gas_cgen_cpu_desc,
+							 operand),
+			     fragP->fr_cgen.opinfo, fragP->fr_symbol,
+			     fragP->fr_offset);
     }
+  else
+    /* A relaxable insn, but all bets are off when the relaxation machinery is
+       active.  We have to put the operand bytes into the frag ourselves!  */
+    switch (fragP->fr_subtype)
+      {
+      case 1: /* 5-bit unsigned immediate (in 16-bit instruction).  */
+	opcode[0] = (opcode[0] & 0x0f) | ((addend & 0xf) << 4);
+	opcode[1] = (opcode[1] & 0xfe) | ((addend >> 4) & 1);
+        break;
+      case 2: /* 32-bit immediate (in 48-bit instruction).  */
+        opcode[2] = addend & 0xff;
+	opcode[3] = (addend >> 8) & 0xff;
+	opcode[4] = (addend >> 16) & 0xff;
+	opcode[5] = (addend >> 24) & 0xff;
+        break;
+      case 3: /* 7-bit PC-relative offset (in 16-bit words).  */
+	opcode[0] = (opcode[0] & 0x80) | ((addend >> 1) & 0x7f);
+	break;
+      case 4: /* 23-bit PC-relative offset (in 16-bit words).  */
+        opcode[2] = (addend >> 1) & 0xff;
+	opcode[3] = (addend >> 9) & 0xff;
+	opcode[0] = (addend >> 17) & 0x7f;
+        break;
+      default:
+        abort ();
+      }
 
   fragP->fr_fix += extension;
 }

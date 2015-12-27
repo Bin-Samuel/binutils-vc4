@@ -537,7 +537,7 @@
 
 (define-normal-operand
   pcrelcc
-  "" ()
+  "" (RELAX)
   h-iaddr
   f-pcrelcc
 )
@@ -1128,7 +1128,7 @@
 )
 
 (define-normal-insn
-  bcc "BCC" ()
+  bcc "BCC" (RELAXABLE)
   "b$condcode $pcrelcc"
   (+ OPLEN_1 OP11_1 condcode pcrelcc)
   () ()
@@ -1297,8 +1297,8 @@
 )
 
 (define-normal-insn
-  bcc32 "BCC32" ()
-  "b$condcodebcc32.l $offset23bits"
+  bcc32 "BCC32" (RELAXED)
+  "b$condcodebcc32 $offset23bits"
   (+ OPLEN_9 condcodebcc32 OP7_0 offset23bits)
   () ()
 )

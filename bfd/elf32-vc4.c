@@ -41,15 +41,6 @@ vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 	       bfd *output_bfd,
 	       char **error_message ATTRIBUTE_UNUSED);
 
-static bfd_reloc_status_type
-vc4_pcrel27_reloc (bfd *abfd ATTRIBUTE_UNUSED,
-		   arelent *reloc_entry,
-		   asymbol *symbol ATTRIBUTE_UNUSED,
-		   void *data ATTRIBUTE_UNUSED,
-		   asection *input_section,
-		   bfd *output_bfd,
-		   char **error_message ATTRIBUTE_UNUSED);
-
 static reloc_howto_type vc4_elf_howto_table[] =
 {
   /* This reloc does nothing.  */
@@ -113,7 +104,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 16 bit relocation.  */
-  HOWTO (R_VC4_PCREL16,        /* type */
+  HOWTO (R_VC4_PCREL16,         /* type */
 	 0,			/* rightshift */
 	 1,			/* size (0 = byte, 1 = short, 2 = long) */
 	 16,			/* bitsize */
@@ -121,24 +112,24 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 16,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
 	 vc4_elf_reloc,		/* special_function */
-	 "R_VC4_PCREL16",      /* name */
+	 "R_VC4_PCREL16",       /* name */
 	 FALSE,			/* partial_inplace */
 	 0x0000,		/* src_mask */
 	 0xffff,		/* dst_mask */
 	 TRUE),			/* pcrel_offset */
 
   /* A PC relative 23 bit relocation.  */
-  HOWTO (R_VC4_PCREL23_MUL2,   /* type */
+  HOWTO (R_VC4_PCREL23_MUL2,    /* type */
 	 1,			/* rightshift */
 	 2,			/* size (0 = byte, 1 = short, 2 = long) */
 	 23,			/* bitsize */
 	 TRUE,			/* pc_relative */
 	 0,			/* bitpos */
 	 complain_overflow_signed, /* complain_on_overflow */
-	 vc4_elf_reloc,		/* special_function */
+	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL23_MUL2",  /* name */
 	 FALSE,			/* partial_inplace */
-	 0x00000000,		/* src_mask */
+	 0x007fffff,		/* src_mask */
 	 0x007fffff,		/* dst_mask */
 	 TRUE),			/* pcrel_offset */
 
@@ -527,6 +518,14 @@ vc4_final_link_relocate (reloc_howto_type *howto,
       byte[1] = (byte[1] & 0xf0) | (u >> 24) & 0xf;
       break;
 
+    case R_VC4_PCREL23_MUL2:
+      if (s < -0x800000 || s >= 0x800000 || (s & 1) != 0)
+        r = bfd_reloc_overflow;
+      byte[2] = (u >> 1) & 0xff;
+      byte[3] = (u >> 9) & 0xff;
+      byte[0] = (u >> 17) & 0x7f;
+      break;
+
     case R_VC4_IMM5_1:
       if (u >= 0x20)
         r = bfd_reloc_overflow;
@@ -711,19 +710,6 @@ vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
 {
   fprintf (stderr, "vc4_elf_reloc special function\n");
   return bfd_reloc_notsupported;
-}
-
-static bfd_reloc_status_type
-vc4_pcrel27_reloc (bfd *abfd ATTRIBUTE_UNUSED,
-		   arelent *reloc_entry,
-		   asymbol *symbol ATTRIBUTE_UNUSED,
-		   void *data ATTRIBUTE_UNUSED,
-		   asection *input_section,
-		   bfd *output_bfd,
-		   char **error_message ATTRIBUTE_UNUSED)
-{
-  fprintf (stderr, "vc4_pcrel27_reloc\n");
-  return bfd_reloc_ok;
 }
 
 /* Return the section that should be marked against GC for a given

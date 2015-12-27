@@ -1140,10 +1140,10 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (CONDCODEBCC32), ' ', OP (ALU16DREG), ',', '#', OP (ADDCMPBIMM), ',', '#', OP (BCC32IMM), ',', OP (OFFSET8BITS), 0 } },
     & ifmt_addcmpbii, { 0x8000, { 0xc000 }, { 0xc000 } }
   },
-/* b$condcodebcc32.l $offset23bits */
+/* b$condcodebcc32 $offset23bits */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, OP (CONDCODEBCC32), '.', 'l', ' ', OP (OFFSET23BITS), 0 } },
+    { { MNEM, OP (CONDCODEBCC32), ' ', OP (OFFSET23BITS), 0 } },
     & ifmt_bcc32, { 0x9000 }
   },
 /* bl $offset27bits */

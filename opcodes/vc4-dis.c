@@ -241,7 +241,7 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       print_normal (cd, info, fields->f_op79_48, 0, pc, length);
       break;
     case VC4_OPERAND_PCRELCC :
-      print_address (cd, info, fields->f_pcrelcc, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
+      print_address (cd, info, fields->f_pcrelcc, 0|(1<<CGEN_OPERAND_RELAX)|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
     case VC4_OPERAND_PPENDREG0 :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0_base_0, 0);
