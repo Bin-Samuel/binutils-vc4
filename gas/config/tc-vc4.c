@@ -209,9 +209,9 @@ const relax_typeS md_relax_table[] =
   {        126,        -128, 0, 4 }, /* 7-bit offset, left-shifted by 1.  */
   {   0x7ffffe,   -0x800000, 2, 0 }, /* 23-bit offset, left-shifted by 1.  */
   
-  /* 32-bit and 48-bit LEA instructions.  */
-  {     0x7fff,     -0x8000, 0, 6 }, /* 16-bit offset.  */
-  { 0x7fffffff, -0x80000000, 2, 0 }
+  /* 32-bit and 48-bit LEA instructions.  Where does the -4 come from?  */
+  { 0x7fff - 4, -0x8000 - 4, 0, 6 }, /* 16-bit offset.  */
+  { 0x7fffffff, -0x80000000, 2, 0 }  /* 32-bit offset.  */
 };
 
 int
