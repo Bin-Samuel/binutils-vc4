@@ -270,7 +270,7 @@ static const CGEN_IFMT ifmt_faddi ATTRIBUTE_UNUSED = {
 };
 
 static const CGEN_IFMT ifmt_lea48 ATTRIBUTE_UNUSED = {
-  16, 48, 0xffe0, { { F (F_OFFSET32_48) }, { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
+  16, 48, 0xffe0, { { F (F_PCREL32_48) }, { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_ldpcrel27 ATTRIBUTE_UNUSED = {
@@ -2280,10 +2280,10 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', '#', OP (IMM6), 0 } },
     & ifmt_mulhdiss, { 0xca60, { 0x40 }, { 0x40 } }
   },
-/* lea $alu48idreg,$alu48offset */
+/* lea $alu48idreg,$alu48pcrel */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48OFFSET), 0 } },
+    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48PCREL), 0 } },
     & ifmt_lea48, { 0xe500 }
   },
 /* ld$accsz32 $alu48idreg,$mem48pcrel27 */

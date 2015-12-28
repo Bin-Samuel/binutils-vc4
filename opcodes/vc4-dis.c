@@ -138,8 +138,8 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op9_5, 0);
       break;
-    case VC4_OPERAND_ALU48OFFSET :
-      print_address (cd, info, fields->f_offset32_48, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
+    case VC4_OPERAND_ALU48PCREL :
+      print_address (cd, info, fields->f_pcrel32_48, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
     case VC4_OPERAND_BCC32IMM :
       print_normal (cd, info, fields->f_op29_24, 0, pc, length);

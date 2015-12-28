@@ -368,7 +368,7 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP21_16S_SHL8, "f-op21-16s-shl8", 16, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP20_16, "f-op20-16", 16, 16, 4, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP47_16, "f-op47-16", 16, 32, 31, 32, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
-  { VC4_F_OFFSET32_48, "f-offset32-48", 16, 32, 31, 32, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_PCREL32_48, "f-pcrel32-48", 16, 32, 31, 32, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP47_43, "f-op47-43", 16, 32, 31, 5, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OFFSET27_48, "f-offset27-48", 16, 32, 26, 27, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_PCREL27_48, "f-pcrel27-48", 16, 32, 26, 27, { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
@@ -555,9 +555,9 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "alu48immu", VC4_OPERAND_ALU48IMMU, HW_H_UINT, 31, 32,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP47_16] } }, 
     { 0|A(RELAX), { { { (1<<MACH_BASE), 0 } } } }  },
-/* alu48offset:  */
-  { "alu48offset", VC4_OPERAND_ALU48OFFSET, HW_H_ADDR, 31, 32,
-    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OFFSET32_48] } }, 
+/* alu48pcrel:  */
+  { "alu48pcrel", VC4_OPERAND_ALU48PCREL, HW_H_ADDR, 31, 32,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_PCREL32_48] } }, 
     { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
 /* mem48offset27:  */
   { "mem48offset27", VC4_OPERAND_MEM48OFFSET27, HW_H_SINT, 26, 27,
@@ -2315,7 +2315,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_FLTUI, "fltui", "fltu", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* lea $alu48idreg,$alu48offset */
+/* lea $alu48idreg,$alu48pcrel */
   {
     VC4_INSN_LEA48, "lea48", "lea", 48,
     { 0|A(RELAXED), { { { (1<<MACH_BASE), 0 } } } }

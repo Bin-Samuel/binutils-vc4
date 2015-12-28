@@ -146,7 +146,7 @@ md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
       return BFD_RELOC_VC4_REL27_MUL2;
     case VC4_OPERAND_MEM48PCREL27:
       return BFD_RELOC_VC4_REL27;
-    case VC4_OPERAND_ALU48OFFSET:
+    case VC4_OPERAND_ALU48PCREL:
       return BFD_RELOC_VC4_REL32;
     case VC4_OPERAND_ALU16IMM:
       return BFD_RELOC_VC4_IMM5_1;
@@ -493,7 +493,7 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	opcode[0] = firstword & 0xff;
 	opcode[1] = (firstword >> 8) & 0xff;
 	extension = 2;
-	operand = VC4_OPERAND_ALU48OFFSET;
+	operand = VC4_OPERAND_ALU48PCREL;
       }
       break;
     default:

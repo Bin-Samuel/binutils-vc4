@@ -643,9 +643,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       errmsg = insert_normal (cd, fields->f_op9_5, 0, 0, 9, 5, 16, total_length, buffer);
       break;
-    case VC4_OPERAND_ALU48OFFSET :
+    case VC4_OPERAND_ALU48PCREL :
       {
-        long value = fields->f_offset32_48;
+        long value = fields->f_pcrel32_48;
         value = ((value) - (pc));
         errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 31, 32, 32, total_length, buffer);
       }
@@ -1005,12 +1005,12 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 9, 5, 16, total_length, pc, & fields->f_op9_5);
       break;
-    case VC4_OPERAND_ALU48OFFSET :
+    case VC4_OPERAND_ALU48PCREL :
       {
         long value;
         length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 31, 32, 32, total_length, pc, & value);
         value = ((pc) + (value));
-        fields->f_offset32_48 = value;
+        fields->f_pcrel32_48 = value;
       }
       break;
     case VC4_OPERAND_BCC32IMM :
@@ -1365,8 +1365,8 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU48ISREG :
       value = fields->f_op9_5;
       break;
-    case VC4_OPERAND_ALU48OFFSET :
-      value = fields->f_offset32_48;
+    case VC4_OPERAND_ALU48PCREL :
+      value = fields->f_pcrel32_48;
       break;
     case VC4_OPERAND_BCC32IMM :
       value = fields->f_op29_24;
@@ -1559,8 +1559,8 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU48ISREG :
       value = fields->f_op9_5;
       break;
-    case VC4_OPERAND_ALU48OFFSET :
-      value = fields->f_offset32_48;
+    case VC4_OPERAND_ALU48PCREL :
+      value = fields->f_pcrel32_48;
       break;
     case VC4_OPERAND_BCC32IMM :
       value = fields->f_op29_24;
@@ -1760,8 +1760,8 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU48ISREG :
       fields->f_op9_5 = value;
       break;
-    case VC4_OPERAND_ALU48OFFSET :
-      fields->f_offset32_48 = value;
+    case VC4_OPERAND_ALU48PCREL :
+      fields->f_pcrel32_48 = value;
       break;
     case VC4_OPERAND_BCC32IMM :
       fields->f_op29_24 = value;
@@ -1951,8 +1951,8 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU48ISREG :
       fields->f_op9_5 = value;
       break;
-    case VC4_OPERAND_ALU48OFFSET :
-      fields->f_offset32_48 = value;
+    case VC4_OPERAND_ALU48PCREL :
+      fields->f_pcrel32_48 = value;
       break;
     case VC4_OPERAND_BCC32IMM :
       fields->f_op29_24 = value;

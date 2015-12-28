@@ -212,7 +212,7 @@ struct cgen_fields
   long f_op21_16s_shl8;
   long f_op20_16;
   long f_op47_16;
-  long f_offset32_48;
+  long f_pcrel32_48;
   long f_op47_43;
   long f_offset27_48;
   long f_pcrel27_48;

@@ -238,11 +238,11 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48ISREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op9_5);
       break;
-    case VC4_OPERAND_ALU48OFFSET :
+    case VC4_OPERAND_ALU48PCREL :
       {
         bfd_vma value = 0;
-        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_ALU48OFFSET, 0, NULL,  & value);
-        fields->f_offset32_48 = value;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_ALU48PCREL, 0, NULL,  & value);
+        fields->f_pcrel32_48 = value;
       }
       break;
     case VC4_OPERAND_BCC32IMM :
