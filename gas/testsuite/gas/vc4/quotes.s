@@ -3,5 +3,5 @@
 laf:
 	.string "single:'"
 
-	mov r0, '9'
+	mov r0, #'9'
 

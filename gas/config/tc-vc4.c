@@ -136,9 +136,9 @@ md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
     {
     case VC4_OPERAND_PCRELCC:
       return BFD_RELOC_VC4_REL7_MUL2;
-    case VC4_OPERAND_OFFSET10BITS:
+    case VC4_OPERAND_PCREL10BITS:
       return BFD_RELOC_VC4_REL10_MUL2;
-    case VC4_OPERAND_OFFSET8BITS:
+    case VC4_OPERAND_PCREL8BITS:
       return BFD_RELOC_VC4_REL8_MUL2;
     case VC4_OPERAND_OFFSET23BITS:
       return BFD_RELOC_VC4_REL23_MUL2;
@@ -220,8 +220,10 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
   unsigned int firstword;
   unsigned char *opcode = (unsigned char *) fragP->fr_opcode;
 
+#ifdef DEBUG
   fprintf (stderr, "md_estimate_size_before_relax: subtype=%d\n",
 	   fragP->fr_subtype);
+#endif
 
   firstword = (opcode[1] << 8) | opcode[0];
 
@@ -330,8 +332,7 @@ vc4_tc_gen_reloc (asection *section ATTRIBUTE_UNUSED, fixS *fixp)
 
   r_type = fixp->fx_r_type;
 
-#define DEBUG 0
-#if DEBUG
+#ifdef DEBUG
   fprintf (stderr, "%s\n", bfd_get_reloc_code_name (r_type));
   fflush (stderr);
 #endif
@@ -397,14 +398,18 @@ vc4_cgen_record_fixup_exp (fragS *frag,
 {
   fixS *fixP = gas_cgen_record_fixup_exp (frag, where, insn, length, operand,
 					  opinfo, exp);
+#ifdef DEBUG
   fprintf (stderr, "vc4_cgen_record_fixup_exp\n");
+#endif
   return fixP;
 }
 
 void
 vc4_apply_fix (fixS *fixP, valueT *valP, segT seg ATTRIBUTE_UNUSED)
 {
+#ifdef DEBUG
   fprintf (stderr, "vc4_apply_fix\n");
+#endif
   gas_cgen_md_apply_fix (fixP, valP, seg);
 }
 
@@ -431,7 +436,9 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
   int operand;
   int addend;
 
+#ifdef DEBUG
   fprintf (stderr, "md_convert_frag, subtype=%d\n", fragP->fr_subtype);
+#endif
 
   addend = target_address_for (fragP) - (fragP->fr_address + where);
 

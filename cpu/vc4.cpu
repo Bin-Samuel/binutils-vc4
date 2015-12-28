@@ -276,7 +276,7 @@
 (shifted-op31-16s 3)
 (shifted-op31-16s 4)
 
-(df2 f-offset16 "16-bit offset" (PCREL-ADDR) 16 16 15 16 SI
+(df2 f-pcrel16 "16-bit pcrel offset" (PCREL-ADDR) 16 16 15 16 SI
   ((value pc) (sub SI value pc))
   ((value pc) (add SI pc value))
 )
@@ -289,12 +289,12 @@
 
 (df2 f-op26-16 "Opcode bits 26-16" () 16 16 10 11 UINT (#f) (#f))
 
-(df2 f-offset10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
+(df2 f-pcrel10 "10-bit offset" (PCREL-ADDR) 16 16 9 10 SI
   ((value pc) (sra SI (sub SI value pc) 1))
   ((value pc) (add SI pc (sll SI value 1)))
 )
 
-(df2 f-offset8 "8-bit offset" (PCREL-ADDR) 16 16 7 8 SI
+(df2 f-pcrel8 "8-bit offset" (PCREL-ADDR) 16 16 7 8 SI
   ((value pc) (sra SI (sub SI value pc) 1))
   ((value pc) (add SI pc (sll SI value 1)))
 )
@@ -348,10 +348,7 @@
 
 (df2 f-op47-43 "Opcode bits 47-43" () 16 32 31 5 UINT (#f) (#f))
 
-(df2 f-offset27-48 "27-bit offset in 48-bit insn" () 16 32 26 27 SI
-  ((value pc) (sub SI value pc))
-  ((value pc) (add SI pc value))
-)
+(df2 f-offset27-48 "27-bit offset in 48-bit insn" () 16 32 26 27 SI (#f) (#f))
 
 (df2 f-pcrel27-48 "27-bit offset in 48-bit insn" (PCREL-ADDR) 16 32 26 27 SI
   ((value pc) (sub SI value pc))
@@ -763,17 +760,17 @@
 )
 
 (define-normal-operand
-  offset10bits
+  pcrel10bits
   "" ()
   h-iaddr
-  f-offset10
+  f-pcrel10
 )
 
 (define-normal-operand
-  offset8bits
+  pcrel8bits
   "" ()
   h-iaddr
-  f-offset8
+  f-pcrel8
 )
 
 (define-normal-operand
@@ -811,23 +808,27 @@
   f-offset27bits
 )
 
-(define-normal-operand
-  offset12
-  "" ()
-  h-sint
-  f-offset12
+(define-operand
+  (name offset12)
+  (comment "12-bit immediate offset")
+  (attrs)
+  (type h-sint)
+  (index f-offset12)
+  (handlers (parse "imm12"))
 )
 
-(define-normal-operand
-  index16
-  "" ()
-  h-sint
-  f-op31-16s
+(define-operand
+  (name offset16)
+  (comment "16-bit immediate")
+  (attrs)
+  (type h-sint)
+  (index f-op31-16s)
+  (handlers (parse "imm16"))
 )
 
-(define-pmacro (index16_shifted x-amount)
+(define-pmacro (offset16_shifted x-amount)
   (define-operand
-    (name (.sym index16_shl x-amount))
+    (name (.sym offset16_shl x-amount))
     (comment (.str "16-bit immediate left-shifted by " x-amount))
     (attrs)
     (type h-sint)
@@ -835,16 +836,16 @@
     (handlers (parse (.str "imm16_shl" x-amount))))
 )
 
-(index16_shifted 1)
-(index16_shifted 2)
-(index16_shifted 3)
-(index16_shifted 4)
+(offset16_shifted 1)
+(offset16_shifted 2)
+(offset16_shifted 3)
+(offset16_shifted 4)
 
 (define-normal-operand
-  offset16
+  pcrel16
   "" (RELAX)
   h-addr
-  f-offset16
+  f-pcrel16
 )
 
 (define-normal-operand
@@ -1168,17 +1169,17 @@
 
 (define-normal-insn
   ldoff16 "LDOFF16" ()
-  "ld$accsz32 $alu32dreg,$index16($off16basereg)"
+  "ld$accsz32 $alu32dreg,$offset16($off16basereg)"
   (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 0) alu32dreg
-     index16)
+     offset16)
   () ()
 )
 
 (define-normal-insn
   stoff16 "STOFF16" ()
-  "st$accsz32 $alu32dreg,$index16($off16basereg)"
+  "st$accsz32 $alu32dreg,$offset16($off16basereg)"
   (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 1) alu32dreg
-     index16)
+     offset16)
   () ()
 )
 
@@ -1252,49 +1253,49 @@
 
 (define-normal-insn
   bcc32r "BCC32R" ()
-  "b$condcodebcc32 $alu16dreg,$bcc32sreg,$offset10bits"
+  "b$condcodebcc32 $alu16dreg,$bcc32sreg,$pcrel10bits"
   (+ OPLEN_8 condcodebcc32 OP7_4_0 alu16dreg
-     OP31_30_1 bcc32sreg offset10bits)
+     OP31_30_1 bcc32sreg pcrel10bits)
   () ()
 )
 
 (define-normal-insn
   bcc32i "BCC32I" ()
-  "b$condcodebcc32 $alu16dreg,#$bcc32imm,$offset8bits"
+  "b$condcodebcc32 $alu16dreg,#$bcc32imm,$pcrel8bits"
   (+ OPLEN_8 condcodebcc32 (f-op7-4 0) alu16dreg
-     OP31_30_3 bcc32imm offset8bits)
+     OP31_30_3 bcc32imm pcrel8bits)
   () ()
 )
 
 (define-normal-insn
   addcmpbrr "ADDCMPBRR" ()
-  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32sreg,$offset10bits"
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32sreg,$pcrel10bits"
   (+ OPLEN_8 condcodebcc32 addcmpbareg alu16dreg
-     OP31_30_0 bcc32sreg offset10bits)
+     OP31_30_0 bcc32sreg pcrel10bits)
   () ()
 )
 
 (define-normal-insn
   addcmpbri "ADDCMPBRI" ()
-  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$offset10bits"
+  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$pcrel10bits"
   (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
-     OP31_30_1 bcc32sreg offset10bits)
+     OP31_30_1 bcc32sreg pcrel10bits)
   () ()
 )
 
 (define-normal-insn
   addcmpbir "ADDCMPBIR" ()
-  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$offset8bits"
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$pcrel8bits"
   (+ OPLEN_8 condcodebcc32 addcmpbareg alu16dreg
-     OP31_30_2 bcc32imm offset8bits)
+     OP31_30_2 bcc32imm pcrel8bits)
   () ()
 )
 
 (define-normal-insn
   addcmpbii "ADDCMPBII" ()
-  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$offset8bits"
+  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$pcrel8bits"
   (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
-     OP31_30_3 bcc32imm offset8bits)
+     OP31_30_3 bcc32imm pcrel8bits)
   () ()
 )
 
@@ -1547,26 +1548,26 @@
 
 (define-normal-insn
   lea32r "LEA32R" ()
-  "lea $alu48idreg,$index16($alu48isreg)"
+  "lea $alu48idreg,$offset16($alu48isreg)"
   (+ OPLEN_11 (f-op11-10 1) alu48isreg alu48idreg
-     index16)
+     offset16)
   () ()
 )
 
 (define-normal-insn
   lea32pc "LEA32PC" (RELAXABLE)
-  "lea $alu48idreg,$offset16"
+  "lea $alu48idreg,$pcrel16"
   (+ OPLEN_11 (f-op11-10 3) (f-op9-5 31) alu48idreg
-     offset16)
+     pcrel16)
   () ()
 )
 
 (define-pmacro (alu32uni x-name x-opcode x-suffix x-encoding)
   (define-normal-insn
     (.sym x-name x-suffix) (.sym (.upcase x-name) x-suffix) ()
-    (.str x-opcode " $alu48idreg,#$index16")
+    (.str x-opcode " $alu48idreg,#$offset16")
     (+ OPLEN_11 (f-op11-10 0) (.sym ALU32OP_ x-encoding) alu48idreg
-       (.sym index16 x-suffix))
+       (.sym offset16 x-suffix))
     () ())
 )
 
@@ -1733,13 +1734,11 @@
   () ()
 )
 
-; FIXME: ".l" for long-offset forms here is a temporary measure.
-
 (define-normal-insn
   ldpcrel27 "LDPCREL27" ()
   "ld$accsz32 $alu48idreg,$mem48pcrel27"
   (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 0) alu48idreg
-     (f-op47-43 31) mem48offset27)
+     (f-op47-43 31) mem48pcrel27)
   () ()
 )
 
@@ -1747,13 +1746,13 @@
   stpcrel27 "STPCREL27" ()
   "st$accsz32 $alu48idreg,$mem48pcrel27"
   (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 1) alu48idreg
-     (f-op47-43 31) mem48offset27)
+     (f-op47-43 31) mem48pcrel27)
   () ()
 )
 
 (define-normal-insn
   ldoff27 "LDOFF27" ()
-  "ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg)"
+  "ld$accsz32 $alu48idreg,$mem48offset27($mem48sreg)"
   (+ OPLEN_14 OP11_8_6 accsz32 (f-op5 0) alu48idreg
      mem48sreg mem48offset27)
   () ()
@@ -1761,7 +1760,7 @@
 
 (define-normal-insn
   stoff27 "STOFF27" ()
-  "st$accsz32.l $alu48idreg,$mem48offset27($mem48sreg)"
+  "st$accsz32 $alu48idreg,$mem48offset27($mem48sreg)"
   (+ OPLEN_14 OP11_8_6 accsz32 (f-op5 1) alu48idreg
      mem48sreg mem48offset27)
   () ()

@@ -191,13 +191,13 @@ struct cgen_fields
   long f_op31_16s_shl2;
   long f_op31_16s_shl3;
   long f_op31_16s_shl4;
-  long f_offset16;
+  long f_pcrel16;
   long f_op29_26;
   long f_op29_24;
   long f_op26_23;
   long f_op26_16;
-  long f_offset10;
-  long f_offset8;
+  long f_pcrel10;
+  long f_pcrel8;
   long f_op22_21;
   long f_op22;
   long f_op21_16;

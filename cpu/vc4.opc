@@ -112,5 +112,17 @@ SHIFTED_IMM_FN (16, 3)
 SHIFTED_IMM_FN (16, 2)
 SHIFTED_IMM_FN (16, 1)
 
+static const char *
+parse_imm12 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 12, 0);
+}
+
+static const char *
+parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 16, 0);
+}
+
 /* -- */
 

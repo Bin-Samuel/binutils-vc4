@@ -148,6 +148,18 @@ SHIFTED_IMM_FN (16, 3)
 SHIFTED_IMM_FN (16, 2)
 SHIFTED_IMM_FN (16, 1)
 
+static const char *
+parse_imm12 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 12, 0);
+}
+
+static const char *
+parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 16, 0);
+}
+
 /* -- */
 
 const char * vc4_cgen_parse_operand
@@ -275,21 +287,6 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_IMM6_SHL8 :
       errmsg = parse_imm6_shl8 (cd, strp, VC4_OPERAND_IMM6_SHL8, (long *) (& fields->f_op21_16s_shl8));
       break;
-    case VC4_OPERAND_INDEX16 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_INDEX16, (long *) (& fields->f_op31_16s));
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      errmsg = parse_imm16_shl1 (cd, strp, VC4_OPERAND_INDEX16_SHL1, (long *) (& fields->f_op31_16s_shl1));
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      errmsg = parse_imm16_shl2 (cd, strp, VC4_OPERAND_INDEX16_SHL2, (long *) (& fields->f_op31_16s_shl2));
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      errmsg = parse_imm16_shl3 (cd, strp, VC4_OPERAND_INDEX16_SHL3, (long *) (& fields->f_op31_16s_shl3));
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      errmsg = parse_imm16_shl4 (cd, strp, VC4_OPERAND_INDEX16_SHL4, (long *) (& fields->f_op31_16s_shl4));
-      break;
     case VC4_OPERAND_LDSTOFF :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;
@@ -309,22 +306,23 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_OFF16BASEREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_basereg, & fields->f_op9_8);
       break;
-    case VC4_OPERAND_OFFSET10BITS :
-      {
-        bfd_vma value = 0;
-        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_OFFSET10BITS, 0, NULL,  & value);
-        fields->f_offset10 = value;
-      }
-      break;
     case VC4_OPERAND_OFFSET12 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_OFFSET12, (long *) (& fields->f_offset12));
+      errmsg = parse_imm12 (cd, strp, VC4_OPERAND_OFFSET12, (long *) (& fields->f_offset12));
       break;
     case VC4_OPERAND_OFFSET16 :
-      {
-        bfd_vma value = 0;
-        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_OFFSET16, 0, NULL,  & value);
-        fields->f_offset16 = value;
-      }
+      errmsg = parse_imm16 (cd, strp, VC4_OPERAND_OFFSET16, (long *) (& fields->f_op31_16s));
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
+      errmsg = parse_imm16_shl1 (cd, strp, VC4_OPERAND_OFFSET16_SHL1, (long *) (& fields->f_op31_16s_shl1));
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      errmsg = parse_imm16_shl2 (cd, strp, VC4_OPERAND_OFFSET16_SHL2, (long *) (& fields->f_op31_16s_shl2));
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      errmsg = parse_imm16_shl3 (cd, strp, VC4_OPERAND_OFFSET16_SHL3, (long *) (& fields->f_op31_16s_shl3));
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      errmsg = parse_imm16_shl4 (cd, strp, VC4_OPERAND_OFFSET16_SHL4, (long *) (& fields->f_op31_16s_shl4));
       break;
     case VC4_OPERAND_OFFSET23BITS :
       {
@@ -340,13 +338,6 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
         fields->f_offset27bits = value;
       }
       break;
-    case VC4_OPERAND_OFFSET8BITS :
-      {
-        bfd_vma value = 0;
-        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_OFFSET8BITS, 0, NULL,  & value);
-        fields->f_offset8 = value;
-      }
-      break;
     case VC4_OPERAND_OPERAND10_0 :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_OPERAND10_0, (unsigned long *) (& fields->f_op10_0));
       break;
@@ -355,6 +346,27 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_OPERAND79_48, (unsigned long *) (& fields->f_op79_48));
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      {
+        bfd_vma value = 0;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_PCREL10BITS, 0, NULL,  & value);
+        fields->f_pcrel10 = value;
+      }
+      break;
+    case VC4_OPERAND_PCREL16 :
+      {
+        bfd_vma value = 0;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_PCREL16, 0, NULL,  & value);
+        fields->f_pcrel16 = value;
+      }
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      {
+        bfd_vma value = 0;
+        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_PCREL8BITS, 0, NULL,  & value);
+        fields->f_pcrel8 = value;
+      }
       break;
     case VC4_OPERAND_PCRELCC :
       {

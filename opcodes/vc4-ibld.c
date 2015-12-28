@@ -724,37 +724,6 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
         errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 5, 6, 16, total_length, buffer);
       }
       break;
-    case VC4_OPERAND_INDEX16 :
-      errmsg = insert_normal (cd, fields->f_op31_16s, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      {
-        long value = fields->f_op31_16s_shl1;
-        value = ((UINT) (value) >> (1));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
-      }
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      {
-        long value = fields->f_op31_16s_shl2;
-        value = ((UINT) (value) >> (2));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
-      }
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      {
-        long value = fields->f_op31_16s_shl3;
-        value = ((UINT) (value) >> (3));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
-      }
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      {
-        long value = fields->f_op31_16s_shl4;
-        value = ((UINT) (value) >> (4));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
-      }
-      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value = fields->f_ldstoff;
@@ -763,11 +732,7 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
       }
       break;
     case VC4_OPERAND_MEM48OFFSET27 :
-      {
-        long value = fields->f_offset27_48;
-        value = ((value) - (pc));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 26, 27, 32, total_length, buffer);
-      }
+      errmsg = insert_normal (cd, fields->f_offset27_48, 0|(1<<CGEN_IFLD_SIGNED), 16, 26, 27, 32, total_length, buffer);
       break;
     case VC4_OPERAND_MEM48PCREL27 :
       {
@@ -781,13 +746,6 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_OFF16BASEREG :
       errmsg = insert_normal (cd, fields->f_op9_8, 0, 0, 9, 2, 16, total_length, buffer);
-      break;
-    case VC4_OPERAND_OFFSET10BITS :
-      {
-        long value = fields->f_offset10;
-        value = ((SI) (((value) - (pc))) >> (1));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, buffer);
-      }
       break;
     case VC4_OPERAND_OFFSET12 :
       {
@@ -804,10 +762,34 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
       }
       break;
     case VC4_OPERAND_OFFSET16 :
+      errmsg = insert_normal (cd, fields->f_op31_16s, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
       {
-        long value = fields->f_offset16;
-        value = ((value) - (pc));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 15, 16, 16, total_length, buffer);
+        long value = fields->f_op31_16s_shl1;
+        value = ((UINT) (value) >> (1));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      {
+        long value = fields->f_op31_16s_shl2;
+        value = ((UINT) (value) >> (2));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      {
+        long value = fields->f_op31_16s_shl3;
+        value = ((UINT) (value) >> (3));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      {
+        long value = fields->f_op31_16s_shl4;
+        value = ((UINT) (value) >> (4));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, buffer);
       }
       break;
     case VC4_OPERAND_OFFSET23BITS :
@@ -844,13 +826,6 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
           break;
       }
       break;
-    case VC4_OPERAND_OFFSET8BITS :
-      {
-        long value = fields->f_offset8;
-        value = ((SI) (((value) - (pc))) >> (1));
-        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 7, 8, 16, total_length, buffer);
-      }
-      break;
     case VC4_OPERAND_OPERAND10_0 :
       errmsg = insert_normal (cd, fields->f_op10_0, 0, 0, 10, 11, 16, total_length, buffer);
       break;
@@ -859,6 +834,27 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       errmsg = insert_normal (cd, fields->f_op79_48, 0, 48, 31, 32, 32, total_length, buffer);
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      {
+        long value = fields->f_pcrel10;
+        value = ((SI) (((value) - (pc))) >> (1));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_PCREL16 :
+      {
+        long value = fields->f_pcrel16;
+        value = ((value) - (pc));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 15, 16, 16, total_length, buffer);
+      }
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      {
+        long value = fields->f_pcrel8;
+        value = ((SI) (((value) - (pc))) >> (1));
+        errmsg = insert_normal (cd, value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 7, 8, 16, total_length, buffer);
+      }
       break;
     case VC4_OPERAND_PCRELCC :
       {
@@ -1099,41 +1095,6 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         fields->f_op21_16s_shl8 = value;
       }
       break;
-    case VC4_OPERAND_INDEX16 :
-      length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & fields->f_op31_16s);
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
-        value = ((value) << (1));
-        fields->f_op31_16s_shl1 = value;
-      }
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
-        value = ((value) << (2));
-        fields->f_op31_16s_shl2 = value;
-      }
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
-        value = ((value) << (3));
-        fields->f_op31_16s_shl3 = value;
-      }
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
-        value = ((value) << (4));
-        fields->f_op31_16s_shl4 = value;
-      }
-      break;
     case VC4_OPERAND_LDSTOFF :
       {
         long value;
@@ -1143,12 +1104,7 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       }
       break;
     case VC4_OPERAND_MEM48OFFSET27 :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 26, 27, 32, total_length, pc, & value);
-        value = ((pc) + (value));
-        fields->f_offset27_48 = value;
-      }
+      length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 26, 27, 32, total_length, pc, & fields->f_offset27_48);
       break;
     case VC4_OPERAND_MEM48PCREL27 :
       {
@@ -1164,14 +1120,6 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_OFF16BASEREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 9, 2, 16, total_length, pc, & fields->f_op9_8);
       break;
-    case VC4_OPERAND_OFFSET10BITS :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, pc, & value);
-        value = ((pc) + (((value) << (1))));
-        fields->f_offset10 = value;
-      }
-      break;
     case VC4_OPERAND_OFFSET12 :
       {
         length = extract_normal (cd, ex_info, insn_value, 0, 0, 8, 1, 16, total_length, pc, & fields->f_op8);
@@ -1184,11 +1132,38 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       }
       break;
     case VC4_OPERAND_OFFSET16 :
+      length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & fields->f_op31_16s);
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
       {
         long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 15, 16, 16, total_length, pc, & value);
-        value = ((pc) + (value));
-        fields->f_offset16 = value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
+        value = ((value) << (1));
+        fields->f_op31_16s_shl1 = value;
+      }
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
+        value = ((value) << (2));
+        fields->f_op31_16s_shl2 = value;
+      }
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
+        value = ((value) << (3));
+        fields->f_op31_16s_shl3 = value;
+      }
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED), 16, 15, 16, 16, total_length, pc, & value);
+        value = ((value) << (4));
+        fields->f_op31_16s_shl4 = value;
       }
       break;
     case VC4_OPERAND_OFFSET23BITS :
@@ -1217,14 +1192,6 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         fields->f_offset27bits = ((pc) + (((fields->f_offset27bits) << (1))));
       }
       break;
-    case VC4_OPERAND_OFFSET8BITS :
-      {
-        long value;
-        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 7, 8, 16, total_length, pc, & value);
-        value = ((pc) + (((value) << (1))));
-        fields->f_offset8 = value;
-      }
-      break;
     case VC4_OPERAND_OPERAND10_0 :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 11, 16, total_length, pc, & fields->f_op10_0);
       break;
@@ -1233,6 +1200,30 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       length = extract_normal (cd, ex_info, insn_value, 0, 48, 31, 32, 32, total_length, pc, & fields->f_op79_48);
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 9, 10, 16, total_length, pc, & value);
+        value = ((pc) + (((value) << (1))));
+        fields->f_pcrel10 = value;
+      }
+      break;
+    case VC4_OPERAND_PCREL16 :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 15, 16, 16, total_length, pc, & value);
+        value = ((pc) + (value));
+        fields->f_pcrel16 = value;
+      }
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      {
+        long value;
+        length = extract_normal (cd, ex_info, insn_value, 0|(1<<CGEN_IFLD_SIGNED)|(1<<CGEN_IFLD_PCREL_ADDR), 16, 7, 8, 16, total_length, pc, & value);
+        value = ((pc) + (((value) << (1))));
+        fields->f_pcrel8 = value;
+      }
       break;
     case VC4_OPERAND_PCRELCC :
       {
@@ -1419,21 +1410,6 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_IMM6_SHL8 :
       value = fields->f_op21_16s_shl8;
       break;
-    case VC4_OPERAND_INDEX16 :
-      value = fields->f_op31_16s;
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      value = fields->f_op31_16s_shl1;
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      value = fields->f_op31_16s_shl2;
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      value = fields->f_op31_16s_shl3;
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      value = fields->f_op31_16s_shl4;
-      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
@@ -1449,23 +1425,29 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_OFF16BASEREG :
       value = fields->f_op9_8;
       break;
-    case VC4_OPERAND_OFFSET10BITS :
-      value = fields->f_offset10;
-      break;
     case VC4_OPERAND_OFFSET12 :
       value = fields->f_offset12;
       break;
     case VC4_OPERAND_OFFSET16 :
-      value = fields->f_offset16;
+      value = fields->f_op31_16s;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
+      value = fields->f_op31_16s_shl1;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      value = fields->f_op31_16s_shl2;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      value = fields->f_op31_16s_shl3;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      value = fields->f_op31_16s_shl4;
       break;
     case VC4_OPERAND_OFFSET23BITS :
       value = fields->f_offset23bits;
       break;
     case VC4_OPERAND_OFFSET27BITS :
       value = fields->f_offset27bits;
-      break;
-    case VC4_OPERAND_OFFSET8BITS :
-      value = fields->f_offset8;
       break;
     case VC4_OPERAND_OPERAND10_0 :
       value = fields->f_op10_0;
@@ -1475,6 +1457,15 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       value = fields->f_op79_48;
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      value = fields->f_pcrel10;
+      break;
+    case VC4_OPERAND_PCREL16 :
+      value = fields->f_pcrel16;
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      value = fields->f_pcrel8;
       break;
     case VC4_OPERAND_PCRELCC :
       value = fields->f_pcrelcc;
@@ -1613,21 +1604,6 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_IMM6_SHL8 :
       value = fields->f_op21_16s_shl8;
       break;
-    case VC4_OPERAND_INDEX16 :
-      value = fields->f_op31_16s;
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      value = fields->f_op31_16s_shl1;
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      value = fields->f_op31_16s_shl2;
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      value = fields->f_op31_16s_shl3;
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      value = fields->f_op31_16s_shl4;
-      break;
     case VC4_OPERAND_LDSTOFF :
       value = fields->f_ldstoff;
       break;
@@ -1643,23 +1619,29 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_OFF16BASEREG :
       value = fields->f_op9_8;
       break;
-    case VC4_OPERAND_OFFSET10BITS :
-      value = fields->f_offset10;
-      break;
     case VC4_OPERAND_OFFSET12 :
       value = fields->f_offset12;
       break;
     case VC4_OPERAND_OFFSET16 :
-      value = fields->f_offset16;
+      value = fields->f_op31_16s;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
+      value = fields->f_op31_16s_shl1;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      value = fields->f_op31_16s_shl2;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      value = fields->f_op31_16s_shl3;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      value = fields->f_op31_16s_shl4;
       break;
     case VC4_OPERAND_OFFSET23BITS :
       value = fields->f_offset23bits;
       break;
     case VC4_OPERAND_OFFSET27BITS :
       value = fields->f_offset27bits;
-      break;
-    case VC4_OPERAND_OFFSET8BITS :
-      value = fields->f_offset8;
       break;
     case VC4_OPERAND_OPERAND10_0 :
       value = fields->f_op10_0;
@@ -1669,6 +1651,15 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       value = fields->f_op79_48;
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      value = fields->f_pcrel10;
+      break;
+    case VC4_OPERAND_PCREL16 :
+      value = fields->f_pcrel16;
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      value = fields->f_pcrel8;
       break;
     case VC4_OPERAND_PCRELCC :
       value = fields->f_pcrelcc;
@@ -1814,21 +1805,6 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_IMM6_SHL8 :
       fields->f_op21_16s_shl8 = value;
       break;
-    case VC4_OPERAND_INDEX16 :
-      fields->f_op31_16s = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      fields->f_op31_16s_shl1 = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      fields->f_op31_16s_shl2 = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      fields->f_op31_16s_shl3 = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      fields->f_op31_16s_shl4 = value;
-      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
@@ -1844,23 +1820,29 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_OFF16BASEREG :
       fields->f_op9_8 = value;
       break;
-    case VC4_OPERAND_OFFSET10BITS :
-      fields->f_offset10 = value;
-      break;
     case VC4_OPERAND_OFFSET12 :
       fields->f_offset12 = value;
       break;
     case VC4_OPERAND_OFFSET16 :
-      fields->f_offset16 = value;
+      fields->f_op31_16s = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
+      fields->f_op31_16s_shl1 = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      fields->f_op31_16s_shl2 = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      fields->f_op31_16s_shl3 = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      fields->f_op31_16s_shl4 = value;
       break;
     case VC4_OPERAND_OFFSET23BITS :
       fields->f_offset23bits = value;
       break;
     case VC4_OPERAND_OFFSET27BITS :
       fields->f_offset27bits = value;
-      break;
-    case VC4_OPERAND_OFFSET8BITS :
-      fields->f_offset8 = value;
       break;
     case VC4_OPERAND_OPERAND10_0 :
       fields->f_op10_0 = value;
@@ -1870,6 +1852,15 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       fields->f_op79_48 = value;
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      fields->f_pcrel10 = value;
+      break;
+    case VC4_OPERAND_PCREL16 :
+      fields->f_pcrel16 = value;
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      fields->f_pcrel8 = value;
       break;
     case VC4_OPERAND_PCRELCC :
       fields->f_pcrelcc = value;
@@ -2005,21 +1996,6 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_IMM6_SHL8 :
       fields->f_op21_16s_shl8 = value;
       break;
-    case VC4_OPERAND_INDEX16 :
-      fields->f_op31_16s = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL1 :
-      fields->f_op31_16s_shl1 = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL2 :
-      fields->f_op31_16s_shl2 = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL3 :
-      fields->f_op31_16s_shl3 = value;
-      break;
-    case VC4_OPERAND_INDEX16_SHL4 :
-      fields->f_op31_16s_shl4 = value;
-      break;
     case VC4_OPERAND_LDSTOFF :
       fields->f_ldstoff = value;
       break;
@@ -2035,23 +2011,29 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_OFF16BASEREG :
       fields->f_op9_8 = value;
       break;
-    case VC4_OPERAND_OFFSET10BITS :
-      fields->f_offset10 = value;
-      break;
     case VC4_OPERAND_OFFSET12 :
       fields->f_offset12 = value;
       break;
     case VC4_OPERAND_OFFSET16 :
-      fields->f_offset16 = value;
+      fields->f_op31_16s = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL1 :
+      fields->f_op31_16s_shl1 = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL2 :
+      fields->f_op31_16s_shl2 = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL3 :
+      fields->f_op31_16s_shl3 = value;
+      break;
+    case VC4_OPERAND_OFFSET16_SHL4 :
+      fields->f_op31_16s_shl4 = value;
       break;
     case VC4_OPERAND_OFFSET23BITS :
       fields->f_offset23bits = value;
       break;
     case VC4_OPERAND_OFFSET27BITS :
       fields->f_offset27bits = value;
-      break;
-    case VC4_OPERAND_OFFSET8BITS :
-      fields->f_offset8 = value;
       break;
     case VC4_OPERAND_OPERAND10_0 :
       fields->f_op10_0 = value;
@@ -2061,6 +2043,15 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_OPERAND79_48 :
       fields->f_op79_48 = value;
+      break;
+    case VC4_OPERAND_PCREL10BITS :
+      fields->f_pcrel10 = value;
+      break;
+    case VC4_OPERAND_PCREL16 :
+      fields->f_pcrel16 = value;
+      break;
+    case VC4_OPERAND_PCREL8BITS :
+      fields->f_pcrel8 = value;
       break;
     case VC4_OPERAND_PCRELCC :
       fields->f_pcrelcc = value;
