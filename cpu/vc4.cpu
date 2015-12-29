@@ -988,6 +988,16 @@
 (pushrnbase 16 ",lr" OP11_8_3)
 (pushrnbase 24 ",lr" OP11_8_3)
 
+; This push is really a predec ST instruction.
+
+(define-normal-insn
+  pushst "PUSHST" ()
+  "push$alu32cond $alu32dreg"
+  (+ OPLEN_10 OP11_8_4 ACCSZ7_6_ (f-op5 1) alu32dreg
+     (f-op31-27 25) alu32cond OP22_21_0 (f-op20-16 0))
+  () ()
+)
+
 (define-normal-insn
   poprn "POPRN" ()
   "pop $ppstartreg"
@@ -1019,6 +1029,16 @@
 (poprnbase 6 ",pc" OP11_8_3)
 (poprnbase 16 ",pc" OP11_8_3)
 (poprnbase 24 ",pc" OP11_8_3)
+
+; This pop is really a postinc LD instruction.
+
+(define-normal-insn
+  popld "POPLD" ()
+  "pop$alu32cond $alu32dreg"
+  (+ OPLEN_10 OP11_8_5 ACCSZ7_6_ (f-op5 0) alu32dreg
+     (f-op31-27 25) alu32cond OP22_21_0 (f-op20-16 0))
+  () ()
+)
 
 (define-pmacro (ldstcndidx x-name x-comment x-opcode x-accsz x-bit5 x-shift)
   (define-normal-insn
