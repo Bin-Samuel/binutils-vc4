@@ -298,15 +298,6 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
   return md_relax_table[fragP->fr_subtype].rlx_length;
 }
 
-/*long
-md_pcrel_from (fixS *fixP)
-{
-  long temp_val;
-  temp_val=fixP->fx_size + fixP->fx_where + fixP->fx_frag->fr_address;
-
-  return temp_val;
-}*/
-
 long
 md_pcrel_from_section (fixS *fixP, segT sec)
 {
@@ -378,37 +369,6 @@ vc4_cgen_parse_fix_exp (int opinfo, expressionS *exp)
   return opinfo;
 }
 
-/*void
-vc4_cons_fix_new (fragS *frag,
-		  int where,
-		  int size,
-		  expressionS *exp)
-{
-  bfd_reloc_code_real_type type;
-
-  switch (size)
-    {
-    case 1:
-      type = BFD_RELOC_8;
-      break;
-    case 2:
-      type = BFD_RELOC_16;
-      break;
-    case 3:
-      type = BFD_RELOC_24;
-      break;
-    case 4:
-    default:
-      type = BFD_RELOC_32;
-      break;
-    case 8:
-      type = BFD_RELOC_64;
-      break;
-    }
-
-  fix_new_exp (frag, where, (int) size, exp, 0, type);
-}*/
-
 fixS *
 vc4_cgen_record_fixup_exp (fragS *frag,
 			   int where,
@@ -444,7 +404,6 @@ target_address_for (fragS *frag)
   if (sym)
     rv += S_GET_VALUE (sym);
 
-  /*printf("target_address_for returns %d\n", rv);*/
   return rv;
 }
 
