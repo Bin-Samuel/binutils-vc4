@@ -202,7 +202,7 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       print_normal (cd, info, fields->f_offset12, 0|(1<<CGEN_OPERAND_SIGNED)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
     case VC4_OPERAND_OFFSET16 :
-      print_normal (cd, info, fields->f_op31_16s, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);
+      print_normal (cd, info, fields->f_op31_16s, 0|(1<<CGEN_OPERAND_SIGNED)|(1<<CGEN_OPERAND_RELAX), pc, length);
       break;
     case VC4_OPERAND_OFFSET16_SHL1 :
       print_normal (cd, info, fields->f_op31_16s_shl1, 0|(1<<CGEN_OPERAND_SIGNED), pc, length);

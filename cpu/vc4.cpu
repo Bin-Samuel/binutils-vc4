@@ -822,7 +822,7 @@
 (define-operand
   (name offset16)
   (comment "16-bit immediate")
-  (attrs)
+  (attrs RELAX)
   (type h-sint)
   (index f-op31-16s)
   (handlers (parse "imm16"))
@@ -1566,7 +1566,7 @@
 
 (define-pmacro (alu32uni x-name x-opcode x-suffix x-encoding)
   (define-normal-insn
-    (.sym x-name x-suffix) (.sym (.upcase x-name) x-suffix) ()
+    (.sym x-name x-suffix) (.sym (.upcase x-name) x-suffix) (RELAXABLE)
     (.str x-opcode " $alu48idreg,#$offset16")
     (+ OPLEN_11 (f-op11-10 0) (.sym ALU32OP_ x-encoding) alu48idreg
        (.sym offset16 x-suffix))
@@ -1776,9 +1776,30 @@
   () ()
 )
 
+; The same again, a non-relaxed variant for immediates that don't fit the
+; narrower triadic add insn.
+
+(define-normal-insn
+  add48i_norelax "ADD48I_NORELAX" ()
+  "add $alu48idreg,$alu48isreg,#$alu48immu"
+  (+ OPLEN_14 OP11_10_3 alu48isreg alu48idreg
+     alu48immu)
+  () ()
+)
+
 (define-pmacro (alu48opi2 x-name x-opcode x-encoding)
   (define-normal-insn
     x-name (.str (.upcase x-name)) (RELAXED)
+    (.str x-opcode " $alu48idreg,#$alu48immu")
+    (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
+       alu48immu)
+    () ())
+
+  ; Also define a variant without the RELAXED attribute, because for immediates
+  ; that don't fit the RELAXABLE variants, we should use this variant before
+  ; relaxation.
+  (define-normal-insn
+    (.sym x-name _norelax) (.str (.upcase x-name) "_NORELAX") ()
     (.str x-opcode " $alu48idreg,#$alu48immu")
     (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
        alu48immu)

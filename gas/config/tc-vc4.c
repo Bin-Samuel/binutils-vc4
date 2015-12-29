@@ -201,18 +201,28 @@ const relax_typeS md_relax_table[] =
      each list.  */
   { 1, 1, 0, 0 },
 
-  /* 16-bit and 48-bit immediate ALU ops.  */
+  /* 16-bit, 32-bit and 48-bit immediate (unconditional) ALU ops.  */
   {          0,          31, 0, 2 }, /* 5-bit unsigned immediate.  */
-  { 0x7fffffff, -0x80000000, 4, 0 }, /* 32-bit unsigned immediate.  */
+  {     0x7fff,     -0x8000, 2, 3 }, /* 16-bit signed immediate.  */
+  { 0x7fffffff, -0x80000000, 4, 0 }, /* 32-bit immediate.  */
   
   /* 16-bit and 32-bit conditional branch.  */
-  {        126,        -128, 0, 4 }, /* 7-bit offset, left-shifted by 1.  */
+  {        126,        -128, 0, 5 }, /* 7-bit offset, left-shifted by 1.  */
   {   0x7ffffe,   -0x800000, 2, 0 }, /* 23-bit offset, left-shifted by 1.  */
   
-  /* 32-bit and 48-bit LEA instructions.  Where does the -4 come from?  */
-  { 0x7fff - 4, -0x8000 - 4, 0, 6 }, /* 16-bit offset.  */
+  /* 32-bit and 48-bit LEA instructions.  GAS counts from the *end* of the
+     instruction, hence -4.  */
+  { 0x7fff - 4, -0x8000 - 4, 0, 7 }, /* 16-bit offset.  */
   { 0x7fffffff, -0x80000000, 2, 0 }  /* 32-bit offset.  */
 };
+
+#define ALUOP_16BIT	1
+#define ALUOP_32BIT	2
+#define ALUOP_48BIT	3
+#define BCC_16BIT	4
+#define BCC_32BIT	5
+#define LEA_32BIT	6
+#define LEA_48BIT	7
 
 int
 md_estimate_size_before_relax (fragS *fragP, segT segment)
@@ -231,11 +241,15 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
      (an index into md_relax_table) before relaxing, because CGEN apparently
      just defaults to 1.  */
   if ((firstword & 0xf800) == 0x1800)
-    fragP->fr_subtype = 3;
+    fragP->fr_subtype = BCC_16BIT;
+
+  /* A 32-bit ALU operation with a 16-bit signed immediate operand.  */
+  else if ((firstword & 0xfc00) == 0xb000)
+    fragP->fr_subtype = ALUOP_32BIT;
 
   /* A 32-bit LEA instruction.  */
   else if ((firstword & 0xffe0) == 0xbfe0)
-    fragP->fr_subtype = 5;
+    fragP->fr_subtype = LEA_32BIT;
 
   /* Undefined symbols can't be relaxed by the assembler, and should use the
      biggest insn type available (until they can be relaxed by the linker).  */
@@ -249,10 +263,18 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
 
       switch (fragP->fr_subtype)
 	{
-	case 1:
-	case 3:
-	case 5:
-	  fragP->fr_subtype++;
+	case ALUOP_16BIT:
+	case ALUOP_32BIT:
+	case ALUOP_48BIT:
+	  fragP->fr_subtype = ALUOP_48BIT;
+	  break;
+	case BCC_16BIT:
+	case BCC_32BIT:
+	  fragP->fr_subtype = BCC_32BIT;
+	  break;
+	case LEA_32BIT:
+	case LEA_48BIT:
+	  fragP->fr_subtype = LEA_48BIT;
 	  break;
 	default:
 	  abort ();
@@ -444,30 +466,44 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 
   switch (fragP->fr_subtype)
     {
-    case 1:
+    case ALUOP_16BIT:
       extension = 0;
       break;
-    case 2:
+    case ALUOP_48BIT:
       {
-	unsigned int op4, dstreg;
+	unsigned int op5, dstreg;
+
 	/* 16-bit scalar immediate insns.  */
-	gas_assert ((firstword & 0xe000) == 0x6000);
-	op4 = (firstword >> 9) & 0xf;
-	dstreg = firstword & 0xf;
+	if ((firstword & 0xe000) == 0x6000)
+	  {
+	    op5 = ((firstword >> 9) & 0xf) << 1;
+	    dstreg = firstword & 0xf;
+	  }
+	/* 32-bit scalar immediate insns.  */
+	else if ((firstword & 0xfc00) == 0xb000)
+	  {
+	    op5 = (firstword >> 5) & 0x1f;
+	    dstreg = firstword & 0x1f;
+	  }
+	else
+	  abort ();
+
 	/* Rebuild as a 48-bit immediate insn.  */
-	firstword = 0xe800 | (op4 << 6) | dstreg;
+	firstword = 0xe800 | (op5 << 5) | dstreg;
 	opcode[0] = firstword & 0xff;
 	opcode[1] = (firstword >> 8) & 0xff;
-	extension = 4;
 	operand = VC4_OPERAND_ALU48IMMU;
+	/* !!! It's not clear why this doesn't depend on the starting size
+	   of the insn?  */
+	extension = 4;
       }
       break;
-    case 3:
+    case BCC_16BIT:
       extension = 0;
       break;
-    case 4:
+    case BCC_32BIT:
       {
-        unsigned int condcode;
+	unsigned int condcode;
 	/* 16-bit conditional branches.  */
 	gas_assert ((firstword & 0xf800) == 0x1800);
 	condcode = (firstword >> 7) & 0xf;
@@ -479,12 +515,12 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	operand = VC4_OPERAND_OFFSET23BITS;
       }
       break;
-    case 5:
+    case LEA_32BIT:
       extension = 0;
       break;
-    case 6:
+    case LEA_48BIT:
       {
-        unsigned int dstreg;
+	unsigned int dstreg;
 	/* 32-bit LEA instruction.  */
 	gas_assert ((firstword & 0xffe0) == 0xbfe0);
 	dstreg = firstword & 0x1f;
@@ -518,31 +554,32 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
        active.  We have to put the operand bytes into the frag ourselves!  */
     switch (fragP->fr_subtype)
       {
-      case 1: /* 5-bit unsigned immediate (in 16-bit instruction).  */
+      case ALUOP_16BIT: /* 5-bit unsigned immediate (in 16-bit instruction).  */
 	opcode[0] = (opcode[0] & 0x0f) | ((addend & 0xf) << 4);
 	opcode[1] = (opcode[1] & 0xfe) | ((addend >> 4) & 1);
         break;
-      case 2: /* 32-bit immediate (in 48-bit instruction).  */
-      case 6: /* 32-bit PC-relative offset (in 48-bit LEA insn).  */
-        opcode[2] = addend & 0xff;
+      case ALUOP_48BIT: /* 32-bit immediate (in 48-bit instruction).  */
+      case LEA_48BIT: /* 32-bit PC-relative offset (in 48-bit LEA insn).  */
+	opcode[2] = addend & 0xff;
 	opcode[3] = (addend >> 8) & 0xff;
 	opcode[4] = (addend >> 16) & 0xff;
 	opcode[5] = (addend >> 24) & 0xff;
         break;
-      case 3: /* 7-bit PC-relative offset (in 16-bit words).  */
+      case BCC_16BIT: /* 7-bit PC-relative offset (in 16-bit words).  */
 	opcode[0] = (opcode[0] & 0x80) | ((addend >> 1) & 0x7f);
 	break;
-      case 4: /* 23-bit PC-relative offset (in 16-bit words).  */
-        opcode[2] = (addend >> 1) & 0xff;
+      case BCC_32BIT: /* 23-bit PC-relative offset (in 16-bit words).  */
+	opcode[2] = (addend >> 1) & 0xff;
 	opcode[3] = (addend >> 9) & 0xff;
 	opcode[0] = (addend >> 17) & 0x7f;
         break;
-      case 5: /* 16-bit PC-relative offset (in 32-bit LEA insn).  */
-        opcode[2] = addend & 0xff;
+      case ALUOP_32BIT: /* 16-bit signed immediate (in 32-bit instruction).  */
+      case LEA_32BIT: /* 16-bit PC-relative offset (in 32-bit LEA insn).  */
+	opcode[2] = addend & 0xff;
 	opcode[3] = (addend >> 8) & 0xff;
         break;
       default:
-        abort ();
+	abort ();
       }
 
   fragP->fr_fix += extension;

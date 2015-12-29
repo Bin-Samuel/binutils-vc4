@@ -285,7 +285,7 @@ static const CGEN_IFMT ifmt_add48i ATTRIBUTE_UNUSED = {
   16, 48, 0xfc00, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
-static const CGEN_IFMT ifmt_movi48 ATTRIBUTE_UNUSED = {
+static const CGEN_IFMT ifmt_movi48_norelax ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
@@ -2316,83 +2316,89 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48ISREG), ',', '#', OP (ALU48IMMU), 0 } },
     & ifmt_add48i, { 0xec00 }
   },
+/* add $alu48idreg,$alu48isreg,#$alu48immu */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48ISREG), ',', '#', OP (ALU48IMMU), 0 } },
+    & ifmt_add48i, { 0xec00 }
+  },
 /* mov $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe800 }
+    & ifmt_movi48_norelax, { 0xe800 }
   },
 /* cmn $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe820 }
+    & ifmt_movi48_norelax, { 0xe820 }
   },
 /* add $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe840 }
+    & ifmt_movi48_norelax, { 0xe840 }
   },
 /* bic $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe860 }
+    & ifmt_movi48_norelax, { 0xe860 }
   },
 /* mul $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe880 }
+    & ifmt_movi48_norelax, { 0xe880 }
   },
 /* eor $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe8a0 }
+    & ifmt_movi48_norelax, { 0xe8a0 }
   },
 /* sub $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe8c0 }
+    & ifmt_movi48_norelax, { 0xe8c0 }
   },
 /* and $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe8e0 }
+    & ifmt_movi48_norelax, { 0xe8e0 }
   },
 /* cmp $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe940 }
+    & ifmt_movi48_norelax, { 0xe940 }
   },
 /* rsub $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe960 }
+    & ifmt_movi48_norelax, { 0xe960 }
   },
 /* or $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe9a0 }
+    & ifmt_movi48_norelax, { 0xe9a0 }
   },
 /* max $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xe9e0 }
+    & ifmt_movi48_norelax, { 0xe9e0 }
   },
 /* min $alu48idreg,#$alu48immu */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', '#', OP (ALU48IMMU), 0 } },
-    & ifmt_movi48, { 0xea20 }
+    & ifmt_movi48_norelax, { 0xea20 }
   },
 /* vec48 $operand10_0,$operand47_16 */
   {
