@@ -160,6 +160,28 @@ parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
   return parse_shifted_imm (cd, strp, opindex, valuep, 16, 0);
 }
 
+static const char *
+parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+	       bfd_reloc_code_real_type code,
+	       enum cgen_parse_operand_result *result_type, long *valuep)
+{
+  /* Instructions like "st r5,(lr)" are ambiguous since "lr" can be interpreted
+     as a bracketed symbolic name when we meant it to be parsed as a register
+     indirection.  Special-case the former to fail.  */
+  if (**strp == '(')
+    {
+      const char *s = *strp;
+
+      while (ISALNUM (*++s))
+        ;
+
+      if (*s == ')')
+        return "looks like indirection";
+    }
+
+  return cgen_parse_address (cd, strp, opindex, code, result_type, valuep);
+}
+
 /* -- */
 
 const char * vc4_cgen_parse_operand
@@ -296,7 +318,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_MEM48PCREL27 :
       {
         bfd_vma value = 0;
-        errmsg = cgen_parse_address (cd, strp, VC4_OPERAND_MEM48PCREL27, 0, NULL,  & value);
+        errmsg = parse_pcrel27 (cd, strp, VC4_OPERAND_MEM48PCREL27, 0, NULL,  & value);
         fields->f_pcrel27_48 = value;
       }
       break;

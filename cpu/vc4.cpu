@@ -76,7 +76,7 @@
 		       ("r16" 16) ("r17" 17) ("r18" 18) ("r19" 19)
 		       ("r20" 20) ("r21" 21) ("r22" 22) ("r23" 23)
 		       ("gp"  24) ("sp"  25) ("lr"  26) ("r27" 27)
-		       ("r28" 28) ("r29" 29) ("r30" 30) ("r31" 31)))
+		       ("r28" 28) ("r29" 29) ("sr" 30)  ("pc" 31)))
 )
 
 (define-hardware
@@ -726,11 +726,13 @@
   f-offset27-48
 )
 
-(define-normal-operand
-  mem48pcrel27
-  "" ()
-  h-addr
-  f-pcrel27-48
+(define-operand
+  (name mem48pcrel27)
+  (comment "27-bit pc-relative offset")
+  (attrs)
+  (type h-addr)
+  (index f-pcrel27-48)
+  (handlers (parse "pcrel27"))
 )
 
 (define-normal-operand
@@ -1187,6 +1189,20 @@
   (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 1) alu32dreg
      alu32areg offset12)
   () ()
+)
+
+; Special cases of the above two insns for zero offsets.
+
+(define-normal-macro-insn
+  ldoffzero "LDOFFZERO" ()
+  "ld$accsz32 $alu32dreg,($alu32areg)"
+  (emit ldoff12 accsz32 alu32dreg (offset12 0) alu32areg)
+)
+
+(define-normal-macro-insn
+  stoffzero "STOFFZERO" ()
+  "st$accsz32 $alu32dreg,($alu32areg)"
+  (emit stoff12 accsz32 alu32dreg (offset12 0) alu32areg)
 )
 
 (define-normal-insn
@@ -1799,12 +1815,10 @@
 ; The same again, a non-relaxed variant for immediates that don't fit the
 ; narrower triadic add insn.
 
-(define-normal-insn
+(define-normal-macro-insn
   add48i_norelax "ADD48I_NORELAX" ()
   "add $alu48idreg,$alu48isreg,#$alu48immu"
-  (+ OPLEN_14 OP11_10_3 alu48isreg alu48idreg
-     alu48immu)
-  () ()
+  (emit add48i alu48idreg alu48isreg alu48immu)
 )
 
 (define-pmacro (alu48opi2 x-name x-opcode x-encoding)
@@ -1814,16 +1828,16 @@
     (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
        alu48immu)
     () ())
+)
 
+(define-pmacro (alu48opi2mac x-name x-opcode)
   ; Also define a variant without the RELAXED attribute, because for immediates
   ; that don't fit the RELAXABLE variants, we should use this variant before
   ; relaxation.
-  (define-normal-insn
+  (define-normal-macro-insn
     (.sym x-name _norelax) (.str (.upcase x-name) "_NORELAX") ()
     (.str x-opcode " $alu48idreg,#$alu48immu")
-    (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
-       alu48immu)
-    () ())
+    (emit x-name alu48idreg alu48immu))
 )
 
 ; These have the addscale (<<1, <<2, <<3, <<4) forms missed out, because why
@@ -1842,6 +1856,20 @@
 (alu48opi2 ori48   "or"   OR)
 (alu48opi2 maxi48  "max"  MAX)
 (alu48opi2 mini48  "min"  MIN)
+
+(alu48opi2mac movi48  "mov")
+(alu48opi2mac cmni48  "cmn")
+(alu48opi2mac addi48  "add")
+(alu48opi2mac bici48  "bic")
+(alu48opi2mac muli48  "mul")
+(alu48opi2mac eori48  "eor")
+(alu48opi2mac subi48  "sub")
+(alu48opi2mac andi48  "and")
+(alu48opi2mac cmpi48  "cmp")
+(alu48opi2mac rsubi48 "rsub")
+(alu48opi2mac ori48   "or")
+(alu48opi2mac maxi48  "max")
+(alu48opi2mac mini48  "min")
 
 ;; 48-bit vector instructions.
 

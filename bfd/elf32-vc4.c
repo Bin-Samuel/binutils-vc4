@@ -509,6 +509,15 @@ vc4_final_link_relocate (reloc_howto_type *howto,
 
   switch (howto->type)
     {
+    case R_VC4_PCREL27:
+      if (s < -0x4000000 || s >= 0x4000000)
+	r = bfd_reloc_overflow;
+      byte[2] = u & 0xff;
+      byte[3] = (u >> 8) & 0xff;
+      byte[4] = (u >> 16) & 0xff;
+      byte[5] = (byte[5] & 0xf8) | ((u >> 24) & 0x7);
+      break;
+
     case R_VC4_PCREL27_MUL2:
       if (s < -0x8000000 || s >= 0x8000000 || (s & 1) != 0)
         r = bfd_reloc_overflow;
@@ -539,6 +548,19 @@ vc4_final_link_relocate (reloc_howto_type *howto,
       byte[3] = (u >> 8) & 0xff;
       byte[4] = (u >> 16) & 0xff;
       byte[5] = (u >> 24) & 0xff;
+      break;
+
+    case R_VC4_32:
+      byte[3] = (u >> 24) & 0xff;
+      byte[2] = (u >> 16) & 0xff;
+      /* Fallthrough.  */
+
+    case R_VC4_16:
+      byte[1] = (u >> 8) & 0xff;
+      /* Fallthrough.  */
+
+    case R_VC4_8:
+      byte[0] = u & 0xff;
       break;
 
     default:
