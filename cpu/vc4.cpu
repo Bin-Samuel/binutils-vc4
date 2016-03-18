@@ -990,14 +990,10 @@
 (pushrnbase 16 ",lr" OP11_8_3)
 (pushrnbase 24 ",lr" OP11_8_3)
 
-; This push is really a predec ST instruction.
-
-(define-normal-insn
-  pushst "PUSHST" ()
-  "push$alu32cond $alu32dreg"
-  (+ OPLEN_10 OP11_8_4 ACCSZ7_6_ (f-op5 1) alu32dreg
-     (f-op31-27 25) alu32cond OP22_21_0 (f-op20-16 0))
-  () ()
+(define-normal-macro-insn
+  pushlr "PUSHLR" ()
+  "push lr"
+  (emit pushrnrm24,lr (ppendreg24 15))
 )
 
 (define-normal-insn
@@ -1032,13 +1028,83 @@
 (poprnbase 16 ",pc" OP11_8_3)
 (poprnbase 24 ",pc" OP11_8_3)
 
-; This pop is really a postinc LD instruction.
+(define-normal-macro-insn
+  poppc "POPPC" ()
+  "pop pc"
+  (emit poprnrm24,pc (ppendreg24 15))
+)
 
 (define-normal-insn
-  popld "POPLD" ()
-  "pop$alu32cond $alu32dreg"
-  (+ OPLEN_10 OP11_8_5 ACCSZ7_6_ (f-op5 0) alu32dreg
-     (f-op31-27 25) alu32cond OP22_21_0 (f-op20-16 0))
+  ldind "LDIND" ()
+  "ld$accsz $alu16dreg,($alu16sreg)"
+  (+ OPLEN_0 OP11_1 accsz OP8_0 alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  stind "STIND" ()
+  "st$accsz $alu16dreg,($alu16sreg)"
+  (+ OPLEN_0 OP11_1 accsz OP8_1 alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  ldoff "LDOFF" ()
+  "ld $alu16dreg,$ldstoff($alu16sreg)"
+  (+ OPLEN_2 ldstoff alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  stoff "STOFF" ()
+  "st $alu16dreg,$ldstoff($alu16sreg)"
+  (+ OPLEN_3 ldstoff alu16sreg alu16dreg)
+  () ()
+)
+
+(define-normal-insn
+  ldoff12 "LDOFF12" ()
+  "ld$accsz32 $alu32dreg,$offset12($alu32areg)"
+  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 0) alu32dreg
+     alu32areg offset12)
+  () ()
+)
+
+(define-normal-insn
+  stoff12 "STOFF12" ()
+  "st$accsz32 $alu32dreg,$offset12($alu32areg)"
+  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 1) alu32dreg
+     alu32areg offset12)
+  () ()
+)
+
+; Special cases of the above two insns for zero offsets.
+
+(define-normal-macro-insn
+  ldoffzero "LDOFFZERO" ()
+  "ld$accsz32 $alu32dreg,($alu32areg)"
+  (emit ldoff12 accsz32 alu32dreg (offset12 0) alu32areg)
+)
+
+(define-normal-macro-insn
+  stoffzero "STOFFZERO" ()
+  "st$accsz32 $alu32dreg,($alu32areg)"
+  (emit stoff12 accsz32 alu32dreg (offset12 0) alu32areg)
+)
+
+(define-normal-insn
+  ldoff16 "LDOFF16" ()
+  "ld$accsz32 $alu32dreg,$offset16($off16basereg)"
+  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 0) alu32dreg
+     offset16)
+  () ()
+)
+
+(define-normal-insn
+  stoff16 "STOFF16" ()
+  "st$accsz32 $alu32dreg,$offset16($off16basereg)"
+  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 1) alu32dreg
+     offset16)
   () ()
 )
 
@@ -1127,20 +1193,6 @@
 )
 
 (define-normal-insn
-  ldind "LDIND" ()
-  "ld$accsz $alu16dreg,($alu16sreg)"
-  (+ OPLEN_0 OP11_1 accsz OP8_0 alu16sreg alu16dreg)
-  () ()
-)
-
-(define-normal-insn
-  stind "STIND" ()
-  "st$accsz $alu16dreg,($alu16sreg)"
-  (+ OPLEN_0 OP11_1 accsz OP8_1 alu16sreg alu16dreg)
-  () ()
-)
-
-(define-normal-insn
   addsp "ADDSP" ()
   "add sp,#$addspoffset"
   (+ OPLEN_1 OP11_0 addspoffset OP4_0_25)
@@ -1158,66 +1210,6 @@
   bcc "BCC" (RELAXABLE)
   "b$condcode $pcrelcc"
   (+ OPLEN_1 OP11_1 condcode pcrelcc)
-  () ()
-)
-
-(define-normal-insn
-  ldoff "LDOFF" ()
-  "ld $alu16dreg,$ldstoff($alu16sreg)"
-  (+ OPLEN_2 ldstoff alu16sreg alu16dreg)
-  () ()
-)
-
-(define-normal-insn
-  stoff "STOFF" ()
-  "st $alu16dreg,$ldstoff($alu16sreg)"
-  (+ OPLEN_3 ldstoff alu16sreg alu16dreg)
-  () ()
-)
-
-(define-normal-insn
-  ldoff12 "LDOFF12" ()
-  "ld$accsz32 $alu32dreg,$offset12($alu32areg)"
-  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 0) alu32dreg
-     alu32areg offset12)
-  () ()
-)
-
-(define-normal-insn
-  stoff12 "STOFF12" ()
-  "st$accsz32 $alu32dreg,$offset12($alu32areg)"
-  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 1) alu32dreg
-     alu32areg offset12)
-  () ()
-)
-
-; Special cases of the above two insns for zero offsets.
-
-(define-normal-macro-insn
-  ldoffzero "LDOFFZERO" ()
-  "ld$accsz32 $alu32dreg,($alu32areg)"
-  (emit ldoff12 accsz32 alu32dreg (offset12 0) alu32areg)
-)
-
-(define-normal-macro-insn
-  stoffzero "STOFFZERO" ()
-  "st$accsz32 $alu32dreg,($alu32areg)"
-  (emit stoff12 accsz32 alu32dreg (offset12 0) alu32areg)
-)
-
-(define-normal-insn
-  ldoff16 "LDOFF16" ()
-  "ld$accsz32 $alu32dreg,$offset16($off16basereg)"
-  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 0) alu32dreg
-     offset16)
-  () ()
-)
-
-(define-normal-insn
-  stoff16 "STOFF16" ()
-  "st$accsz32 $alu32dreg,$offset16($off16basereg)"
-  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 1) alu32dreg
-     offset16)
   () ()
 )
 
