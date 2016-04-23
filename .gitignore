@@ -39,3 +39,5 @@ lost+found
 
 *.log
 *.sum
+
+cgen
