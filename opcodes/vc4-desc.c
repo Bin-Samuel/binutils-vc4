@@ -740,9 +740,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_RTS, "rts", "rts", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* b $alu32dreg */
+/* b.s $alu32dreg */
   {
-    VC4_INSN_BREG, "breg", "b", 16,
+    VC4_INSN_BREG, "breg", "b.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* bl $alu32dreg */

@@ -390,7 +390,7 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, 0 } },
     & ifmt_bkpt, { 0x5a }
   },
-/* b $alu32dreg */
+/* b.s $alu32dreg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU32DREG), 0 } },
@@ -2416,6 +2416,10 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
 /* Formats for ALIAS macro-insns.  */
 
 #define F(f) & vc4_cgen_ifld_table[VC4_##f]
+static const CGEN_IFMT ifmt_breg_nosuf ATTRIBUTE_UNUSED = {
+  16, 16, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_pushlr ATTRIBUTE_UNUSED = {
   16, 16, 0xffff, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7) }, { F (F_OP6_5) }, { F (F_OP4_0_BASE_24) }, { 0 } }
 };
@@ -2921,6 +2925,11 @@ static const CGEN_IFMT ifmt_mini48_relaxed ATTRIBUTE_UNUSED = {
 
 static const CGEN_IBASE vc4_cgen_macro_insn_table[] =
 {
+/* b $alu32dreg */
+  {
+    -1, "breg_nosuf", "b", 16,
+    { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* push lr */
   {
     -1, "pushlr", "push", 16,
@@ -3542,6 +3551,12 @@ static const CGEN_IBASE vc4_cgen_macro_insn_table[] =
 
 static const CGEN_OPCODE vc4_cgen_macro_insn_opcode_table[] =
 {
+/* b $alu32dreg */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU32DREG), 0 } },
+    & ifmt_breg_nosuf, { 0x40 }
+  },
 /* push lr */
   {
     { 0, 0, 0, 0 },

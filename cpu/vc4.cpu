@@ -916,9 +916,15 @@
 
 (define-normal-insn
   breg "BREG" ()
-  "b $alu32dreg"
+  "b.s $alu32dreg"
   (+ OPLEN_0 OP11_8_0 OP7_5_2 alu32dreg)
   () ()
+)
+
+(define-normal-macro-insn
+  breg_nosuf "BREG_NOSUF" ()
+  "b $alu32dreg"
+  (emit breg alu32dreg)
 )
 
 (define-normal-insn
