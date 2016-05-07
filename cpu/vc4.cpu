@@ -1,8 +1,6 @@
-; Broadcom Videocore4 CPU description.  -*- Scheme -*-
+; Broadcom VideoCore4 CPU description.  -*- Scheme -*-
 ;
-; Copyright 2015 Free Software Foundation, Inc.
-;
-; Contributed by Red Hat Inc; developed under contract from Renesas.
+; Copyright 2015, 2016 Free Software Foundation, Inc.
 ;
 ; This file is part of the GNU Binutils.
 ;
