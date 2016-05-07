@@ -202,7 +202,7 @@ const relax_typeS md_relax_table[] =
   { 1, 1, 0, 0 },
 
   /* 16-bit, 32-bit and 48-bit immediate (unconditional) ALU ops.  */
-  {          0,          31, 0, 2 }, /* 5-bit unsigned immediate.  */
+  {         31,           0, 0, 2 }, /* 5-bit unsigned immediate.  */
   {     0x7fff,     -0x8000, 2, 3 }, /* 16-bit signed immediate.  */
   { 0x7fffffff, -0x80000000, 4, 0 }, /* 32-bit immediate.  */
   
@@ -213,16 +213,52 @@ const relax_typeS md_relax_table[] =
   /* 32-bit and 48-bit LEA instructions.  GAS counts from the *end* of the
      instruction, hence -4.  */
   { 0x7fff - 4, -0x8000 - 4, 0, 7 }, /* 16-bit offset.  */
-  { 0x7fffffff, -0x80000000, 2, 0 }  /* 32-bit offset.  */
+  { 0x7fffffff, -0x80000000, 2, 0 }, /* 32-bit offset.  */
+  
+  /* 32-bit and 48-bit add rd, rs, #imm instructions.  */
+  {         31,         -32, 0, 9 }, /* 6-bit signed immediate.  */
+  { 0x7fffffff, -0x80000000, 2, 0 }, /* 32-bit immediate.  */
+  
+  /* 32-bit conditional operation (two operands, with "always" condition).  */
+  {         31,         -32, 0,  0 }, /* 6-bit signed immediate (cond'n).  */
+  {         31,         -32, 0, 12 }, /* 6-bit signed immediate (always).  */
+  { 0x7fffffff, -0x80000000, 2,  0 }  /* 32-bit immediate.  */
 };
 
-#define ALUOP_16BIT	1
-#define ALUOP_32BIT	2
-#define ALUOP_48BIT	3
-#define BCC_16BIT	4
-#define BCC_32BIT	5
-#define LEA_32BIT	6
-#define LEA_48BIT	7
+#define ALUOP_16BIT        1
+#define ALUOP_32BIT        2
+#define ALUOP_48BIT        3
+#define BCC_16BIT          4
+#define BCC_32BIT          5
+#define LEA_32BIT	   6
+#define LEA_48BIT          7
+#define ADD_32BIT          8
+#define ADD_48BIT          9
+#define CONDBINOP_32BIT   10
+#define DECONDBINOP_32BIT 11
+#define DECONDBINOP_48BIT 12
+
+static bool
+binary_opcode_p (int opcode)
+{
+  switch (opcode)
+    {
+    case 0: /* MOV.  */
+    case 1: /* CMN.  */
+    case 8: /* NOT.  */
+    case 10: /* CMP.  */
+    case 12: /* BTST.  */
+    case 25: /* NEG.  */
+    case 27: /* MSB.  */
+    case 29: /* BITREV.  */
+    case 31: /* ABS.  */
+      return true;
+
+    default:
+      ;
+    }
+  return false;
+}
 
 int
 md_estimate_size_before_relax (fragS *fragP, segT segment)
@@ -247,9 +283,24 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
   else if ((firstword & 0xfc00) == 0xb000)
     fragP->fr_subtype = ALUOP_32BIT;
 
+  /* A condition-always 32-bit ALU two-operand operation with a 6-bit signed
+     immediate operand.  */
+  else if ((firstword & 0xfc00) == 0xc000)
+    {
+      unsigned int secondword = (opcode[3] << 8) | opcode[2];
+      if (((secondword >> 7) & 0xf) == 0xe
+          && binary_opcode_p ((firstword >> 5) & 0x1f))
+        fragP->fr_subtype = DECONDBINOP_32BIT;
+      else
+        fragP->fr_subtype = CONDBINOP_32BIT;
+    }
+
   /* A 32-bit LEA instruction.  */
-  else if ((firstword & 0xffe0) == 0xbfe0)
+  if ((firstword & 0xffe0) == 0xbfe0)
     fragP->fr_subtype = LEA_32BIT;
+
+  else if ((firstword & 0xffe0) == 0xc040)
+    fragP->fr_subtype = ADD_32BIT;
 
   /* Undefined symbols can't be relaxed by the assembler, and should use the
      biggest insn type available (until they can be relaxed by the linker).  */
@@ -276,6 +327,15 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
 	case LEA_48BIT:
 	  fragP->fr_subtype = LEA_48BIT;
 	  break;
+        case ADD_32BIT:
+          fragP->fr_subtype = ADD_48BIT;
+          break;
+        case CONDBINOP_32BIT:
+          /* There's no wider insn for conditionals other than 'always'.  */
+          break;
+        case DECONDBINOP_32BIT:
+          fragP->fr_subtype = DECONDBINOP_48BIT;
+          break;
 	default:
 	  abort ();
 	}
@@ -430,6 +490,27 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
     case ALUOP_16BIT:
       extension = 0;
       break;
+    case ALUOP_32BIT:
+      {
+        unsigned int op5, dstreg;
+
+        /* 16-bit scalar immediate insns.  */
+        if ((firstword & 0xe000) == 0x6000)
+          {
+            op5 = ((firstword >> 9) & 0xf) << 1;
+            dstreg = firstword & 0xf;
+          }
+        else
+          abort ();
+
+        /* Rebuild as a 32-bit immediate insn.  */
+        firstword = 0xb000 | (op5 << 5) | dstreg;
+        opcode[0] = firstword & 0xff;
+        opcode[1] = (firstword >> 8) & 0xff;
+        operand = VC4_OPERAND_OFFSET16;
+        extension = 2;
+      }
+      break;
     case ALUOP_48BIT:
       {
 	unsigned int op5, dstreg;
@@ -453,6 +534,7 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	firstword = 0xe800 | (op5 << 5) | dstreg;
 	opcode[0] = firstword & 0xff;
 	opcode[1] = (firstword >> 8) & 0xff;
+        opcode[2] = opcode[3] = 0;
 	operand = VC4_OPERAND_ALU48IMMU;
 	/* !!! It's not clear why this doesn't depend on the starting size
 	   of the insn?  */
@@ -489,8 +571,72 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	firstword = 0xe500 | dstreg;
 	opcode[0] = firstword & 0xff;
 	opcode[1] = (firstword >> 8) & 0xff;
+        opcode[2] = opcode[3] = 0;
 	extension = 2;
 	operand = VC4_OPERAND_ALU48PCREL;
+      }
+      break;
+    case ADD_32BIT:
+      extension = 0;
+      break;
+    case ADD_48BIT:
+      {
+        unsigned int dstreg, srcreg;
+        unsigned int secondword;
+
+        secondword = (opcode[3] << 8) | opcode[2];
+
+        /* 32-bit ADD rd, rs, #imm instruction.  */
+        if ((firstword & 0xffe0) == 0xc040)
+          {
+            gas_assert (((secondword >> 7) & 0xf) == 0xe);
+            dstreg = firstword & 0x1f;
+            srcreg = (secondword >> 1) & 0x1f;
+          }
+        else
+          abort ();
+
+        /* Rebuild as 48-bit ADD instruction.  */
+        firstword = 0xec00 | (srcreg << 5) | dstreg;
+        opcode[0] = firstword & 0xff;
+        opcode[1] = (firstword >> 8) & 0xff;
+        opcode[2] = opcode[3] = 0;
+        extension = 2;
+        operand = VC4_OPERAND_ALU48IMMU;
+      }
+      break;
+    case CONDBINOP_32BIT:
+      as_bad ("bad use of conditional insn");
+      return;
+    case DECONDBINOP_32BIT:
+      extension = 0;
+      break;
+    case DECONDBINOP_48BIT:
+      {
+        unsigned int op5, dstreg, srcreg;
+        unsigned int secondword = (opcode[3] << 8) | opcode[2];
+
+        /* 32-bit OP<cond> rd, #imm instruction, where cond==always.  */
+        if ((firstword & 0xfc00) == 0xc000
+            && ((secondword >> 7) & 0xf) == 0xe
+            && binary_opcode_p ((firstword >> 5) & 0x1f))
+          {
+            op5 = (firstword >> 5) & 0x1f;
+            dstreg = firstword & 0x1f;
+            srcreg = (secondword >> 11) & 0x1f;
+          }
+        else
+          abort ();
+
+        gas_assert (srcreg == dstreg || srcreg == 0 || dstreg == 0);
+
+        /* Rebuild as 48-bit instruction.  */
+        firstword = 0xe800 | (op5 << 5) | srcreg | dstreg;
+        opcode[0] = firstword & 0xff;
+        opcode[1] = (firstword >> 8) & 0xff;
+        opcode[2] = opcode[3] = 0;
+        extension = 2;
+        operand = VC4_OPERAND_ALU48IMMU;
       }
       break;
     default:
@@ -521,6 +667,7 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
         break;
       case ALUOP_48BIT: /* 32-bit immediate (in 48-bit instruction).  */
       case LEA_48BIT: /* 32-bit PC-relative offset (in 48-bit LEA insn).  */
+      case ADD_48BIT: /* 32-bit immediate (in 48-bit add instruction).  */
 	opcode[2] = addend & 0xff;
 	opcode[3] = (addend >> 8) & 0xff;
 	opcode[4] = (addend >> 16) & 0xff;
