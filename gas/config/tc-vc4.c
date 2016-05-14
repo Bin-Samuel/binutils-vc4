@@ -686,6 +686,9 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
 	opcode[2] = addend & 0xff;
 	opcode[3] = (addend >> 8) & 0xff;
         break;
+      case ADD_32BIT: /* 6-bit signed immediate (in 32-bit instruction).  */
+        opcode[2] = (opcode[2] & 0xc0) | (addend & 0x3f);
+        break;
       default:
 	abort ();
       }
