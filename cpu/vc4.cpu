@@ -557,7 +557,7 @@
 
 (define-normal-operand
   alu16imm
-  "" (RELAX)
+  "" ()
   h-uint
   f-op8-4
 )
@@ -565,7 +565,7 @@
 (define-operand
   (name alu16imm_shl3)
   (comment "5-bit immediate left-shifted by 3")
-  (attrs RELAX)
+  (attrs)
   (type h-uint)
   (index f-op8-4-shl3)
   (handlers (parse "uimm5_shl3"))
@@ -587,7 +587,7 @@
 
 (define-normal-operand
   imm6
-  "" (RELAX)
+  "" ()
   h-sint
   f-op21-16s
 )
@@ -605,7 +605,7 @@
   (define-operand
     (name (.sym imm6_shl x-amount))
     (comment (.str "6-bit immediate left-shifted by " x-amount))
-    (attrs RELAX)
+    (attrs)
     (type h-sint)
     (index (.sym f-op21-16s-shl x-amount))
     (handlers (parse (.str "imm6_shl" x-amount))))
@@ -705,7 +705,7 @@
 
 (define-normal-operand
   alu48immu
-  "" (RELAX)
+  "" ()
   h-uint
   f-op47-16
 )
@@ -822,7 +822,7 @@
 (define-operand
   (name offset16)
   (comment "16-bit immediate")
-  (attrs RELAX)
+  (attrs)
   (type h-sint)
   (index f-op31-16s)
   (handlers (parse "imm16"))
@@ -1296,9 +1296,9 @@
     () ())
 )
 
-(define-pmacro (alu16opirlx x-name x-comment x-opcode x-suffix)
+(define-pmacro (alu16opinsf x-name x-comment x-opcode x-suffix)
   (define-normal-macro-insn
-    (.sym x-name "_relaxable") (.str x-comment "_RELAXABLE") (RELAXABLE)
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
     (.str x-opcode " $alu16dreg,#$" alu16imm x-suffix)
     (emit x-name alu16dreg (.sym alu16imm x-suffix)))
 )
@@ -1320,22 +1320,22 @@
 (alu16opi shli16     "SHLI16"     "shl"      ""       ALU16OPI_SHL)
 (alu16opi asri16     "ASRI16"     "asr"      ""       ALU16OPI_ASR)
 
-(alu16opirlx movi16     "MOVI16"     "mov"      "")
-(alu16opirlx addi16     "ADDI16"     "add"      "")
-(alu16opirlx muli16     "MULI16"     "mul"      "")
-(alu16opirlx subi16     "SUBI16"     "sub"      "")
-(alu16opirlx noti16     "NOTI16"     "not"      "")
-(alu16opirlx cmpi16     "CMPI16"     "cmp"      "")
-(alu16opirlx btsti16    "BTSTI16"    "btst"     "")
-(alu16opirlx bmaski16   "BMASKI16"   "bmask"    "")
-(alu16opirlx bseti16    "BSETI16"    "bset"     "")
-(alu16opirlx bclri16    "BCLRI16"    "bclr"     "")
-(alu16opirlx bchgi16    "BCHGI16"    "bchg"     "")
-(alu16opirlx adds8i16   "ADDS8I16"   "addscale" "_shl3")
-(alu16opirlx signexti16 "SIGNEXTI16" "signext"  "")
-(alu16opirlx lsri16     "LSRI16"     "lsr"      "")
-(alu16opirlx shli16     "SHLI16"     "shl"      "")
-(alu16opirlx asri16     "ASRI16"     "asr"      "")
+(alu16opinsf movi16     "MOVI16"     "mov"      "")
+(alu16opinsf addi16     "ADDI16"     "add"      "")
+(alu16opinsf muli16     "MULI16"     "mul"      "")
+(alu16opinsf subi16     "SUBI16"     "sub"      "")
+(alu16opinsf noti16     "NOTI16"     "not"      "")
+(alu16opinsf cmpi16     "CMPI16"     "cmp"      "")
+(alu16opinsf btsti16    "BTSTI16"    "btst"     "")
+(alu16opinsf bmaski16   "BMASKI16"   "bmask"    "")
+(alu16opinsf bseti16    "BSETI16"    "bset"     "")
+(alu16opinsf bclri16    "BCLRI16"    "bclr"     "")
+(alu16opinsf bchgi16    "BCHGI16"    "bchg"     "")
+(alu16opinsf adds8i16   "ADDS8I16"   "addscale" "_shl3")
+(alu16opinsf signexti16 "SIGNEXTI16" "signext"  "")
+(alu16opinsf lsri16     "LSRI16"     "lsr"      "")
+(alu16opinsf shli16     "SHLI16"     "shl"      "")
+(alu16opinsf asri16     "ASRI16"     "asr"      "")
 
 ;; 32-bit instructions.
 
@@ -1498,7 +1498,7 @@
 
 (define-pmacro (alu32opi2nsf x-name x-comment x-opcode)
   (define-normal-macro-insn
-    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") (RELAXABLE)
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
     (.str x-opcode "${alu32cond} $alu32dreg,#$imm6")
     (emit x-name alu32cond alu32dreg (alu32areg 0) imm6))
 )
@@ -1516,7 +1516,7 @@
 
 (define-pmacro (alu32opicnsf x-name x-comment x-opcode)
   (define-normal-macro-insn
-    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") (RELAXABLE)
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
     (.str x-opcode "${alu32cond} $alu32areg,#$imm6")
     (emit x-name alu32cond (alu32dreg 0) alu32areg imm6))
 )
@@ -1557,10 +1557,10 @@
 ; Add (only, non-conditional) is relaxable to a 48-bit variant.  This has to
 ; come before the no-suffix variant below!
 
-(define-normal-macro-insn
-  add_relaxable "ADD_RELAXABLE" (RELAXABLE)
-  "add $alu32dreg,$alu32areg,#$imm6"
-  (emit addi32 (alu32cond 14) alu32dreg alu32areg imm6))
+;(define-normal-macro-insn
+;  add_relaxable "ADD_RELAXABLE" (RELAXABLE)
+;  "add $alu32dreg,$alu32areg,#$imm6"
+;  (emit addi32 (alu32cond 14) alu32dreg alu32areg imm6))
 
 (alu32opi2nsf movi32     "MOVI32"     "mov")
 (alu32opicnsf cmni32     "CMNI32"     "cmn")
