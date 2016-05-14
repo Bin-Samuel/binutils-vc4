@@ -67,8 +67,11 @@ parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
 
-  if (result_type == CGEN_PARSE_OPERAND_RESULT_NUMBER)
-    errmsg = cgen_validate_unsigned_integer (*valuep, 0, 31);
+  if (errmsg)
+    return errmsg;
+
+  if (!errmsg && result_type == CGEN_PARSE_OPERAND_RESULT_NUMBER)
+    errmsg = cgen_validate_unsigned_integer (result, 0, 31);
   else
     errmsg = "use wider reloc";
 
@@ -104,6 +107,9 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
+
+  if (errmsg)
+    return errmsg;
 
   if (result_type != CGEN_PARSE_OPERAND_RESULT_NUMBER)
     return "use wider reloc";
@@ -183,7 +189,8 @@ parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   errmsg = cgen_parse_address (cd, strp, opindex, code, result_type, &result);
 
-  *valuep = result;
+  if (!errmsg)
+    *valuep = result;
 
   return errmsg;
 }
