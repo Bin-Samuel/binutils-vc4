@@ -555,11 +555,13 @@
   f-op7-4
 )
 
-(define-normal-operand
-  alu16imm
-  "" ()
-  h-uint
-  f-op8-4
+(define-operand
+  (name alu16imm)
+  (comment "5-bit unsigned immediate")
+  (attrs)
+  (type h-uint)
+  (index f-op8-4)
+  (handlers (parse "uimm5"))
 )
 
 (define-operand
@@ -585,11 +587,13 @@
   f-op4-0
 )
 
-(define-normal-operand
-  imm6
-  "" ()
-  h-sint
-  f-op21-16s
+(define-operand
+  (name imm6)
+  (comment "6-bit signed immediate")
+  (attrs)
+  (type h-sint)
+  (index f-op21-16s)
+  (handlers (parse "imm6"))
 )
 
 (define-operand
@@ -1739,11 +1743,11 @@
     () ())
 )
 
-(define-pmacro (alu32unirlx x-name x-opcode x-suffix)
+(define-pmacro (alu32uninsf x-name x-opcode x-suffix)
   (define-normal-macro-insn
-    (.sym x-name x-suffix "_relaxable")
-    (.str (.upcase x-name) x-suffix "_RELAXABLE")
-    (RELAXABLE)
+    (.sym x-name x-suffix "_nosuf")
+    (.str (.upcase x-name) x-suffix "_NOSUF")
+    ()
     (.str x-opcode " $alu48idreg,#$offset16")
     (emit (.sym x-name x-suffix) alu48idreg (.sym offset16 x-suffix)))
 )
@@ -1781,38 +1785,38 @@
 (alu32uni asriu32     "asr"     ""      ASR)
 (alu32uni absiu32     "abs"     ""      ABS)
 
-(alu32unirlx moviu32     "mov"     "")
-(alu32unirlx cmniu32     "cmn"     "")
-(alu32unirlx addiu32     "add"     "")
-(alu32unirlx biciu32     "bic"     "")
-(alu32unirlx muliu32     "mul"     "")
-(alu32unirlx eoriu32     "eor"     "")
-(alu32unirlx subiu32     "sub"     "")
-(alu32unirlx andiu32     "and"     "")
-(alu32unirlx notiu32     "not"     "")
-(alu32unirlx roriu32     "ror"     "")
-(alu32unirlx cmpiu32     "cmp"     "")
-(alu32unirlx rsubiu32    "rsub"    "")
-(alu32unirlx btstiu32    "btst"    "")
-(alu32unirlx oriu32      "or"      "")
-(alu32unirlx bmaskiu32   "bmask"   "")
-(alu32unirlx maxiu32     "max"     "")
-(alu32unirlx bsetiu32    "bset"    "")
-(alu32unirlx miniu32     "min"     "")
-(alu32unirlx bclriu32    "bclr"    "")
-(alu32unirlx adds2iu32   "add"     "_shl1")
-(alu32unirlx bchgiu32    "bchg"    "")
-(alu32unirlx adds4iu32   "add"     "_shl2")
-(alu32unirlx adds8iu32   "add"     "_shl3")
-(alu32unirlx adds16iu32  "add"     "_shl4")
-(alu32unirlx signextiu32 "signext" "")
-(alu32unirlx negiu32     "neg"     "")
-(alu32unirlx lsriu32     "lsr"     "")
-(alu32unirlx msbiu32     "msb"     "")
-(alu32unirlx shliu32     "shl"     "")
-(alu32unirlx bitreviu32  "bitrev"  "")
-(alu32unirlx asriu32     "asr"     "")
-(alu32unirlx absiu32     "abs"     "")
+(alu32uninsf moviu32     "mov"     "")
+(alu32uninsf cmniu32     "cmn"     "")
+(alu32uninsf addiu32     "add"     "")
+(alu32uninsf biciu32     "bic"     "")
+(alu32uninsf muliu32     "mul"     "")
+(alu32uninsf eoriu32     "eor"     "")
+(alu32uninsf subiu32     "sub"     "")
+(alu32uninsf andiu32     "and"     "")
+(alu32uninsf notiu32     "not"     "")
+(alu32uninsf roriu32     "ror"     "")
+(alu32uninsf cmpiu32     "cmp"     "")
+(alu32uninsf rsubiu32    "rsub"    "")
+(alu32uninsf btstiu32    "btst"    "")
+(alu32uninsf oriu32      "or"      "")
+(alu32uninsf bmaskiu32   "bmask"   "")
+(alu32uninsf maxiu32     "max"     "")
+(alu32uninsf bsetiu32    "bset"    "")
+(alu32uninsf miniu32     "min"     "")
+(alu32uninsf bclriu32    "bclr"    "")
+(alu32uninsf adds2iu32   "add"     "_shl1")
+(alu32uninsf bchgiu32    "bchg"    "")
+(alu32uninsf adds4iu32   "add"     "_shl2")
+(alu32uninsf adds8iu32   "add"     "_shl3")
+(alu32uninsf adds16iu32  "add"     "_shl4")
+(alu32uninsf signextiu32 "signext" "")
+(alu32uninsf negiu32     "neg"     "")
+(alu32uninsf lsriu32     "lsr"     "")
+(alu32uninsf msbiu32     "msb"     "")
+(alu32uninsf shliu32     "shl"     "")
+(alu32uninsf bitreviu32  "bitrev"  "")
+(alu32uninsf asriu32     "asr"     "")
+(alu32uninsf absiu32     "abs"     "")
 
 ;; Floating-point ops.
 
@@ -2011,11 +2015,11 @@
 ; The same again, a relaxed variant for immediates that get here through
 ; relaxation.
 
-(define-normal-macro-insn
-  add48i_relaxed "ADD48I_RELAXED" (RELAXED)
-  "add $alu48idreg,$alu48isreg,#$alu48immu"
-  (emit add48i alu48idreg alu48isreg alu48immu)
-)
+;(define-normal-macro-insn
+;  add48i_relaxed "ADD48I_RELAXED" (RELAXED)
+;  "add $alu48idreg,$alu48isreg,#$alu48immu"
+;  (emit add48i alu48idreg alu48isreg alu48immu)
+;)
 
 (define-pmacro (alu48opi2 x-name x-opcode x-encoding)
   (define-normal-insn
@@ -2033,12 +2037,12 @@
     (emit x-name alu48idreg alu48immu))
 )
 
-(define-pmacro (alu48opi2rlx x-name x-opcode)
-  (define-normal-macro-insn
-    (.sym x-name _relaxed) (.str (.upcase x-name) "_RELAXED") (RELAXED)
-    (.str x-opcode " $alu48idreg,#$alu48immu")
-    (emit x-name alu48idreg alu48immu))
-)
+;(define-pmacro (alu48opi2rlx x-name x-opcode)
+;  (define-normal-macro-insn
+;    (.sym x-name _relaxed) (.str (.upcase x-name) "_RELAXED") (RELAXED)
+;    (.str x-opcode " $alu48idreg,#$alu48immu")
+;    (emit x-name alu48idreg alu48immu))
+;)
 
 ; These have the addscale (<<1, <<2, <<3, <<4) forms missed out, because why
 ; would you?  Also shifts and bit ops, and other useless operations.
@@ -2071,19 +2075,19 @@
 (alu48opi2nsf maxi48  "max")
 (alu48opi2nsf mini48  "min")
 
-(alu48opi2rlx movi48  "mov")
-(alu48opi2rlx cmni48  "cmn")
-(alu48opi2rlx addi48  "add")
-(alu48opi2rlx bici48  "bic")
-(alu48opi2rlx muli48  "mul")
-(alu48opi2rlx eori48  "eor")
-(alu48opi2rlx subi48  "sub")
-(alu48opi2rlx andi48  "and")
-(alu48opi2rlx cmpi48  "cmp")
-(alu48opi2rlx rsubi48 "rsub")
-(alu48opi2rlx ori48   "or")
-(alu48opi2rlx maxi48  "max")
-(alu48opi2rlx mini48  "min")
+;(alu48opi2rlx movi48  "mov")
+;(alu48opi2rlx cmni48  "cmn")
+;(alu48opi2rlx addi48  "add")
+;(alu48opi2rlx bici48  "bic")
+;(alu48opi2rlx muli48  "mul")
+;(alu48opi2rlx eori48  "eor")
+;(alu48opi2rlx subi48  "sub")
+;(alu48opi2rlx andi48  "and")
+;(alu48opi2rlx cmpi48  "cmp")
+;(alu48opi2rlx rsubi48 "rsub")
+;(alu48opi2rlx ori48   "or")
+;(alu48opi2rlx maxi48  "max")
+;(alu48opi2rlx mini48  "min")
 
 ;; 48-bit vector instructions.
 

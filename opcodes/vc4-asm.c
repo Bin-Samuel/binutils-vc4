@@ -93,6 +93,27 @@ err_out:
 }
 
 static const char *
+parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+	     unsigned long *valuep)
+{
+  const char *errmsg;
+  enum cgen_parse_operand_result result_type;
+  bfd_vma result;
+
+  errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
+                               &result);
+
+  if (result_type == CGEN_PARSE_OPERAND_RESULT_NUMBER)
+    errmsg = cgen_validate_unsigned_integer (*valuep, 0, 31);
+  else
+    errmsg = "use wider reloc";
+
+  *valuep = result;
+
+  return errmsg;
+}
+
+static const char *
 parse_uimm5_shl3 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 		  unsigned long *valuep)
 {
@@ -113,9 +134,17 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
   const char *errmsg;
   unsigned mask = (1 << shift) - 1;
   long lo = -(1 << (bits - 1)), hi = 1 << (bits - 1);
+  enum cgen_parse_operand_result result_type;
   long value;
+  bfd_vma result;
 
-  errmsg = cgen_parse_signed_integer (cd, strp, opindex, &value);
+  errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
+                               &result);
+
+  if (result_type != CGEN_PARSE_OPERAND_RESULT_NUMBER)
+    return "use wider reloc";
+
+  value = (bfd_signed_vma) result;
 
   if (!errmsg && ((value & mask) != 0 || (value >> shift) < lo
 		  || (value >> shift) >= hi))
@@ -149,6 +178,12 @@ SHIFTED_IMM_FN (16, 2)
 SHIFTED_IMM_FN (16, 1)
 
 static const char *
+parse_imm6 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 6, 0);
+}
+
+static const char *
 parse_imm12 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 {
   return parse_shifted_imm (cd, strp, opindex, valuep, 12, 0);
@@ -165,6 +200,9 @@ parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 	       bfd_reloc_code_real_type code,
 	       enum cgen_parse_operand_result *result_type, long *valuep)
 {
+  bfd_vma result;
+  const char *errmsg;
+
   /* Instructions like "st r5,(lr)" are ambiguous since "lr" can be interpreted
      as a bracketed symbolic name when we meant it to be parsed as a register
      indirection.  Special-case the former to fail.  */
@@ -179,7 +217,11 @@ parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
         return "looks like indirection";
     }
 
-  return cgen_parse_address (cd, strp, opindex, code, result_type, valuep);
+  errmsg = cgen_parse_address (cd, strp, opindex, code, result_type, &result);
+
+  *valuep = result;
+
+  return errmsg;
 }
 
 /* -- */
@@ -231,7 +273,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op3_0);
       break;
     case VC4_OPERAND_ALU16IMM :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ALU16IMM, (unsigned long *) (& fields->f_op8_4));
+      errmsg = parse_uimm5 (cd, strp, VC4_OPERAND_ALU16IMM, (unsigned long *) (& fields->f_op8_4));
       break;
     case VC4_OPERAND_ALU16IMM_SHL3 :
       errmsg = parse_uimm5_shl3 (cd, strp, VC4_OPERAND_ALU16IMM_SHL3, (unsigned long *) (& fields->f_op8_4_shl3));
@@ -283,7 +325,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = parse_floatimm6 (cd, strp, VC4_OPERAND_FLOATIMM6, (unsigned long *) (& fields->f_op21_16));
       break;
     case VC4_OPERAND_IMM6 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_IMM6, (long *) (& fields->f_op21_16s));
+      errmsg = parse_imm6 (cd, strp, VC4_OPERAND_IMM6, (long *) (& fields->f_op21_16s));
       break;
     case VC4_OPERAND_IMM6_SHL1 :
       errmsg = parse_imm6_shl1 (cd, strp, VC4_OPERAND_IMM6_SHL1, (long *) (& fields->f_op21_16s_shl1));
