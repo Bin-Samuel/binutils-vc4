@@ -1306,9 +1306,16 @@
 (define-pmacro (alu16opr x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode " $alu16dreg,$alu16sreg" x-suffix)
+    (.str x-opcode ".s $alu16dreg,$alu16sreg" x-suffix)
     (+ OP15_13_2 x-encoding alu16sreg alu16dreg)
     () ())
+)
+
+(define-pmacro (alu16oprnsf x-name x-comment x-opcode x-suffix)
+  (define-normal-macro-insn
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
+    (.str x-opcode " $alu16dreg,$alu16sreg" x-suffix)
+    (emit x-name alu16dreg alu16sreg))
 )
 
 (alu16opr mov16     "MOV16"     "mov"      ""     ALU16OP_MOV)
@@ -1343,6 +1350,39 @@
 (alu16opr bitrev16  "BITREV16"  "bitrev"   ""     ALU16OP_BITREV)
 (alu16opr asr16     "ASR16"     "asr"      ""     ALU16OP_ASR)
 (alu16opr abs16     "ABS16"     "abs"      ""     ALU16OP_ABS)
+
+(alu16oprnsf mov16     "MOV16"     "mov"      "")
+(alu16oprnsf cmn16     "CMN16"     "cmn"      "")
+(alu16oprnsf add16     "ADD16"     "add"      "")
+(alu16oprnsf bic16     "BIC16"     "bic"      "")
+(alu16oprnsf mul16     "MUL16"     "mul"      "")
+(alu16oprnsf eor16     "EOR16"     "eor"      "")
+(alu16oprnsf sub16     "SUB16"     "sub"      "")
+(alu16oprnsf and16     "AND16"     "and"      "")
+(alu16oprnsf not16     "NOT16"     "not"      "")
+(alu16oprnsf ror16     "ROR16"     "ror"      "")
+(alu16oprnsf cmp16     "CMP16"     "cmp"      "")
+(alu16oprnsf rsub16    "RSUB16"    "rsub"     "")
+(alu16oprnsf btst16    "BTST16"    "btst"     "")
+(alu16oprnsf or16      "OR16"      "or"       "")
+(alu16oprnsf bmask16   "BMASK16"   "bmask"    "")
+(alu16oprnsf max16     "MAX16"     "max"      "")
+(alu16oprnsf bset16    "BSET16"    "bset"     "")
+(alu16oprnsf min16     "MIN16"     "min"      "")
+(alu16oprnsf bclr16    "BCLR16"    "bclr"     "")
+(alu16oprnsf adds216   "ADDS216"   "addscale" "<<1")
+(alu16oprnsf bchg16    "BCHG16"    "bchg"     "")
+(alu16oprnsf adds416   "ADDS416"   "addscale" "<<2")
+(alu16oprnsf adds816   "ADDS816"   "addscale" "<<3")
+(alu16oprnsf adds1616  "ADDS1616"  "addscale" "<<4")
+(alu16oprnsf signext16 "SIGNEXT16" "signext"  "")
+(alu16oprnsf neg16     "NEG16"     "neg"      "")
+(alu16oprnsf lsr16     "LSR16"     "lsr"      "")
+(alu16oprnsf msb16     "MSB16"     "msb"      "")
+(alu16oprnsf shl16     "SHL16"     "shl"      "")
+(alu16oprnsf bitrev16  "BITREV16"  "bitrev"   "")
+(alu16oprnsf asr16     "ASR16"     "asr"      "")
+(alu16oprnsf abs16     "ABS16"     "abs"      "")
 
 (define-pmacro (alu16opi x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
@@ -1466,28 +1506,49 @@
 (define-pmacro (alu32opr3 x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,$alu32breg" x-suffix)
+    (.str x-opcode "${alu32cond}.m $alu32dreg,$alu32areg,$alu32breg" x-suffix)
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
+)
+
+(define-pmacro (alu32opr3nsf x-name x-comment x-opcode x-suffix)
+  (define-normal-macro-insn
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,$alu32breg" x-suffix)
+    (emit x-name alu32cond alu32dreg alu32areg alu32breg))
 )
 
 (define-pmacro (alu32opr2 x-name x-comment x-opcode x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond} $alu32dreg,$alu32breg")
+    (.str x-opcode "${alu32cond}.m $alu32dreg,$alu32breg")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
 )
 
+(define-pmacro (alu32opr2nsf x-name x-comment x-opcode)
+  (define-normal-macro-insn
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32breg")
+    (emit x-name alu32cond alu32dreg (alu32areg 0) alu32breg))
+)
+
 (define-pmacro (alu32oprc x-name x-comment x-opcode x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond} $alu32areg,$alu32breg")
+    (.str x-opcode "${alu32cond}.m $alu32areg,$alu32breg")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
+)
+
+(define-pmacro (alu32oprcnsf x-name x-comment x-opcode)
+  (define-normal-macro-insn
+    (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
+    (.str x-opcode "${alu32cond} $alu32areg,$alu32breg")
+    (emit x-name alu32cond (alu32dreg 0) alu32areg alu32breg))
 )
 
 (alu32opr2 mov32     "MOV32"     "mov"           MOV)
@@ -1522,6 +1583,39 @@
 (alu32opr2 bitrev32  "BITREV32"  "bitrev"        BITREV)
 (alu32opr3 asr32     "ASR32"     "asr"     ""    ASR)
 (alu32opr2 abs32     "ABS32"     "abs"           ABS)
+
+(alu32opr2nsf mov32     "MOV32"     "mov")
+(alu32oprcnsf cmn32     "CMN32"     "cmn")
+(alu32opr3nsf add32     "ADD32"     "add"     "")
+(alu32opr3nsf bic32     "BIC32"     "bic"     "")
+(alu32opr3nsf mul32     "MUL32"     "mul"     "")
+(alu32opr3nsf eor32     "EOR32"     "eor"     "")
+(alu32opr3nsf sub32     "SUB32"     "sub"     "")
+(alu32opr3nsf and32     "AND32"     "and"     "")
+(alu32opr2nsf not32     "NOT32"     "not")
+(alu32opr3nsf ror32     "ROR32"     "ror"     "")
+(alu32oprcnsf cmp32     "CMP32"     "cmp")
+(alu32opr3nsf rsub32    "RSUB32"    "rsub"    "")
+(alu32oprcnsf btst32    "BTST32"    "btst")
+(alu32opr3nsf or32      "OR32"      "or"      "")
+(alu32opr3nsf bmask32   "BMASK32"   "bmask"   "")
+(alu32opr3nsf max32     "MAX32"     "max"     "")
+(alu32opr3nsf bset32    "BSET32"    "bset"    "")
+(alu32opr3nsf min32     "MIN32"     "min"     "")
+(alu32opr3nsf bclr32    "BCLR32"    "bclr"    "")
+(alu32opr3nsf adds232   "ADDS232"   "add"     "<<1")
+(alu32opr3nsf bchg32    "BCHG32"    "bchg"    "")
+(alu32opr3nsf adds432   "ADDS432"   "add"     "<<2")
+(alu32opr3nsf adds832   "ADDS832"   "add"     "<<3")
+(alu32opr3nsf adds1632  "ADDS1632"  "add"     "<<4")
+(alu32opr3nsf signext32 "SIGNEXT32" "signext" "")
+(alu32opr2nsf neg32     "NEG32"     "neg")
+(alu32opr3nsf lsr32     "LSR32"     "lsr"     "")
+(alu32opr2nsf msb32     "MSB32"     "msb")
+(alu32opr3nsf shl32     "SHL32"     "shl"     "")
+(alu32opr2nsf bitrev32  "BITREV32"  "bitrev")
+(alu32opr3nsf asr32     "ASR32"     "asr"     "")
+(alu32opr2nsf abs32     "ABS32"     "abs")
 
 ;; <aluop> dst, src1, #src2
 
