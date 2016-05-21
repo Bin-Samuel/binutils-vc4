@@ -370,9 +370,9 @@
 	    (set (ifield f-op31-16) (and (ifield f-offset23bits) 65535))))
   (extract (sequence ()
 	     (set (ifield f-offset23bits)
-	          (and (or (sll (ifield f-op6-0) 16)
-			   (ifield f-op31-16))
-		       8388607))))
+	          (sra (sll (or (sll (ifield f-op6-0) 16)
+			        (ifield f-op31-16))
+		            9) 9))))
   (encode (value pc) (sra SI (sub SI value pc) 1))
   (decode (value pc) (add SI pc (sll SI value 1)))
 )
@@ -658,11 +658,13 @@
   f-op5-0
 )
 
-(define-normal-operand
-  spoffset
-  "" ()
-  h-uint
-  f-spoffset
+(define-operand
+  (name spoffset)
+  (comment "6-bit unsigned immediate lsl 2")
+  (attrs)
+  (type h-uint)
+  (index f-spoffset)
+  (handlers (parse "uimm6_shl2"))
 )
 
 (define-normal-operand
@@ -707,11 +709,13 @@
   f-op47-43
 )
 
-(define-normal-operand
-  alu48immu
-  "" ()
-  h-uint
-  f-op47-16
+(define-operand
+  (name alu48immu)
+  (comment "32-bit immediate")
+  (attrs)
+  (type h-uint)
+  (index f-op47-16)
+  (handlers (parse "imm32"))
 )
 
 (define-normal-operand
@@ -779,11 +783,13 @@
   f-pcrel8
 )
 
-(define-normal-operand
-  bcc32imm
-  "" ()
-  h-uint
-  f-op29-24
+(define-operand
+  (name bcc32imm)
+  (comment "5-bit unsigned immediate in compare-branch insn")
+  (attrs)
+  (type h-uint)
+  (index f-op29-24)
+  (handlers (parse "uimm5"))
 )
 
 (define-normal-operand
@@ -793,11 +799,13 @@
   f-op7-4
 )
 
-(define-normal-operand
-  addcmpbimm
-  "" ()
-  h-sint
-  f-op7-4s
+(define-operand
+  (name addcmpbimm)
+  (comment "4-bit signed immediate in addcmpb insn")
+  (attrs)
+  (type h-sint)
+  (index f-op7-4s)
+  (handlers (parse "imm4"))
 )
 
 (define-normal-operand
@@ -954,9 +962,15 @@
 
 (define-normal-insn
   movcpuid "MOVCPUID" ()
-  "mov $alu32dreg,cpuid"
+  "mov.s $alu32dreg,cpuid"
   (+ OPLEN_0 OP11_8_0 OP7_5_7 alu32dreg)
   () ()
+)
+
+(define-normal-macro-insn
+  movcpuid_nosuf "MOVCPUID_NOSUF" ()
+  "mov $alu32dreg,cpuid"
+  (emit movcpuid alu32dreg)
 )
 
 (define-normal-insn
@@ -968,7 +982,7 @@
 
 (define-normal-insn
   pushrn "PUSHRN" ()
-  "push $ppstartreg"
+  "push.s $ppstartreg"
   (+ OPLEN_0 OP11_8_2 OP7_1 ppstartreg OP4_0_0)
   () ()
 )
@@ -1004,9 +1018,21 @@
   (emit pushrnrm24,lr (ppendreg24 15))
 )
 
+(define-normal-macro-insn
+  pushrn_nosuf "PUSHRN_NOSUF" ()
+  "push $ppstartreg"
+  (emit pushrn ppstartreg)
+)
+
+(define-normal-macro-insn
+  pushst "PUSHST" ()
+  "push $alu32dreg"
+  (emit stpredec (alu32cond 14) alu32dreg (alu32areg 25))
+)
+
 (define-normal-insn
   poprn "POPRN" ()
-  "pop $ppstartreg"
+  "pop.s $ppstartreg"
   (+ OPLEN_0 OP11_8_2 OP7_0 ppstartreg OP4_0_0)
   () ()
 )
@@ -1042,16 +1068,28 @@
   (emit poprnrm24,pc (ppendreg24 15))
 )
 
+(define-normal-macro-insn
+  popld_nosuf "POPLD_NOSUF" ()
+  "pop $ppstartreg"
+  (emit poprn ppstartreg)
+)
+
+(define-normal-macro-insn
+  popld "POPLD" ()
+  "pop $alu32dreg"
+  (emit ldpostinc (alu32cond 14) alu32dreg (alu32areg 25))
+)
+
 (define-normal-insn
   ldind "LDIND" ()
-  "ld$accsz $alu16dreg,($alu16sreg)"
+  "ld$accsz.s $alu16dreg,($alu16sreg)"
   (+ OPLEN_0 OP11_1 accsz OP8_0 alu16sreg alu16dreg)
   () ()
 )
 
 (define-normal-insn
   stind "STIND" ()
-  "st$accsz $alu16dreg,($alu16sreg)"
+  "st$accsz.s $alu16dreg,($alu16sreg)"
   (+ OPLEN_0 OP11_1 accsz OP8_1 alu16sreg alu16dreg)
   () ()
 )
@@ -1110,7 +1148,21 @@
   (emit stoff12 accsz32 alu32dreg offset12 alu32areg)
 )
 
-; Special cases of the above two insns for zero offsets.
+; LDIND/STIND with no suffixes.
+
+(define-normal-macro-insn
+  ldind_nosuf "LDIND_NOSUF" ()
+  "ld$accsz $alu16dreg,($alu16sreg)"
+  (emit ldind accsz alu16dreg alu16sreg)
+)
+
+(define-normal-macro-insn
+  stind_nosuf "STIND_NOSUF" ()
+  "st$accsz $alu16dreg,($alu16sreg)"
+  (emit stind accsz alu16dreg alu16sreg)
+)
+
+; Special cases of LDOFF12/STOFF12 for zero offsets.
 
 (define-normal-macro-insn
   ldoffzero "LDOFFZERO" ()
@@ -1226,7 +1278,7 @@
 
 (define-normal-insn
   addsp "ADDSP" ()
-  "add sp,#$addspoffset"
+  "add sp,$addspoffset"
   (+ OPLEN_1 OP11_0 addspoffset OP4_0_25)
   () ()
 )
@@ -1295,7 +1347,7 @@
 (define-pmacro (alu16opi x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode ".s $alu16dreg,#$" alu16imm x-suffix)
+    (.str x-opcode ".s $alu16dreg,$" alu16imm x-suffix)
     (+ OP15_13_3 x-encoding (.sym alu16imm x-suffix) alu16dreg)
     () ())
 )
@@ -1303,7 +1355,7 @@
 (define-pmacro (alu16opinsf x-name x-comment x-opcode x-suffix)
   (define-normal-macro-insn
     (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
-    (.str x-opcode " $alu16dreg,#$" alu16imm x-suffix)
+    (.str x-opcode " $alu16dreg,$" alu16imm x-suffix)
     (emit x-name alu16dreg (.sym alu16imm x-suffix)))
 )
 
@@ -1353,7 +1405,7 @@
 
 (define-normal-insn
   bcc32i "BCC32I" ()
-  "b$condcodebcc32 $alu16dreg,#$bcc32imm,$pcrel8bits"
+  "b$condcodebcc32 $alu16dreg,$bcc32imm,$pcrel8bits"
   (+ OPLEN_8 condcodebcc32 (f-op7-4 0) alu16dreg
      OP31_30_3 bcc32imm pcrel8bits)
   () ()
@@ -1369,7 +1421,7 @@
 
 (define-normal-insn
   addcmpbri "ADDCMPBRI" ()
-  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,$bcc32sreg,$pcrel10bits"
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbimm,$bcc32sreg,$pcrel10bits"
   (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
      OP31_30_1 bcc32sreg pcrel10bits)
   () ()
@@ -1377,7 +1429,7 @@
 
 (define-normal-insn
   addcmpbir "ADDCMPBIR" ()
-  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,#$bcc32imm,$pcrel8bits"
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbareg,$bcc32imm,$pcrel8bits"
   (+ OPLEN_8 condcodebcc32 addcmpbareg alu16dreg
      OP31_30_2 bcc32imm pcrel8bits)
   () ()
@@ -1385,7 +1437,7 @@
 
 (define-normal-insn
   addcmpbii "ADDCMPBII" ()
-  "addcmpb$condcodebcc32 $alu16dreg,#$addcmpbimm,#$bcc32imm,$pcrel8bits"
+  "addcmpb$condcodebcc32 $alu16dreg,$addcmpbimm,$bcc32imm,$pcrel8bits"
   (+ OPLEN_8 condcodebcc32 addcmpbimm alu16dreg
      OP31_30_3 bcc32imm pcrel8bits)
   () ()
@@ -1476,7 +1528,7 @@
 (define-pmacro (alu32opi3 x-name x-comment x-opcode x-suffix x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond}.m $alu32dreg,$alu32areg,#$imm6" x-suffix)
+    (.str x-opcode "${alu32cond}.m $alu32dreg,$alu32areg,$imm6" x-suffix)
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond (f-op22 1) (.sym imm6 x-suffix))
     () ())
@@ -1485,7 +1537,7 @@
 (define-pmacro (alu32opi3nsf x-name x-comment x-opcode x-suffix)
   (define-normal-macro-insn
     (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
-    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,#$imm6" x-suffix)
+    (.str x-opcode "${alu32cond} $alu32dreg,$alu32areg,$imm6" x-suffix)
     (emit x-name alu32cond alu32dreg alu32areg (.sym imm6 x-suffix)))
 )
 
@@ -1494,7 +1546,7 @@
 (define-pmacro (alu32opi2 x-name x-comment x-opcode x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond}.m $alu32dreg,#$imm6")
+    (.str x-opcode "${alu32cond}.m $alu32dreg,$imm6")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
     () ())
@@ -1503,7 +1555,7 @@
 (define-pmacro (alu32opi2nsf x-name x-comment x-opcode)
   (define-normal-macro-insn
     (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
-    (.str x-opcode "${alu32cond} $alu32dreg,#$imm6")
+    (.str x-opcode "${alu32cond} $alu32dreg,$imm6")
     (emit x-name alu32cond alu32dreg (alu32areg 0) imm6))
 )
 
@@ -1512,7 +1564,7 @@
 (define-pmacro (alu32opic x-name x-comment x-opcode x-encoding)
   (define-normal-insn
     x-name x-comment ()
-    (.str x-opcode "${alu32cond}.m $alu32areg,#$imm6")
+    (.str x-opcode "${alu32cond}.m $alu32areg,$imm6")
     (+ OPLEN_12 OP11_10_0 (.sym ALU32OP_ (.upcase x-encoding)) alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
     () ())
@@ -1521,7 +1573,7 @@
 (define-pmacro (alu32opicnsf x-name x-comment x-opcode)
   (define-normal-macro-insn
     (.sym x-name "_nosuf") (.str x-comment "_NOSUF") ()
-    (.str x-opcode "${alu32cond} $alu32areg,#$imm6")
+    (.str x-opcode "${alu32cond} $alu32areg,$imm6")
     (emit x-name alu32cond (alu32dreg 0) alu32areg imm6))
 )
 
@@ -1563,7 +1615,7 @@
 
 ;(define-normal-macro-insn
 ;  add_relaxable "ADD_RELAXABLE" (RELAXABLE)
-;  "add $alu32dreg,$alu32areg,#$imm6"
+;  "add $alu32dreg,$alu32areg,$imm6"
 ;  (emit addi32 (alu32cond 14) alu32dreg alu32areg imm6))
 
 (alu32opi2nsf movi32     "MOVI32"     "mov")
@@ -1620,7 +1672,7 @@
 (define-pmacro (mulhdivi x-name x-opcode x-signs x-encoding)
   (define-normal-insn
     (.sym x-name x-signs) (.str (.upcase x-name) (.upcase x-signs)) ()
-    (.str x-opcode "$alu32cond." x-signs " $alu32dreg,$alu32areg,#$imm6")
+    (.str x-opcode "$alu32cond." x-signs " $alu32dreg,$alu32areg,$imm6")
     (+ OPLEN_12 OP11_8_4 (f-op7-5 x-encoding) alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
     () ())
@@ -1675,7 +1727,7 @@
 (define-pmacro (satscli3 x-name x-opcode x-suffix x-op11-8 x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,#$imm6" x-suffix)
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$imm6" x-suffix)
     (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
        alu32areg alu32cond (f-op22 1) (.sym imm6 x-suffix))
     () ())
@@ -1700,7 +1752,7 @@
 (define-pmacro (clmpcnti2 x-name x-opcode x-op11-8 x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,#$imm6")
+    (.str x-opcode "$alu32cond $alu32dreg,$imm6")
     (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
     () ())
@@ -1737,7 +1789,7 @@
 (define-pmacro (alu32uni x-name x-opcode x-suffix x-encoding)
   (define-normal-insn
     (.sym x-name x-suffix) (.sym (.upcase x-name) x-suffix) ()
-    (.str x-opcode ".m $alu48idreg,#$offset16")
+    (.str x-opcode ".m $alu48idreg,$offset16")
     (+ OPLEN_11 (f-op11-10 0) (.sym ALU32OP_ x-encoding) alu48idreg
        (.sym offset16 x-suffix))
     () ())
@@ -1748,7 +1800,7 @@
     (.sym x-name x-suffix "_nosuf")
     (.str (.upcase x-name) x-suffix "_NOSUF")
     ()
-    (.str x-opcode " $alu48idreg,#$offset16")
+    (.str x-opcode " $alu48idreg,$offset16")
     (emit (.sym x-name x-suffix) alu48idreg (.sym offset16 x-suffix)))
 )
 
@@ -1867,7 +1919,7 @@
 (define-pmacro (floatopi3 x-name x-opcode x-fop)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,#$floatimm6")
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$floatimm6")
     (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
        alu32areg alu32cond (f-op22 1) floatimm6)
     () ())
@@ -1876,7 +1928,7 @@
 (define-pmacro (floatopic x-name x-opcode x-fop)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32areg,#$floatimm6")
+    (.str x-opcode "$alu32cond $alu32areg,$floatimm6")
     (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
        alu32areg alu32cond (f-op22 1) floatimm6)
     () ())
@@ -1885,7 +1937,7 @@
 (define-pmacro (floatopi2 x-name x-opcode x-fop)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,#$floatimm6")
+    (.str x-opcode "$alu32cond $alu32dreg,$floatimm6")
     (+ OPLEN_12 (f-op11-9 4) x-fop alu32dreg
        alu32areg alu32cond (f-op22 1) floatimm6)
     () ())
@@ -1927,7 +1979,7 @@
 (define-pmacro (convopi x-name x-opcode x-shiftop x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg," x-shiftop "#$imm6")
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg," x-shiftop "$imm6")
     (+ OPLEN_12 OP11_8_10 x-op7-5 alu32dreg
        alu32areg alu32cond (f-op22 1) imm6)
     () ())
@@ -2000,7 +2052,7 @@
 
 (define-normal-insn
   add48i "ADD48I" ()
-  "add.l $alu48idreg,$alu48isreg,#$alu48immu"
+  "add.l $alu48idreg,$alu48isreg,$alu48immu"
   (+ OPLEN_14 OP11_10_3 alu48isreg alu48idreg
      alu48immu)
   () ()
@@ -2008,7 +2060,7 @@
 
 (define-normal-macro-insn
   add48i_nosuf "ADD48I_NOSUF" ()
-  "add $alu48idreg,$alu48isreg,#$alu48immu"
+  "add $alu48idreg,$alu48isreg,$alu48immu"
   (emit add48i alu48idreg alu48isreg alu48immu)
 )
 
@@ -2017,14 +2069,14 @@
 
 ;(define-normal-macro-insn
 ;  add48i_relaxed "ADD48I_RELAXED" (RELAXED)
-;  "add $alu48idreg,$alu48isreg,#$alu48immu"
+;  "add $alu48idreg,$alu48isreg,$alu48immu"
 ;  (emit add48i alu48idreg alu48isreg alu48immu)
 ;)
 
 (define-pmacro (alu48opi2 x-name x-opcode x-encoding)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode ".l $alu48idreg,#$alu48immu")
+    (.str x-opcode ".l $alu48idreg,$alu48immu")
     (+ OPLEN_14 OP11_10_2 (.sym ALU32OP_ (.upcase x-encoding)) alu48idreg
        alu48immu)
     () ())
@@ -2033,7 +2085,7 @@
 (define-pmacro (alu48opi2nsf x-name x-opcode)
   (define-normal-macro-insn
     (.sym x-name _nosuf) (.str (.upcase x-name) "_NOSUF") ()
-    (.str x-opcode " $alu48idreg,#$alu48immu")
+    (.str x-opcode " $alu48idreg,$alu48immu")
     (emit x-name alu48idreg alu48immu))
 )
 

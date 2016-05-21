@@ -1,36 +1,33 @@
-
-
 	.text
 
-	halt
+	bkpt
 	nop
-	wait
+	sleep
 	user
-	enable
-	disable
-	clr
-	inc
-	chg
-	dec
+	ei
+	di
+	cbclr
+	cbinc
+	cbchg
+	cbdec
 	rti
 
 	swi	r0
 	swi	r13
-	swi	r31
+	swi	pc
 	
 	rts
 
 	b	r0
 	b	r19
-	b	r31
+	b	pc
 
 	bl	r0
 	bl	r18
-	bl	r31
+	bl	pc
 
 	tbb	r2
 	tbh	r3
 
 	mov	r5, cpuid
 
-	

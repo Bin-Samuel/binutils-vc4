@@ -28,10 +28,15 @@ parse_floatimm6 (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 		 int opindex ATTRIBUTE_UNUSED,
 		 unsigned long *valuep)
 {
-  const char *startptr = *strp;
+  const char *startptr;
   char *endptr;
   union floatbits val;
   unsigned int exponent, signbit, mantissa;
+
+  if (**strp == '#')
+    (*strp)++;
+
+  startptr = *strp;
 
   errno = 0;
   val.f = (float) strtod (startptr, &endptr);
@@ -64,6 +69,9 @@ parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
   enum cgen_parse_operand_result result_type;
   bfd_vma result;
 
+  if (**strp == '#')
+    (*strp)++;
+
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
 
@@ -81,10 +89,30 @@ parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 }
 
 static const char *
+parse_uimm6_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		  unsigned long *valuep)
+{
+  const char *errmsg;
+
+  if (**strp == '#')
+    (*strp)++;
+
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
+
+  if (!errmsg && ((*valuep & 3) != 0 || *valuep > 252))
+    errmsg = "out-of-range immediate";
+
+  return errmsg;
+}
+
+static const char *
 parse_uimm5_shl3 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 		  unsigned long *valuep)
 {
   const char *errmsg;
+
+  if (**strp == '#')
+    (*strp)++;
 
   errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
 
@@ -105,6 +133,9 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
   long value;
   bfd_vma result;
 
+  if (**strp == '#')
+    (*strp)++;
+
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
 
@@ -113,6 +144,9 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   if (result_type != CGEN_PARSE_OPERAND_RESULT_NUMBER)
     return "use wider reloc";
+
+  if (result & 0x80000000)
+    result |= ~(bfd_vma) 0xffffffff;
 
   value = (bfd_signed_vma) result;
 
@@ -148,6 +182,12 @@ SHIFTED_IMM_FN (16, 2)
 SHIFTED_IMM_FN (16, 1)
 
 static const char *
+parse_imm4 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 4, 0);
+}
+
+static const char *
 parse_imm6 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 {
   return parse_shifted_imm (cd, strp, opindex, valuep, 6, 0);
@@ -163,6 +203,28 @@ static const char *
 parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 {
   return parse_shifted_imm (cd, strp, opindex, valuep, 16, 0);
+}
+
+static const char *
+parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  const char *errmsg;
+  enum cgen_parse_operand_result result_type;
+  long value;
+  bfd_vma result;
+
+  if (**strp == '#')
+    (*strp)++;
+
+  errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
+                               &result);
+
+  if (errmsg)
+    return errmsg;
+
+  *valuep = (long) result;
+
+  return 0;
 }
 
 static const char *

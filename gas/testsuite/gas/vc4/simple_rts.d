@@ -1,8 +1,10 @@
-#objdump: -s 
+#objdump: -dr 
 #name: Simple rts function
 
 .*: .*
 
-Contents of section .text:
- 0000 5a001008                             Z...            
-#pass
+Disassembly of section \.text:
+
+00000000 <\.text>:
+   0:	5a 00       	rts
+   2:	10 08       	ld r0,\(r1\)

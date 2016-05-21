@@ -1,25 +1,28 @@
 #objdump: -d
-#name: Simple values
+#name: Simple values (cmp)
 
 .*: .*
 
-Disassembly of section .text:
+Disassembly of section \.text:
 
-00000000 <.text>:
-   0:	b0e0 0020                	and r0, #0x0020
-   4:	6a00                     	cmp r0, #0
-   6:	6a10                     	cmp r0, #1
-   8:	6bf0                     	cmp r0, #31
-   a:	b140 0020                	cmp r0, #0x0020
-   e:	c140 077f                	cmp r0, #-1
-  12:	c140 0761                	cmp r0, #-31
-  16:	c140 0760                	cmp r0, #-32
-  1a:	b140 7fff                	cmp r0, #0x7fff
-  1e:	e940 8000 0000           	cmp r0, #0x00008000
-  24:	e940 8001 0000           	cmp r0, #0x00008001
-  2a:	b140 8001                	cmp r0, #0xffff8001
-  2e:	b140 8000                	cmp r0, #0xffff8000
-  32:	e940 7fff ffff           	cmp r0, #0xffff7fff
-  38:	c140 077e                	cmp r0, #-2
-  3c:	e940 4321 8765           	cmp r0, #0x87654321
-#pass
+00000000 <\.text>:
+   0:	e0 b0 20 00 	and r0,32
+   4:	00 6a       	cmp r0,0x0
+   6:	10 6a       	cmp r0,0x1
+   8:	f0 6b       	cmp r0,0x1f
+   a:	40 b1 20 00 	cmp r0,32
+   e:	40 c1 7f 07 	cmp r0,-1
+  12:	40 c1 61 07 	cmp r0,-31
+  16:	40 c1 60 07 	cmp r0,-32
+  1a:	40 b1 ff 7f 	cmp r0,32767
+  1e:	40 e9 00 80 	cmp r0,0x8000
+  22:	00 00 
+  24:	40 e9 01 80 	cmp r0,0x8001
+  28:	00 00 
+  2a:	40 b1 01 80 	cmp r0,-32767
+  2e:	40 b1 00 80 	cmp r0,-32768
+  32:	40 e9 ff 7f 	cmp r0,0xffff7fff
+  36:	ff ff 
+  38:	40 c1 7e 07 	cmp r0,-2
+  3c:	40 e9 21 43 	cmp r0,0x87654321
+  40:	65 87 

@@ -1,109 +1,108 @@
 #objdump: -d
-#name: Pushing and Poping
+#name: Pushing and Popping
 
 .*: .*
 
-Disassembly of section .text:
+Disassembly of section \.text:
 
-00000000 <.text>:
-   0:	02a0                     	push r6
-   2:	0220                     	pop  r6
-   4:	03a0                     	push r6, lr
-   6:	0320                     	pop  r6, pc
-   8:	0280                     	push r0
-   a:	02c0                     	push r16
-   c:	02e0                     	push r24
-   e:	0200                     	pop  r0
-  10:	0240                     	pop  r16
-  12:	0260                     	pop  r24
-  14:	0380                     	push r0, lr
-  16:	03c0                     	push r16, lr
-  18:	03e0                     	push r24, lr
-  1a:	0300                     	pop  r0, pc
-  1c:	0340                     	pop  r16, pc
-  1e:	0360                     	pop  r24, pc
-  20:	02bf                     	push r6-r5
-  22:	02a0                     	push r6
-  24:	02a1                     	push r6-r7
-  26:	02ba                     	push r6-r0
-  28:	02b9                     	push r6-r31
-  2a:	03bf                     	push r6-r5, lr
-  2c:	03a0                     	push r6, lr
-  2e:	03a1                     	push r6-r7, lr
-  30:	03ba                     	push r6-r0, lr
-  32:	03b9                     	push r6-r31, lr
-  34:	023f                     	pop  r6-r5
-  36:	0220                     	pop  r6
-  38:	0221                     	pop  r6-r7
-  3a:	023a                     	pop  r6-r0
-  3c:	0239                     	pop  r6-r31
-  3e:	033f                     	pop  r6-r5, pc
-  40:	0320                     	pop  r6, pc
-  42:	0321                     	pop  r6-r7, pc
-  44:	033a                     	pop  r6-r0, pc
-  46:	0339                     	pop  r6-r31, pc
-  48:	0285                     	push r0-r5
-  4a:	0286                     	push r0-r6
-  4c:	0287                     	push r0-r7
-  4e:	0280                     	push r0
-  50:	029f                     	push r0-r31
-  52:	0385                     	push r0-r5, lr
-  54:	0386                     	push r0-r6, lr
-  56:	0387                     	push r0-r7, lr
-  58:	0380                     	push r0, lr
-  5a:	039f                     	push r0-r31, lr
-  5c:	0205                     	pop  r0-r5
-  5e:	0206                     	pop  r0-r6
-  60:	0207                     	pop  r0-r7
-  62:	0200                     	pop  r0
-  64:	021f                     	pop  r0-r31
-  66:	0305                     	pop  r0-r5, pc
-  68:	0306                     	pop  r0-r6, pc
-  6a:	0307                     	pop  r0-r7, pc
-  6c:	0300                     	pop  r0, pc
-  6e:	031f                     	pop  r0-r31, pc
-  70:	02d5                     	push r16-r5
-  72:	02d6                     	push r16-r6
-  74:	02d7                     	push r16-r7
-  76:	02d0                     	push r16-r0
-  78:	02cf                     	push r16-r31
-  7a:	03d5                     	push r16-r5, lr
-  7c:	03d6                     	push r16-r6, lr
-  7e:	03d7                     	push r16-r7, lr
-  80:	03d0                     	push r16-r0, lr
-  82:	03cf                     	push r16-r31, lr
-  84:	0255                     	pop  r16-r5
-  86:	0256                     	pop  r16-r6
-  88:	0257                     	pop  r16-r7
-  8a:	0250                     	pop  r16-r0
-  8c:	024f                     	pop  r16-r31
-  8e:	0355                     	pop  r16-r5, pc
-  90:	0356                     	pop  r16-r6, pc
-  92:	0357                     	pop  r16-r7, pc
-  94:	0350                     	pop  r16-r0, pc
-  96:	034f                     	pop  r16-r31, pc
-  98:	02ed                     	push r24-r5
-  9a:	02ee                     	push r24-r6
-  9c:	02ef                     	push r24-r7
-  9e:	02e8                     	push r24-r0
-  a0:	02e7                     	push r24-r31
-  a2:	03ed                     	push r24-r5, lr
-  a4:	03ee                     	push r24-r6, lr
-  a6:	03ef                     	push r24-r7, lr
-  a8:	03e8                     	push r24-r0, lr
-  aa:	03e7                     	push r24-r31, lr
-  ac:	026d                     	pop  r24-r5
-  ae:	026e                     	pop  r24-r6
-  b0:	026f                     	pop  r24-r7
-  b2:	0268                     	pop  r24-r0
-  b4:	0267                     	pop  r24-r31
-  b6:	036d                     	pop  r24-r5, pc
-  b8:	036e                     	pop  r24-r6, pc
-  ba:	036f                     	pop  r24-r7, pc
-  bc:	0368                     	pop  r24-r0, pc
-  be:	0367                     	pop  r24-r31, pc
-  c0:	a421 cf00                	push r1
-  c4:	a423 cf00                	push r3
-  c8:	a502 cf00                	pop r2
-  cc:	a507 cf00                	pop r7
-#pass
+00000000 <\.text>:
+   0:	a0 02       	push r6
+   2:	20 02       	pop r6
+   4:	a0 03       	push r6,lr
+   6:	20 03       	pop r6,pc
+   8:	80 02       	push r0
+   a:	c0 02       	push r16
+   c:	e0 02       	push r24
+   e:	00 02       	pop r0
+  10:	40 02       	pop r16
+  12:	60 02       	pop r24
+  14:	80 03       	push r0,lr
+  16:	c0 03       	push r16,lr
+  18:	e0 03       	push r24,lr
+  1a:	00 03       	pop r0,pc
+  1c:	40 03       	pop r16,pc
+  1e:	60 03       	pop r24,pc
+  20:	bf 02       	push r6-r5
+  22:	a0 02       	push r6
+  24:	a1 02       	push r6-r7
+  26:	ba 02       	push r6-r0
+  28:	b9 02       	push r6-pc
+  2a:	bf 03       	push r6-r5,lr
+  2c:	a0 03       	push r6,lr
+  2e:	a1 03       	push r6-r7,lr
+  30:	ba 03       	push r6-r0,lr
+  32:	b9 03       	push r6-pc,lr
+  34:	3f 02       	pop r6-r5
+  36:	20 02       	pop r6
+  38:	21 02       	pop r6-r7
+  3a:	3a 02       	pop r6-r0
+  3c:	39 02       	pop r6-pc
+  3e:	3f 03       	pop r6-r5,pc
+  40:	20 03       	pop r6,pc
+  42:	21 03       	pop r6-r7,pc
+  44:	3a 03       	pop r6-r0,pc
+  46:	39 03       	pop r6-pc,pc
+  48:	85 02       	push r0-r5
+  4a:	86 02       	push r0-r6
+  4c:	87 02       	push r0-r7
+  4e:	80 02       	push r0
+  50:	9f 02       	push r0-pc
+  52:	85 03       	push r0-r5,lr
+  54:	86 03       	push r0-r6,lr
+  56:	87 03       	push r0-r7,lr
+  58:	80 03       	push r0,lr
+  5a:	9f 03       	push r0-pc,lr
+  5c:	05 02       	pop r0-r5
+  5e:	06 02       	pop r0-r6
+  60:	07 02       	pop r0-r7
+  62:	00 02       	pop r0
+  64:	1f 02       	pop r0-pc
+  66:	05 03       	pop r0-r5,pc
+  68:	06 03       	pop r0-r6,pc
+  6a:	07 03       	pop r0-r7,pc
+  6c:	00 03       	pop r0,pc
+  6e:	1f 03       	pop r0-pc,pc
+  70:	d5 02       	push r16-r5
+  72:	d6 02       	push r16-r6
+  74:	d7 02       	push r16-r7
+  76:	d0 02       	push r16-r0
+  78:	cf 02       	push r16-pc
+  7a:	d5 03       	push r16-r5,lr
+  7c:	d6 03       	push r16-r6,lr
+  7e:	d7 03       	push r16-r7,lr
+  80:	d0 03       	push r16-r0,lr
+  82:	cf 03       	push r16-pc,lr
+  84:	55 02       	pop r16-r5
+  86:	56 02       	pop r16-r6
+  88:	57 02       	pop r16-r7
+  8a:	50 02       	pop r16-r0
+  8c:	4f 02       	pop r16-pc
+  8e:	55 03       	pop r16-r5,pc
+  90:	56 03       	pop r16-r6,pc
+  92:	57 03       	pop r16-r7,pc
+  94:	50 03       	pop r16-r0,pc
+  96:	4f 03       	pop r16-pc,pc
+  98:	ed 02       	push r24-r5
+  9a:	ee 02       	push r24-r6
+  9c:	ef 02       	push r24-r7
+  9e:	e8 02       	push r24-r0
+  a0:	e7 02       	push r24-pc
+  a2:	ed 03       	push r24-r5,lr
+  a4:	ee 03       	push r24-r6,lr
+  a6:	ef 03       	push lr
+  a8:	e8 03       	push r24-r0,lr
+  aa:	e7 03       	push r24-pc,lr
+  ac:	6d 02       	pop r24-r5
+  ae:	6e 02       	pop r24-r6
+  b0:	6f 02       	pop r24-r7
+  b2:	68 02       	pop r24-r0
+  b4:	67 02       	pop r24-pc
+  b6:	6d 03       	pop r24-r5,pc
+  b8:	6e 03       	pop r24-r6,pc
+  ba:	6f 03       	pop pc
+  bc:	68 03       	pop r24-r0,pc
+  be:	67 03       	pop r24-pc,pc
+  c0:	21 a4 00 cf 	push r1
+  c4:	23 a4 00 cf 	push r3
+  c8:	02 a5 00 cf 	pop r2
+  cc:	07 a5 00 cf 	pop r7

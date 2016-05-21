@@ -3,74 +3,73 @@
 
 .*: .*
 
-Disassembly of section .text:
+Disassembly of section \.text:
 
 00000000 <lab-0xe>:
-   0:	0001                     	nop
-   2:	0001                     	nop
-   4:	0001                     	nop
-   6:	0001                     	nop
-   8:	0001                     	nop
-   a:	0001                     	nop
-   c:	0001                     	nop
+   0:	01 00       	nop
+   2:	01 00       	nop
+   4:	01 00       	nop
+   6:	01 00       	nop
+   8:	01 00       	nop
+   a:	01 00       	nop
+   c:	01 00       	nop
 
 0000000e <lab>:
-   e:	0001                     	nop
-  10:	0001                     	nop
-  12:	0001                     	nop
-  14:	0001                     	nop
-  16:	0001                     	nop
-  18:	0001                     	nop
-  1a:	0001                     	nop
-  1c:	0001                     	nop
-  1e:	0001                     	nop
-  20:	0001                     	nop
-  22:	0001                     	nop
-  24:	0001                     	nop
-  26:	0001                     	nop
-  28:	0001                     	nop
-  2a:	0001                     	nop
-  2c:	0001                     	nop
-  2e:	0001                     	nop
-  30:	0001                     	nop
-  32:	0001                     	nop
-  34:	0001                     	nop
-  36:	0001                     	nop
-  38:	0001                     	nop
-  3a:	0001                     	nop
-  3c:	0001                     	nop
-  3e:	0001                     	nop
-  40:	0001                     	nop
-  42:	0001                     	nop
-  44:	0001                     	nop
-  46:	0001                     	nop
-  48:	0001                     	nop
-  4a:	0001                     	nop
-  4c:	0001                     	nop
-  4e:	0001                     	nop
-  50:	0001                     	nop
-  52:	0001                     	nop
-  54:	0001                     	nop
-  56:	0001                     	nop
-  58:	0001                     	nop
-  5a:	0001                     	nop
-  5c:	0001                     	nop
-  5e:	0001                     	nop
-  60:	0001                     	nop
-  62:	0001                     	nop
-  64:	0001                     	nop
-  66:	0001                     	nop
-  68:	0001                     	nop
-  6a:	0001                     	nop
-  6c:	0001                     	nop
-  6e:	0001                     	nop
-  70:	0001                     	nop
-  72:	0001                     	nop
-  74:	0001                     	nop
-  76:	0001                     	nop
-  78:	0001                     	nop
-  7a:	0001                     	nop
-  7c:	0001                     	nop
-  7e:	0001                     	nop
-  80:	18c7                     	bne 0x0000000e
-#pass
+   e:	01 00       	nop
+  10:	01 00       	nop
+  12:	01 00       	nop
+  14:	01 00       	nop
+  16:	01 00       	nop
+  18:	01 00       	nop
+  1a:	01 00       	nop
+  1c:	01 00       	nop
+  1e:	01 00       	nop
+  20:	01 00       	nop
+  22:	01 00       	nop
+  24:	01 00       	nop
+  26:	01 00       	nop
+  28:	01 00       	nop
+  2a:	01 00       	nop
+  2c:	01 00       	nop
+  2e:	01 00       	nop
+  30:	01 00       	nop
+  32:	01 00       	nop
+  34:	01 00       	nop
+  36:	01 00       	nop
+  38:	01 00       	nop
+  3a:	01 00       	nop
+  3c:	01 00       	nop
+  3e:	01 00       	nop
+  40:	01 00       	nop
+  42:	01 00       	nop
+  44:	01 00       	nop
+  46:	01 00       	nop
+  48:	01 00       	nop
+  4a:	01 00       	nop
+  4c:	01 00       	nop
+  4e:	01 00       	nop
+  50:	01 00       	nop
+  52:	01 00       	nop
+  54:	01 00       	nop
+  56:	01 00       	nop
+  58:	01 00       	nop
+  5a:	01 00       	nop
+  5c:	01 00       	nop
+  5e:	01 00       	nop
+  60:	01 00       	nop
+  62:	01 00       	nop
+  64:	01 00       	nop
+  66:	01 00       	nop
+  68:	01 00       	nop
+  6a:	01 00       	nop
+  6c:	01 00       	nop
+  6e:	01 00       	nop
+  70:	01 00       	nop
+  72:	01 00       	nop
+  74:	01 00       	nop
+  76:	01 00       	nop
+  78:	01 00       	nop
+  7a:	01 00       	nop
+  7c:	01 00       	nop
+  7e:	01 00       	nop
+  80:	c7 18       	bne e <lab>

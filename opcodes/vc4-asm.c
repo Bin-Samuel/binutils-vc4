@@ -64,10 +64,15 @@ parse_floatimm6 (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 		 int opindex ATTRIBUTE_UNUSED,
 		 unsigned long *valuep)
 {
-  const char *startptr = *strp;
+  const char *startptr;
   char *endptr;
   union floatbits val;
   unsigned int exponent, signbit, mantissa;
+
+  if (**strp == '#')
+    (*strp)++;
+
+  startptr = *strp;
 
   errno = 0;
   val.f = (float) strtod (startptr, &endptr);
@@ -100,6 +105,9 @@ parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
   enum cgen_parse_operand_result result_type;
   bfd_vma result;
 
+  if (**strp == '#')
+    (*strp)++;
+
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
 
@@ -117,10 +125,30 @@ parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 }
 
 static const char *
+parse_uimm6_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		  unsigned long *valuep)
+{
+  const char *errmsg;
+
+  if (**strp == '#')
+    (*strp)++;
+
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
+
+  if (!errmsg && ((*valuep & 3) != 0 || *valuep > 252))
+    errmsg = "out-of-range immediate";
+
+  return errmsg;
+}
+
+static const char *
 parse_uimm5_shl3 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 		  unsigned long *valuep)
 {
   const char *errmsg;
+
+  if (**strp == '#')
+    (*strp)++;
 
   errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
 
@@ -141,6 +169,9 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
   long value;
   bfd_vma result;
 
+  if (**strp == '#')
+    (*strp)++;
+
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
 
@@ -149,6 +180,9 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   if (result_type != CGEN_PARSE_OPERAND_RESULT_NUMBER)
     return "use wider reloc";
+
+  if (result & 0x80000000)
+    result |= ~(bfd_vma) 0xffffffff;
 
   value = (bfd_signed_vma) result;
 
@@ -184,6 +218,12 @@ SHIFTED_IMM_FN (16, 2)
 SHIFTED_IMM_FN (16, 1)
 
 static const char *
+parse_imm4 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 4, 0);
+}
+
+static const char *
 parse_imm6 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 {
   return parse_shifted_imm (cd, strp, opindex, valuep, 6, 0);
@@ -199,6 +239,28 @@ static const char *
 parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 {
   return parse_shifted_imm (cd, strp, opindex, valuep, 16, 0);
+}
+
+static const char *
+parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  const char *errmsg;
+  enum cgen_parse_operand_result result_type;
+  long value;
+  bfd_vma result;
+
+  if (**strp == '#')
+    (*strp)++;
+
+  errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
+                               &result);
+
+  if (errmsg)
+    return errmsg;
+
+  *valuep = (long) result;
+
+  return 0;
 }
 
 static const char *
@@ -271,7 +333,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op7_4);
       break;
     case VC4_OPERAND_ADDCMPBIMM :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_ADDCMPBIMM, (long *) (& fields->f_op7_4s));
+      errmsg = parse_imm4 (cd, strp, VC4_OPERAND_ADDCMPBIMM, (long *) (& fields->f_op7_4s));
       break;
     case VC4_OPERAND_ADDSPOFFSET :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ADDSPOFFSET, (unsigned long *) (& fields->f_addspoffset));
@@ -304,7 +366,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0);
       break;
     case VC4_OPERAND_ALU48IMMU :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_ALU48IMMU, (unsigned long *) (& fields->f_op47_16));
+      errmsg = parse_imm32 (cd, strp, VC4_OPERAND_ALU48IMMU, (unsigned long *) (& fields->f_op47_16));
       break;
     case VC4_OPERAND_ALU48ISREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op9_5);
@@ -317,7 +379,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       }
       break;
     case VC4_OPERAND_BCC32IMM :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
+      errmsg = parse_uimm5 (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
       break;
     case VC4_OPERAND_BCC32SREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op29_26);
@@ -462,7 +524,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_ppreg, & fields->f_op6_5);
       break;
     case VC4_OPERAND_SPOFFSET :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SPOFFSET, (unsigned long *) (& fields->f_spoffset));
+      errmsg = parse_uimm6_shl2 (cd, strp, VC4_OPERAND_SPOFFSET, (unsigned long *) (& fields->f_spoffset));
       break;
     case VC4_OPERAND_SWI_IMM :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SWI_IMM, (unsigned long *) (& fields->f_op5_0));
