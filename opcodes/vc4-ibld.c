@@ -1187,7 +1187,7 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         length = extract_normal (cd, ex_info, insn_value, 0, 16, 15, 16, 16, total_length, pc, & fields->f_op31_16);
         if (length <= 0) break;
 {
-  FLD (f_offset27bits) = ((((((FLD (f_op11_8)) << (23))) | (((FLD (f_op6_0)) << (16))))) | (FLD (f_op31_16)));
+  FLD (f_offset27bits) = ((INT) (((((((((FLD (f_op11_8)) << (23))) | (((FLD (f_op6_0)) << (16))))) | (FLD (f_op31_16)))) << (5))) >> (5));
 }
         fields->f_offset27bits = ((pc) + (((fields->f_offset27bits) << (1))));
       }
