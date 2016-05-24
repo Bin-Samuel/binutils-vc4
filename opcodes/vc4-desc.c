@@ -431,7 +431,7 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "pcrelcc", VC4_OPERAND_PCRELCC, HW_H_IADDR, 6, 7,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_PCRELCC] } }, 
     { 0|A(RELAX)|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
-/* ldstoff:  */
+/* ldstoff: 4-bit unsigned immediate lsl 2 */
   { "ldstoff", VC4_OPERAND_LDSTOFF, HW_H_UINT, 11, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_LDSTOFF] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },

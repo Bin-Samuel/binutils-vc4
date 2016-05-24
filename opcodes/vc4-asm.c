@@ -98,11 +98,14 @@ err_out:
 }
 
 static const char *
-parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
-	     unsigned long *valuep)
+parse_shifted_uimm (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		    unsigned long *valuep, unsigned bits, unsigned shift)
 {
   const char *errmsg;
+  unsigned mask = (1 << shift) - 1;
+  unsigned long hi = 1 << bits;
   enum cgen_parse_operand_result result_type;
+  unsigned long value;
   bfd_vma result;
 
   if (**strp == '#')
@@ -114,48 +117,45 @@ parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (errmsg)
     return errmsg;
 
-  if (!errmsg && result_type == CGEN_PARSE_OPERAND_RESULT_NUMBER)
-    errmsg = cgen_validate_unsigned_integer (result, 0, 31);
-  else
-    errmsg = "use wider reloc";
+  if (result_type != CGEN_PARSE_OPERAND_RESULT_NUMBER)
+    return "use wider reloc";
 
-  *valuep = result;
+  value = (bfd_signed_vma) result;
+
+  if (!errmsg && ((value & mask) != 0 || (value >> shift) >= hi))
+    errmsg = "out-of-range immediate";
+  else
+    *valuep = value;
 
   return errmsg;
+}
+
+static const char *
+parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+	     unsigned long *valuep)
+{
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 5, 0);
+}
+
+static const char *
+parse_uimm4_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+		  unsigned long *valuep)
+{
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 4, 2);
 }
 
 static const char *
 parse_uimm6_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 		  unsigned long *valuep)
 {
-  const char *errmsg;
-
-  if (**strp == '#')
-    (*strp)++;
-
-  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
-
-  if (!errmsg && ((*valuep & 3) != 0 || *valuep > 252))
-    errmsg = "out-of-range immediate";
-
-  return errmsg;
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 6, 2);
 }
 
 static const char *
 parse_uimm5_shl3 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 		  unsigned long *valuep)
 {
-  const char *errmsg;
-
-  if (**strp == '#')
-    (*strp)++;
-
-  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
-
-  if (!errmsg && ((*valuep & 7) != 0 || *valuep > 248))
-    errmsg = "out-of-range immediate";
-
-  return errmsg;
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 5, 3);
 }
 
 static const char *
@@ -246,7 +246,6 @@ parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 {
   const char *errmsg;
   enum cgen_parse_operand_result result_type;
-  long value;
   bfd_vma result;
 
   if (**strp == '#')
@@ -421,7 +420,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = parse_imm6_shl8 (cd, strp, VC4_OPERAND_IMM6_SHL8, (long *) (& fields->f_op21_16s_shl8));
       break;
     case VC4_OPERAND_LDSTOFF :
-      errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
+      errmsg = parse_uimm4_shl2 (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;
     case VC4_OPERAND_MEM48OFFSET27 :
       errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_MEM48OFFSET27, (long *) (& fields->f_offset27_48));

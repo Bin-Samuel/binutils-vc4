@@ -542,11 +542,13 @@
   f-pcrelcc
 )
 
-(define-normal-operand
-  ldstoff
-  "" ()
-  h-uint
-  f-ldstoff
+(define-operand
+  (name ldstoff)
+  (comment "4-bit unsigned immediate lsl 2")
+  (attrs)
+  (type h-uint)
+  (index f-ldstoff)
+  (handlers (parse "uimm4_shl2"))
 )
 
 (define-normal-operand
