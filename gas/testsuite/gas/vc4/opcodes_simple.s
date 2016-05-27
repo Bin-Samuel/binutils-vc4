@@ -7,9 +7,9 @@
 	ei
 	di
 	cbclr
-	cbinc
-	cbchg
-	cbdec
+	cbadd1
+	cbadd2
+	cbadd3
 	rti
 
 	swi	r0

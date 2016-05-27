@@ -354,19 +354,19 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, 0 } },
     & ifmt_bkpt, { 0x6 }
   },
-/* cbinc */
+/* cbadd1 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, 0 } },
     & ifmt_bkpt, { 0x7 }
   },
-/* cbchg */
+/* cbadd2 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, 0 } },
     & ifmt_bkpt, { 0x8 }
   },
-/* cbdec */
+/* cbadd3 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, 0 } },

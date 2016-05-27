@@ -13,9 +13,9 @@ Disassembly of section \.text:
    8:	04 00       	ei
    a:	05 00       	di
    c:	06 00       	cbclr
-   e:	07 00       	cbinc
-  10:	08 00       	cbchg
-  12:	09 00       	cbdec
+   e:	07 00       	cbadd1
+  10:	08 00       	cbadd2
+  12:	09 00       	cbadd3
   14:	0a 00       	rti
   16:	20 00       	swi r0
   18:	2d 00       	swi r13

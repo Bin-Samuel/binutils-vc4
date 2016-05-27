@@ -710,19 +710,19 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_CBCLR, "cbclr", "cbclr", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* cbinc */
+/* cbadd1 */
   {
-    VC4_INSN_CBINC, "cbinc", "cbinc", 16,
+    VC4_INSN_CBADD1, "cbadd1", "cbadd1", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* cbchg */
+/* cbadd2 */
   {
-    VC4_INSN_CBCHG, "cbchg", "cbchg", 16,
+    VC4_INSN_CBADD2, "cbadd2", "cbadd2", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* cbdec */
+/* cbadd3 */
   {
-    VC4_INSN_CBDEC, "cbdec", "cbdec", 16,
+    VC4_INSN_CBADD3, "cbadd3", "cbadd3", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* rti */
