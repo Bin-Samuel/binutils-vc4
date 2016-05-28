@@ -111,6 +111,11 @@ parse_shifted_uimm (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (**strp == '#')
     (*strp)++;
 
+  /* Ambiguity resolution: (rN++) looks like adding an expression "+", which
+     fails to parse as an address.  */
+  if (**strp == '+')
+    return "post-inc";
+
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
 
@@ -120,7 +125,7 @@ parse_shifted_uimm (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (result_type != CGEN_PARSE_OPERAND_RESULT_NUMBER)
     return "use wider reloc";
 
-  value = (bfd_signed_vma) result;
+  value = result;
 
   if (!errmsg && ((value & mask) != 0 || (value >> shift) >= hi))
     errmsg = "out-of-range immediate";
@@ -145,10 +150,10 @@ parse_uimm4_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 }
 
 static const char *
-parse_uimm6_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+parse_uimm5_shl2 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 		  unsigned long *valuep)
 {
-  return parse_shifted_uimm (cd, strp, opindex, valuep, 6, 2);
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 5, 2);
 }
 
 static const char *
@@ -171,6 +176,11 @@ parse_shifted_imm (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   if (**strp == '#')
     (*strp)++;
+
+  /* Ambiguity resolution: (rN++) looks like adding an expression "+", which
+     fails to parse as an address.  */
+  if (**strp == '+')
+    return "post-inc";
 
   errmsg = cgen_parse_address (cd, strp, opindex, BFD_RELOC_NONE, &result_type,
                                &result);
@@ -242,6 +252,12 @@ parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 }
 
 static const char *
+parse_imm27 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+{
+  return parse_shifted_imm (cd, strp, opindex, valuep, 27, 0);
+}
+
+static const char *
 parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex,
              unsigned long *valuep)
 {
@@ -278,8 +294,14 @@ parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
     {
       const char *s = *strp;
 
+      if (s[0] == '-' && s[1] == '-')
+        return "looks like predec";
+
       while (ISALNUM (*++s))
         ;
+
+      if (s[0] == '+' && s[1] == '+')
+        return "looks like postinc";
 
       if (*s == ')')
         return "looks like indirection";
@@ -484,7 +506,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = parse_uimm4_shl2 (cd, strp, VC4_OPERAND_LDSTOFF, (unsigned long *) (& fields->f_ldstoff));
       break;
     case VC4_OPERAND_MEM48OFFSET27 :
-      errmsg = cgen_parse_signed_integer (cd, strp, VC4_OPERAND_MEM48OFFSET27, (long *) (& fields->f_offset27_48));
+      errmsg = parse_imm27 (cd, strp, VC4_OPERAND_MEM48OFFSET27, (long *) (& fields->f_offset27_48));
       break;
     case VC4_OPERAND_MEM48PCREL27 :
       {
@@ -608,7 +630,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = parse_shl8 (cd, strp, VC4_OPERAND_SHL8, (unsigned long *) (& junk));
       break;
     case VC4_OPERAND_SPOFFSET :
-      errmsg = parse_uimm6_shl2 (cd, strp, VC4_OPERAND_SPOFFSET, (unsigned long *) (& fields->f_spoffset));
+      errmsg = parse_uimm5_shl2 (cd, strp, VC4_OPERAND_SPOFFSET, (unsigned long *) (& fields->f_spoffset));
       break;
     case VC4_OPERAND_SWI_IMM :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SWI_IMM, (unsigned long *) (& fields->f_op5_0));

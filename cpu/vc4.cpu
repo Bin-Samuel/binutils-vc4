@@ -708,11 +708,11 @@
 
 (define-operand
   (name spoffset)
-  (comment "6-bit unsigned immediate lsl 2")
+  (comment "5-bit unsigned immediate lsl 2")
   (attrs)
   (type h-uint)
   (index f-spoffset)
-  (handlers (parse "uimm6_shl2"))
+  (handlers (parse "uimm5_shl2"))
 )
 
 (define-normal-operand
@@ -773,11 +773,13 @@
   f-pcrel32-48
 )
 
-(define-normal-operand
-  mem48offset27
-  "" ()
-  h-sint
-  f-offset27-48
+(define-operand
+  (name mem48offset27)
+  (comment "27-bit offset in 48-bit load/store insn")
+  (attrs)
+  (type h-sint)
+  (index f-offset27-48)
+  (handlers (parse "imm27"))
 )
 
 (define-operand
@@ -1150,6 +1152,17 @@
   (emit ldpostinc (alu32cond 14) alu32dreg (alu32areg 25))
 )
 
+;(define-pmacro (expandldst x-macro)
+;  (x-macro "ld")
+;  (x-macro "st")
+;  (x-macro "ldh")
+;  (x-macro "sth")
+;  (x-macro "ldb")
+;  (x-macro "stb")
+;  (x-macro "ldsh")
+;  (x-macro "ldsb")
+;)
+
 (define-pmacro (ldstindop x-access)
   (define-normal-insn
     (.sym x-access ind) (.upcase (.str x-access "IND")) ()
@@ -1348,7 +1361,7 @@
     (.sym x-access cnddisp) (.str (.upcase x-access) "CNDDISP") ()
     (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$disp5)")
     (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
-       alu32areg alu32cond (f-op22 1) disp5)
+       alu32areg alu32cond (f-op22-21 2) disp5)
     () ())
 )
 
@@ -1365,7 +1378,7 @@
 (define-pmacro (ldstincdec x-name x-access x-bits11-8 x-pre x-post)
   (define-normal-insn
     (.sym x-access x-name) (.str (.upcase x-access) (.upcase x-name)) ()
-    (.str x-access "${alu32cond} $alu32dreg,(" x-pre "$alu32areg" x-post ")")
+    (.str x-access "${alu32cond} $alu32dreg,(" x-pre "${alu32areg}" x-post ")")
     (+ OPLEN_10 x-bits11-8 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
        alu32areg alu32cond OP22_21_0 (f-op20-16 0))
     () ())

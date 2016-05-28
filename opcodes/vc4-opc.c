@@ -102,7 +102,7 @@ static const CGEN_IFMT ifmt_ldcndidx ATTRIBUTE_UNUSED = {
 };
 
 static const CGEN_IFMT ifmt_ldcnddisp ATTRIBUTE_UNUSED = {
-  16, 31, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_8) }, { F (F_OP26_23) }, { F (F_OP7_5) }, { F (F_OP22) }, { F (F_OP4_0) }, { F (F_OP20_16) }, { 0 } }
+  16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_8) }, { F (F_OP26_23) }, { F (F_OP7_5) }, { F (F_OP22_21) }, { F (F_OP4_0) }, { F (F_OP20_16) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_ldpredec ATTRIBUTE_UNUSED = {
@@ -762,141 +762,141 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa000, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa000, { 0x40 }, { 0x60 } }
   },
 /* ldh${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa040, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa040, { 0x40 }, { 0x60 } }
   },
 /* ldb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa080, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa080, { 0x40 }, { 0x60 } }
   },
 /* ldsh${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa0c0, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa0c0, { 0x40 }, { 0x60 } }
   },
 /* st${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa020, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa020, { 0x40 }, { 0x60 } }
   },
 /* sth${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa060, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa060, { 0x40 }, { 0x60 } }
   },
 /* stb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa0a0, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa0a0, { 0x40 }, { 0x60 } }
   },
 /* ldsb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', OP (DISP5), ')', 0 } },
-    & ifmt_ldcnddisp, { 0xa0e0, { 0x40 }, { 0x40 } }
+    & ifmt_ldcnddisp, { 0xa0e0, { 0x40 }, { 0x60 } }
   },
-/* ld${alu32cond} $alu32dreg,(--$alu32areg) */
+/* ld${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa400, { 0x0 }, { 0x7f } }
   },
-/* ldh${alu32cond} $alu32dreg,(--$alu32areg) */
+/* ldh${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa440, { 0x0 }, { 0x7f } }
   },
-/* ldb${alu32cond} $alu32dreg,(--$alu32areg) */
+/* ldb${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa480, { 0x0 }, { 0x7f } }
   },
-/* ldsh${alu32cond} $alu32dreg,(--$alu32areg) */
+/* ldsh${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa4c0, { 0x0 }, { 0x7f } }
   },
-/* st${alu32cond} $alu32dreg,(--$alu32areg) */
+/* st${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa420, { 0x0 }, { 0x7f } }
   },
-/* sth${alu32cond} $alu32dreg,(--$alu32areg) */
+/* sth${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa460, { 0x0 }, { 0x7f } }
   },
-/* stb${alu32cond} $alu32dreg,(--$alu32areg) */
+/* stb${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa4a0, { 0x0 }, { 0x7f } }
   },
-/* ldsb${alu32cond} $alu32dreg,(--$alu32areg) */
+/* ldsb${alu32cond} $alu32dreg,(--${alu32areg}) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', '-', '-', OP (ALU32AREG), ')', 0 } },
     & ifmt_ldpredec, { 0xa4e0, { 0x0 }, { 0x7f } }
   },
-/* ld${alu32cond} $alu32dreg,($alu32areg++) */
+/* ld${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa500, { 0x0 }, { 0x7f } }
   },
-/* ldh${alu32cond} $alu32dreg,($alu32areg++) */
+/* ldh${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa540, { 0x0 }, { 0x7f } }
   },
-/* ldb${alu32cond} $alu32dreg,($alu32areg++) */
+/* ldb${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa580, { 0x0 }, { 0x7f } }
   },
-/* ldsh${alu32cond} $alu32dreg,($alu32areg++) */
+/* ldsh${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa5c0, { 0x0 }, { 0x7f } }
   },
-/* st${alu32cond} $alu32dreg,($alu32areg++) */
+/* st${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa520, { 0x0 }, { 0x7f } }
   },
-/* sth${alu32cond} $alu32dreg,($alu32areg++) */
+/* sth${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa560, { 0x0 }, { 0x7f } }
   },
-/* stb${alu32cond} $alu32dreg,($alu32areg++) */
+/* stb${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
     & ifmt_ldpredec, { 0xa5a0, { 0x0 }, { 0x7f } }
   },
-/* ldsb${alu32cond} $alu32dreg,($alu32areg++) */
+/* ldsb${alu32cond} $alu32dreg,(${alu32areg}++) */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', '(', OP (ALU32AREG), '+', '+', ')', 0 } },
