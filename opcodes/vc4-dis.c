@@ -70,7 +70,7 @@ static int read_insn
 	        int length ATTRIBUTE_UNUSED)                    \
   {                                                             \
     disassemble_info *info = (disassemble_info *) dis_info;     \
-    (*info->fprintf_func) (info->stream, " shl " #N);           \
+    (*info->fprintf_func) (info->stream, " << " #N);            \
   }
 
 PRINT_SHLN(1)
@@ -115,12 +115,6 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op10_9, 0);
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      print_keyword (cd, info, & vc4_cgen_opval_h_accsz, fields->f_op7_6, 0);
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op7_4, 0);
       break;
@@ -177,6 +171,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       print_keyword (cd, info, & vc4_cgen_opval_h_cond, fields->f_op11_8, 0);
+      break;
+    case VC4_OPERAND_DISP5 :
+      print_normal (cd, info, fields->f_op20_16, 0, pc, length);
       break;
     case VC4_OPERAND_FLOATIMM6 :
       print_normal (cd, info, fields->f_op21_16, 0, pc, length);

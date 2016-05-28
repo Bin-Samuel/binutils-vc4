@@ -587,12 +587,6 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      errmsg = insert_normal (cd, fields->f_op10_9, 0, 0, 10, 2, 16, total_length, buffer);
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      errmsg = insert_normal (cd, fields->f_op7_6, 0, 0, 7, 2, 16, total_length, buffer);
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       errmsg = insert_normal (cd, fields->f_op7_4, 0, 0, 7, 4, 16, total_length, buffer);
       break;
@@ -661,6 +655,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       errmsg = insert_normal (cd, fields->f_op11_8, 0, 0, 11, 4, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_DISP5 :
+      errmsg = insert_normal (cd, fields->f_op20_16, 0, 16, 4, 5, 16, total_length, buffer);
       break;
     case VC4_OPERAND_FLOATIMM6 :
       errmsg = insert_normal (cd, fields->f_op21_16, 0, 16, 5, 6, 16, total_length, buffer);
@@ -963,12 +960,6 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
 
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      length = extract_normal (cd, ex_info, insn_value, 0, 0, 10, 2, 16, total_length, pc, & fields->f_op10_9);
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 2, 16, total_length, pc, & fields->f_op7_6);
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 7, 4, 16, total_length, pc, & fields->f_op7_4);
       break;
@@ -1040,6 +1031,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 11, 4, 16, total_length, pc, & fields->f_op11_8);
+      break;
+    case VC4_OPERAND_DISP5 :
+      length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & fields->f_op20_16);
       break;
     case VC4_OPERAND_FLOATIMM6 :
       length = extract_normal (cd, ex_info, insn_value, 0, 16, 5, 6, 16, total_length, pc, & fields->f_op21_16);
@@ -1349,12 +1343,6 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      value = fields->f_op10_9;
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      value = fields->f_op7_6;
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       value = fields->f_op7_4;
       break;
@@ -1411,6 +1399,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       value = fields->f_op11_8;
+      break;
+    case VC4_OPERAND_DISP5 :
+      value = fields->f_op20_16;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       value = fields->f_op21_16;
@@ -1567,12 +1558,6 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      value = fields->f_op10_9;
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      value = fields->f_op7_6;
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       value = fields->f_op7_4;
       break;
@@ -1629,6 +1614,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       value = fields->f_op11_8;
+      break;
+    case VC4_OPERAND_DISP5 :
+      value = fields->f_op20_16;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       value = fields->f_op21_16;
@@ -1792,12 +1780,6 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 {
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      fields->f_op10_9 = value;
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      fields->f_op7_6 = value;
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       fields->f_op7_4 = value;
       break;
@@ -1854,6 +1836,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       fields->f_op11_8 = value;
+      break;
+    case VC4_OPERAND_DISP5 :
+      fields->f_op20_16 = value;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       fields->f_op21_16 = value;
@@ -1999,12 +1984,6 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 {
   switch (opindex)
     {
-    case VC4_OPERAND_ACCSZ :
-      fields->f_op10_9 = value;
-      break;
-    case VC4_OPERAND_ACCSZ32 :
-      fields->f_op7_6 = value;
-      break;
     case VC4_OPERAND_ADDCMPBAREG :
       fields->f_op7_4 = value;
       break;
@@ -2061,6 +2040,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_CONDCODEBCC32 :
       fields->f_op11_8 = value;
+      break;
+    case VC4_OPERAND_DISP5 :
+      fields->f_op20_16 = value;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       fields->f_op21_16 = value;

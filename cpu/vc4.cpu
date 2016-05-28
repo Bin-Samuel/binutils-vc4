@@ -91,14 +91,14 @@
   (name h-ppreg)
   (comment "Push/pop start registers")
   (type register SI (4))
-  (indices keyword "" (("r0" 0) ("r6" 1) ("r16" 2) ("r24" 3)))
+  (indices keyword "" (("r0" 0) ("r6" 1) ("r16" 2) ("gp" 3)))
 )
 
 (define-hardware
   (name h-basereg)
   (comment "Base reg for 16-bit displacement ld/st forms")
   (type register SI (4))
-  (indices keyword "" (("r24" 0) ("sp" 1) ("pc" 2) ("r0" 3)))
+  (indices keyword "" (("gp" 0) ("sp" 1) ("pc" 2) ("r0" 3)))
 )
 
 (define-hardware
@@ -149,16 +149,16 @@
      (".f" 15)))
 )
 
-(define-hardware
-  (name h-accsz)
-  (comment "Access size")
-  (type immediate UQI)
-  (values keyword ""
-    (("" 0)
-     ("h" 1)
-     ("b" 2)
-     ("sh" 3)))
-)
+;(define-hardware
+;  (name h-accsz)
+;  (comment "Access type and size")
+;  (type immediate UQI)
+;  (values keyword ""
+;    (("ld" 0)   ("st" 1)
+;     ("ldh" 2)  ("sth" 3)
+;     ("ldb" 4)  ("stb" 5)
+;     ("ldsh" 6) ("ldsb" 7)))
+;)
 
 (dnh h-pc "program counter" (PC) (pc) () () ())
 
@@ -184,7 +184,7 @@
 
 (df f-op11 "Opcode bit 11" () 11 1 UINT #f #f)
 
-(df f-op10-9 "Opcode bits 10-9" () 10 2 UINT #f #f)
+(df f-op10-8 "Opcode bits 10-8" () 10 3 UINT #f #f)
 
 (df f-op10-7 "Opcode bits 10-7" () 10 4 UINT #f #f)
 
@@ -504,8 +504,19 @@
 )
 
 (define-normal-insn-enum
-  accsz-op7-6 "access sizes" () ACCSZ7_6_ f-op7-6
-  ("" "H" "B" "SH")
+  accsz-10-8 "access size" () ACCSZ10_8_ f-op10-8
+  (("LD" 0)   ("ST" 1)
+   ("LDH" 2)  ("STH" 3)
+   ("LDB" 4)  ("STB" 5)
+   ("LDSH" 6) ("LDSB" 7))
+)
+
+(define-normal-insn-enum
+  accsz-7-5 "access size (32 bit insns)" () ACCSZ7_5_ f-op7-5
+  (("LD" 0)   ("ST" 1)
+   ("LDH" 2)  ("STH" 3)
+   ("LDB" 4)  ("STB" 5)
+   ("LDSH" 6) ("LDSB" 7))
 )
 
 (define-normal-insn-enum
@@ -613,6 +624,15 @@
   "" ()
   h-reg
   f-op4-0
+)
+
+(define-operand
+  (name disp5)
+  (comment "5-bit unsigned displacement")
+  (attrs)
+  (type h-uint)
+  (index f-op20-16)
+  (handlers (parse "uimm5"))
 )
 
 (define-operand
@@ -769,19 +789,19 @@
   (handlers (parse "pcrel27"))
 )
 
-(define-normal-operand
-  accsz
-  "" ()
-  h-accsz
-  f-op10-9
-)
+;(define-normal-operand
+;  accsz
+;  "" ()
+;  h-accsz
+;  f-op10-8
+;)
 
-(define-normal-operand
-  accsz32
-  "" ()
-  h-accsz
-  f-op7-6
-)
+;(define-normal-operand
+;  accsz32
+;  "" ()
+;  h-accsz
+;  f-op7-5
+;)
 
 (define-normal-operand
   condcodebcc32
@@ -1130,201 +1150,246 @@
   (emit ldpostinc (alu32cond 14) alu32dreg (alu32areg 25))
 )
 
-(define-normal-insn
-  ldind "LDIND" ()
-  "ld$accsz.s $alu16dreg,($alu16sreg)"
-  (+ OPLEN_0 OP11_1 accsz OP8_0 alu16sreg alu16dreg)
-  () ()
+(define-pmacro (ldstindop x-access)
+  (define-normal-insn
+    (.sym x-access ind) (.upcase (.str x-access "IND")) ()
+    (.str x-access ".s $alu16dreg,($alu16sreg)")
+    (+ OPLEN_0 OP11_1 (.sym ACCSZ10_8_ (.upcase x-access)) alu16sreg alu16dreg)
+    () ())
 )
 
-(define-normal-insn
-  stind "STIND" ()
-  "st$accsz.s $alu16dreg,($alu16sreg)"
-  (+ OPLEN_0 OP11_1 accsz OP8_1 alu16sreg alu16dreg)
-  () ()
-)
+(ldstindop "ld")
+(ldstindop "st")
+(ldstindop "ldh")
+(ldstindop "sth")
+(ldstindop "ldb")
+(ldstindop "stb")
+(ldstindop "ldsh")
+(ldstindop "ldsb")
 
 (define-normal-insn
   ldoff "LDOFF" ()
-  "ld.s $alu16dreg,$ldstoff($alu16sreg)"
+  "ld.s $alu16dreg,($alu16sreg+$ldstoff)"
   (+ OPLEN_2 ldstoff alu16sreg alu16dreg)
   () ()
 )
 
 (define-normal-macro-insn
   ldoff_nosuf "LDOFF_NOSUF" ()
-  "ld $alu16dreg,$ldstoff($alu16sreg)"
+  "ld $alu16dreg,($alu16sreg+$ldstoff)"
   (emit ldoff alu16dreg ldstoff alu16sreg)
 )
 
 (define-normal-insn
   stoff "STOFF" ()
-  "st.s $alu16dreg,$ldstoff($alu16sreg)"
+  "st.s $alu16dreg,($alu16sreg+$ldstoff)"
   (+ OPLEN_3 ldstoff alu16sreg alu16dreg)
   () ()
 )
 
 (define-normal-macro-insn
   stoff_nosuf "STOFF_NOSUF" ()
-  "st $alu16dreg,$ldstoff($alu16sreg)"
+  "st $alu16dreg,($alu16sreg+$ldstoff)"
   (emit stoff alu16dreg ldstoff alu16sreg)
 )
 
 (define-normal-insn
-  ldoff12 "LDOFF12" ()
-  "ld$accsz32.m $alu32dreg,$offset12($alu32areg)"
-  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 0) alu32dreg
-     alu32areg offset12)
-  () ()
-)
-
-(define-normal-macro-insn
-  ldoff12_nosuf "LDOFF12_NOSUF" ()
-  "ld$accsz32 $alu32dreg,$offset12($alu32areg)"
-  (emit ldoff12 accsz32 alu32dreg offset12 alu32areg)
-)
-
-(define-normal-insn
-  stoff12 "STOFF12" ()
-  "st$accsz32.m $alu32dreg,$offset12($alu32areg)"
-  (+ OPLEN_10 (f-op11-9 1) accsz32 (f-op5 1) alu32dreg
-     alu32areg offset12)
-  () ()
-)
-
-(define-normal-macro-insn
-  stoff12_nosuf "STOFF12_NOSUF" ()
-  "st$accsz32 $alu32dreg,$offset12($alu32areg)"
-  (emit stoff12 accsz32 alu32dreg offset12 alu32areg)
-)
-
-; LDIND/STIND with no suffixes.
-
-(define-normal-macro-insn
-  ldind_nosuf "LDIND_NOSUF" ()
-  "ld$accsz $alu16dreg,($alu16sreg)"
-  (emit ldind accsz alu16dreg alu16sreg)
-)
-
-(define-normal-macro-insn
-  stind_nosuf "STIND_NOSUF" ()
-  "st$accsz $alu16dreg,($alu16sreg)"
-  (emit stind accsz alu16dreg alu16sreg)
-)
-
-; Special cases of LDOFF12/STOFF12 for zero offsets.
-
-(define-normal-macro-insn
-  ldoffzero "LDOFFZERO" ()
-  "ld$accsz32 $alu32dreg,($alu32areg)"
-  (emit ldoff12 accsz32 alu32dreg (offset12 0) alu32areg)
-)
-
-(define-normal-macro-insn
-  stoffzero "STOFFZERO" ()
-  "st$accsz32 $alu32dreg,($alu32areg)"
-  (emit stoff12 accsz32 alu32dreg (offset12 0) alu32areg)
-)
-
-(define-normal-insn
-  ldoff16 "LDOFF16" ()
-  "ld$accsz32 $alu32dreg,$offset16($off16basereg)"
-  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 0) alu32dreg
-     offset16)
-  () ()
-)
-
-(define-normal-insn
-  stoff16 "STOFF16" ()
-  "st$accsz32 $alu32dreg,$offset16($off16basereg)"
-  (+ OPLEN_10 OP11_10_2 off16basereg accsz32 (f-op5 1) alu32dreg
-     offset16)
-  () ()
-)
-
-(define-pmacro (ldstcndidx x-name x-comment x-opcode x-accsz x-bit5 x-shift)
-  (define-normal-insn
-    (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
-    (.str x-opcode x-accsz "${alu32cond} $alu32dreg,($alu32areg,$alu32breg"
-	  x-shift ")")
-    (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
-       alu32areg alu32cond OP22_21_0 alu32breg)
-    () ())
-)
-
-(ldstcndidx ldcndidx "LDCNDIDX" "ld" "" (f-op5 0) "<<2")
-(ldstcndidx ldcndidx "LDCNDIDX" "ld" "h" (f-op5 0) "<<1")
-(ldstcndidx ldcndidx "LDCNDIDX" "ld" "b" (f-op5 0) "")
-(ldstcndidx ldcndidx "LDCNDIDX" "ld" "sh" (f-op5 0) "<<1")
-
-(ldstcndidx stcndidx "STCNDIDX" "st" "" (f-op5 1) "<<2")
-(ldstcndidx stcndidx "STCNDIDX" "st" "h" (f-op5 1) "<<1")
-(ldstcndidx stcndidx "STCNDIDX" "st" "b" (f-op5 1) "")
-(ldstcndidx stcndidx "STCNDIDX" "st" "sh" (f-op5 1) "<<1")
-
-(define-pmacro (ldstcnddisp x-name x-comment x-opcode x-accsz x-bit5)
-  (define-normal-insn
-    (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
-    (.str x-opcode x-accsz "${alu32cond} $alu32dreg,$imm6($alu32areg)")
-    (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
-       alu32areg alu32cond (f-op22 1) imm6)
-    () ())
-)
-
-(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "" (f-op5 0))
-(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "h" (f-op5 0))
-(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "b" (f-op5 0))
-(ldstcnddisp ldcnddisp "LDCNDDISP" "ld" "sh" (f-op5 0))
-
-(ldstcnddisp stcnddisp "STCNDDISP" "st" "" (f-op5 1))
-(ldstcnddisp stcnddisp "STCNDDISP" "st" "h" (f-op5 1))
-(ldstcnddisp stcnddisp "STCNDDISP" "st" "b" (f-op5 1))
-(ldstcnddisp stcnddisp "STCNDDISP" "st" "sh" (f-op5 1))
-
-(define-pmacro (ldstincdec x-name x-comment x-opcode x-accsz x-bits11-8 x-bit5
-			   x-pre x-post)
-  (define-normal-insn
-    (.sym x-name x-accsz) (.sym x-comment (.upcase x-accsz)) ()
-    (.str x-opcode x-accsz "${alu32cond} $alu32dreg," x-pre "($alu32areg)"
-	  x-post)
-    (+ OPLEN_10 x-bits11-8 (.sym ACCSZ7_6_ (.upcase x-accsz)) x-bit5 alu32dreg
-       alu32areg alu32cond OP22_21_0 (f-op20-16 0))
-    () ())
-)
-
-(ldstincdec ldpredec "LDPREDEC" "ld" "" OP11_8_4 (f-op5 0) "--" "")
-(ldstincdec ldpredec "LDPREDEC" "ld" "h" OP11_8_4 (f-op5 0) "--" "")
-(ldstincdec ldpredec "LDPREDEC" "ld" "b" OP11_8_4 (f-op5 0) "--" "")
-(ldstincdec ldpredec "LDPREDEC" "ld" "sh" OP11_8_4 (f-op5 0) "--" "")
-
-(ldstincdec stpredec "STPREDEC" "st" "" OP11_8_4 (f-op5 1) "--" "")
-(ldstincdec stpredec "STPREDEC" "st" "h" OP11_8_4 (f-op5 1) "--" "")
-(ldstincdec stpredec "STPREDEC" "st" "b" OP11_8_4 (f-op5 1) "--" "")
-(ldstincdec stpredec "STPREDEC" "st" "sh" OP11_8_4 (f-op5 1) "--" "")
-
-(ldstincdec ldpostinc "LDPOSTINC" "ld" "" OP11_8_5 (f-op5 0) "" "++")
-(ldstincdec ldpostinc "LDPOSTINC" "ld" "h" OP11_8_5 (f-op5 0) "" "++")
-(ldstincdec ldpostinc "LDPOSTINC" "ld" "b" OP11_8_5 (f-op5 0) "" "++")
-(ldstincdec ldpostinc "LDPOSTINC" "ld" "sh" OP11_8_5 (f-op5 0) "" "++")
-
-(ldstincdec stpostinc "STPOSTINC" "st" "" OP11_8_5 (f-op5 1) "" "++")
-(ldstincdec stpostinc "STPOSTINC" "st" "h" OP11_8_5 (f-op5 1) "" "++")
-(ldstincdec stpostinc "STPOSTINC" "st" "b" OP11_8_5 (f-op5 1) "" "++")
-(ldstincdec stpostinc "STPOSTINC" "st" "sh" OP11_8_5 (f-op5 1) "" "++")
-
-(define-normal-insn
   ldsp "LDSP" ()
-  "ld $alu16dreg,$spoffset(sp)"
+  "ld.s $alu16dreg,(sp+$spoffset)"
   (+ OPLEN_0 (f-op11-9 2) spoffset alu16dreg)
   () ()
 )
 
 (define-normal-insn
   stsp "STSP" ()
-  "st $alu16dreg,$spoffset(sp)"
+  "st.s $alu16dreg,(sp+$spoffset)"
   (+ OPLEN_0 (f-op11-9 3) spoffset alu16dreg)
   () ()
 )
+
+(define-normal-macro-insn
+  ldsp_nosuf "LDSP_NOSUF" ()
+  "ld $alu16dreg,(sp+$spoffset)"
+  (emit ldsp alu16dreg spoffset)
+)
+
+(define-normal-macro-insn
+  stsp_nosuf "STSP_NOSUF" ()
+  "st $alu16dreg,(sp+$spoffset)"
+  (emit stsp alu16dreg spoffset)
+)
+
+(define-pmacro (ldstoff12op x-access)
+  (define-normal-insn
+    (.sym x-access off12) (.str (.upcase x-access) "OFF12") ()
+    (.str x-access ".m $alu32dreg,($alu32areg+$offset12)")
+    (+ OPLEN_10 (f-op11-9 1) (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
+       alu32areg offset12)
+    () ())
+)
+
+(ldstoff12op "ld")
+(ldstoff12op "st")
+(ldstoff12op "ldh")
+(ldstoff12op "sth")
+(ldstoff12op "ldb")
+(ldstoff12op "stb")
+(ldstoff12op "ldsh")
+(ldstoff12op "ldsb")
+
+(define-pmacro (ldstoff12opnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access off12_nosuf) (.str (.upcase x-access) "OFF12_NOSUF") ()
+    (.str x-access " $alu32dreg,($alu32areg+$offset12)")
+    (emit (.sym x-access off12) alu32dreg alu32areg offset12))
+)
+
+(ldstoff12opnsf "ld")
+(ldstoff12opnsf "st")
+(ldstoff12opnsf "ldh")
+(ldstoff12opnsf "sth")
+(ldstoff12opnsf "ldb")
+(ldstoff12opnsf "stb")
+(ldstoff12opnsf "ldsh")
+(ldstoff12opnsf "ldsb")
+
+; LDIND/STIND with no suffixes.
+
+(define-pmacro (ldstindopnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access ind_nosuf) (.upcase (.str x-access "IND_NOSUF")) ()
+    (.str x-access " $alu16dreg,($alu16sreg)")
+    (emit (.sym x-access ind) alu16dreg alu16sreg))
+)
+
+(ldstindopnsf "ld")
+(ldstindopnsf "st")
+(ldstindopnsf "ldh")
+(ldstindopnsf "sth")
+(ldstindopnsf "ldb")
+(ldstindopnsf "stb")
+(ldstindopnsf "ldsh")
+(ldstindopnsf "ldsb")
+
+; Special cases of LDOFF12/STOFF12 for zero offsets.
+
+(define-pmacro (ldstoffzeroop x-access)
+  (define-normal-macro-insn
+    (.sym x-access offzero) (.sym (.upcase x-access) "OFFZERO") ()
+    (.str x-access " $alu32dreg,($alu32areg)")
+    (emit (.sym x-access off12) alu32dreg alu32areg (offset12 0)))
+)
+
+(ldstoffzeroop "ld")
+(ldstoffzeroop "st")
+(ldstoffzeroop "ldh")
+(ldstoffzeroop "sth")
+(ldstoffzeroop "ldb")
+(ldstoffzeroop "stb")
+(ldstoffzeroop "ldsh")
+(ldstoffzeroop "ldsb")
+
+(define-pmacro (ldstoff16op x-access)
+  (define-normal-insn
+    (.sym x-access off16) (.str (.upcase x-access) "OFF16") ()
+    (.str x-access ".m $alu32dreg,($off16basereg+$offset16)")
+    (+ OPLEN_10 OP11_10_2 off16basereg (.sym ACCSZ7_5_ (.upcase x-access))
+       alu32dreg offset16)
+    () ())
+)
+
+(ldstoff16op "ld")
+(ldstoff16op "st")
+(ldstoff16op "ldh")
+(ldstoff16op "sth")
+(ldstoff16op "ldb")
+(ldstoff16op "stb")
+(ldstoff16op "ldsh")
+(ldstoff16op "ldsb")
+
+(define-pmacro (ldstoff16opnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access off16_nosuf) (.str x-access "OFF16_NOSUF") ()
+    (.str x-access " $alu32dreg,($off16basereg+$offset16)")
+    (emit (.sym x-access off16) alu32dreg off16basereg offset16))
+)
+
+(ldstoff16opnsf "ld")
+(ldstoff16opnsf "st")
+(ldstoff16opnsf "ldh")
+(ldstoff16opnsf "sth")
+(ldstoff16opnsf "ldb")
+(ldstoff16opnsf "stb")
+(ldstoff16opnsf "ldsh")
+(ldstoff16opnsf "ldsb")
+
+(define-pmacro (ldstcndidx x-access x-shift)
+  (define-normal-insn
+    (.sym x-access cndidx) (.str (.upcase x-access) "CNDIDX") ()
+    (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$alu32breg"
+	  x-shift ")")
+    (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
+       alu32areg alu32cond OP22_21_0 alu32breg)
+    () ())
+)
+
+(ldstcndidx "ld"   "$shl2")
+(ldstcndidx "ldh"  "$shl1")
+(ldstcndidx "ldb"  "")
+(ldstcndidx "ldsh" "$shl1")
+
+(ldstcndidx "st"   "$shl2")
+(ldstcndidx "sth"  "$shl1")
+(ldstcndidx "stb"  "")
+(ldstcndidx "ldsb" "")
+
+(define-pmacro (ldstcnddisp x-access)
+  (define-normal-insn
+    (.sym x-access cnddisp) (.str (.upcase x-access) "CNDDISP") ()
+    (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$disp5)")
+    (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
+       alu32areg alu32cond (f-op22 1) disp5)
+    () ())
+)
+
+(ldstcnddisp "ld")
+(ldstcnddisp "ldh")
+(ldstcnddisp "ldb")
+(ldstcnddisp "ldsh")
+
+(ldstcnddisp "st")
+(ldstcnddisp "sth")
+(ldstcnddisp "stb")
+(ldstcnddisp "ldsb")
+
+(define-pmacro (ldstincdec x-name x-access x-bits11-8 x-pre x-post)
+  (define-normal-insn
+    (.sym x-access x-name) (.str (.upcase x-access) (.upcase x-name)) ()
+    (.str x-access "${alu32cond} $alu32dreg,(" x-pre "$alu32areg" x-post ")")
+    (+ OPLEN_10 x-bits11-8 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
+       alu32areg alu32cond OP22_21_0 (f-op20-16 0))
+    () ())
+)
+
+(ldstincdec predec  "ld"   OP11_8_4 "--" "")
+(ldstincdec predec  "ldh"  OP11_8_4 "--" "")
+(ldstincdec predec  "ldb"  OP11_8_4 "--" "")
+(ldstincdec predec  "ldsh" OP11_8_4 "--" "")
+
+(ldstincdec predec  "st"   OP11_8_4 "--" "")
+(ldstincdec predec  "sth"  OP11_8_4 "--" "")
+(ldstincdec predec  "stb"  OP11_8_4 "--" "")
+(ldstincdec predec  "ldsb" OP11_8_4 "--" "")
+
+(ldstincdec postinc "ld"   OP11_8_5 "" "++")
+(ldstincdec postinc "ldh"  OP11_8_5 "" "++")
+(ldstincdec postinc "ldb"  OP11_8_5 "" "++")
+(ldstincdec postinc "ldsh" OP11_8_5 "" "++")
+
+(ldstincdec postinc "st"   OP11_8_5 "" "++")
+(ldstincdec postinc "sth"  OP11_8_5 "" "++")
+(ldstincdec postinc "stb"  OP11_8_5 "" "++")
+(ldstincdec postinc "ldsb" OP11_8_5 "" "++")
 
 (define-normal-insn
   addsp "ADDSP" ()
@@ -1335,7 +1400,7 @@
 
 (define-normal-insn
   lea "LEA" ()
-  "lea $alu32dreg,$addspoffset(sp)"
+  "lea $alu32dreg,(sp+$addspoffset)"
   (+ OPLEN_1 OP11_0 addspoffset alu32dreg)
   () ()
 )
@@ -1384,11 +1449,11 @@
 (alu16opr or16      "OR16"      "or"       ""      ALU16OP_OR)
 (alu16opr bmask16   "BMASK16"   "bmask"    ""      ALU16OP_BMASK)
 (alu16opr max16     "MAX16"     "max"      ""      ALU16OP_MAX)
-(alu16opr bset16    "BSET16"    "bset"     ""      ALU16OP_BSET)
+(alu16opr bset16    "BSET16"    "bitset"   ""      ALU16OP_BSET)
 (alu16opr min16     "MIN16"     "min"      ""      ALU16OP_MIN)
-(alu16opr bclr16    "BCLR16"    "bclr"     ""      ALU16OP_BCLR)
+(alu16opr bclr16    "BCLR16"    "bitclear" ""      ALU16OP_BCLR)
 (alu16opr adds216   "ADDS216"   "addscale" "$shl1" ALU16OP_ADDS2)
-(alu16opr bchg16    "BCHG16"    "bchg"     ""      ALU16OP_BCHG)
+(alu16opr bchg16    "BCHG16"    "bitflip"  ""      ALU16OP_BCHG)
 (alu16opr adds416   "ADDS416"   "addscale" "$shl2" ALU16OP_ADDS4)
 (alu16opr adds816   "ADDS816"   "addscale" "$shl3" ALU16OP_ADDS8)
 (alu16opr adds1616  "ADDS1616"  "addscale" "$shl4" ALU16OP_ADDS16)
@@ -1417,11 +1482,11 @@
 (alu16oprnsf or16      "OR16"      "or"       "")
 (alu16oprnsf bmask16   "BMASK16"   "bmask"    "")
 (alu16oprnsf max16     "MAX16"     "max"      "")
-(alu16oprnsf bset16    "BSET16"    "bset"     "")
+(alu16oprnsf bset16    "BSET16"    "bitset"   "")
 (alu16oprnsf min16     "MIN16"     "min"      "")
-(alu16oprnsf bclr16    "BCLR16"    "bclr"     "")
+(alu16oprnsf bclr16    "BCLR16"    "bitclear" "")
 (alu16oprnsf adds216   "ADDS216"   "addscale" "$shl1")
-(alu16oprnsf bchg16    "BCHG16"    "bchg"     "")
+(alu16oprnsf bchg16    "BCHG16"    "bitflip"  "")
 (alu16oprnsf adds416   "ADDS416"   "addscale" "$shl2")
 (alu16oprnsf adds816   "ADDS816"   "addscale" "$shl3")
 (alu16oprnsf adds1616  "ADDS1616"  "addscale" "$shl4")
@@ -1457,9 +1522,9 @@
 (alu16opi cmpi16     "CMPI16"     "cmp"      ""       ALU16OPI_CMP)
 (alu16opi btsti16    "BTSTI16"    "btst"     ""       ALU16OPI_BTST)
 (alu16opi bmaski16   "BMASKI16"   "bmask"    ""       ALU16OPI_BMASK)
-(alu16opi bseti16    "BSETI16"    "bset"     ""       ALU16OPI_BSET)
-(alu16opi bclri16    "BCLRI16"    "bclr"     ""       ALU16OPI_BCLR)
-(alu16opi bchgi16    "BCHGI16"    "bchg"     ""       ALU16OPI_BCHG)
+(alu16opi bseti16    "BSETI16"    "bitset"   ""       ALU16OPI_BSET)
+(alu16opi bclri16    "BCLRI16"    "bitclear" ""       ALU16OPI_BCLR)
+(alu16opi bchgi16    "BCHGI16"    "bitflip"  ""       ALU16OPI_BCHG)
 (alu16opi adds8i16   "ADDS8I16"   "addscale" "_shl3"  ALU16OPI_ADDS8)
 (alu16opi signexti16 "SIGNEXTI16" "signext"  ""       ALU16OPI_SIGNEXT)
 (alu16opi lsri16     "LSRI16"     "lsr"      ""       ALU16OPI_LSR)
@@ -1474,9 +1539,9 @@
 (alu16opinsf cmpi16     "CMPI16"     "cmp"      "")
 (alu16opinsf btsti16    "BTSTI16"    "btst"     "")
 (alu16opinsf bmaski16   "BMASKI16"   "bmask"    "")
-(alu16opinsf bseti16    "BSETI16"    "bset"     "")
-(alu16opinsf bclri16    "BCLRI16"    "bclr"     "")
-(alu16opinsf bchgi16    "BCHGI16"    "bchg"     "")
+(alu16opinsf bseti16    "BSETI16"    "bitset"   "")
+(alu16opinsf bclri16    "BCLRI16"    "bitclear" "")
+(alu16opinsf bchgi16    "BCHGI16"    "bitflip"  "")
 (alu16opinsf adds8i16   "ADDS8I16"   "addscale" "_shl3")
 (alu16opinsf signexti16 "SIGNEXTI16" "signext"  "")
 (alu16opinsf lsri16     "LSRI16"     "lsr"      "")
@@ -1617,11 +1682,11 @@
 (alu32opr3 or32      "OR32"      "or"       ""      OR)
 (alu32opr3 bmask32   "BMASK32"   "bmask"    ""      BMASK)
 (alu32opr3 max32     "MAX32"     "max"      ""      MAX)
-(alu32opr3 bset32    "BSET32"    "bset"     ""      BSET)
+(alu32opr3 bset32    "BSET32"    "bitset"   ""      BSET)
 (alu32opr3 min32     "MIN32"     "min"      ""      MIN)
-(alu32opr3 bclr32    "BCLR32"    "bclr"     ""      BCLR)
+(alu32opr3 bclr32    "BCLR32"    "bitclear" ""      BCLR)
 (alu32opr3 adds232   "ADDS232"   "addscale" "$shl1" ADDS2)
-(alu32opr3 bchg32    "BCHG32"    "bchg"     ""      BCHG)
+(alu32opr3 bchg32    "BCHG32"    "bitflip"  ""      BCHG)
 (alu32opr3 adds432   "ADDS432"   "addscale" "$shl2" ADDS4)
 (alu32opr3 adds832   "ADDS832"   "addscale" "$shl3" ADDS8)
 (alu32opr3 adds1632  "ADDS1632"  "addscale" "$shl4" ADDS16)
@@ -1650,11 +1715,11 @@
 (alu32opr3nsf or32      "OR32"      "or"       "")
 (alu32opr3nsf bmask32   "BMASK32"   "bmask"    "")
 (alu32opr3nsf max32     "MAX32"     "max"      "")
-(alu32opr3nsf bset32    "BSET32"    "bset"     "")
+(alu32opr3nsf bset32    "BSET32"    "bitset"   "")
 (alu32opr3nsf min32     "MIN32"     "min"      "")
-(alu32opr3nsf bclr32    "BCLR32"    "bclr"     "")
+(alu32opr3nsf bclr32    "BCLR32"    "bitclear" "")
 (alu32opr3nsf adds232   "ADDS232"   "addscale" "$shl1")
-(alu32opr3nsf bchg32    "BCHG32"    "bchg"     "")
+(alu32opr3nsf bchg32    "BCHG32"    "bitflip"  "")
 (alu32opr3nsf adds432   "ADDS432"   "addscale" "$shl2")
 (alu32opr3nsf adds832   "ADDS832"   "addscale" "$shl3")
 (alu32opr3nsf adds1632  "ADDS1632"  "addscale" "$shl4")
@@ -1737,11 +1802,11 @@
 (alu32opi3 ori32      "ORI32"      "or"      ""      OR)
 (alu32opi3 bmaski32   "BMASKI32"   "bmask"   ""      BMASK)
 (alu32opi3 maxi32     "MAXI32"     "max"     ""      MAX)
-(alu32opi3 bseti32    "BSETI32"    "bset"    ""      BSET)
+(alu32opi3 bseti32    "BSETI32"    "bitset"  ""      BSET)
 (alu32opi3 mini32     "MINI32"     "min"     ""      MIN)
-(alu32opi3 bclri32    "BCLRI32"    "bclr"    ""      BCLR)
+(alu32opi3 bclri32    "BCLRI32"    "bitclear" ""     BCLR)
 (alu32opi3 adds2i32   "ADDS2I32"   "add"     "_shl1" ADDS2)
-(alu32opi3 bchgi32    "BCHGI32"    "bchg"    ""      BCHG)
+(alu32opi3 bchgi32    "BCHGI32"    "bitflip" ""      BCHG)
 (alu32opi3 adds4i32   "ADDS4I32"   "add"     "_shl2" ADDS4)
 (alu32opi3 adds8i32   "ADDS8I32"   "add"     "_shl3" ADDS8)
 (alu32opi3 adds16i32  "ADDS16I32"  "add"     "_shl4" ADDS16)
@@ -1754,45 +1819,37 @@
 (alu32opi3 asri32     "ASRI32"     "asr"     ""      ASR)
 (alu32opi2 absi32     "ABSI32"     "abs"             ABS)
 
-; Add (only, non-conditional) is relaxable to a 48-bit variant.  This has to
-; come before the no-suffix variant below!
-
-;(define-normal-macro-insn
-;  add_relaxable "ADD_RELAXABLE" (RELAXABLE)
-;  "add $alu32dreg,$alu32areg,$imm6"
-;  (emit addi32 (alu32cond 14) alu32dreg alu32areg imm6))
-
 (alu32opi2nsf movi32     "MOVI32"     "mov")
 (alu32opicnsf cmni32     "CMNI32"     "cmn")
-(alu32opi3nsf addi32     "ADDI32"     "add"     "")
-(alu32opi3nsf bici32     "BICI32"     "bic"     "")
-(alu32opi3nsf muli32     "MULI32"     "mul"     "")
-(alu32opi3nsf eori32     "EORI32"     "eor"     "")
-(alu32opi3nsf subi32     "SUBI32"     "sub"     "")
-(alu32opi3nsf andi32     "ANDI32"     "and"     "")
+(alu32opi3nsf addi32     "ADDI32"     "add"      "")
+(alu32opi3nsf bici32     "BICI32"     "bic"      "")
+(alu32opi3nsf muli32     "MULI32"     "mul"      "")
+(alu32opi3nsf eori32     "EORI32"     "eor"      "")
+(alu32opi3nsf subi32     "SUBI32"     "sub"      "")
+(alu32opi3nsf andi32     "ANDI32"     "and"      "")
 (alu32opi2nsf noti32     "NOTI32"     "not")
-(alu32opi3nsf rori32     "RORI32"     "ror"     "")
+(alu32opi3nsf rori32     "RORI32"     "ror"      "")
 (alu32opicnsf cmpi32     "CMPI32"     "cmp")
-(alu32opi3nsf rsubi32    "RSUBI32"    "rsub"    "")
+(alu32opi3nsf rsubi32    "RSUBI32"    "rsub"     "")
 (alu32opicnsf btsti32    "BTSTI32"    "btst")
-(alu32opi3nsf ori32      "ORI32"      "or"      "")
-(alu32opi3nsf bmaski32   "BMASKI32"   "bmask"   "")
-(alu32opi3nsf maxi32     "MAXI32"     "max"     "")
-(alu32opi3nsf bseti32    "BSETI32"    "bset"    "")
-(alu32opi3nsf mini32     "MINI32"     "min"     "")
-(alu32opi3nsf bclri32    "BCLRI32"    "bclr"    "")
-(alu32opi3nsf adds2i32   "ADDS2I32"   "add"     "_shl1")
-(alu32opi3nsf bchgi32    "BCHGI32"    "bchg"    "")
-(alu32opi3nsf adds4i32   "ADDS4I32"   "add"     "_shl2")
-(alu32opi3nsf adds8i32   "ADDS8I32"   "add"     "_shl3")
-(alu32opi3nsf adds16i32  "ADDS16I32"  "add"     "_shl4")
-(alu32opi3nsf signexti32 "SIGNEXTI32" "signext" "")
+(alu32opi3nsf ori32      "ORI32"      "or"       "")
+(alu32opi3nsf bmaski32   "BMASKI32"   "bmask"    "")
+(alu32opi3nsf maxi32     "MAXI32"     "max"      "")
+(alu32opi3nsf bseti32    "BSETI32"    "bitset"   "")
+(alu32opi3nsf mini32     "MINI32"     "min"      "")
+(alu32opi3nsf bclri32    "BCLRI32"    "bitclear" "")
+(alu32opi3nsf adds2i32   "ADDS2I32"   "add"      "_shl1")
+(alu32opi3nsf bchgi32    "BCHGI32"    "bitflip"  "")
+(alu32opi3nsf adds4i32   "ADDS4I32"   "add"      "_shl2")
+(alu32opi3nsf adds8i32   "ADDS8I32"   "add"      "_shl3")
+(alu32opi3nsf adds16i32  "ADDS16I32"  "add"      "_shl4")
+(alu32opi3nsf signexti32 "SIGNEXTI32" "signext"  "")
 (alu32opi2nsf negi32     "NEGI32"     "neg")
-(alu32opi3nsf lsri32     "LSRI32"     "lsr"     "")
+(alu32opi3nsf lsri32     "LSRI32"     "lsr"      "")
 (alu32opi2nsf msbi32     "MSBI32"     "msb")
-(alu32opi3nsf shli32     "SHLI32"     "shl"     "")
+(alu32opi3nsf shli32     "SHLI32"     "shl"      "")
 (alu32opi2nsf bitrevi32  "BITREVI32"  "bitrev")
-(alu32opi3nsf asri32     "ASRI32"     "asr"     "")
+(alu32opi3nsf asri32     "ASRI32"     "asr"      "")
 (alu32opi2nsf absi32     "ABSI32"     "abs")
 
 (define-pmacro (mulhdivr x-name x-opcode x-signs x-encoding)
@@ -1877,9 +1934,9 @@
     () ())
 )
 
-(satscli3 "addsati" "adds"   ""    5 0)
-(satscli3 "subsati" "subs"   ""    5 1)
-(satscli3 "shlsati" "shls"   ""    5 2)
+(satscli3 "addsati" "adds"   ""      5 0)
+(satscli3 "subsati" "subs"   ""      5 1)
+(satscli3 "shlsati" "shls"   ""      5 2)
 (satscli3 "adds5i"  "add"    "_shl5" 5 4)
 (satscli3 "adds6i"  "add"    "_shl6" 5 5)
 (satscli3 "adds7i"  "add"    "_shl7" 5 6)
@@ -1910,7 +1967,7 @@
 
 (define-normal-insn
   lea32r "LEA32R" ()
-  "lea $alu48idreg,$offset16($alu48isreg)"
+  "lea $alu48idreg,($alu48isreg+$offset16)"
   (+ OPLEN_11 (f-op11-10 1) alu48isreg alu48idreg
      offset16)
   () ()
@@ -1964,11 +2021,11 @@
 (alu32uni oriu32      "or"      ""      OR)
 (alu32uni bmaskiu32   "bmask"   ""      BMASK)
 (alu32uni maxiu32     "max"     ""      MAX)
-(alu32uni bsetiu32    "bset"    ""      BSET)
+(alu32uni bsetiu32    "bitset"  ""      BSET)
 (alu32uni miniu32     "min"     ""      MIN)
-(alu32uni bclriu32    "bclr"    ""      BCLR)
+(alu32uni bclriu32    "bitclear" ""      BCLR)
 (alu32uni adds2iu32   "add"     "_shl1" ADDS2)
-(alu32uni bchgiu32    "bchg"    ""      BCHG)
+(alu32uni bchgiu32    "bitflip" ""      BCHG)
 (alu32uni adds4iu32   "add"     "_shl2" ADDS4)
 (alu32uni adds8iu32   "add"     "_shl3" ADDS8)
 (alu32uni adds16iu32  "add"     "_shl4" ADDS16)
@@ -1997,11 +2054,11 @@
 (alu32uninsf oriu32      "or"      "")
 (alu32uninsf bmaskiu32   "bmask"   "")
 (alu32uninsf maxiu32     "max"     "")
-(alu32uninsf bsetiu32    "bset"    "")
+(alu32uninsf bsetiu32    "bitset"  "")
 (alu32uninsf miniu32     "min"     "")
-(alu32uninsf bclriu32    "bclr"    "")
+(alu32uninsf bclriu32    "bitclear" "")
 (alu32uninsf adds2iu32   "add"     "_shl1")
-(alu32uninsf bchgiu32    "bchg"    "")
+(alu32uninsf bchgiu32    "bitflip" "")
 (alu32uninsf adds4iu32   "add"     "_shl2")
 (alu32uninsf adds8iu32   "add"     "_shl3")
 (alu32uninsf adds16iu32  "add"     "_shl4")
@@ -2150,49 +2207,57 @@
   (emit lea48 alu48idreg alu48pcrel)
 )
 
-(define-normal-insn
-  ldpcrel27 "LDPCREL27" ()
-  "ld$accsz32 $alu48idreg,$mem48pcrel27"
-  (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 0) alu48idreg
-     (f-op47-43 31) mem48pcrel27)
-  () ()
+(define-pmacro (ldstpcrel27op x-access)
+  (define-normal-insn
+    (.sym x-access pcrel27) (.str (.upcase x-access) "PCREL27") ()
+    (.str x-access " $alu48idreg,$mem48pcrel27")
+    (+ OPLEN_14 OP11_8_7 (.sym ACCSZ7_5_ (.upcase x-access)) alu48idreg
+       (f-op47-43 31) mem48pcrel27)
+    () ())
 )
 
-(define-normal-insn
-  stpcrel27 "STPCREL27" ()
-  "st$accsz32 $alu48idreg,$mem48pcrel27"
-  (+ OPLEN_14 OP11_8_7 accsz32 (f-op5 1) alu48idreg
-     (f-op47-43 31) mem48pcrel27)
-  () ()
+(ldstpcrel27op "ld")
+(ldstpcrel27op "st")
+(ldstpcrel27op "ldh")
+(ldstpcrel27op "sth")
+(ldstpcrel27op "ldb")
+(ldstpcrel27op "stb")
+(ldstpcrel27op "ldsh")
+(ldstpcrel27op "ldsb")
+
+(define-pmacro (ldstoff27op x-access)
+  (define-normal-insn
+    (.sym x-access off27) (.str (.upcase x-access) "OFF27") ()
+    (.str x-access ".l $alu48idreg,($mem48sreg+$mem48offset27)")
+    (+ OPLEN_14 OP11_8_6 (.sym ACCSZ7_5_ (.upcase x-access)) alu48idreg
+       mem48sreg mem48offset27)
+    () ())
 )
 
-(define-normal-insn
-  ldoff27 "LDOFF27" ()
-  "ld$accsz32.l $alu48idreg,$mem48offset27($mem48sreg)"
-  (+ OPLEN_14 OP11_8_6 accsz32 (f-op5 0) alu48idreg
-     mem48sreg mem48offset27)
-  () ()
+(ldstoff27op "ld")
+(ldstoff27op "st")
+(ldstoff27op "ldh")
+(ldstoff27op "sth")
+(ldstoff27op "ldb")
+(ldstoff27op "stb")
+(ldstoff27op "ldsh")
+(ldstoff27op "ldsb")
+
+(define-pmacro (ldstoff27opnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access off27_nosuf) (.str (.upcase x-access) "OFF27_NOSUF") ()
+    (.str x-access " $alu48idreg,($mem48sreg+$mem48offset27)")
+    (emit (.sym x-access off27) alu48idreg mem48sreg mem48offset27))
 )
 
-(define-normal-macro-insn
-  ldoff27_nosuf "LDOFF27_NOSUF" ()
-  "ld$accsz32 $alu48idreg,$mem48offset27($mem48sreg)"
-  (emit ldoff27 accsz32 alu48idreg mem48offset27 mem48sreg)
-)
-
-(define-normal-insn
-  stoff27 "STOFF27" ()
-  "st$accsz32.l $alu48idreg,$mem48offset27($mem48sreg)"
-  (+ OPLEN_14 OP11_8_6 accsz32 (f-op5 1) alu48idreg
-     mem48sreg mem48offset27)
-  () ()
-)
-
-(define-normal-macro-insn
-  stoff27_nosuf "STOFF27_NOSUF" ()
-  "st$accsz32 $alu48idreg,$mem48offset27($mem48sreg)"
-  (emit stoff27 accsz32 alu48idreg mem48offset27 mem48sreg)
-)
+(ldstoff27opnsf "ld")
+(ldstoff27opnsf "st")
+(ldstoff27opnsf "ldh")
+(ldstoff27opnsf "sth")
+(ldstoff27opnsf "ldb")
+(ldstoff27opnsf "stb")
+(ldstoff27opnsf "ldsh")
+(ldstoff27opnsf "ldsb")
 
 (define-normal-insn
   add48i "ADD48I" ()
@@ -2207,15 +2272,6 @@
   "add $alu48idreg,$alu48isreg,$alu48immu"
   (emit add48i alu48idreg alu48isreg alu48immu)
 )
-
-; The same again, a relaxed variant for immediates that get here through
-; relaxation.
-
-;(define-normal-macro-insn
-;  add48i_relaxed "ADD48I_RELAXED" (RELAXED)
-;  "add $alu48idreg,$alu48isreg,$alu48immu"
-;  (emit add48i alu48idreg alu48isreg alu48immu)
-;)
 
 (define-pmacro (alu48opi2 x-name x-opcode x-encoding)
   (define-normal-insn
@@ -2232,13 +2288,6 @@
     (.str x-opcode " $alu48idreg,$alu48immu")
     (emit x-name alu48idreg alu48immu))
 )
-
-;(define-pmacro (alu48opi2rlx x-name x-opcode)
-;  (define-normal-macro-insn
-;    (.sym x-name _relaxed) (.str (.upcase x-name) "_RELAXED") (RELAXED)
-;    (.str x-opcode " $alu48idreg,#$alu48immu")
-;    (emit x-name alu48idreg alu48immu))
-;)
 
 ; These have the addscale (<<1, <<2, <<3, <<4) forms missed out, because why
 ; would you?  Also shifts and bit ops, and other useless operations.
@@ -2270,20 +2319,6 @@
 (alu48opi2nsf ori48   "or")
 (alu48opi2nsf maxi48  "max")
 (alu48opi2nsf mini48  "min")
-
-;(alu48opi2rlx movi48  "mov")
-;(alu48opi2rlx cmni48  "cmn")
-;(alu48opi2rlx addi48  "add")
-;(alu48opi2rlx bici48  "bic")
-;(alu48opi2rlx muli48  "mul")
-;(alu48opi2rlx eori48  "eor")
-;(alu48opi2rlx subi48  "sub")
-;(alu48opi2rlx andi48  "and")
-;(alu48opi2rlx cmpi48  "cmp")
-;(alu48opi2rlx rsubi48 "rsub")
-;(alu48opi2rlx ori48   "or")
-;(alu48opi2rlx maxi48  "max")
-;(alu48opi2rlx mini48  "min")
 
 ;; 48-bit vector instructions.
 
