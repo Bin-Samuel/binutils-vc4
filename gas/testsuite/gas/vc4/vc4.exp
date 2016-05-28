@@ -15,4 +15,5 @@ if [istarget vc4-*-*] then {
     run_dump_test "bne_1"
     run_dump_test "bne_2"
     run_dump_test "cmpreg"
+    run_dump_test "shift-aliases"
 }

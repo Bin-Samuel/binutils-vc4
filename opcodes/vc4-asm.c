@@ -242,7 +242,8 @@ parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 }
 
 static const char *
-parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+             unsigned long *valuep)
 {
   const char *errmsg;
   enum cgen_parse_operand_result result_type;
@@ -257,7 +258,7 @@ parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
   if (errmsg)
     return errmsg;
 
-  *valuep = (long) result;
+  *valuep = (unsigned long) result;
 
   return 0;
 }
@@ -265,7 +266,7 @@ parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 static const char *
 parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 	       bfd_reloc_code_real_type code,
-	       enum cgen_parse_operand_result *result_type, long *valuep)
+	       enum cgen_parse_operand_result *result_type, bfd_vma *valuep)
 {
   bfd_vma result;
   const char *errmsg;
@@ -292,7 +293,70 @@ parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
   return errmsg;
 }
 
-/* -- */
+static const char *
+parse_shlN (CGEN_CPU_DESC cd, const char **strp,
+            int opindex,
+            unsigned long *valuep ATTRIBUTE_UNUSED,
+            unsigned long shift)
+{
+  const char *scan = *strp;
+  bfd_boolean is_multiply = FALSE;
+  const char *errmsg;
+  unsigned long uval;
+
+  while (ISSPACE (*scan))
+    scan++;
+
+  if (strncmp (scan, "shl", 3) == 0
+      || strncmp (scan, "lsl", 3) == 0)
+    scan += 3;
+  else if (strncmp (scan, "<<", 2) == 0)
+    scan += 2;
+  else if (strncmp (scan, "*", 1) == 0)
+    {
+      scan++;
+      is_multiply = TRUE;
+    }
+  else
+    return "no left shift";
+
+  while (ISSPACE (*scan))
+    scan++;
+
+  if (!is_multiply && *scan == '#')
+    scan++;
+
+  *strp = scan;
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, &uval);
+
+  if (errmsg)
+    return errmsg;
+
+  if ((is_multiply && uval == (1ul << shift))
+      || (!is_multiply && uval == shift))
+    return 0;
+
+  return "wrong shift amount";
+}
+
+#define PARSE_SHLN(N)                                             \
+  static const char *                                             \
+  parse_shl##N (CGEN_CPU_DESC cd, const char **strp, int opindex, \
+                unsigned long *valuep)                            \
+  {                                                               \
+    return parse_shlN (cd, strp, opindex, valuep, (N));           \
+  }
+
+PARSE_SHLN(1)
+PARSE_SHLN(2)
+PARSE_SHLN(3)
+PARSE_SHLN(4)
+PARSE_SHLN(5)
+PARSE_SHLN(6)
+PARSE_SHLN(7)
+PARSE_SHLN(8)
+
+/* -- dis.c */
 
 const char * vc4_cgen_parse_operand
   (CGEN_CPU_DESC, int, const char **, CGEN_FIELDS *);
@@ -521,6 +585,30 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_PPSTARTREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_ppreg, & fields->f_op6_5);
+      break;
+    case VC4_OPERAND_SHL1 :
+      errmsg = parse_shl1 (cd, strp, VC4_OPERAND_SHL1, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL2 :
+      errmsg = parse_shl2 (cd, strp, VC4_OPERAND_SHL2, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL3 :
+      errmsg = parse_shl3 (cd, strp, VC4_OPERAND_SHL3, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL4 :
+      errmsg = parse_shl4 (cd, strp, VC4_OPERAND_SHL4, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL5 :
+      errmsg = parse_shl5 (cd, strp, VC4_OPERAND_SHL5, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL6 :
+      errmsg = parse_shl6 (cd, strp, VC4_OPERAND_SHL6, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL7 :
+      errmsg = parse_shl7 (cd, strp, VC4_OPERAND_SHL7, (unsigned long *) (& junk));
+      break;
+    case VC4_OPERAND_SHL8 :
+      errmsg = parse_shl8 (cd, strp, VC4_OPERAND_SHL8, (unsigned long *) (& junk));
       break;
     case VC4_OPERAND_SPOFFSET :
       errmsg = parse_uimm6_shl2 (cd, strp, VC4_OPERAND_SPOFFSET, (unsigned long *) (& fields->f_spoffset));

@@ -206,7 +206,8 @@ parse_imm16 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 }
 
 static const char *
-parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
+parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+             unsigned long *valuep)
 {
   const char *errmsg;
   enum cgen_parse_operand_result result_type;
@@ -221,7 +222,7 @@ parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
   if (errmsg)
     return errmsg;
 
-  *valuep = (long) result;
+  *valuep = (unsigned long) result;
 
   return 0;
 }
@@ -229,7 +230,7 @@ parse_imm32 (CGEN_CPU_DESC cd, const char **strp, int opindex, long *valuep)
 static const char *
 parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 	       bfd_reloc_code_real_type code,
-	       enum cgen_parse_operand_result *result_type, long *valuep)
+	       enum cgen_parse_operand_result *result_type, bfd_vma *valuep)
 {
   bfd_vma result;
   const char *errmsg;
@@ -255,6 +256,93 @@ parse_pcrel27 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   return errmsg;
 }
+
+static const char *
+parse_shlN (CGEN_CPU_DESC cd, const char **strp,
+            int opindex,
+            unsigned long *valuep ATTRIBUTE_UNUSED,
+            unsigned long shift)
+{
+  const char *scan = *strp;
+  bfd_boolean is_multiply = FALSE;
+  const char *errmsg;
+  unsigned long uval;
+
+  while (ISSPACE (*scan))
+    scan++;
+
+  if (strncmp (scan, "shl", 3) == 0
+      || strncmp (scan, "lsl", 3) == 0)
+    scan += 3;
+  else if (strncmp (scan, "<<", 2) == 0)
+    scan += 2;
+  else if (strncmp (scan, "*", 1) == 0)
+    {
+      scan++;
+      is_multiply = TRUE;
+    }
+  else
+    return "no left shift";
+
+  while (ISSPACE (*scan))
+    scan++;
+
+  if (!is_multiply && *scan == '#')
+    scan++;
+
+  *strp = scan;
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, &uval);
+
+  if (errmsg)
+    return errmsg;
+
+  if ((is_multiply && uval == (1ul << shift))
+      || (!is_multiply && uval == shift))
+    return 0;
+
+  return "wrong shift amount";
+}
+
+#define PARSE_SHLN(N)                                             \
+  static const char *                                             \
+  parse_shl##N (CGEN_CPU_DESC cd, const char **strp, int opindex, \
+                unsigned long *valuep)                            \
+  {                                                               \
+    return parse_shlN (cd, strp, opindex, valuep, (N));           \
+  }
+
+PARSE_SHLN(1)
+PARSE_SHLN(2)
+PARSE_SHLN(3)
+PARSE_SHLN(4)
+PARSE_SHLN(5)
+PARSE_SHLN(6)
+PARSE_SHLN(7)
+PARSE_SHLN(8)
+
+/* -- dis.c */
+
+#define PRINT_SHLN(N)                                           \
+  static void                                                   \
+  print_shl##N (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,              \
+	        void * dis_info,                                \
+	        long value ATTRIBUTE_UNUSED,                    \
+	        unsigned int attrs ATTRIBUTE_UNUSED,            \
+	        bfd_vma pc ATTRIBUTE_UNUSED,                    \
+	        int length ATTRIBUTE_UNUSED)                    \
+  {                                                             \
+    disassemble_info *info = (disassemble_info *) dis_info;     \
+    (*info->fprintf_func) (info->stream, " shl " #N);           \
+  }
+
+PRINT_SHLN(1)
+PRINT_SHLN(2)
+PRINT_SHLN(3)
+PRINT_SHLN(4)
+PRINT_SHLN(5)
+PRINT_SHLN(6)
+PRINT_SHLN(7)
+PRINT_SHLN(8)
 
 /* -- */
 

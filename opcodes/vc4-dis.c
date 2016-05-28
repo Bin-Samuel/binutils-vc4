@@ -58,6 +58,31 @@ static int read_insn
 
 /* -- disassembler routines inserted here.  */
 
+/* -- dis.c */
+
+#define PRINT_SHLN(N)                                           \
+  static void                                                   \
+  print_shl##N (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,              \
+	        void * dis_info,                                \
+	        long value ATTRIBUTE_UNUSED,                    \
+	        unsigned int attrs ATTRIBUTE_UNUSED,            \
+	        bfd_vma pc ATTRIBUTE_UNUSED,                    \
+	        int length ATTRIBUTE_UNUSED)                    \
+  {                                                             \
+    disassemble_info *info = (disassemble_info *) dis_info;     \
+    (*info->fprintf_func) (info->stream, " shl " #N);           \
+  }
+
+PRINT_SHLN(1)
+PRINT_SHLN(2)
+PRINT_SHLN(3)
+PRINT_SHLN(4)
+PRINT_SHLN(5)
+PRINT_SHLN(6)
+PRINT_SHLN(7)
+PRINT_SHLN(8)
+
+/* -- */
 
 void vc4_cgen_print_operand
   (CGEN_CPU_DESC, int, PTR, CGEN_FIELDS *, void const *, bfd_vma, int);
@@ -257,6 +282,30 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_PPSTARTREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_ppreg, fields->f_op6_5, 0);
+      break;
+    case VC4_OPERAND_SHL1 :
+      print_shl1 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL2 :
+      print_shl2 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL3 :
+      print_shl3 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL4 :
+      print_shl4 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL5 :
+      print_shl5 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL6 :
+      print_shl6 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL7 :
+      print_shl7 (cd, info, 0, 0, pc, length);
+      break;
+    case VC4_OPERAND_SHL8 :
+      print_shl8 (cd, info, 0, 0, pc, length);
       break;
     case VC4_OPERAND_SPOFFSET :
       print_normal (cd, info, fields->f_spoffset, 0, pc, length);

@@ -894,6 +894,22 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       errmsg = insert_normal (cd, fields->f_op6_5, 0, 0, 6, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_SHL1 :
+      break;
+    case VC4_OPERAND_SHL2 :
+      break;
+    case VC4_OPERAND_SHL3 :
+      break;
+    case VC4_OPERAND_SHL4 :
+      break;
+    case VC4_OPERAND_SHL5 :
+      break;
+    case VC4_OPERAND_SHL6 :
+      break;
+    case VC4_OPERAND_SHL7 :
+      break;
+    case VC4_OPERAND_SHL8 :
+      break;
     case VC4_OPERAND_SPOFFSET :
       {
         long value = fields->f_spoffset;
@@ -1268,6 +1284,22 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 2, 16, total_length, pc, & fields->f_op6_5);
       break;
+    case VC4_OPERAND_SHL1 :
+      break;
+    case VC4_OPERAND_SHL2 :
+      break;
+    case VC4_OPERAND_SHL3 :
+      break;
+    case VC4_OPERAND_SHL4 :
+      break;
+    case VC4_OPERAND_SHL5 :
+      break;
+    case VC4_OPERAND_SHL6 :
+      break;
+    case VC4_OPERAND_SHL7 :
+      break;
+    case VC4_OPERAND_SHL8 :
+      break;
     case VC4_OPERAND_SPOFFSET :
       {
         long value;
@@ -1485,6 +1517,30 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
       break;
+    case VC4_OPERAND_SHL1 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL2 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL3 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL4 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL5 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL6 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL7 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL8 :
+      value = 0;
+      break;
     case VC4_OPERAND_SPOFFSET :
       value = fields->f_spoffset;
       break;
@@ -1678,6 +1734,30 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
+      break;
+    case VC4_OPERAND_SHL1 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL2 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL3 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL4 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL5 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL6 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL7 :
+      value = 0;
+      break;
+    case VC4_OPERAND_SHL8 :
+      value = 0;
       break;
     case VC4_OPERAND_SPOFFSET :
       value = fields->f_spoffset;
@@ -1880,6 +1960,22 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
       break;
+    case VC4_OPERAND_SHL1 :
+      break;
+    case VC4_OPERAND_SHL2 :
+      break;
+    case VC4_OPERAND_SHL3 :
+      break;
+    case VC4_OPERAND_SHL4 :
+      break;
+    case VC4_OPERAND_SHL5 :
+      break;
+    case VC4_OPERAND_SHL6 :
+      break;
+    case VC4_OPERAND_SHL7 :
+      break;
+    case VC4_OPERAND_SHL8 :
+      break;
     case VC4_OPERAND_SPOFFSET :
       fields->f_spoffset = value;
       break;
@@ -2070,6 +2166,22 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
+      break;
+    case VC4_OPERAND_SHL1 :
+      break;
+    case VC4_OPERAND_SHL2 :
+      break;
+    case VC4_OPERAND_SHL3 :
+      break;
+    case VC4_OPERAND_SHL4 :
+      break;
+    case VC4_OPERAND_SHL5 :
+      break;
+    case VC4_OPERAND_SHL6 :
+      break;
+    case VC4_OPERAND_SHL7 :
+      break;
+    case VC4_OPERAND_SHL8 :
       break;
     case VC4_OPERAND_SPOFFSET :
       fields->f_spoffset = value;
