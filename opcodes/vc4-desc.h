@@ -292,8 +292,8 @@ typedef enum cgen_hw_attr {
 typedef enum cgen_hw_type {
   HW_H_MEMORY, HW_H_SINT, HW_H_UINT, HW_H_ADDR
  , HW_H_IADDR, HW_H_REG, HW_H_FASTREG, HW_H_PPREG
- , HW_H_BASEREG, HW_H_COND, HW_H_ACCSZ, HW_H_PC
- , HW_MAX
+ , HW_H_BASEREG, HW_H_COND, HW_H_DOTCOND, HW_H_ACCSZ
+ , HW_H_PC, HW_MAX
 } CGEN_HW_TYPE;
 
 #define MAX_HW ((int) HW_MAX)
@@ -392,6 +392,7 @@ extern CGEN_KEYWORD vc4_cgen_opval_h_fastreg;
 extern CGEN_KEYWORD vc4_cgen_opval_h_ppreg;
 extern CGEN_KEYWORD vc4_cgen_opval_h_basereg;
 extern CGEN_KEYWORD vc4_cgen_opval_h_cond;
+extern CGEN_KEYWORD vc4_cgen_opval_h_dotcond;
 extern CGEN_KEYWORD vc4_cgen_opval_h_accsz;
 
 extern const CGEN_HW_ENTRY vc4_cgen_hw_table[];

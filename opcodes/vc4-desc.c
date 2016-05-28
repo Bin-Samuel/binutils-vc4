@@ -253,6 +253,35 @@ CGEN_KEYWORD vc4_cgen_opval_h_cond =
   0, 0, 0, 0, ""
 };
 
+static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_dotcond_entries[] =
+{
+  { ".eq", 0, {0, {{{0, 0}}}}, 0, 0 },
+  { ".ne", 1, {0, {{{0, 0}}}}, 0, 0 },
+  { ".cs", 2, {0, {{{0, 0}}}}, 0, 0 },
+  { ".lo", 2, {0, {{{0, 0}}}}, 0, 0 },
+  { ".cc", 3, {0, {{{0, 0}}}}, 0, 0 },
+  { ".hs", 3, {0, {{{0, 0}}}}, 0, 0 },
+  { ".mi", 4, {0, {{{0, 0}}}}, 0, 0 },
+  { ".pl", 5, {0, {{{0, 0}}}}, 0, 0 },
+  { ".vs", 6, {0, {{{0, 0}}}}, 0, 0 },
+  { ".vc", 7, {0, {{{0, 0}}}}, 0, 0 },
+  { ".hi", 8, {0, {{{0, 0}}}}, 0, 0 },
+  { ".ls", 9, {0, {{{0, 0}}}}, 0, 0 },
+  { ".ge", 10, {0, {{{0, 0}}}}, 0, 0 },
+  { ".lt", 11, {0, {{{0, 0}}}}, 0, 0 },
+  { ".gt", 12, {0, {{{0, 0}}}}, 0, 0 },
+  { ".le", 13, {0, {{{0, 0}}}}, 0, 0 },
+  { "", 14, {0, {{{0, 0}}}}, 0, 0 },
+  { ".f", 15, {0, {{{0, 0}}}}, 0, 0 }
+};
+
+CGEN_KEYWORD vc4_cgen_opval_h_dotcond =
+{
+  & vc4_cgen_opval_h_dotcond_entries[0],
+  18,
+  0, 0, 0, 0, ""
+};
+
 static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_accsz_entries[] =
 {
   { "", 0, {0, {{{0, 0}}}}, 0, 0 },
@@ -285,6 +314,7 @@ const CGEN_HW_ENTRY vc4_cgen_hw_table[] =
   { "h-ppreg", HW_H_PPREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_ppreg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-basereg", HW_H_BASEREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_basereg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-cond", HW_H_COND, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_cond, { 0, { { { (1<<MACH_BASE), 0 } } } } },
+  { "h-dotcond", HW_H_DOTCOND, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_dotcond, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-accsz", HW_H_ACCSZ, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_accsz, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-pc", HW_H_PC, CGEN_ASM_NONE, 0, { 0|A(PC), { { { (1<<MACH_BASE), 0 } } } } },
   { 0, 0, CGEN_ASM_NONE, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
@@ -536,7 +566,7 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP31_27] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu32cond:  */
-  { "alu32cond", VC4_OPERAND_ALU32COND, HW_H_COND, 10, 4,
+  { "alu32cond", VC4_OPERAND_ALU32COND, HW_H_DOTCOND, 10, 4,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP26_23] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* alu48isreg:  */

@@ -149,7 +149,7 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op20_16, 0);
       break;
     case VC4_OPERAND_ALU32COND :
-      print_keyword (cd, info, & vc4_cgen_opval_h_cond, fields->f_op26_23, 0);
+      print_keyword (cd, info, & vc4_cgen_opval_h_dotcond, fields->f_op26_23, 0);
       break;
     case VC4_OPERAND_ALU32DREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0, 0);

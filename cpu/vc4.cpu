@@ -124,6 +124,31 @@
      ("f" 15)))
 )
 
+; Same as above, but with a dot (except for "always" which is still blank).
+
+(define-hardware
+  (name h-dotcond)
+  (comment "Condition codes")
+  (type immediate UQI)
+  (values keyword ""
+    ((".eq" 0)
+     (".ne" 1)
+     (".cs" 2) (".lo" 2)
+     (".cc" 3) (".hs" 3)
+     (".mi" 4)
+     (".pl" 5)
+     (".vs" 6)
+     (".vc" 7)
+     (".hi" 8)
+     (".ls" 9)
+     (".ge" 10)
+     (".lt" 11)
+     (".gt" 12)
+     (".le" 13)
+     ("" 14)
+     (".f" 15)))
+)
+
 (define-hardware
   (name h-accsz)
   (comment "Access size")
@@ -687,7 +712,7 @@
 (define-normal-operand
   alu32cond
   "" ()
-  h-cond
+  h-dotcond
   f-op26-23
 )
 
