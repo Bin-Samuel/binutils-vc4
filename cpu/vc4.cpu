@@ -1066,23 +1066,23 @@
   () ()
 )
 
-(define-pmacro (pushrnbase x-base x-lr x-op11-8)
+(define-pmacro (pushrnbase x-base x-basename x-lr x-op11-8)
   (define-normal-insn
     (.sym pushrnrm x-base x-lr) (.str "PUSHR" x-base "RM") ()
-    (.str "push r" x-base "-$ppendreg" x-base x-lr)
+    (.str "push " x-basename "-$ppendreg" x-base x-lr)
     (+ OPLEN_0 x-op11-8 OP7_1 (.sym OP6_5_ x-base) (.sym ppendreg x-base))
     () ())
 )
 
-(pushrnbase 0 "" OP11_8_2)
-(pushrnbase 6 "" OP11_8_2)
-(pushrnbase 16 "" OP11_8_2)
-(pushrnbase 24 "" OP11_8_2)
+(pushrnbase 0  "r0"  "" OP11_8_2)
+(pushrnbase 6  "r6"  "" OP11_8_2)
+(pushrnbase 16 "r16" "" OP11_8_2)
+(pushrnbase 24 "gp"  "" OP11_8_2)
 
-(pushrnbase 0 ",lr" OP11_8_3)
-(pushrnbase 6 ",lr" OP11_8_3)
-(pushrnbase 16 ",lr" OP11_8_3)
-(pushrnbase 24 ",lr" OP11_8_3)
+(pushrnbase 0  "r0"  ",lr" OP11_8_3)
+(pushrnbase 6  "r6"  ",lr" OP11_8_3)
+(pushrnbase 16 "r16" ",lr" OP11_8_3)
+(pushrnbase 24 "gp"  ",lr" OP11_8_3)
 
 (define-normal-macro-insn
   pushlr "PUSHLR" ()
@@ -1116,23 +1116,23 @@
   () ()
 )
 
-(define-pmacro (poprnbase x-base x-lr x-op11-8)
+(define-pmacro (poprnbase x-base x-basename x-lr x-op11-8)
   (define-normal-insn
     (.sym poprnrm x-base x-lr) (.str "POPR" x-base "RM") ()
-    (.str "pop r" x-base "-$ppendreg" x-base x-lr)
+    (.str "pop " x-basename "-$ppendreg" x-base x-lr)
     (+ OPLEN_0 x-op11-8 OP7_0 (.sym OP6_5_ x-base) (.sym ppendreg x-base))
     () ())
 )
 
-(poprnbase 0 "" OP11_8_2)
-(poprnbase 6 "" OP11_8_2)
-(poprnbase 16 "" OP11_8_2)
-(poprnbase 24 "" OP11_8_2)
+(poprnbase 0  "r0"  "" OP11_8_2)
+(poprnbase 6  "r6"  "" OP11_8_2)
+(poprnbase 16 "r16" "" OP11_8_2)
+(poprnbase 24 "gp"  "" OP11_8_2)
 
-(poprnbase 0 ",pc" OP11_8_3)
-(poprnbase 6 ",pc" OP11_8_3)
-(poprnbase 16 ",pc" OP11_8_3)
-(poprnbase 24 ",pc" OP11_8_3)
+(poprnbase 0  "r0"  ",pc" OP11_8_3)
+(poprnbase 6  "r6"  ",pc" OP11_8_3)
+(poprnbase 16 "r16" ",pc" OP11_8_3)
+(poprnbase 24 "gp"  ",pc" OP11_8_3)
 
 (define-normal-macro-insn
   poppc "POPPC" ()
@@ -1152,16 +1152,10 @@
   (emit ldpostinc (alu32cond 14) alu32dreg (alu32areg 25))
 )
 
-;(define-pmacro (expandldst x-macro)
-;  (x-macro "ld")
-;  (x-macro "st")
-;  (x-macro "ldh")
-;  (x-macro "sth")
-;  (x-macro "ldb")
-;  (x-macro "stb")
-;  (x-macro "ldsh")
-;  (x-macro "ldsb")
-;)
+(define-pmacro (expandldst x-macro)
+  (.for-each (.pmacro (n) (.exec (x-macro n)))
+             ("ld" "st" "ldh" "sth" "ldb" "stb" "ldsh" "ldsb"))
+)
 
 (define-pmacro (ldstindop x-access)
   (define-normal-insn
@@ -1171,14 +1165,18 @@
     () ())
 )
 
-(ldstindop "ld")
-(ldstindop "st")
-(ldstindop "ldh")
-(ldstindop "sth")
-(ldstindop "ldb")
-(ldstindop "stb")
-(ldstindop "ldsh")
-(ldstindop "ldsb")
+(expandldst ldstindop)
+
+; LDIND/STIND with no suffixes.
+
+(define-pmacro (ldstindopnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access ind_nosuf) (.upcase (.str x-access "IND_NOSUF")) ()
+    (.str x-access " $alu16dreg,($alu16sreg)")
+    (emit (.sym x-access ind) alu16dreg alu16sreg))
+)
+
+(expandldst ldstindopnsf)
 
 (define-normal-insn
   ldoff "LDOFF" ()
@@ -1187,17 +1185,17 @@
   () ()
 )
 
-(define-normal-macro-insn
-  ldoff_nosuf "LDOFF_NOSUF" ()
-  "ld $alu16dreg,($alu16sreg+$ldstoff)"
-  (emit ldoff alu16dreg ldstoff alu16sreg)
-)
-
 (define-normal-insn
   stoff "STOFF" ()
   "st.s $alu16dreg,($alu16sreg+$ldstoff)"
   (+ OPLEN_3 ldstoff alu16sreg alu16dreg)
   () ()
+)
+
+(define-normal-macro-insn
+  ldoff_nosuf "LDOFF_NOSUF" ()
+  "ld $alu16dreg,($alu16sreg+$ldstoff)"
+  (emit ldoff alu16dreg ldstoff alu16sreg)
 )
 
 (define-normal-macro-insn
@@ -1241,14 +1239,7 @@
     () ())
 )
 
-(ldstoff12op "ld")
-(ldstoff12op "st")
-(ldstoff12op "ldh")
-(ldstoff12op "sth")
-(ldstoff12op "ldb")
-(ldstoff12op "stb")
-(ldstoff12op "ldsh")
-(ldstoff12op "ldsb")
+(expandldst ldstoff12op)
 
 (define-pmacro (ldstoff12opnsf x-access)
   (define-normal-macro-insn
@@ -1257,32 +1248,7 @@
     (emit (.sym x-access off12) alu32dreg alu32areg offset12))
 )
 
-(ldstoff12opnsf "ld")
-(ldstoff12opnsf "st")
-(ldstoff12opnsf "ldh")
-(ldstoff12opnsf "sth")
-(ldstoff12opnsf "ldb")
-(ldstoff12opnsf "stb")
-(ldstoff12opnsf "ldsh")
-(ldstoff12opnsf "ldsb")
-
-; LDIND/STIND with no suffixes.
-
-(define-pmacro (ldstindopnsf x-access)
-  (define-normal-macro-insn
-    (.sym x-access ind_nosuf) (.upcase (.str x-access "IND_NOSUF")) ()
-    (.str x-access " $alu16dreg,($alu16sreg)")
-    (emit (.sym x-access ind) alu16dreg alu16sreg))
-)
-
-(ldstindopnsf "ld")
-(ldstindopnsf "st")
-(ldstindopnsf "ldh")
-(ldstindopnsf "sth")
-(ldstindopnsf "ldb")
-(ldstindopnsf "stb")
-(ldstindopnsf "ldsh")
-(ldstindopnsf "ldsb")
+(expandldst ldstoff12opnsf)
 
 ; Special cases of LDOFF12/STOFF12 for zero offsets.
 
@@ -1293,14 +1259,7 @@
     (emit (.sym x-access off12) alu32dreg alu32areg (offset12 0)))
 )
 
-(ldstoffzeroop "ld")
-(ldstoffzeroop "st")
-(ldstoffzeroop "ldh")
-(ldstoffzeroop "sth")
-(ldstoffzeroop "ldb")
-(ldstoffzeroop "stb")
-(ldstoffzeroop "ldsh")
-(ldstoffzeroop "ldsb")
+(expandldst ldstoffzeroop)
 
 (define-pmacro (ldstoff16op x-access)
   (define-normal-insn
@@ -1311,14 +1270,7 @@
     () ())
 )
 
-(ldstoff16op "ld")
-(ldstoff16op "st")
-(ldstoff16op "ldh")
-(ldstoff16op "sth")
-(ldstoff16op "ldb")
-(ldstoff16op "stb")
-(ldstoff16op "ldsh")
-(ldstoff16op "ldsb")
+(expandldst ldstoff16op)
 
 (define-pmacro (ldstoff16opnsf x-access)
   (define-normal-macro-insn
@@ -1327,14 +1279,7 @@
     (emit (.sym x-access off16) alu32dreg off16basereg offset16))
 )
 
-(ldstoff16opnsf "ld")
-(ldstoff16opnsf "st")
-(ldstoff16opnsf "ldh")
-(ldstoff16opnsf "sth")
-(ldstoff16opnsf "ldb")
-(ldstoff16opnsf "stb")
-(ldstoff16opnsf "ldsh")
-(ldstoff16opnsf "ldsb")
+(expandldst ldstoff16opnsf)
 
 (define-pmacro (ldstcndidx x-access x-shift)
   (define-normal-insn
@@ -1365,15 +1310,7 @@
     () ())
 )
 
-(ldstcnddisp "ld")
-(ldstcnddisp "ldh")
-(ldstcnddisp "ldb")
-(ldstcnddisp "ldsh")
-
-(ldstcnddisp "st")
-(ldstcnddisp "sth")
-(ldstcnddisp "stb")
-(ldstcnddisp "ldsb")
+(expandldst ldstcnddisp)
 
 (define-pmacro (ldstincdec x-name x-access x-bits11-8 x-pre x-post)
   (define-normal-insn
@@ -2229,14 +2166,7 @@
     () ())
 )
 
-(ldstpcrel27op "ld")
-(ldstpcrel27op "st")
-(ldstpcrel27op "ldh")
-(ldstpcrel27op "sth")
-(ldstpcrel27op "ldb")
-(ldstpcrel27op "stb")
-(ldstpcrel27op "ldsh")
-(ldstpcrel27op "ldsb")
+(expandldst ldstpcrel27op)
 
 (define-pmacro (ldstoff27op x-access)
   (define-normal-insn
@@ -2247,14 +2177,7 @@
     () ())
 )
 
-(ldstoff27op "ld")
-(ldstoff27op "st")
-(ldstoff27op "ldh")
-(ldstoff27op "sth")
-(ldstoff27op "ldb")
-(ldstoff27op "stb")
-(ldstoff27op "ldsh")
-(ldstoff27op "ldsb")
+(expandldst ldstoff27op)
 
 (define-pmacro (ldstoff27opnsf x-access)
   (define-normal-macro-insn
@@ -2263,14 +2186,7 @@
     (emit (.sym x-access off27) alu48idreg mem48sreg mem48offset27))
 )
 
-(ldstoff27opnsf "ld")
-(ldstoff27opnsf "st")
-(ldstoff27opnsf "ldh")
-(ldstoff27opnsf "sth")
-(ldstoff27opnsf "ldb")
-(ldstoff27opnsf "stb")
-(ldstoff27opnsf "ldsh")
-(ldstoff27opnsf "ldsb")
+(expandldst ldstoff27opnsf)
 
 (define-normal-insn
   add48i "ADD48I" ()

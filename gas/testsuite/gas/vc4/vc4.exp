@@ -17,4 +17,5 @@ if [istarget vc4-*-*] then {
     run_dump_test "cmpreg"
     run_dump_test "shift-aliases"
     run_dump_test "conditional"
+    run_dump_test "load_store"
 }

@@ -12,16 +12,16 @@ Disassembly of section \.text:
    6:	20 03       	pop r6,pc
    8:	80 02       	push r0
    a:	c0 02       	push r16
-   c:	e0 02       	push r24
+   c:	e0 02       	push gp
    e:	00 02       	pop r0
   10:	40 02       	pop r16
-  12:	60 02       	pop r24
+  12:	60 02       	pop gp
   14:	80 03       	push r0,lr
   16:	c0 03       	push r16,lr
-  18:	e0 03       	push r24,lr
+  18:	e0 03       	push gp,lr
   1a:	00 03       	pop r0,pc
   1c:	40 03       	pop r16,pc
-  1e:	60 03       	pop r24,pc
+  1e:	60 03       	pop gp,pc
   20:	bf 02       	push r6-r5
   22:	a0 02       	push r6
   24:	a1 02       	push r6-r7
@@ -82,26 +82,26 @@ Disassembly of section \.text:
   92:	57 03       	pop r16-r7,pc
   94:	50 03       	pop r16-r0,pc
   96:	4f 03       	pop r16-pc,pc
-  98:	ed 02       	push r24-r5
-  9a:	ee 02       	push r24-r6
-  9c:	ef 02       	push r24-r7
-  9e:	e8 02       	push r24-r0
-  a0:	e7 02       	push r24-pc
-  a2:	ed 03       	push r24-r5,lr
-  a4:	ee 03       	push r24-r6,lr
+  98:	ed 02       	push gp-r5
+  9a:	ee 02       	push gp-r6
+  9c:	ef 02       	push gp-r7
+  9e:	e8 02       	push gp-r0
+  a0:	e7 02       	push gp-pc
+  a2:	ed 03       	push gp-r5,lr
+  a4:	ee 03       	push gp-r6,lr
   a6:	ef 03       	push lr
-  a8:	e8 03       	push r24-r0,lr
-  aa:	e7 03       	push r24-pc,lr
-  ac:	6d 02       	pop r24-r5
-  ae:	6e 02       	pop r24-r6
-  b0:	6f 02       	pop r24-r7
-  b2:	68 02       	pop r24-r0
-  b4:	67 02       	pop r24-pc
-  b6:	6d 03       	pop r24-r5,pc
-  b8:	6e 03       	pop r24-r6,pc
+  a8:	e8 03       	push gp-r0,lr
+  aa:	e7 03       	push gp-pc,lr
+  ac:	6d 02       	pop gp-r5
+  ae:	6e 02       	pop gp-r6
+  b0:	6f 02       	pop gp-r7
+  b2:	68 02       	pop gp-r0
+  b4:	67 02       	pop gp-pc
+  b6:	6d 03       	pop gp-r5,pc
+  b8:	6e 03       	pop gp-r6,pc
   ba:	6f 03       	pop pc
-  bc:	68 03       	pop r24-r0,pc
-  be:	67 03       	pop r24-pc,pc
+  bc:	68 03       	pop gp-r0,pc
+  be:	67 03       	pop gp-pc,pc
   c0:	21 a4 00 cf 	push r1
   c4:	23 a4 00 cf 	push r3
   c8:	02 a5 00 cf 	pop r2

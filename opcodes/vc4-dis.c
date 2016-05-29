@@ -70,7 +70,7 @@ static int read_insn
 	        int length ATTRIBUTE_UNUSED)                    \
   {                                                             \
     disassemble_info *info = (disassemble_info *) dis_info;     \
-    (*info->fprintf_func) (info->stream, " << " #N);            \
+    (*info->fprintf_func) (info->stream, "<<" #N);              \
   }
 
 PRINT_SHLN(1)

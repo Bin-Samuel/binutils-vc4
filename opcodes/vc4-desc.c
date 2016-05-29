@@ -837,7 +837,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_PUSHRNRM16, "pushrnrm16", "push", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r24-$ppendreg24 */
+/* push gp-$ppendreg24 */
   {
     VC4_INSN_PUSHRNRM24, "pushrnrm24", "push", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
@@ -857,7 +857,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_PUSHRNRM16_LR, "pushrnrm16,lr", "push", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r24-$ppendreg24,lr */
+/* push gp-$ppendreg24,lr */
   {
     VC4_INSN_PUSHRNRM24_LR, "pushrnrm24,lr", "push", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
@@ -887,7 +887,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_POPRNRM16, "poprnrm16", "pop", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r24-$ppendreg24 */
+/* pop gp-$ppendreg24 */
   {
     VC4_INSN_POPRNRM24, "poprnrm24", "pop", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
@@ -907,7 +907,7 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_POPRNRM16_PC, "poprnrm16,pc", "pop", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r24-$ppendreg24,pc */
+/* pop gp-$ppendreg24,pc */
   {
     VC4_INSN_POPRNRM24_PC, "poprnrm24,pc", "pop", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
@@ -1097,24 +1097,14 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_LDCNDDISP, "ldcnddisp", "ld", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* ldh${alu32cond} $alu32dreg,($alu32areg+$disp5) */
-  {
-    VC4_INSN_LDHCNDDISP, "ldhcnddisp", "ldh", 32,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* ldb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
-  {
-    VC4_INSN_LDBCNDDISP, "ldbcnddisp", "ldb", 32,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* ldsh${alu32cond} $alu32dreg,($alu32areg+$disp5) */
-  {
-    VC4_INSN_LDSHCNDDISP, "ldshcnddisp", "ldsh", 32,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* st${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     VC4_INSN_STCNDDISP, "stcnddisp", "st", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldh${alu32cond} $alu32dreg,($alu32areg+$disp5) */
+  {
+    VC4_INSN_LDHCNDDISP, "ldhcnddisp", "ldh", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* sth${alu32cond} $alu32dreg,($alu32areg+$disp5) */
@@ -1122,9 +1112,19 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_STHCNDDISP, "sthcnddisp", "sth", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* ldb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
+  {
+    VC4_INSN_LDBCNDDISP, "ldbcnddisp", "ldb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* stb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
   {
     VC4_INSN_STBCNDDISP, "stbcnddisp", "stb", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* ldsh${alu32cond} $alu32dreg,($alu32areg+$disp5) */
+  {
+    VC4_INSN_LDSHCNDDISP, "ldshcnddisp", "ldsh", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ldsb${alu32cond} $alu32dreg,($alu32areg+$disp5) */
