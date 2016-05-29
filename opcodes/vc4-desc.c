@@ -802,9 +802,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_TBH, "tbh", "tbh", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* mov.s $alu32dreg,cpuid */
+/* version $alu32dreg */
   {
-    VC4_INSN_MOVCPUID, "movcpuid", "mov.s", 16,
+    VC4_INSN_MOVCPUID, "movcpuid", "version", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* swi $swi_imm */

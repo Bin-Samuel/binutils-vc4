@@ -29,4 +29,4 @@ Disassembly of section \.text:
   28:	7f 00       	bl pc
   2a:	82 00       	tbb r2
   2c:	a3 00       	tbh r3
-  2e:	e5 00       	mov r5,cpuid
+  2e:	e5 00       	version r5

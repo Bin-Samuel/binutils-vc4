@@ -1034,15 +1034,9 @@
 
 (define-normal-insn
   movcpuid "MOVCPUID" ()
-  "mov.s $alu32dreg,cpuid"
+  "version $alu32dreg"
   (+ OPLEN_0 OP11_8_0 OP7_5_7 alu32dreg)
   () ()
-)
-
-(define-normal-macro-insn
-  movcpuid_nosuf "MOVCPUID_NOSUF" ()
-  "mov $alu32dreg,cpuid"
-  (emit movcpuid alu32dreg)
 )
 
 (define-normal-insn

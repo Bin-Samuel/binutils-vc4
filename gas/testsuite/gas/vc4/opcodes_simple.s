@@ -29,5 +29,5 @@
 	tbb	r2
 	tbh	r3
 
-	mov	r5, cpuid
+	version	r5
 
