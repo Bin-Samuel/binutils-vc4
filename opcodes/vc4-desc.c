@@ -812,104 +812,104 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_SWIIMM, "swiimm", "swi", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push.s $ppstartreg */
+/* stm.s $ppstartreg,(--sp) */
   {
-    VC4_INSN_PUSHRN, "pushrn", "push.s", 16,
+    VC4_INSN_PUSHRN, "pushrn", "stm.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push $ppstartreg,lr */
+/* stm $ppstartreg,lr,(--sp) */
   {
-    VC4_INSN_PUSHRNLR, "pushrnlr", "push", 16,
+    VC4_INSN_PUSHRNLR, "pushrnlr", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r0-$ppendreg0 */
+/* stm r0-$ppendreg0,(--sp) */
   {
-    VC4_INSN_PUSHRNRM0, "pushrnrm0", "push", 16,
+    VC4_INSN_PUSHRNRM0, "pushrnrm0", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r6-$ppendreg6 */
+/* stm r6-$ppendreg6,(--sp) */
   {
-    VC4_INSN_PUSHRNRM6, "pushrnrm6", "push", 16,
+    VC4_INSN_PUSHRNRM6, "pushrnrm6", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r16-$ppendreg16 */
+/* stm r16-$ppendreg16,(--sp) */
   {
-    VC4_INSN_PUSHRNRM16, "pushrnrm16", "push", 16,
+    VC4_INSN_PUSHRNRM16, "pushrnrm16", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push gp-$ppendreg24 */
+/* stm gp-$ppendreg24,(--sp) */
   {
-    VC4_INSN_PUSHRNRM24, "pushrnrm24", "push", 16,
+    VC4_INSN_PUSHRNRM24, "pushrnrm24", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r0-$ppendreg0,lr */
+/* stm r0-$ppendreg0,lr,(--sp) */
   {
-    VC4_INSN_PUSHRNRM0_LR, "pushrnrm0,lr", "push", 16,
+    VC4_INSN_PUSHRNRM0_LR, "pushrnrm0,lr", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r6-$ppendreg6,lr */
+/* stm r6-$ppendreg6,lr,(--sp) */
   {
-    VC4_INSN_PUSHRNRM6_LR, "pushrnrm6,lr", "push", 16,
+    VC4_INSN_PUSHRNRM6_LR, "pushrnrm6,lr", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push r16-$ppendreg16,lr */
+/* stm r16-$ppendreg16,lr,(--sp) */
   {
-    VC4_INSN_PUSHRNRM16_LR, "pushrnrm16,lr", "push", 16,
+    VC4_INSN_PUSHRNRM16_LR, "pushrnrm16,lr", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push gp-$ppendreg24,lr */
+/* stm gp-$ppendreg24,lr,(--sp) */
   {
-    VC4_INSN_PUSHRNRM24_LR, "pushrnrm24,lr", "push", 16,
+    VC4_INSN_PUSHRNRM24_LR, "pushrnrm24,lr", "stm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop.s $ppstartreg */
+/* ldm.s $ppstartreg,(sp++) */
   {
-    VC4_INSN_POPRN, "poprn", "pop.s", 16,
+    VC4_INSN_POPRN, "poprn", "ldm.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop $ppstartreg,pc */
+/* ldm $ppstartreg,pc,(sp++) */
   {
-    VC4_INSN_POPRNPC, "poprnpc", "pop", 16,
+    VC4_INSN_POPRNPC, "poprnpc", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r0-$ppendreg0 */
+/* ldm r0-$ppendreg0,(sp++) */
   {
-    VC4_INSN_POPRNRM0, "poprnrm0", "pop", 16,
+    VC4_INSN_POPRNRM0, "poprnrm0", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r6-$ppendreg6 */
+/* ldm r6-$ppendreg6,(sp++) */
   {
-    VC4_INSN_POPRNRM6, "poprnrm6", "pop", 16,
+    VC4_INSN_POPRNRM6, "poprnrm6", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r16-$ppendreg16 */
+/* ldm r16-$ppendreg16,(sp++) */
   {
-    VC4_INSN_POPRNRM16, "poprnrm16", "pop", 16,
+    VC4_INSN_POPRNRM16, "poprnrm16", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop gp-$ppendreg24 */
+/* ldm gp-$ppendreg24,(sp++) */
   {
-    VC4_INSN_POPRNRM24, "poprnrm24", "pop", 16,
+    VC4_INSN_POPRNRM24, "poprnrm24", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r0-$ppendreg0,pc */
+/* ldm r0-$ppendreg0,pc,(sp++) */
   {
-    VC4_INSN_POPRNRM0_PC, "poprnrm0,pc", "pop", 16,
+    VC4_INSN_POPRNRM0_PC, "poprnrm0,pc", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r6-$ppendreg6,pc */
+/* ldm r6-$ppendreg6,pc,(sp++) */
   {
-    VC4_INSN_POPRNRM6_PC, "poprnrm6,pc", "pop", 16,
+    VC4_INSN_POPRNRM6_PC, "poprnrm6,pc", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop r16-$ppendreg16,pc */
+/* ldm r16-$ppendreg16,pc,(sp++) */
   {
-    VC4_INSN_POPRNRM16_PC, "poprnrm16,pc", "pop", 16,
+    VC4_INSN_POPRNRM16_PC, "poprnrm16,pc", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop gp-$ppendreg24,pc */
+/* ldm gp-$ppendreg24,pc,(sp++) */
   {
-    VC4_INSN_POPRNRM24_PC, "poprnrm24,pc", "pop", 16,
+    VC4_INSN_POPRNRM24_PC, "poprnrm24,pc", "ldm", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ld.s $alu16dreg,($alu16sreg) */

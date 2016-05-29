@@ -422,124 +422,124 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (SWI_IMM), 0 } },
     & ifmt_swiimm, { 0x1c0 }
   },
-/* push.s $ppstartreg */
+/* stm.s $ppstartreg,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (PPSTARTREG), 0 } },
+    { { MNEM, ' ', OP (PPSTARTREG), ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrn, { 0x280 }
   },
-/* push $ppstartreg,lr */
+/* stm $ppstartreg,lr,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (PPSTARTREG), ',', 'l', 'r', 0 } },
+    { { MNEM, ' ', OP (PPSTARTREG), ',', 'l', 'r', ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrn, { 0x380 }
   },
-/* push r0-$ppendreg0 */
+/* stm r0-$ppendreg0,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), 0 } },
+    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm0, { 0x280 }
   },
-/* push r6-$ppendreg6 */
+/* stm r6-$ppendreg6,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), 0 } },
+    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm6, { 0x2a0 }
   },
-/* push r16-$ppendreg16 */
+/* stm r16-$ppendreg16,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), 0 } },
+    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm16, { 0x2c0 }
   },
-/* push gp-$ppendreg24 */
+/* stm gp-$ppendreg24,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), 0 } },
+    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm24, { 0x2e0 }
   },
-/* push r0-$ppendreg0,lr */
+/* stm r0-$ppendreg0,lr,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), ',', 'l', 'r', 0 } },
+    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), ',', 'l', 'r', ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm0, { 0x380 }
   },
-/* push r6-$ppendreg6,lr */
+/* stm r6-$ppendreg6,lr,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), ',', 'l', 'r', 0 } },
+    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), ',', 'l', 'r', ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm6, { 0x3a0 }
   },
-/* push r16-$ppendreg16,lr */
+/* stm r16-$ppendreg16,lr,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), ',', 'l', 'r', 0 } },
+    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), ',', 'l', 'r', ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm16, { 0x3c0 }
   },
-/* push gp-$ppendreg24,lr */
+/* stm gp-$ppendreg24,lr,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), ',', 'l', 'r', 0 } },
+    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), ',', 'l', 'r', ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrnrm24, { 0x3e0 }
   },
-/* pop.s $ppstartreg */
+/* ldm.s $ppstartreg,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (PPSTARTREG), 0 } },
+    { { MNEM, ' ', OP (PPSTARTREG), ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrn, { 0x200 }
   },
-/* pop $ppstartreg,pc */
+/* ldm $ppstartreg,pc,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (PPSTARTREG), ',', 'p', 'c', 0 } },
+    { { MNEM, ' ', OP (PPSTARTREG), ',', 'p', 'c', ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrn, { 0x300 }
   },
-/* pop r0-$ppendreg0 */
+/* ldm r0-$ppendreg0,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), 0 } },
+    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm0, { 0x200 }
   },
-/* pop r6-$ppendreg6 */
+/* ldm r6-$ppendreg6,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), 0 } },
+    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm6, { 0x220 }
   },
-/* pop r16-$ppendreg16 */
+/* ldm r16-$ppendreg16,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), 0 } },
+    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm16, { 0x240 }
   },
-/* pop gp-$ppendreg24 */
+/* ldm gp-$ppendreg24,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), 0 } },
+    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm24, { 0x260 }
   },
-/* pop r0-$ppendreg0,pc */
+/* ldm r0-$ppendreg0,pc,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), ',', 'p', 'c', 0 } },
+    { { MNEM, ' ', 'r', '0', '-', OP (PPENDREG0), ',', 'p', 'c', ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm0, { 0x300 }
   },
-/* pop r6-$ppendreg6,pc */
+/* ldm r6-$ppendreg6,pc,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), ',', 'p', 'c', 0 } },
+    { { MNEM, ' ', 'r', '6', '-', OP (PPENDREG6), ',', 'p', 'c', ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm6, { 0x320 }
   },
-/* pop r16-$ppendreg16,pc */
+/* ldm r16-$ppendreg16,pc,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), ',', 'p', 'c', 0 } },
+    { { MNEM, ' ', 'r', '1', '6', '-', OP (PPENDREG16), ',', 'p', 'c', ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm16, { 0x340 }
   },
-/* pop gp-$ppendreg24,pc */
+/* ldm gp-$ppendreg24,pc,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), ',', 'p', 'c', 0 } },
+    { { MNEM, ' ', 'g', 'p', '-', OP (PPENDREG24), ',', 'p', 'c', ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_pushrnrm24, { 0x360 }
   },
 /* ld.s $alu16dreg,($alu16sreg) */
@@ -2604,20 +2604,12 @@ static const CGEN_IFMT ifmt_pushrn_nosuf ATTRIBUTE_UNUSED = {
   16, 16, 0xff9f, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7) }, { F (F_OP6_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
-static const CGEN_IFMT ifmt_pushst ATTRIBUTE_UNUSED = {
-  16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { F (F_OP31_27) }, { F (F_OP26_23) }, { F (F_OP22_21) }, { F (F_OP20_16) }, { 0 } }
-};
-
 static const CGEN_IFMT ifmt_poppc ATTRIBUTE_UNUSED = {
   16, 16, 0xffff, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7) }, { F (F_OP6_5) }, { F (F_OP4_0_BASE_24) }, { 0 } }
 };
 
-static const CGEN_IFMT ifmt_popld_nosuf ATTRIBUTE_UNUSED = {
+static const CGEN_IFMT ifmt_poprn_nosuf ATTRIBUTE_UNUSED = {
   16, 16, 0xff9f, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7) }, { F (F_OP6_5) }, { F (F_OP4_0) }, { 0 } }
-};
-
-static const CGEN_IFMT ifmt_popld ATTRIBUTE_UNUSED = {
-  16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { F (F_OP31_27) }, { F (F_OP26_23) }, { F (F_OP22_21) }, { F (F_OP20_16) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_ldind_nosuf ATTRIBUTE_UNUSED = {
@@ -3462,34 +3454,24 @@ static const CGEN_IBASE vc4_cgen_macro_insn_table[] =
     -1, "breg_nosuf", "b", 16,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push lr */
+/* stm lr,(--sp) */
   {
-    -1, "pushlr", "push", 16,
+    -1, "pushlr", "stm", 16,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push $ppstartreg */
+/* stm $ppstartreg,(--sp) */
   {
-    -1, "pushrn_nosuf", "push", 16,
+    -1, "pushrn_nosuf", "stm", 16,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
-/* push $alu32dreg */
+/* ldm pc,(sp++) */
   {
-    -1, "pushst", "push", 32,
+    -1, "poppc", "ldm", 16,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
-/* pop pc */
+/* ldm $ppstartreg,(sp++) */
   {
-    -1, "poppc", "pop", 16,
-    { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* pop $ppstartreg */
-  {
-    -1, "popld_nosuf", "pop", 16,
-    { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* pop $alu32dreg */
-  {
-    -1, "popld", "pop", 32,
+    -1, "poprn_nosuf", "ldm", 16,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ld $alu16dreg,($alu16sreg) */
@@ -4534,41 +4516,29 @@ static const CGEN_OPCODE vc4_cgen_macro_insn_opcode_table[] =
     { { MNEM, ' ', OP (ALU32DREG), 0 } },
     & ifmt_breg_nosuf, { 0x40 }
   },
-/* push lr */
+/* stm lr,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'l', 'r', 0 } },
+    { { MNEM, ' ', 'l', 'r', ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushlr, { 0x3ef }
   },
-/* push $ppstartreg */
+/* stm $ppstartreg,(--sp) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (PPSTARTREG), 0 } },
+    { { MNEM, ' ', OP (PPSTARTREG), ',', '(', '-', '-', 's', 'p', ')', 0 } },
     & ifmt_pushrn_nosuf, { 0x280 }
   },
-/* push $alu32dreg */
+/* ldm pc,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (ALU32DREG), 0 } },
-    & ifmt_pushst, { 0xa420, { 0xcf00 }, { 0xffff } }
-  },
-/* pop pc */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', 'p', 'c', 0 } },
+    { { MNEM, ' ', 'p', 'c', ',', '(', 's', 'p', '+', '+', ')', 0 } },
     & ifmt_poppc, { 0x36f }
   },
-/* pop $ppstartreg */
+/* ldm $ppstartreg,(sp++) */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (PPSTARTREG), 0 } },
-    & ifmt_popld_nosuf, { 0x200 }
-  },
-/* pop $alu32dreg */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (ALU32DREG), 0 } },
-    & ifmt_popld, { 0xa500, { 0xcf00 }, { 0xffff } }
+    { { MNEM, ' ', OP (PPSTARTREG), ',', '(', 's', 'p', '+', '+', ')', 0 } },
+    & ifmt_poprn_nosuf, { 0x200 }
   },
 /* ld $alu16dreg,($alu16sreg) */
   {

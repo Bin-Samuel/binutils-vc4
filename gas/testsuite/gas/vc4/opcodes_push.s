@@ -2,114 +2,116 @@
 
 	.text
 
-	push	r6
-	pop	r6
-	push	r6, lr
-	pop	r6, pc
-	push	r0
-	push	r16
-	push	gp
-	pop	r0
-	pop	r16
-	pop	gp
-	push	r0, lr
-	push	r16, lr
-	push	gp, lr
-	pop	r0, pc
-	pop	r16, pc
-	pop	gp, pc
+	stm	r6, (--sp)
+	ldm	r6, (sp++)
+	stm	r6, lr, (--sp)
+	ldm	r6, pc, (sp++)
+	stm	r0, (--sp)
+	stm	r16, (--sp)
+	stm	gp, (--sp)
+	ldm	r0, (sp++)
+	ldm	r16, (sp++)
+	ldm	gp, (sp++)
+	stm	r0, lr, (--sp)
+	stm	r16, lr, (--sp)
+	stm	gp, lr, (--sp)
+	ldm	r0, pc, (sp++)
+	ldm	r16, pc, (sp++)
+	ldm	gp, pc, (sp++)
 	
-	push	r6-r5
-	push	r6-r6
-	push	r6-r7
-	push	r6-r0
-	push	r6-pc
-	push	r6-r5, lr
-	push	r6-r6, lr
-	push	r6-r7, lr
-	push	r6-r0, lr
-	push	r6-pc, lr
+	stm	r6-r5, (--sp)
+	stm	r6-r6, (--sp)
+	stm	r6-r7, (--sp)
+	stm	r6-r0, (--sp)
+	stm	r6-pc, (--sp)
+	stm	r6-r5, lr, (--sp)
+	stm	r6-r6, lr, (--sp)
+	stm	r6-r7, lr, (--sp)
+	stm	r6-r0, lr, (--sp)
+	stm	r6-pc, lr, (--sp)
 	
-	pop	r6-r5
-	pop	r6-r6
-	pop	r6-r7
-	pop	r6-r0
-	pop	r6-pc
-	pop	r6-r5, pc
-	pop	r6-r6, pc
-	pop	r6-r7, pc
-	pop	r6-r0, pc
-	pop	r6-pc, pc
+	ldm	r6-r5, (sp++)
+	ldm	r6-r6, (sp++)
+	ldm	r6-r7, (sp++)
+	ldm	r6-r0, (sp++)
+	ldm	r6-pc, (sp++)
+	ldm	r6-r5, pc, (sp++)
+	ldm	r6-r6, pc, (sp++)
+	ldm	r6-r7, pc, (sp++)
+	ldm	r6-r0, pc, (sp++)
+	ldm	r6-pc, pc, (sp++)
 
-	push	r0-r5
-	push	r0-r6
-	push	r0-r7
-	push	r0-r0
-	push	r0-pc
-	push	r0-r5, lr
-	push	r0-r6, lr
-	push	r0-r7, lr
-	push	r0-r0, lr
-	push	r0-pc, lr
+	stm	r0-r5, (--sp)
+	stm	r0-r6, (--sp)
+	stm	r0-r7, (--sp)
+	stm	r0-r0, (--sp)
+	stm	r0-pc, (--sp)
+	stm	r0-r5, lr, (--sp)
+	stm	r0-r6, lr, (--sp)
+	stm	r0-r7, lr, (--sp)
+	stm	r0-r0, lr, (--sp)
+	stm	r0-pc, lr, (--sp)
 	
-	pop	r0-r5
-	pop	r0-r6
-	pop	r0-r7
-	pop	r0-r0
-	pop	r0-pc
-	pop	r0-r5, pc
-	pop	r0-r6, pc
-	pop	r0-r7, pc
-	pop	r0-r0, pc
-	pop	r0-pc, pc
+	ldm	r0-r5, (sp++)
+	ldm	r0-r6, (sp++)
+	ldm	r0-r7, (sp++)
+	ldm	r0-r0, (sp++)
+	ldm	r0-pc, (sp++)
+	ldm	r0-r5, pc, (sp++)
+	ldm	r0-r6, pc, (sp++)
+	ldm	r0-r7, pc, (sp++)
+	ldm	r0-r0, pc, (sp++)
+	ldm	r0-pc, pc, (sp++)
 
-	push	r16-r5
-	push	r16-r6
-	push	r16-r7
-	push	r16-r0
-	push	r16-pc
-	push	r16-r5, lr
-	push	r16-r6, lr
-	push	r16-r7, lr
-	push	r16-r0, lr
-	push	r16-pc, lr
+	stm	r16-r5, (--sp)
+	stm	r16-r6, (--sp)
+	stm	r16-r7, (--sp)
+	stm	r16-r0, (--sp)
+	stm	r16-pc, (--sp)
+	stm	r16-r5, lr, (--sp)
+	stm	r16-r6, lr, (--sp)
+	stm	r16-r7, lr, (--sp)
+	stm	r16-r0, lr, (--sp)
+	stm	r16-pc, lr, (--sp)
 	
-	pop	r16-r5
-	pop	r16-r6
-	pop	r16-r7
-	pop	r16-r0
-	pop	r16-pc
-	pop	r16-r5, pc
-	pop	r16-r6, pc
-	pop	r16-r7, pc
-	pop	r16-r0, pc
-	pop	r16-pc, pc
+	ldm	r16-r5, (sp++)
+	ldm	r16-r6, (sp++)
+	ldm	r16-r7, (sp++)
+	ldm	r16-r0, (sp++)
+	ldm	r16-pc, (sp++)
+	ldm	r16-r5, pc, (sp++)
+	ldm	r16-r6, pc, (sp++)
+	ldm	r16-r7, pc, (sp++)
+	ldm	r16-r0, pc, (sp++)
+	ldm	r16-pc, pc, (sp++)
 
-	push	gp-r5
-	push	gp-r6
-	push	gp-r7
-	push	gp-r0
-	push	gp-pc
-	push	gp-r5, lr
-	push	gp-r6, lr
-	push	gp-r7, lr
-	push	gp-r0, lr
-	push	gp-pc, lr
+	stm	gp-r5, (--sp)
+	stm	gp-r6, (--sp)
+	stm	gp-r7, (--sp)
+	stm	gp-r0, (--sp)
+	stm	gp-pc, (--sp)
+	stm	gp-r5, lr, (--sp)
+	stm	gp-r6, lr, (--sp)
+	stm	gp-r7, lr, (--sp)
+	stm	gp-r0, lr, (--sp)
+	stm	gp-pc, lr, (--sp)
 	
-	pop	gp-r5
-	pop	gp-r6
-	pop	gp-r7
-	pop	gp-r0
-	pop	gp-pc
-	pop	gp-r5, pc
-	pop	gp-r6, pc
-	pop	gp-r7, pc
-	pop	gp-r0, pc
-	pop	gp-pc, pc
+	ldm	gp-r5, (sp++)
+	ldm	gp-r6, (sp++)
+	ldm	gp-r7, (sp++)
+	ldm	gp-r0, (sp++)
+	ldm	gp-pc, (sp++)
+	ldm	gp-r5, pc, (sp++)
+	ldm	gp-r6, pc, (sp++)
+	ldm	gp-r7, pc, (sp++)
+	ldm	gp-r0, pc, (sp++)
+	ldm	gp-pc, pc, (sp++)
 
-	# These are really "st r1,(r25)--", "ld r1,(r25)++" (and are two words each!)
-	push	r1
-	push	r3
-	pop	r2
-	pop	r7
+	# These are really "st r1,(r25)--", "ld r1,(r25)++" (and are two
+        # words each!).  Actually we're not providing aliases for these any
+        # more.
+	st	r1, (--sp)
+	st	r3, (--sp)
+	ld	r2, (sp++)
+	ld	r7, (sp++)
 

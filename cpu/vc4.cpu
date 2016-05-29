@@ -1048,14 +1048,14 @@
 
 (define-normal-insn
   pushrn "PUSHRN" ()
-  "push.s $ppstartreg"
+  "stm.s $ppstartreg,(--sp)"
   (+ OPLEN_0 OP11_8_2 OP7_1 ppstartreg OP4_0_0)
   () ()
 )
 
 (define-normal-insn
   pushrnlr "PUSHRNLR" ()
-  "push $ppstartreg,lr"
+  "stm $ppstartreg,lr,(--sp)"
   (+ OPLEN_0 OP11_8_3 OP7_1 ppstartreg OP4_0_0)
   () ()
 )
@@ -1063,7 +1063,7 @@
 (define-pmacro (pushrnbase x-base x-basename x-lr x-op11-8)
   (define-normal-insn
     (.sym pushrnrm x-base x-lr) (.str "PUSHR" x-base "RM") ()
-    (.str "push " x-basename "-$ppendreg" x-base x-lr)
+    (.str "stm " x-basename "-$ppendreg" x-base x-lr ",(--sp)")
     (+ OPLEN_0 x-op11-8 OP7_1 (.sym OP6_5_ x-base) (.sym ppendreg x-base))
     () ())
 )
@@ -1080,32 +1080,32 @@
 
 (define-normal-macro-insn
   pushlr "PUSHLR" ()
-  "push lr"
+  "stm lr,(--sp)"
   (emit pushrnrm24,lr (ppendreg24 15))
 )
 
 (define-normal-macro-insn
   pushrn_nosuf "PUSHRN_NOSUF" ()
-  "push $ppstartreg"
+  "stm $ppstartreg,(--sp)"
   (emit pushrn ppstartreg)
 )
 
-(define-normal-macro-insn
-  pushst "PUSHST" ()
-  "push $alu32dreg"
-  (emit stpredec (alu32cond 14) alu32dreg (alu32areg 25))
-)
+;(define-normal-macro-insn
+;  pushst "PUSHST" ()
+;  "push $alu32dreg"
+;  (emit stpredec (alu32cond 14) alu32dreg (alu32areg 25))
+;)
 
 (define-normal-insn
   poprn "POPRN" ()
-  "pop.s $ppstartreg"
+  "ldm.s $ppstartreg,(sp++)"
   (+ OPLEN_0 OP11_8_2 OP7_0 ppstartreg OP4_0_0)
   () ()
 )
 
 (define-normal-insn
   poprnpc "POPRNPC" ()
-  "pop $ppstartreg,pc"
+  "ldm $ppstartreg,pc,(sp++)"
   (+ OPLEN_0 OP11_8_3 OP7_0 ppstartreg OP4_0_0)
   () ()
 )
@@ -1113,7 +1113,7 @@
 (define-pmacro (poprnbase x-base x-basename x-lr x-op11-8)
   (define-normal-insn
     (.sym poprnrm x-base x-lr) (.str "POPR" x-base "RM") ()
-    (.str "pop " x-basename "-$ppendreg" x-base x-lr)
+    (.str "ldm " x-basename "-$ppendreg" x-base x-lr ",(sp++)")
     (+ OPLEN_0 x-op11-8 OP7_0 (.sym OP6_5_ x-base) (.sym ppendreg x-base))
     () ())
 )
@@ -1130,21 +1130,21 @@
 
 (define-normal-macro-insn
   poppc "POPPC" ()
-  "pop pc"
+  "ldm pc,(sp++)"
   (emit poprnrm24,pc (ppendreg24 15))
 )
 
 (define-normal-macro-insn
-  popld_nosuf "POPLD_NOSUF" ()
-  "pop $ppstartreg"
+  poprn_nosuf "POPRN_NOSUF" ()
+  "ldm $ppstartreg,(sp++)"
   (emit poprn ppstartreg)
 )
 
-(define-normal-macro-insn
-  popld "POPLD" ()
-  "pop $alu32dreg"
-  (emit ldpostinc (alu32cond 14) alu32dreg (alu32areg 25))
-)
+;(define-normal-macro-insn
+;  popld "POPLD" ()
+;  "pop $alu32dreg"
+;  (emit ldpostinc (alu32cond 14) alu32dreg (alu32areg 25))
+;)
 
 (define-pmacro (expandldst x-macro)
   (.for-each (.pmacro (n) (.exec (x-macro n)))
