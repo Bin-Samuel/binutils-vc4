@@ -1406,7 +1406,7 @@
 (alu16opr lsr16     "LSR16"     "lsr"      ""      ALU16OP_LSR)
 (alu16opr msb16     "MSB16"     "msb"      ""      ALU16OP_MSB)
 (alu16opr shl16     "SHL16"     "shl"      ""      ALU16OP_SHL)
-(alu16opr bitrev16  "BITREV16"  "bitrev"   ""      ALU16OP_BITREV)
+(alu16opr bitrev16  "BITREV16"  "brev"     ""      ALU16OP_BITREV)
 (alu16opr asr16     "ASR16"     "asr"      ""      ALU16OP_ASR)
 (alu16opr abs16     "ABS16"     "abs"      ""      ALU16OP_ABS)
 
@@ -1439,7 +1439,7 @@
 (alu16oprnsf lsr16     "LSR16"     "lsr"      "")
 (alu16oprnsf msb16     "MSB16"     "msb"      "")
 (alu16oprnsf shl16     "SHL16"     "shl"      "")
-(alu16oprnsf bitrev16  "BITREV16"  "bitrev"   "")
+(alu16oprnsf bitrev16  "BITREV16"  "brev"     "")
 (alu16oprnsf asr16     "ASR16"     "asr"      "")
 (alu16oprnsf abs16     "ABS16"     "abs"      "")
 
@@ -1639,7 +1639,7 @@
 (alu32opr3 lsr32     "LSR32"     "lsr"      ""      LSR)
 (alu32opr2 msb32     "MSB32"     "msb"              MSB)
 (alu32opr3 shl32     "SHL32"     "shl"      ""      SHL)
-(alu32opr2 bitrev32  "BITREV32"  "bitrev"           BITREV)
+(alu32opr2 bitrev32  "BITREV32"  "brev"             BITREV)
 (alu32opr3 asr32     "ASR32"     "asr"      ""      ASR)
 (alu32opr2 abs32     "ABS32"     "abs"              ABS)
 
@@ -1672,7 +1672,7 @@
 (alu32opr3nsf lsr32     "LSR32"     "lsr"      "")
 (alu32opr2nsf msb32     "MSB32"     "msb")
 (alu32opr3nsf shl32     "SHL32"     "shl"      "")
-(alu32opr2nsf bitrev32  "BITREV32"  "bitrev")
+(alu32opr2nsf bitrev32  "BITREV32"  "brev")
 (alu32opr3nsf asr32     "ASR32"     "asr"      "")
 (alu32opr2nsf abs32     "ABS32"     "abs")
 
@@ -1759,7 +1759,7 @@
 (alu32opi3 lsri32     "LSRI32"     "lsr"     ""      LSR)
 (alu32opi2 msbi32     "MSBI32"     "msb"             MSB)
 (alu32opi3 shli32     "SHLI32"     "shl"     ""      SHL)
-(alu32opi2 bitrevi32  "BITREVI32"  "bitrev"          BITREV)
+(alu32opi2 bitrevi32  "BITREVI32"  "brev"            BITREV)
 (alu32opi3 asri32     "ASRI32"     "asr"     ""      ASR)
 (alu32opi2 absi32     "ABSI32"     "abs"             ABS)
 
@@ -1792,7 +1792,7 @@
 (alu32opi3nsf lsri32     "LSRI32"     "lsr"      "")
 (alu32opi2nsf msbi32     "MSBI32"     "msb")
 (alu32opi3nsf shli32     "SHLI32"     "shl"      "")
-(alu32opi2nsf bitrevi32  "BITREVI32"  "bitrev")
+(alu32opi2nsf bitrevi32  "BITREVI32"  "brev")
 (alu32opi3nsf asri32     "ASRI32"     "asr"      "")
 (alu32opi2nsf absi32     "ABSI32"     "abs")
 
@@ -1978,7 +1978,7 @@
 (alu32uni lsriu32     "lsr"     ""      LSR)
 (alu32uni msbiu32     "msb"     ""      MSB)
 (alu32uni shliu32     "shl"     ""      SHL)
-(alu32uni bitreviu32  "bitrev"  ""      BITREV)
+(alu32uni bitreviu32  "brev"    ""      BITREV)
 (alu32uni asriu32     "asr"     ""      ASR)
 (alu32uni absiu32     "abs"     ""      ABS)
 
@@ -2011,7 +2011,7 @@
 (alu32uninsf lsriu32     "lsr"     "")
 (alu32uninsf msbiu32     "msb"     "")
 (alu32uninsf shliu32     "shl"     "")
-(alu32uninsf bitreviu32  "bitrev"  "")
+(alu32uninsf bitreviu32  "brev"    "")
 (alu32uninsf asriu32     "asr"     "")
 (alu32uninsf absiu32     "abs"     "")
 
