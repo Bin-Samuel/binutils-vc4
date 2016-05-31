@@ -77,11 +77,51 @@ md_show_usage (FILE * stream ATTRIBUTE_UNUSED)
 {
 }
 
+static void
+vc4_handle_case (int arg ATTRIBUTE_UNUSED)
+{
+  expressionS exp;
+  char *p;
+
+#ifdef md_flush_pending_output
+  md_flush_pending_output ();
+#endif
+
+  if (is_it_end_of_statement ())
+    {
+      demand_empty_rest_of_line ();
+      return;
+    }
+
+  expression (&exp);
+
+  symbolS *sym = exp.X_add_symbol;
+  offsetT off = exp.X_add_number;
+
+  if (exp.X_op != O_constant && exp.X_op != O_symbol)
+    {
+      sym = make_expr_symbol (&exp);
+      off = 0;
+    }
+
+  p = frag_more (1);
+  frag_var (rs_machine_dependent, 1, 0, CASE_TBB, sym, off, p);
+
+  demand_empty_rest_of_line ();
+}
+
+static void
+vc4_handle_endswitch (int arg ATTRIBUTE_UNUSED)
+{
+  s_align_bytes (2);
+}
 
 /* The target specific pseudo-ops which we support.  */
 const pseudo_typeS md_pseudo_table[] =
 {
-  {0, 0, 0}
+  { "case", vc4_handle_case, 0 },
+  { "endswitch", vc4_handle_endswitch, 0 },
+  { 0, 0, 0 }
 };
 
 void
@@ -118,9 +158,19 @@ md_assemble (char *str)
       return;
     }
 
-  /* Doesn't really matter what we pass for RELAX_P here.  */
-  gas_cgen_finish_insn (insn.insn, insn.buffer,
-			CGEN_FIELDS_BITSIZE (& insn.fields), 1, NULL);
+  if (CGEN_INSN_ATTR_VALUE (insn.insn, CGEN_INSN_SWITCH))
+    {
+      char *f = frag_more (2);
+      /* Switch/TBB/TBH insns won't get the right type of frag/fixup in
+	 gas_cgen_finish_insn because they don't have explicit PC-relative
+	 operands: do that ourselves here instead.  */
+      frag_var (rs_machine_dependent, 2, 0, SWITCH_TBB, 0, 0, f);
+      memcpy (f, insn.buffer, 2);
+    }
+  else
+    /* Doesn't really matter what we pass for RELAX_P here.  */
+    gas_cgen_finish_insn (insn.insn, insn.buffer,
+			  CGEN_FIELDS_BITSIZE (& insn.fields), 1, NULL);
 }
 
 /* Return the bfd reloc type for OPERAND of INSN at fixup FIXP.
@@ -130,7 +180,7 @@ md_assemble (char *str)
 bfd_reloc_code_real_type
 md_cgen_lookup_reloc (const CGEN_INSN *insn ATTRIBUTE_UNUSED,
 		      const CGEN_OPERAND *operand,
-		      fixS *fixP)
+		      fixS *fixP ATTRIBUTE_UNUSED)
 {
   switch (operand->type)
     {
@@ -222,21 +272,16 @@ const relax_typeS md_relax_table[] =
   /* 32-bit conditional operation (two operands, with "always" condition).  */
   {         31,         -32, 0,  0 }, /* 6-bit signed immediate (cond'n).  */
   {         31,         -32, 0, 12 }, /* 6-bit signed immediate (always).  */
-  { 0x7fffffff, -0x80000000, 2,  0 }  /* 32-bit immediate.  */
-};
+  { 0x7fffffff, -0x80000000, 2,  0 }, /* 32-bit immediate.  */
 
-#define ALUOP_16BIT        1
-#define ALUOP_32BIT        2
-#define ALUOP_48BIT        3
-#define BCC_16BIT          4
-#define BCC_32BIT          5
-#define LEA_32BIT	   6
-#define LEA_48BIT          7
-#define ADD_32BIT          8
-#define ADD_48BIT          9
-#define CONDBINOP_32BIT   10
-#define DECONDBINOP_32BIT 11
-#define DECONDBINOP_48BIT 12
+  /* "Switch" (tbb and tbh) insns.  Dummy entries.  */
+  {          0,           0, 0, 14 }, /* tbb insn.  */
+  {          0,           0, 0,  0 }, /* tbh insn.  */
+
+  /* Case table entries for above.  */
+  {      0x1ff,           0, 0, 16 }, /* 8-bit case index.  */
+  {    0x1ffff,           0, 1,  0 }  /* 16-bit case index.  */
+};
 
 static bool
 binary_opcode_p (int opcode)
@@ -271,6 +316,13 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
 	   fragP->fr_subtype);
 #endif
 
+  /* We already know the subtype for these, and CASE_TB* has no opcode.  */
+  if (fragP->fr_subtype == SWITCH_TBB
+      || fragP->fr_subtype == SWITCH_TBH
+      || fragP->fr_subtype == CASE_TBB
+      || fragP->fr_subtype == CASE_TBH)
+    return (fragP->fr_subtype == CASE_TBH) ? 1 : 0;
+
   firstword = (opcode[1] << 8) | opcode[0];
 
   /* A short conditional branch instruction.  Change to the correct subtype
@@ -278,6 +330,16 @@ md_estimate_size_before_relax (fragS *fragP, segT segment)
      just defaults to 1.  */
   if ((firstword & 0xf800) == 0x1800)
     fragP->fr_subtype = BCC_16BIT;
+
+  /* A tbb/switch.b instruction.  */
+  else if ((firstword & 0xffe0) == 0x0080)
+    {
+      fragP->fr_subtype = SWITCH_TBB;
+      /* Actually we shouldn't reach here.  */
+      abort ();
+    }
+
+  /* FIXME: Cases below here aren't used now.  */
 
   /* A 32-bit ALU operation with a 16-bit signed immediate operand.  */
   else if ((firstword & 0xfc00) == 0xb000)
@@ -408,8 +470,7 @@ vc4_tc_gen_reloc (asection *section ATTRIBUTE_UNUSED, fixS *fixp)
   r_type = fixp->fx_r_type;
 
 #ifdef DEBUG
-  fprintf (stderr, "%s\n", bfd_get_reloc_code_name (r_type));
-  fflush (stderr);
+  fprintf (stderr, "vc4_tc_gen_reloc: %s\n", bfd_get_reloc_code_name (r_type));
 #endif
 
   rel->howto = bfd_reloc_type_lookup (stdoutput, r_type);
@@ -426,7 +487,7 @@ vc4_tc_gen_reloc (asection *section ATTRIBUTE_UNUSED, fixS *fixp)
 }
 
 int
-vc4_cgen_parse_fix_exp (int opinfo, expressionS *exp)
+vc4_cgen_parse_fix_exp (int opinfo, expressionS *exp ATTRIBUTE_UNUSED)
 {
   return opinfo;
 }
@@ -448,8 +509,60 @@ vc4_cgen_record_fixup_exp (fragS *frag,
   return fixP;
 }
 
+static struct frag *last_switch = NULL;
+
+long
+vc4_relax_frag (asection *sec, struct frag *frag, long stretch)
+{
+  long growth;
+
+#ifdef DEBUG
+  fprintf (stderr, "vc4_relax_frag (subtype=%d) ", (int) frag->fr_subtype);
+#endif
+
+  growth = relax_frag (sec, frag, stretch);
+
+#ifdef DEBUG
+  fprintf (stderr, "Grow by %d\n", growth);
+#endif
+
+  if (frag->fr_subtype == SWITCH_TBB || frag->fr_subtype == SWITCH_TBH)
+    last_switch = frag;
+  else if (frag->fr_subtype == CASE_TBB || frag->fr_subtype == CASE_TBH)
+    {
+      if (!last_switch)
+	{
+	  as_bad (_(".case without preceding switch instruction"));
+	  return 0;
+	}
+
+      if (growth > 0)
+        frag->fr_subtype = CASE_TBH;
+      else if (frag->fr_subtype == CASE_TBB
+	  && last_switch->fr_subtype == SWITCH_TBH)
+	{
+	  frag->fr_subtype = CASE_TBH;
+	  growth++;
+	}
+
+      if (frag->fr_subtype == CASE_TBH)
+        last_switch->fr_subtype = SWITCH_TBH;
+    }
+  else
+    last_switch = NULL;
+
+  return growth;
+}
+
 void
-vc4_apply_fix (fixS *fixP, valueT *valP, segT seg ATTRIBUTE_UNUSED)
+vc4_prepare_relax_scan (fragS *fragP, offsetT address, offsetT *aim)
+{
+  if (fragP->fr_subtype == CASE_TBB || fragP->fr_subtype == CASE_TBH)
+    (*aim) += address;
+}
+
+void
+vc4_apply_fix (fixS *fixP, valueT *valP, segT seg)
 {
 #ifdef DEBUG
   fprintf (stderr, "vc4_apply_fix\n");
@@ -470,18 +583,22 @@ target_address_for (fragS *frag)
 }
 
 void
-md_convert_frag (bfd *headers, segT seg, fragS *fragP)
+md_convert_frag (bfd *headers ATTRIBUTE_UNUSED, segT seg, fragS *fragP)
 {
   unsigned char *opcode = (unsigned char *) fragP->fr_opcode;
-  unsigned int firstword = (opcode[1] << 8) | opcode[0];
+  unsigned int firstword;
   int where = fragP->fr_opcode - fragP->fr_literal;
   int extension;
-  int operand;
+  int operand = -1;
   int addend;
 
 #ifdef DEBUG
-  fprintf (stderr, "md_convert_frag, subtype=%d\n", fragP->fr_subtype);
+  fprintf (stderr, "md_convert_frag, subtype=%d, fr_fix=%d, fr_var=%d, "
+	   "opcode=%p\n", fragP->fr_subtype, fragP->fr_fix, fragP->fr_var,
+	   opcode);
 #endif
+
+  firstword = (opcode[1] << 8) | opcode[0];
 
   addend = target_address_for (fragP) - (fragP->fr_address + where);
 
@@ -639,13 +756,36 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
         operand = VC4_OPERAND_ALU48IMMU;
       }
       break;
+    case SWITCH_TBB:
+      extension = 0;
+      break;
+    case CASE_TBB:
+      addend = target_address_for (fragP);
+      extension = 0;
+      break;
+    case SWITCH_TBH:
+      extension = 0;
+      /* Rewrite as TBH.  */
+      firstword &= 0x001f;
+      firstword |= 0x00a0;
+      opcode[0] = firstword & 0xff;
+      opcode[1] = (firstword >> 8) & 0xff;
+      break;
+    case CASE_TBH:
+      addend = target_address_for (fragP);
+      extension = 1;
+      break;
     default:
       abort ();
     }
 
-  if (S_GET_SEGMENT (fragP->fr_symbol) != seg
-      || S_IS_EXTERNAL (fragP->fr_symbol)
-      || S_IS_WEAK (fragP->fr_symbol))
+  if (fragP->fr_subtype != SWITCH_TBB
+      && fragP->fr_subtype != SWITCH_TBH
+      && fragP->fr_subtype != CASE_TBB
+      && fragP->fr_subtype != CASE_TBH
+      && (S_GET_SEGMENT (fragP->fr_symbol) != seg
+	  || S_IS_EXTERNAL (fragP->fr_symbol)
+	  || S_IS_WEAK (fragP->fr_symbol)))
     {
       gas_assert (fragP->fr_cgen.insn != 0);
 
@@ -689,6 +829,15 @@ md_convert_frag (bfd *headers, segT seg, fragS *fragP)
       case ADD_32BIT: /* 6-bit signed immediate (in 32-bit instruction).  */
         opcode[2] = (opcode[2] & 0xc0) | (addend & 0x3f);
         break;
+      case SWITCH_TBB:
+      case SWITCH_TBH:
+        break;
+      case CASE_TBH:
+        opcode[1] = (addend >> 9) & 0xff;
+	/* Fallthrough.  */
+      case CASE_TBB:
+        opcode[0] = (addend >> 1) & 0xff;
+	break;
       default:
 	abort ();
       }

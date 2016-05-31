@@ -18,4 +18,8 @@ if [istarget vc4-*-*] then {
     run_dump_test "shift-aliases"
     run_dump_test "conditional"
     run_dump_test "load_store"
+    run_dump_test "switch"
+    run_dump_test "switch2"
+    run_dump_test "switch3"
+    run_dump_test "switch4"
 }

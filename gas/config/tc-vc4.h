@@ -48,6 +48,23 @@ extern const char vc4_comment_chars [];
 /* Values passed to md_apply_fix don't include the symbol value.  */
 #define MD_APPLY_SYM_VALUE(FIX) 0
 
+#define ALUOP_16BIT        1
+#define ALUOP_32BIT        2
+#define ALUOP_48BIT        3
+#define BCC_16BIT          4
+#define BCC_32BIT          5
+#define LEA_32BIT          6
+#define LEA_48BIT          7
+#define ADD_32BIT          8
+#define ADD_48BIT          9
+#define CONDBINOP_32BIT   10
+#define DECONDBINOP_32BIT 11
+#define DECONDBINOP_48BIT 12
+#define SWITCH_TBB        13
+#define SWITCH_TBH        14
+#define CASE_TBB          15
+#define CASE_TBH          16
+
 /*struct vc4_param;
 struct vc4_asm;
 
@@ -121,9 +138,9 @@ extern long md_pcrel_from_section (struct fix *, segT);
 #define md_operand(x)
 
 
-/*#define md_relax_frag(segment, fragp, stretch)	\
-  vc4_relax_frag (segment, fragp, stretch)
-extern int vc4_relax_frag(asection *, struct frag *, long);*/
+#define md_relax_frag(SEG, FRAGP, STRETCH) \
+  vc4_relax_frag ((SEG), (FRAGP), (STRETCH))
+extern long vc4_relax_frag (asection *, struct frag *, long);
 
 /*#define TC_CONS_FIX_NEW(FRAG, WHERE, NBYTES, EXP) \
   vc4_cons_fix_new (FRAG, WHERE, NBYTES, EXP)
@@ -135,6 +152,10 @@ extern int vc4_cgen_parse_fix_exp (int, expressionS *);
 
 extern const struct relax_type md_relax_table[];
 #define TC_GENERIC_RELAX_TABLE md_relax_table
+
+extern void vc4_prepare_relax_scan (fragS *, offsetT, offsetT *);
+#define md_prepare_relax_scan(fragP, address, aim, this_state, this_type) \
+  vc4_prepare_relax_scan (fragP, address, &aim)
 
 #define TC_CGEN_MAX_RELAX(insn,len) 10
 

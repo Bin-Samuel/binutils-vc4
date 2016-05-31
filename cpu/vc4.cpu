@@ -162,6 +162,15 @@
 
 (dnh h-pc "program counter" (PC) (pc) () () ())
 
+(define-attr
+  (type boolean)
+  (for insn macro-insn)
+  (name SWITCH)
+  (comment "Insn starts a switch-like dispatch table")
+  (values #f #t)
+  (default #f)
+)
+
 ;; Fields in the first instruction word.
 
 (df f-oplen "Opcode length field" () 15 4 UINT #f #f)
@@ -1019,17 +1028,29 @@
 )
 
 (define-normal-insn
-  tbb "TBB" ()
+  tbb "TBB" (SWITCH)
   "tbb $alu32dreg"
   (+ OPLEN_0 OP11_8_0 OP7_5_4 alu32dreg)
   () ()
 )
 
 (define-normal-insn
-  tbh "TBH" ()
+  tbh "TBH" (SWITCH)
   "tbh $alu32dreg"
   (+ OPLEN_0 OP11_8_0 OP7_5_5 alu32dreg)
   () ()
+)
+
+(define-normal-macro-insn
+  switchb "SWITCHB" (SWITCH RELAXABLE)
+  "switch $alu32dreg"
+  (emit tbb alu32dreg)
+)
+
+(define-normal-macro-insn
+  switchh "SWITCHH" (SWITCH RELAXED)
+  "switch $alu32dreg"
+  (emit tbh alu32dreg)
 )
 
 (define-normal-insn

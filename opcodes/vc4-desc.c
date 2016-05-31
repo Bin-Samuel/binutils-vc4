@@ -107,6 +107,7 @@ const CGEN_ATTR_TABLE vc4_cgen_insn_attr_table[] =
   { "RELAXED", &bool_attr[0], &bool_attr[0] },
   { "NO-DIS", &bool_attr[0], &bool_attr[0] },
   { "PBB", &bool_attr[0], &bool_attr[0] },
+  { "SWITCH", &bool_attr[0], &bool_attr[0] },
   { 0, 0, 0 }
 };
 
@@ -795,12 +796,12 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* tbb $alu32dreg */
   {
     VC4_INSN_TBB, "tbb", "tbb", 16,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
+    { 0|A(SWITCH), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* tbh $alu32dreg */
   {
     VC4_INSN_TBH, "tbh", "tbh", 16,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
+    { 0|A(SWITCH), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* version $alu32dreg */
   {

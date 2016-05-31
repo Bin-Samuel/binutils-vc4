@@ -1,0 +1,2 @@
+	.text
+	switch r5

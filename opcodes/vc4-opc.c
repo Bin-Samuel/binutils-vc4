@@ -2596,6 +2596,14 @@ static const CGEN_IFMT ifmt_breg_nosuf ATTRIBUTE_UNUSED = {
   16, 16, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_switchb ATTRIBUTE_UNUSED = {
+  16, 16, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_switchh ATTRIBUTE_UNUSED = {
+  16, 16, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_pushlr ATTRIBUTE_UNUSED = {
   16, 16, 0xffff, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7) }, { F (F_OP6_5) }, { F (F_OP4_0_BASE_24) }, { 0 } }
 };
@@ -3453,6 +3461,16 @@ static const CGEN_IBASE vc4_cgen_macro_insn_table[] =
   {
     -1, "breg_nosuf", "b", 16,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* switch $alu32dreg */
+  {
+    -1, "switchb", "switch", 16,
+    { 0|A(RELAXABLE)|A(SWITCH)|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* switch $alu32dreg */
+  {
+    -1, "switchh", "switch", 16,
+    { 0|A(RELAXED)|A(SWITCH)|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* stm lr,(--sp) */
   {
@@ -4515,6 +4533,18 @@ static const CGEN_OPCODE vc4_cgen_macro_insn_opcode_table[] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU32DREG), 0 } },
     & ifmt_breg_nosuf, { 0x40 }
+  },
+/* switch $alu32dreg */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU32DREG), 0 } },
+    & ifmt_switchb, { 0x80 }
+  },
+/* switch $alu32dreg */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU32DREG), 0 } },
+    & ifmt_switchh, { 0xa0 }
   },
 /* stm lr,(--sp) */
   {
