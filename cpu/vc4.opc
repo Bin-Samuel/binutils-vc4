@@ -344,6 +344,110 @@ PARSE_SHLN(8)
 
 /* -- dis.c */
 
+#define CGEN_PRINT_INSN vc4_print_insn
+
+typedef enum
+{
+  VC4_STANDARD_INSN,
+  VC4_SWITCH_CASES
+} vc4_disassemble_state;
+
+typedef struct
+{
+  vc4_disassemble_state disassemble_state;
+  int table_entry_size;
+  bfd_vma base_address;
+} vc4_private_data;
+
+static int
+vc4_print_insn (CGEN_CPU_DESC cd, bfd_vma pc, disassemble_info *info)
+{
+  bfd_byte buf[CGEN_MAX_INSN_SIZE];
+  const int maxlen = 6;
+  int buflen;
+  int status;
+  int insn;
+  vc4_private_data *vc4_data = info->private_data;
+  bfd_boolean symbol_here = (*info->symbol_at_address_func) (pc, info);
+
+  if (info->private_data == NULL)
+    vc4_data = info->private_data = calloc (sizeof (vc4_private_data), 1);
+
+  info->bytes_per_line = buflen = maxlen;
+
+  do
+    {
+      memset (buf, 0, 10);
+      status = (*info->read_memory_func) (pc, buf, buflen, info);
+      buflen -= 2;
+    }
+  while (status != 0 && buflen > 0);
+
+  if (status != 0)
+    {
+      (*info->memory_error_func) (status, pc, info);
+      return -1;
+    }
+
+  if (symbol_here
+      && vc4_data->disassemble_state == VC4_SWITCH_CASES
+      && pc > vc4_data->base_address)
+    vc4_data->disassemble_state = VC4_STANDARD_INSN;
+
+  switch (vc4_data->disassemble_state)
+    {
+    case VC4_STANDARD_INSN:
+      {
+        insn = buf[0] | (buf[1] << 8);
+
+        if ((insn & 0xffc0) == 0x0080)
+          {
+            /* If there's a label right after this switch statement, start
+               disassembling as switch cases instead of instructions.  This
+               won't work for disassembling files without symbols!  */
+            if ((*info->symbol_at_address_func) (pc + 2, info))
+              vc4_data->disassemble_state = VC4_SWITCH_CASES;
+
+            vc4_data->table_entry_size = (insn & 0x20) ? 2 : 1;
+            vc4_data->base_address = pc + 2;
+          }
+      }
+      break;
+
+    case VC4_SWITCH_CASES:
+      {
+        bfd_vma target;
+        bfd_signed_vma offset;
+
+        switch (vc4_data->table_entry_size)
+          {
+          case 1:
+            offset = buf[0];
+            if (offset & 0x80)
+              offset -= 0x100;
+            break;
+          case 2:
+            offset = buf[0] | (buf[1] << 8);
+            if (offset & 0x8000)
+              offset -= 0x10000;
+            break;
+          default:
+            abort ();
+          }
+
+        target = vc4_data->base_address + 2 * offset;
+
+        info->fprintf_func (info->stream, ".case ");
+        (*info->print_address_func) (target, info);
+
+        return vc4_data->table_entry_size;
+      }
+      break;
+    }
+
+  return print_insn (cd, pc, info, buf, 6);
+}
+
 #define PRINT_SHLN(N)                                           \
   static void                                                   \
   print_shl##N (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,              \
