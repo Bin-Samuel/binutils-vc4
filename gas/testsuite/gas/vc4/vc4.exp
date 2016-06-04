@@ -22,4 +22,5 @@ if [istarget vc4-*-*] then {
     run_dump_test "switch2"
     run_dump_test "switch3"
     run_dump_test "switch4"
+    run_dump_test "switch5"
 }
