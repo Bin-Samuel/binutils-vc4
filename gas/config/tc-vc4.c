@@ -279,8 +279,8 @@ const relax_typeS md_relax_table[] =
   {          0,           0, 0,  0 }, /* tbh insn.  */
 
   /* Case table entries for above.  */
-  {      0x1ff,           0, 0, 16 }, /* 8-bit case index.  */
-  {    0x1ffff,           0, 1,  0 }  /* 16-bit case index.  */
+  {       0xff,      -0x100, 0, 16 }, /* 8-bit case index.  */
+  {     0xffff,    -0x10000, 1,  0 }  /* 16-bit case index.  */
 };
 
 static bool
