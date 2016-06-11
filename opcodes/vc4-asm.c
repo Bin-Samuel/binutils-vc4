@@ -421,7 +421,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   else
     return "expected H/HX/HY/V/VX/VY";
 
-  /* H8/H16/H32 and V8/V16/V32 happen to be one char longer than their
+  /* H8/H16/H32 and V8/V16/V32 happen to each be one char longer than their
      H/HX/HY and V/VX/VY aliases.  */
   if (ISDIGIT (ptr[1]))
     ptr++;
@@ -469,7 +469,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       valbits = y & 63;
       valbits |= (x >> 4) << 7;
       if (areg_p)
-        valbits |= (x & 15) << 10;
+        valbits |= (x & 15) << 16;
       break;
     case HX:
       if ((!areg_p && (x & 31) != 0)
@@ -479,7 +479,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       valbits |= 0x200;
       valbits |= (x >> 5) << 7;
       if (areg_p)
-        valbits |= (x & 15) << 10;
+        valbits |= (x & 15) << 16;
       break;
     case HY:
       if ((!areg_p && x != 0)
@@ -488,7 +488,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       valbits = y & 63;
       valbits |= 0x300;
       if (areg_p)
-        valbits |= (x & 15) << 10;
+        valbits |= (x & 15) << 16;
       break;
     case V:
       if (!areg_p)
@@ -504,7 +504,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
         {
           valbits = y & 63;
           valbits |= (x >> 4) << 7;
-          valbits |= (x & 15) << 10;
+          valbits |= (x & 15) << 16;
         }
      break;
     case VX:
@@ -524,7 +524,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
           valbits = y & 63;
           valbits |= 0x300;
           valbits |= (x >> 5) << 7;
-          valbits |= (x & 15) << 10;
+          valbits |= (x & 15) << 16;
         }
       break;
     case VY:
@@ -542,7 +542,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
         {
           valbits = y & 63;
           valbits |= 0x340;
-          valbits |= (x & 15) << 10;
+          valbits |= (x & 15) << 16;
         }
       break;
     }
@@ -824,15 +824,6 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
         fields->f_pcrelcc = value;
       }
       break;
-    case VC4_OPERAND_PLUSAREG :
-      errmsg = parse_optaregscalar (cd, strp, VC4_OPERAND_PLUSAREG, (unsigned long *) (& fields->f_op57_52));
-      break;
-    case VC4_OPERAND_PLUSBREG :
-      errmsg = parse_optbregscalar (cd, strp, VC4_OPERAND_PLUSBREG, (unsigned long *) (& fields->f_op69_64));
-      break;
-    case VC4_OPERAND_PLUSDREG :
-      errmsg = parse_optdregscalar (cd, strp, VC4_OPERAND_PLUSDREG, (unsigned long *) (& fields->f_op63_58));
-      break;
     case VC4_OPERAND_PPENDREG0 :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_0);
       break;
@@ -882,10 +873,10 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = parse_vec80aluareg (cd, strp, VC4_OPERAND_V80A32REG, (unsigned long *) (& fields->f_vec80areg));
       break;
     case VC4_OPERAND_V80B32REG :
-      errmsg = parse_vec80alubreg (cd, strp, VC4_OPERAND_V80B32REG, (unsigned long *) (& fields->f_op41_32));
+      errmsg = parse_vec80alubreg (cd, strp, VC4_OPERAND_V80B32REG, (unsigned long *) (& fields->f_vec80breg));
       break;
     case VC4_OPERAND_V80D32REG :
-      errmsg = parse_vec80aludreg (cd, strp, VC4_OPERAND_V80D32REG, (unsigned long *) (& fields->f_op31_22));
+      errmsg = parse_vec80aludreg (cd, strp, VC4_OPERAND_V80D32REG, (unsigned long *) (& fields->f_vec80dreg));
       break;
     case VC4_OPERAND_V80MODS :
       errmsg = parse_vec80mods (cd, strp, VC4_OPERAND_V80MODS, (unsigned long *) (& fields->f_vec80mods));

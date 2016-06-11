@@ -256,7 +256,9 @@ struct cgen_fields
   long f_op69_64;
   long f_op76_70;
   long f_op79_77;
+  long f_vec80dreg;
   long f_vec80areg;
+  long f_vec80breg;
   long f_vec80mods;
 };
 

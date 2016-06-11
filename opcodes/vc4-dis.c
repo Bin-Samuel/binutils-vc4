@@ -441,15 +441,6 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PCRELCC :
       print_address (cd, info, fields->f_pcrelcc, 0|(1<<CGEN_OPERAND_RELAX)|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
-    case VC4_OPERAND_PLUSAREG :
-      print_optaregscalar (cd, info, fields->f_op57_52, 0, pc, length);
-      break;
-    case VC4_OPERAND_PLUSBREG :
-      print_optbregscalar (cd, info, fields->f_op69_64, 0, pc, length);
-      break;
-    case VC4_OPERAND_PLUSDREG :
-      print_optdregscalar (cd, info, fields->f_op63_58, 0, pc, length);
-      break;
     case VC4_OPERAND_PPENDREG0 :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0_base_0, 0);
       break;
@@ -499,10 +490,10 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       print_vec80aluareg (cd, info, fields->f_vec80areg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
     case VC4_OPERAND_V80B32REG :
-      print_vec80alubreg (cd, info, fields->f_op41_32, 0, pc, length);
+      print_vec80alubreg (cd, info, fields->f_vec80breg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
     case VC4_OPERAND_V80D32REG :
-      print_vec80aludreg (cd, info, fields->f_op31_22, 0, pc, length);
+      print_vec80aludreg (cd, info, fields->f_vec80dreg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
     case VC4_OPERAND_V80MODS :
       print_vec80mods (cd, info, fields->f_vec80mods, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);

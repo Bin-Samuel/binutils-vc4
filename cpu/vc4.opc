@@ -435,7 +435,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       valbits = y & 63;
       valbits |= (x >> 4) << 7;
       if (areg_p)
-        valbits |= (x & 15) << 10;
+        valbits |= (x & 15) << 16;
       break;
     case HX:
       if ((!areg_p && (x & 31) != 0)
@@ -445,7 +445,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       valbits |= 0x200;
       valbits |= (x >> 5) << 7;
       if (areg_p)
-        valbits |= (x & 15) << 10;
+        valbits |= (x & 15) << 16;
       break;
     case HY:
       if ((!areg_p && x != 0)
@@ -454,7 +454,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       valbits = y & 63;
       valbits |= 0x300;
       if (areg_p)
-        valbits |= (x & 15) << 10;
+        valbits |= (x & 15) << 16;
       break;
     case V:
       if (!areg_p)
@@ -470,7 +470,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
         {
           valbits = y & 63;
           valbits |= (x >> 4) << 7;
-          valbits |= (x & 15) << 10;
+          valbits |= (x & 15) << 16;
         }
      break;
     case VX:
@@ -490,7 +490,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
           valbits = y & 63;
           valbits |= 0x300;
           valbits |= (x >> 5) << 7;
-          valbits |= (x & 15) << 10;
+          valbits |= (x & 15) << 16;
         }
       break;
     case VY:
@@ -508,7 +508,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
         {
           valbits = y & 63;
           valbits |= 0x340;
-          valbits |= (x & 15) << 10;
+          valbits |= (x & 15) << 16;
         }
       break;
     }
