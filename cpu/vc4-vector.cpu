@@ -1,0 +1,211 @@
+;; Fields in 80-bit vector insns.
+
+; Data operations: fields in first 16-bit word.
+
+(df f-op15-10 "Opcode bits 15-10" () 15 6 UINT #f #f)
+(df f-op9 "Opcode bit 9" () 9 1 UINT #f #f)
+(df f-op8-3 "Opcode bits 8-3" () 8 6 UINT #f #f)
+(df f-op2-0 "Opcode bits 2-0" () 2 3 UINT #f #f)
+
+; Fields in second 16-bit word.
+
+(df2 f-op31-22 "Opcode bits 31-22" () 16 16 15 10 UINT (#f) (#f))
+
+; "A" register field is split over two 16-bit words.
+
+;(df2 f-op21-16 "Opcode bits 21-16" () 16 16 5 6 UINT (#f) (#f))
+
+; Fields in third 16-bit word.
+
+(df2 f-op41-32 "Opcode bits 41-32" () 32 16 9 10 UINT (#f) (#f))
+(df2 f-op42 "Opcode bit 42" () 32 16 10 1 UINT (#f) (#f))
+(df2 f-op43 "Opcode bit 43" () 32 16 11 1 UINT (#f) (#f))
+(df2 f-op47-44 "Opcode bits 47-44" () 32 16 15 4 UINT (#f) (#f))
+
+; Fields in fourth 16-bit word.
+
+(df2 f-op51-48 "Opcode bits 51-48" () 48 16 3 4 UINT (#f) (#f))
+(df2 f-op57-52 "Opcode bits 57-52" () 48 16 9 6 UINT (#f) (#f))
+(df2 f-op63-58 "Opcode bits 63-58" () 48 16 15 6 UINT (#f) (#f))
+
+; Fields in fifth 16-bit word.
+
+(df2 f-op69-64 "Opcode bits 69-64" () 64 16 5 6 UINT (#f) (#f))
+(df2 f-op76-70 "Opcode bits 76-70" () 64 16 12 7 UINT (#f) (#f))
+(df2 f-op79-77 "Opcode bits 79-77" () 64 16 15 3 UINT (#f) (#f))
+
+(define-normal-insn-enum
+  insn-vecops "Vector ops (< 48)" () VECOP_ f-op8-3
+  (MOV  BITPLANES EVEN   ODD    INTERL  INTERH BITREV  ROR
+   SHL  SHLS      LSR    ASR    SIGNSHL OP13   SIGNASL SIGNASLS
+   AND  OR        EOR    BIC    COUNT   MSB    OP22    OP23
+   MIN  MAX       DIST   DISTS  CLIP    SIGN   CLIPS   TESTMAG
+   ADD  ADDS      ADDC   ADDSC  SUB     SUBS   SUBC    SUBSC
+   RSUB RSUBS     RSUBC  RSUBSC OP44    OP45   OP46    OP47)
+)
+
+(define-multi-ifield
+  (name f-vec80areg)
+  (comment "14-bit specifier for A register")
+  (attrs)
+  (mode UINT)
+  ; Total of 6+4+4 = 14 bits.
+  (subfields f-op21-16 f-op47-44 f-op51-48)
+  (insert (sequence ()
+            (set (ifield f-op21-16) (and (ifield f-vec80areg) 63))
+            (set (ifield f-op47-44) (and (srl (ifield f-vec80areg) 6) 15))
+            (set (ifield f-op51-48) (and (srl (ifield f-vec80areg) 10) 15))))
+  (extract (sequence ()
+             (set (ifield f-vec80areg)
+                  (or (ifield f-op21-16)
+                      (or (sll (ifield f-op47-44) 6)
+                          (sll (ifield f-op51-48) 10))))))
+)
+
+(define-multi-ifield
+  (name f-vec80mods)
+  (comment "modifier fields for vector ALU insns")
+  (attrs)
+  (mode UINT)
+  ; total of 3+1+3+7 = 14 bits.
+  (subfields f-op2-0 f-op43 f-op79-77 f-op76-70)
+  (insert (sequence ()
+            (set (ifield f-op2-0) (and (ifield f-vec80mods) 7))
+            (set (ifield f-op43) (and (srl (ifield f-vec80mods) 3) 1))
+            (set (ifield f-op79-77) (and (srl (ifield f-vec80mods) 4) 7))
+            (set (ifield f-op76-70) (and (srl (ifield f-vec80mods) 7) 127))))
+  (extract (sequence ()
+             (set (ifield f-vec80mods)
+                  (or (ifield f-op2-0)
+                      (or (sll (ifield f-op43) 3)
+                          (or (sll (ifield f-op79-77) 4)
+                              (sll (ifield f-op76-70) 7)))))))
+)
+
+(define-operand
+  (name v80d32reg)
+  (comment "vector dest register, 80-bit ALU insn")
+  (attrs)
+  (type h-uint)
+  (index f-op31-22)
+  (handlers (parse "vec80aludreg") (print "vec80aludreg"))
+)
+
+(define-operand
+  (name plusdreg)
+  (comment "optional added scalar reg for D part")
+  (attrs)
+  (type h-uint)
+  (index f-op63-58)
+  (handlers (parse "optdregscalar") (print "optdregscalar"))
+)
+
+(define-operand
+  (name v80a32reg)
+  (comment "vector A register, 80-bit ALU insn")
+  (attrs)
+  (type h-uint)
+  (index f-vec80areg)
+  (handlers (parse "vec80aluareg") (print "vec80aluareg"))
+)
+
+(define-operand
+  (name plusareg)
+  (comment "optional added scalar reg for A part")
+  (attrs)
+  (type h-uint)
+  (index f-op57-52)
+  (handlers (parse "optaregscalar") (print "optaregscalar"))
+)
+
+(define-operand
+  (name v80b32reg)
+  (comment "vector B register, 80-bit ALU insn")
+  (attrs)
+  (type h-uint)
+  (index f-op41-32)
+  (handlers (parse "vec80alubreg") (print "vec80alubreg"))
+)
+
+(define-operand
+  (name plusbreg)
+  (comment "optional added scalar reg for B part")
+  (attrs)
+  (type h-uint)
+  (index f-op69-64)
+  (handlers (parse "optbregscalar") (print "optbregscalar"))
+)
+
+(define-operand
+  (name v80mods)
+  (comment "modifier bits for 80-bit vector ALU insn")
+  (attrs)
+  (type h-uint)
+  (index f-vec80mods)
+  (handlers (parse "vec80mods") (print "vec80mods"))
+)
+
+(define-pmacro (vdataop80v32 x-name)
+  (define-normal-insn
+    (.sym x-name d80v32) (.upcase (.str x-name "D80")) ()
+    (.str "v" x-name
+      " $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods")
+    (+ (f-op15-10 63) (f-op9 1) (.sym VECOP_ (.upcase x-name))
+       v80mods v80d32reg v80a32reg (f-op42 0) v80b32reg
+       plusdreg plusareg plusbreg)
+    () ())
+)
+
+(vdataop80v32 mov)
+(vdataop80v32 bitplanes)
+(vdataop80v32 even)
+(vdataop80v32 odd)
+(vdataop80v32 interl)
+(vdataop80v32 interh)
+(vdataop80v32 bitrev)
+(vdataop80v32 ror)
+
+(vdataop80v32 shl)
+(vdataop80v32 shls)
+(vdataop80v32 lsr)
+(vdataop80v32 asr)
+(vdataop80v32 signshl)
+(vdataop80v32 op13)
+(vdataop80v32 signasl)
+(vdataop80v32 signasls)
+
+(vdataop80v32 and)
+(vdataop80v32 or)
+(vdataop80v32 eor)
+(vdataop80v32 bic)
+(vdataop80v32 count)
+(vdataop80v32 msb)
+(vdataop80v32 op22)
+(vdataop80v32 op23)
+
+(vdataop80v32 min)
+(vdataop80v32 max)
+(vdataop80v32 dist)
+(vdataop80v32 dists)
+(vdataop80v32 clip)
+(vdataop80v32 sign)
+(vdataop80v32 clips)
+(vdataop80v32 testmag)
+
+(vdataop80v32 add)
+(vdataop80v32 adds)
+(vdataop80v32 addc)
+(vdataop80v32 addsc)
+(vdataop80v32 sub)
+(vdataop80v32 subs)
+(vdataop80v32 subc)
+(vdataop80v32 subsc)
+
+(vdataop80v32 rsub)
+(vdataop80v32 rsubs)
+(vdataop80v32 rsubc)
+(vdataop80v32 rsubsc)
+(vdataop80v32 op44)
+(vdataop80v32 op45)
+(vdataop80v32 op46)
+(vdataop80v32 op47)

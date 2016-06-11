@@ -260,10 +260,16 @@ print_insn (CGEN_CPU_DESC cd,
 	{
 #ifdef CGEN_MAX_EXTRA_OPCODE_OPERANDS
 	  unsigned int i, extra_field;
+          unsigned int limit_bits = (CGEN_MAX_EXTRA_OPCODE_OPERANDS + 1)
+                                    * cd->base_insn_bitsize;
+
+          if (limit_bits > (unsigned int) CGEN_INSN_BITSIZE (insn))
+            limit_bits = (unsigned int) CGEN_INSN_BITSIZE (insn);
+
 	  /* Reject insns with opcode bits (constant ifields) beyond the base
 	     insn that do not match the current insn in the list.  */
 	  for (i = cd->base_insn_bitsize, extra_field = 0;
-	       i < (unsigned int) CGEN_INSN_BITSIZE (insn);
+	       i < limit_bits;
 	       i += cd->base_insn_bitsize, extra_field++)
 	    {
 	      bfd_byte extrabuf[CGEN_MAX_INSN_SIZE];

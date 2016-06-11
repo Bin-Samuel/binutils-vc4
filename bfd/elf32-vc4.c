@@ -482,7 +482,7 @@ vc4_info_to_howto_rela (bfd * abfd ATTRIBUTE_UNUSED,
 
 static bfd_reloc_status_type
 vc4_final_link_relocate (reloc_howto_type *howto,
-			 bfd *input_bfd,
+			 bfd *input_bfd ATTRIBUTE_UNUSED,
 			 asection *input_section,
 			 bfd_byte *contents,
 			 Elf_Internal_Rela *rel,
@@ -523,8 +523,8 @@ vc4_final_link_relocate (reloc_howto_type *howto,
         r = bfd_reloc_overflow;
       byte[2] = (u >> 1) & 0xff;
       byte[3] = (u >> 9) & 0xff;
-      byte[0] = (byte[0] & 0x80) | (u >> 17) & 0x7f;
-      byte[1] = (byte[1] & 0xf0) | (u >> 24) & 0xf;
+      byte[0] = (byte[0] & 0x80) | ((u >> 17) & 0x7f);
+      byte[1] = (byte[1] & 0xf0) | ((u >> 24) & 0xf);
       break;
 
     case R_VC4_PCREL23_MUL2:
@@ -635,9 +635,9 @@ vc4_elf_relocate_section (bfd *output_bfd,
       bfd_vma                      relocation;
       bfd_reloc_status_type        r;
       const char *                 name = NULL;
-      int                          r_type;
+      /*int                          r_type;
 
-      r_type = ELF32_R_TYPE (rel->r_info);
+      r_type = ELF32_R_TYPE (rel->r_info);*/
       r_symndx = ELF32_R_SYM (rel->r_info);
       howto  = vc4_elf_howto_table + ELF32_R_TYPE (rel->r_info);
       h      = NULL;
@@ -724,11 +724,11 @@ vc4_elf_relocate_section (bfd *output_bfd,
 
 static bfd_reloc_status_type
 vc4_elf_reloc (bfd *abfd ATTRIBUTE_UNUSED,
-	       arelent *reloc_entry,
+	       arelent *reloc_entry ATTRIBUTE_UNUSED,
 	       asymbol *symbol ATTRIBUTE_UNUSED,
 	       void *data ATTRIBUTE_UNUSED,
-	       asection *input_section,
-	       bfd *output_bfd,
+	       asection *input_section ATTRIBUTE_UNUSED,
+	       bfd *output_bfd ATTRIBUTE_UNUSED,
 	       char **error_message ATTRIBUTE_UNUSED)
 {
   fprintf (stderr, "vc4_elf_reloc special function\n");

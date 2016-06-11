@@ -2264,6 +2264,8 @@
 (alu48opi2nsf maxi48  "max")
 (alu48opi2nsf mini48  "min")
 
+(include "vc4-vector.cpu")
+
 ;; 48-bit vector instructions.
 
 (define-normal-insn

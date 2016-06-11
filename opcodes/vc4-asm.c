@@ -378,6 +378,235 @@ PARSE_SHLN(6)
 PARSE_SHLN(7)
 PARSE_SHLN(8)
 
+typedef enum
+{
+  H,
+  HX,
+  HY,
+  V,
+  VX,
+  VY
+} vc4_vec_dir;
+
+/* Vector insn parsing.  */
+
+static const char *
+parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                  unsigned long *valuep, bfd_boolean areg_p, int vecsize_fixed)
+{
+  const char *ptr = *strp;
+  vc4_vec_dir vec_dir;
+  unsigned long y, x;
+  const char *errmsg;
+  unsigned long valbits = 0;
+
+  if (ptr[0] == 'H' && ptr[1] == 'X')
+    vec_dir = HX;
+  else if (ptr[0] == 'H' && ptr[1] == 'Y')
+    vec_dir = HY;
+  else if (ptr[0] == 'H')
+    vec_dir = H;
+  else if (ptr[0] == 'V' && ptr[1] == 'X')
+    vec_dir = VX;
+  else if (ptr[0] == 'V' && ptr[1] == 'Y')
+    vec_dir = VY;
+  else if (ptr[0] == 'V')
+    vec_dir = V;
+  else
+    return "expected H/HX/HY/V/VX/VY";
+
+  if (vec_dir == H || vec_dir == V)
+    {
+      ptr++;
+      if (vecsize_fixed == 32 && ptr[0] == '3' && ptr[1] == '2')
+        ptr += 2;
+      else if (vecsize_fixed == 16 && ptr[0] == '1' && ptr[1] == '6')
+        ptr += 2;
+    }
+  else
+    ptr += 2;
+
+  if (*ptr != '(')
+    return "expected '('";
+
+  ptr++;
+
+  *strp = ptr;
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, &y);
+  if (errmsg)
+    return errmsg;
+
+  if (**strp != ',')
+    return "expected ,";
+  (*strp)++;
+
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, &x);
+  if (errmsg)
+    return errmsg;
+
+  ptr = *strp;
+  if (*ptr != ')')
+    return "expected ')'";
+
+  ptr++;
+
+  if (x > 63)
+    return "X position out of range";
+
+  if (y > 63)
+    return "Y position out of range";
+
+  switch (vec_dir)
+    {
+    case H:
+      if (!areg_p && (x & 15) != 0)
+        return "can't encode X position";
+      valbits = y & 63;
+      valbits |= (x >> 4) << 7;
+      if (areg_p)
+        valbits |= (x & 15) << 10;
+      break;
+    case HX:
+      if ((!areg_p && (x & 31) != 0)
+          || (areg_p && (x & 31) >= 16))
+        return "can't encode X position";
+      valbits = y & 63;
+      valbits |= 0x200;
+      valbits |= (x >> 5) << 7;
+      if (areg_p)
+        valbits |= (x & 15) << 10;
+      break;
+    case HY:
+      if ((!areg_p && x != 0)
+          || (areg_p && x >= 16))
+        return "can't encode X position";
+      valbits = y & 63;
+      valbits |= 0x300;
+      if (areg_p)
+        valbits |= (x & 15) << 10;
+      break;
+    case V:
+      if (!areg_p)
+        {
+          if ((y & 15) != 0)
+            return "can't encode Y position";
+          valbits = y & 0x30;
+          valbits |= x & 15;
+          valbits |= 0x40;
+          valbits |= (x >> 4) << 7;
+        }
+      else
+        {
+          valbits = y & 63;
+          valbits |= (x >> 4) << 7;
+          valbits |= (x & 15) << 10;
+        }
+     break;
+    case VX:
+      if ((x & 31) >= 16)
+        return "can't encode X position";
+      if (!areg_p)
+        {
+          if ((y & 15) != 0)
+            return "can't encode Y position";
+          valbits = y & 0x30;
+          valbits |= x & 15;
+          valbits |= 0x200;
+          valbits |= (x >> 5) << 7;
+        }
+      else
+        {
+          valbits = y & 63;
+          valbits |= 0x300;
+          valbits |= (x >> 5) << 7;
+          valbits |= (x & 15) << 10;
+        }
+      break;
+    case VY:
+      if (x >= 16)
+        return "can't encode X position";
+      if (!areg_p)
+        {
+          if ((y & 15) != 0)
+            return "can't encode Y position";
+          valbits = y & 0x30;
+          valbits |= x & 15;
+          valbits |= 0x240;
+        }
+      else
+        {
+          valbits = y & 63;
+          valbits |= 0x340;
+          valbits |= (x & 15) << 10;
+        }
+      break;
+    }
+
+  *valuep = valbits;
+  *strp = ptr;
+
+  return 0;
+}
+
+static const char *
+parse_vec80aludreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                    unsigned long *valuep)
+{
+  return parse_vector_reg (cd, strp, opindex, valuep, FALSE, 0);
+}
+
+static const char *
+parse_vec80aluareg (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                    unsigned long *valuep)
+{
+  return parse_vector_reg (cd, strp, opindex, valuep, TRUE, 0);
+}
+
+static const char *
+parse_vec80alubreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                    unsigned long *valuep)
+{
+  return parse_vector_reg (cd, strp, opindex, valuep, FALSE, 0);
+}
+
+static const char *
+parse_optdregscalar (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                     unsigned long *valuep)
+{
+  *valuep = 0;
+  return 0;
+}
+
+static const char *
+parse_optaregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+                     const char **strp ATTRIBUTE_UNUSED,
+                     int opindex ATTRIBUTE_UNUSED,
+                     unsigned long *valuep)
+{
+  *valuep = 0;
+  return 0;
+}
+
+static const char *
+parse_optbregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+                     const char **strp ATTRIBUTE_UNUSED,
+                     int opindex ATTRIBUTE_UNUSED,
+                     unsigned long *valuep)
+{
+  *valuep = 0;
+  return 0;
+}
+
+static const char *
+parse_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+                 const char **strp ATTRIBUTE_UNUSED,
+                 int opindex ATTRIBUTE_UNUSED,
+                 unsigned long *valuep)
+{
+  *valuep = 0;
+  return 0;
+}
+
 /* -- dis.c */
 
 const char * vc4_cgen_parse_operand
@@ -590,6 +819,15 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
         fields->f_pcrelcc = value;
       }
       break;
+    case VC4_OPERAND_PLUSAREG :
+      errmsg = parse_optaregscalar (cd, strp, VC4_OPERAND_PLUSAREG, (unsigned long *) (& fields->f_op57_52));
+      break;
+    case VC4_OPERAND_PLUSBREG :
+      errmsg = parse_optbregscalar (cd, strp, VC4_OPERAND_PLUSBREG, (unsigned long *) (& fields->f_op69_64));
+      break;
+    case VC4_OPERAND_PLUSDREG :
+      errmsg = parse_optdregscalar (cd, strp, VC4_OPERAND_PLUSDREG, (unsigned long *) (& fields->f_op63_58));
+      break;
     case VC4_OPERAND_PPENDREG0 :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_reg, & fields->f_op4_0_base_0);
       break;
@@ -634,6 +872,18 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_SWI_IMM :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SWI_IMM, (unsigned long *) (& fields->f_op5_0));
+      break;
+    case VC4_OPERAND_V80A32REG :
+      errmsg = parse_vec80aluareg (cd, strp, VC4_OPERAND_V80A32REG, (unsigned long *) (& fields->f_vec80areg));
+      break;
+    case VC4_OPERAND_V80B32REG :
+      errmsg = parse_vec80alubreg (cd, strp, VC4_OPERAND_V80B32REG, (unsigned long *) (& fields->f_op41_32));
+      break;
+    case VC4_OPERAND_V80D32REG :
+      errmsg = parse_vec80aludreg (cd, strp, VC4_OPERAND_V80D32REG, (unsigned long *) (& fields->f_op31_22));
+      break;
+    case VC4_OPERAND_V80MODS :
+      errmsg = parse_vec80mods (cd, strp, VC4_OPERAND_V80MODS, (unsigned long *) (& fields->f_vec80mods));
       break;
 
     default :

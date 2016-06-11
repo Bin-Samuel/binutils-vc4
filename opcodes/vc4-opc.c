@@ -285,6 +285,10 @@ static const CGEN_IFMT ifmt_movi48 ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_movd80v32 ATTRIBUTE_UNUSED = {
+  16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_OP31_22) }, { F (F_OP63_58) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP41_32) }, { F (F_OP57_52) }, { F (F_OP8_3) }, { F (F_OP69_64) }, { F (F_VEC80AREG) }, { F (F_VEC80MODS) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_vec48 ATTRIBUTE_UNUSED = {
   16, 48, 0xf800, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11) }, { F (F_OP10_0) }, { 0 } }
 };
@@ -2569,6 +2573,294 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48IMMU), 0 } },
     & ifmt_movi48, { 0xea20 }
+  },
+/* vmov $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe00, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vbitplanes $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe08, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* veven $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe10, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vodd $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe18, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vinterl $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe20, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vinterh $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe28, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vbitrev $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe30, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vror $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe38, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vshl $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe40, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vshls $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe48, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vlsr $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe50, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vasr $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe58, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsignshl $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe60, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop13 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe68, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsignasl $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe70, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsignasls $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe78, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vand $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe80, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vor $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe88, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* veor $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe90, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vbic $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfe98, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vcount $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfea0, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vmsb $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfea8, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop22 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfeb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop23 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfeb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vmin $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfec0, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vmax $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfec8, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vdist $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfed0, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vdists $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfed8, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vclip $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfee0, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsign $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfee8, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vclips $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfef0, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vtestmag $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xfef8, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vadd $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff00, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vadds $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff08, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vaddc $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff10, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vaddsc $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff18, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsub $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff20, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsubs $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff28, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsubc $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff30, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vsubsc $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff38, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vrsub $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff40, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vrsubs $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff48, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vrsubc $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff50, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vrsubsc $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff58, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop44 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff60, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop45 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff68, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop46 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff70, { 0x0, 0x0 }, { 0x0, 0x400 } }
+  },
+/* vop47 $v80d32reg$plusdreg,$v80a32reg$plusareg,$v80b32reg$plusbreg$v80mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), OP (PLUSDREG), ',', OP (V80A32REG), OP (PLUSAREG), ',', OP (V80B32REG), OP (PLUSBREG), OP (V80MODS), 0 } },
+    & ifmt_movd80v32, { 0xff78, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
 /* vec48 $operand10_0,$operand47_16 */
   {

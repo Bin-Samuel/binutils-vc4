@@ -1388,7 +1388,7 @@ stamp-openrisc: $(CGENDEPS) $(CPUDIR)/openrisc.cpu $(CPUDIR)/openrisc.opc
 
 $(srcdir)/vc4-desc.h $(srcdir)/vc4-desc.c $(srcdir)/vc4-opc.h $(srcdir)/vc4-opc.c $(srcdir)/vc4-ibld.c $(srcdir)/vc4-asm.c $(srcdir)/vc4-dis.c: $(VC4_DEPS)
 	@true
-stamp-vc4: $(CGENDEPS) $(CPUDIR)/vc4.cpu $(CPUDIR)/vc4.opc
+stamp-vc4: $(CGENDEPS) $(CPUDIR)/vc4.cpu $(CPUDIR)/vc4-vector.cpu $(CPUDIR)/vc4.opc
 	$(MAKE) run-cgen arch=vc4 prefix=vc4 options= \
 		archfile=$(CPUDIR)/vc4.cpu \
 		opcfile=$(CPUDIR)/vc4.opc \

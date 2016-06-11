@@ -186,6 +186,78 @@ PRINT_SHLN(6)
 PRINT_SHLN(7)
 PRINT_SHLN(8)
 
+/* Vector insn printing.  */
+
+static void
+print_vec80aludreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	            void * dis_info ATTRIBUTE_UNUSED,
+	            unsigned long value ATTRIBUTE_UNUSED,
+	            unsigned int attrs ATTRIBUTE_UNUSED,
+	            bfd_vma pc ATTRIBUTE_UNUSED,
+	            int length ATTRIBUTE_UNUSED)
+{
+}
+
+static void
+print_vec80aluareg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	            void * dis_info ATTRIBUTE_UNUSED,
+	            unsigned long value ATTRIBUTE_UNUSED,
+	            unsigned int attrs ATTRIBUTE_UNUSED,
+	            bfd_vma pc ATTRIBUTE_UNUSED,
+	            int length ATTRIBUTE_UNUSED)
+{
+}
+
+static void
+print_vec80alubreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	            void * dis_info ATTRIBUTE_UNUSED,
+	            unsigned long value ATTRIBUTE_UNUSED,
+	            unsigned int attrs ATTRIBUTE_UNUSED,
+	            bfd_vma pc ATTRIBUTE_UNUSED,
+	            int length ATTRIBUTE_UNUSED)
+{
+}
+
+static void
+print_optdregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	             void * dis_info ATTRIBUTE_UNUSED,
+	             unsigned long value ATTRIBUTE_UNUSED,
+	             unsigned int attrs ATTRIBUTE_UNUSED,
+	             bfd_vma pc ATTRIBUTE_UNUSED,
+	             int length ATTRIBUTE_UNUSED)
+{
+}
+
+static void
+print_optaregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	             void * dis_info ATTRIBUTE_UNUSED,
+	             unsigned long value ATTRIBUTE_UNUSED,
+	             unsigned int attrs ATTRIBUTE_UNUSED,
+	             bfd_vma pc ATTRIBUTE_UNUSED,
+	             int length ATTRIBUTE_UNUSED)
+{
+}
+
+static void
+print_optbregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	             void * dis_info ATTRIBUTE_UNUSED,
+	             unsigned long value ATTRIBUTE_UNUSED,
+	             unsigned int attrs ATTRIBUTE_UNUSED,
+	             bfd_vma pc ATTRIBUTE_UNUSED,
+	             int length ATTRIBUTE_UNUSED)
+{
+}
+
+static void
+print_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	         void * dis_info ATTRIBUTE_UNUSED,
+	         unsigned long value ATTRIBUTE_UNUSED,
+	         unsigned int attrs ATTRIBUTE_UNUSED,
+	         bfd_vma pc ATTRIBUTE_UNUSED,
+	         int length ATTRIBUTE_UNUSED)
+{
+}
+
 /* -- */
 
 void vc4_cgen_print_operand
@@ -369,6 +441,15 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PCRELCC :
       print_address (cd, info, fields->f_pcrelcc, 0|(1<<CGEN_OPERAND_RELAX)|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
+    case VC4_OPERAND_PLUSAREG :
+      print_optaregscalar (cd, info, fields->f_op57_52, 0, pc, length);
+      break;
+    case VC4_OPERAND_PLUSBREG :
+      print_optbregscalar (cd, info, fields->f_op69_64, 0, pc, length);
+      break;
+    case VC4_OPERAND_PLUSDREG :
+      print_optdregscalar (cd, info, fields->f_op63_58, 0, pc, length);
+      break;
     case VC4_OPERAND_PPENDREG0 :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0_base_0, 0);
       break;
@@ -413,6 +494,18 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_SWI_IMM :
       print_normal (cd, info, fields->f_op5_0, 0, pc, length);
+      break;
+    case VC4_OPERAND_V80A32REG :
+      print_vec80aluareg (cd, info, fields->f_vec80areg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V80B32REG :
+      print_vec80alubreg (cd, info, fields->f_op41_32, 0, pc, length);
+      break;
+    case VC4_OPERAND_V80D32REG :
+      print_vec80aludreg (cd, info, fields->f_op31_22, 0, pc, length);
+      break;
+    case VC4_OPERAND_V80MODS :
+      print_vec80mods (cd, info, fields->f_vec80mods, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
 
     default :
@@ -641,10 +734,16 @@ print_insn (CGEN_CPU_DESC cd,
 	{
 #ifdef CGEN_MAX_EXTRA_OPCODE_OPERANDS
 	  unsigned int i, extra_field;
+          unsigned int limit_bits = (CGEN_MAX_EXTRA_OPCODE_OPERANDS + 1)
+                                    * cd->base_insn_bitsize;
+
+          if (limit_bits > (unsigned int) CGEN_INSN_BITSIZE (insn))
+            limit_bits = (unsigned int) CGEN_INSN_BITSIZE (insn);
+
 	  /* Reject insns with opcode bits (constant ifields) beyond the base
 	     insn that do not match the current insn in the list.  */
 	  for (i = cd->base_insn_bitsize, extra_field = 0;
-	       i < (unsigned int) CGEN_INSN_BITSIZE (insn);
+	       i < limit_bits;
 	       i += cd->base_insn_bitsize, extra_field++)
 	    {
 	      bfd_byte extrabuf[CGEN_MAX_INSN_SIZE];
