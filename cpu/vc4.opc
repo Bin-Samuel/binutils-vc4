@@ -344,6 +344,58 @@ PARSE_SHLN(6)
 PARSE_SHLN(7)
 PARSE_SHLN(8)
 
+static const char *
+parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
+                                  int opindex, unsigned long *valuep,
+                                  bfd_boolean *postinc_p)
+{
+  int nesting = 0;
+  char *ptr = *strp;
+  char *term = 0, saved_char;
+  char *errmsg;
+
+  *postinc_p = FALSE;
+
+  while (*ptr != 0)
+    {
+      if (*ptr == '(')
+        nesting++;
+      else if (*ptr == ')')
+        {
+          if (nesting > 0)
+            nesting--;
+          else
+            break;
+        }
+      else if (ptr[0] == '+' && ptr[1] == '+')
+        {
+          /* We have a postinc, but cgen_parse_unsigned_integer will misparse
+             it.  Insert a zero-terminator temporarily as a workaround.  */
+          term = ptr;
+          saved_char = *ptr;
+          *ptr = 0;
+          break;
+        }
+      else if (*ptr == ',')
+        break;
+      ptr++;
+    }
+
+  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, valuep);
+  if (term)
+    *ptr = saved_char;
+  if (errmsg)
+    return errmsg;
+
+  if ((*strp)[0] == '+' && (*strp)[1] == '+')
+    {
+      (*strp) += 2;
+      *postinc_p = TRUE;
+    }
+
+  return 0;
+}
+
 typedef enum
 {
   H,
@@ -365,6 +417,10 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   unsigned long y, x;
   const char *errmsg;
   unsigned long valbits = 0;
+  bfd_boolean do_inc = FALSE;
+  bfd_boolean column_offset = FALSE;
+  bfd_boolean inc_here;
+  unsigned scalar_reg = 15;
 
   if ((ptr[0] == 'H' && ptr[1] == 'X')
       || (ptr[0] == 'H' && ptr[1] == '1' && ptr[2] == '6'))
@@ -403,23 +459,53 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   ptr++;
 
   *strp = ptr;
-  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, &y);
+  errmsg = parse_unsigned_int_maybe_postinc (cd, strp, opindex, &y, &inc_here);
   if (errmsg)
     return errmsg;
+
+  if (vec_dir == H || vec_dir == HX || vec_dir == HY)
+    do_inc |= inc_here;
+  else if (inc_here)
+    return "can't increment vertical";
 
   if (**strp != ',')
     return "expected ,";
   (*strp)++;
 
-  errmsg = cgen_parse_unsigned_integer (cd, strp, opindex, &x);
+  errmsg = parse_unsigned_int_maybe_postinc (cd, strp, opindex, &x, &inc_here);
   if (errmsg)
     return errmsg;
+
+  if (vec_dir == V || vec_dir == VX || vec_dir == VY)
+    do_inc |= inc_here;
+  else if (inc_here)
+    return "can't increment horizontal";
 
   ptr = *strp;
   if (*ptr != ')')
     return "expected ')'";
 
   ptr++;
+
+  if (ptr[0] == '+' && ptr[1] == 'r')
+    {
+      unsigned long regno;
+      int scanned, chars_read;
+      ptr += 2;
+      scanned = sscanf (ptr, "%lu%n", &regno, &chars_read);
+      if (scanned == 0)
+        return "expecting register number";
+      if (regno > 14)
+        return "register out of range";
+      ptr += chars_read;
+      scalar_reg = regno;
+    }
+
+  if (*ptr == '*')
+    {
+      ptr++;
+      column_offset = TRUE;
+    }
 
   if (x > 63)
     return "X position out of range";
@@ -512,6 +598,14 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
         }
       break;
     }
+
+  if (column_offset)
+    valbits |= 0x400;
+
+  if (do_inc)
+    valbits |= 0x800;
+
+  valbits |= scalar_reg << 12;
 
   *valuep = valbits;
   *strp = ptr;
