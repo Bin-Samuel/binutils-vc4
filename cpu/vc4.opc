@@ -26,6 +26,14 @@ typedef enum
   DASH
 } vc4_vec_dir;
 
+#define SRU_BIT  0x40
+#define ENA_BIT  0x20
+#define HIGH_BIT 0x10
+#define SIGN_BIT 0x08
+#define CLRA_BIT 0x04
+#define WBA_BIT  0x02
+#define SUB_BIT  0x01
+
 /* -- asm.c */
 
 #include <errno.h>
@@ -645,41 +653,270 @@ parse_vec80alubreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   return parse_vector_reg (cd, strp, opindex, valuep, FALSE);
 }
 
-static const char *
-parse_optdregscalar (CGEN_CPU_DESC cd, const char **strp, int opindex,
-                     unsigned long *valuep)
+static int
+parse_scalar_reg_update (const char **strp, unsigned long *acc_sru, int opcode)
 {
-  *valuep = 0;
+  int scanned, chars_read = 0;
+  unsigned regno;
+
+  if (**strp == ' ')
+    (*strp)++;
+
+  if (**strp != 'r')
+    return 1;
+
+  (*strp)++;
+
+  scanned = sscanf (*strp, "%u%n", &regno, &chars_read);
+  if (scanned == 0)
+    return 1;
+
+  if (regno > 7)
+    return 1;
+
+  *acc_sru = regno | (opcode << 3) | SRU_BIT;
+
+  (*strp) += chars_read;
+
   return 0;
 }
 
-static const char *
-parse_optaregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-                     const char **strp ATTRIBUTE_UNUSED,
-                     int opindex ATTRIBUTE_UNUSED,
-                     unsigned long *valuep)
-{
-  *valuep = 0;
-  return 0;
-}
+/* Parses modifiers and encodes as:
 
-static const char *
-parse_optbregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-                     const char **strp ATTRIBUTE_UNUSED,
-                     int opindex ATTRIBUTE_UNUSED,
-                     unsigned long *valuep)
-{
-  *valuep = 0;
-  return 0;
-}
+   13            7 6     4  3  2     0
+   [i i i i i i i] [p p p] [F] [r r r]
+          |           |     |     `-repeat count
+          |           |      `-set flags
+          |            `-lane predication
+           `-SRU or ACC settings.
+*/
 
 static const char *
 parse_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-                 const char **strp ATTRIBUTE_UNUSED,
+                 const char **strp,
                  int opindex ATTRIBUTE_UNUSED,
                  unsigned long *valuep)
 {
-  *valuep = 0;
+  unsigned long repeat = 0;
+  unsigned long acc_sru = 0;
+  unsigned long predication = 0;
+  bfd_boolean setf = FALSE;
+  bfd_boolean sru_p = FALSE;
+  bfd_boolean acc_p = FALSE;
+
+  while (**strp != 0)
+    {
+      if (**strp == ' ')
+        (*strp)++;
+
+      if (strncmp (*strp, "REP", 3) == 0)
+        {
+          if (repeat)
+            return "multiple REP specifiers";
+
+          (*strp) += 3;
+          if (strncmp (*strp, "2", 1) == 0)
+            repeat = 1, (*strp)++;
+          else if (strncmp (*strp, "4", 1) == 0)
+            repeat = 2, (*strp)++;
+          else if (strncmp (*strp, "8", 1) == 0)
+            repeat = 3, (*strp)++;
+          else if (strncmp (*strp, "16", 2) == 0)
+            repeat = 4, (*strp) += 2;
+          else if (strncmp (*strp, "32", 2) == 0)
+            repeat = 5, (*strp) += 2;
+          else if (strncmp (*strp, "64", 2) == 0)
+            repeat = 6, (*strp) += 2;
+          else if (strncmp (*strp, " r0", 3) == 0)
+            repeat = 7, (*strp) += 3;
+          else
+            return "bad repeat count";
+        }
+      else if (strncmp (*strp, "SETF", 4) == 0)
+        {
+          setf = TRUE;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "ALL", 3) == 0)
+        {
+          predication = 0;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "NONE", 4) == 0)
+        {
+          predication = 1;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "IFZ", 3) == 0)
+        {
+          predication = 2;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "IFNZ", 4) == 0)
+        {
+          predication = 3;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "IFN", 3) == 0)
+        {
+          predication = 4;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "IFNN", 4) == 0)
+        {
+          predication = 5;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "IFC", 3) == 0)
+        {
+          predication = 6;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "IFNC", 4) == 0)
+        {
+          predication = 7;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "ENA", 3) == 0)
+        {
+          if (sru_p)
+            return "can't have ENA with SRU";
+          acc_sru |= ENA_BIT;
+          acc_p = TRUE;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "HIGH", 4) == 0)
+        {
+          if (sru_p)
+            return "can't have HIGH with SRU";
+          acc_sru |= HIGH_BIT;
+          acc_p = TRUE;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "SIGN", 4) == 0)
+        {
+          if (sru_p)
+            return "can't have SIGN with SRU";
+          acc_sru |= SIGN_BIT;
+          acc_p = TRUE;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "CLRA", 4) == 0)
+        {
+          if (sru_p)
+            return "can't have CLRA with SRU";
+          acc_sru |= CLRA_BIT;
+          acc_p = TRUE;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "WBA", 3) == 0)
+        {
+          if (sru_p)
+            return "can't have WBA with SRU";
+          acc_sru |= WBA_BIT;
+          acc_p = TRUE;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "SUB", 3) == 0)
+        {
+          if (sru_p)
+            return "can't have SUB with SRU";
+          acc_sru |= SUB_BIT;
+          acc_p = TRUE;
+          (*strp) += 3;
+        }
+      else if (**strp
+               && (strncmp ((*strp) + 1, "ACC", 3) == 0
+                   || strncmp ((*strp) + 1, "ADD", 3) == 0))
+        {
+          if (sru_p)
+            return "can't have ACC with SRU";
+          acc_sru |= ENA_BIT;
+          if (strncmp ((*strp) + 1, "ACC", 3) == 0)
+            acc_sru |= WBA_BIT;
+          if (**strp == 'S')
+            acc_sru |= SIGN_BIT;
+          else if (**strp != 'U')
+            return "not UACC/SACC";
+          if ((*strp)[4] == 'H')
+            {
+              acc_sru |= HIGH_BIT;
+              (*strp)++;
+            }
+          acc_p = TRUE;
+          (*strp) += 4;
+        }
+      else if (**strp
+               && (strncmp ((*strp) + 1, "DEC", 3) == 0
+                   || strncmp ((*strp) + 1, "SUB", 3) == 0))
+        {
+          if (sru_p)
+            return "can't have DEC with SRU";
+          acc_sru |= ENA_BIT;
+          if (strncmp ((*strp) + 1, "DEC", 3) == 0)
+            acc_sru |= WBA_BIT;
+          if (**strp == 'S')
+            acc_sru |= SIGN_BIT;
+          else if (**strp != 'U')
+            return "not UDEC/SDEC";
+          if ((*strp)[4] == 'H')
+            {
+              acc_sru |= HIGH_BIT;
+              (*strp)++;
+            }
+          acc_p = TRUE;
+          (*strp) += 4;
+        }
+      else if (strncmp (*strp, "SUMS", 4) == 0
+               || strncmp (*strp, "SUMU", 4) == 0)
+        {
+          int opcode = (*strp)[3] == 'S' ? 1 : 0;
+          if (acc_p)
+            return "can't have SUMS/SUMU with ACC";
+
+          (*strp) += 4;
+
+          if (parse_scalar_reg_update (strp, &acc_sru, opcode))
+            return "error parsing scalar update reg";
+
+          sru_p = TRUE;
+        }
+      else if (strncmp (*strp, "IMIN", 4) == 0)
+        {
+          if (acc_p)
+            return "can't have IMIN with ACC";
+          (*strp) += 4;
+          if (parse_scalar_reg_update (strp, &acc_sru, 3))
+            return "error parsing scalar update reg";
+          sru_p = TRUE;
+        }
+      else if (strncmp (*strp, "IMAX", 4) == 0)
+        {
+          if (acc_p)
+            return "can't have IMAX with ACC";
+          (*strp) += 4;
+          if (parse_scalar_reg_update (strp, &acc_sru, 5))
+            return "error parsing scalar update reg";
+          sru_p = TRUE;
+        }
+      else if (strncmp (*strp, "MAX", 3) == 0)
+        {
+          if (acc_p)
+            return "can't have MAX with ACC";
+          (*strp) += 3;
+          if (parse_scalar_reg_update (strp, &acc_sru, 7))
+            return "error parsing scalar update reg";
+          sru_p = TRUE;
+        }
+      else
+        return "unexpected modifier";
+    }
+
+  if (acc_p && sru_p)
+    return "scalar reg update and accumulator ops";
+
+  *valuep = repeat | (setf << 3) | (predication << 4) | (acc_sru << 7);
+
   return 0;
 }
 
@@ -964,36 +1201,6 @@ print_vec80alubreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
   print_vector_reg (dis_info, value, FALSE);
-}
-
-static void
-print_optdregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	             void * dis_info ATTRIBUTE_UNUSED,
-	             unsigned long value ATTRIBUTE_UNUSED,
-	             unsigned int attrs ATTRIBUTE_UNUSED,
-	             bfd_vma pc ATTRIBUTE_UNUSED,
-	             int length ATTRIBUTE_UNUSED)
-{
-}
-
-static void
-print_optaregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	             void * dis_info ATTRIBUTE_UNUSED,
-	             unsigned long value ATTRIBUTE_UNUSED,
-	             unsigned int attrs ATTRIBUTE_UNUSED,
-	             bfd_vma pc ATTRIBUTE_UNUSED,
-	             int length ATTRIBUTE_UNUSED)
-{
-}
-
-static void
-print_optbregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	             void * dis_info ATTRIBUTE_UNUSED,
-	             unsigned long value ATTRIBUTE_UNUSED,
-	             unsigned int attrs ATTRIBUTE_UNUSED,
-	             bfd_vma pc ATTRIBUTE_UNUSED,
-	             int length ATTRIBUTE_UNUSED)
-{
 }
 
 static void

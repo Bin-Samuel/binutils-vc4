@@ -342,36 +342,6 @@ print_vec80alubreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 }
 
 static void
-print_optdregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	             void * dis_info ATTRIBUTE_UNUSED,
-	             unsigned long value ATTRIBUTE_UNUSED,
-	             unsigned int attrs ATTRIBUTE_UNUSED,
-	             bfd_vma pc ATTRIBUTE_UNUSED,
-	             int length ATTRIBUTE_UNUSED)
-{
-}
-
-static void
-print_optaregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	             void * dis_info ATTRIBUTE_UNUSED,
-	             unsigned long value ATTRIBUTE_UNUSED,
-	             unsigned int attrs ATTRIBUTE_UNUSED,
-	             bfd_vma pc ATTRIBUTE_UNUSED,
-	             int length ATTRIBUTE_UNUSED)
-{
-}
-
-static void
-print_optbregscalar (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	             void * dis_info ATTRIBUTE_UNUSED,
-	             unsigned long value ATTRIBUTE_UNUSED,
-	             unsigned int attrs ATTRIBUTE_UNUSED,
-	             bfd_vma pc ATTRIBUTE_UNUSED,
-	             int length ATTRIBUTE_UNUSED)
-{
-}
-
-static void
 print_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	         void * dis_info ATTRIBUTE_UNUSED,
 	         unsigned long value ATTRIBUTE_UNUSED,

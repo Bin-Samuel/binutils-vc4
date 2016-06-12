@@ -53,6 +53,14 @@ typedef enum
   DASH
 } vc4_vec_dir;
 
+#define SRU_BIT  0x40
+#define ENA_BIT  0x20
+#define HIGH_BIT 0x10
+#define SIGN_BIT 0x08
+#define CLRA_BIT 0x04
+#define WBA_BIT  0x02
+#define SUB_BIT  0x01
+
 /* -- asm.c */
 /* Enum declaration for vc4 instruction types.  */
 typedef enum cgen_insn_type {
