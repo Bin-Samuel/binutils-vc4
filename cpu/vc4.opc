@@ -1128,10 +1128,14 @@ print_vector_reg (void *dis_info, unsigned long value, bfd_boolean areg_p)
         }
       break;
 
-    default:
+    case 14:
       vec_dir = DASH;
       x = y = 0;
       break;
+
+    case 15:
+      (*info->fprintf_func) (info->stream, "?15?");
+      return;
     }
 
   column_offset = (value >> 10) & 1;
@@ -1205,12 +1209,106 @@ print_vec80alubreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
 static void
 print_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	         void * dis_info ATTRIBUTE_UNUSED,
-	         unsigned long value ATTRIBUTE_UNUSED,
+	         void * dis_info,
+	         unsigned long value,
 	         unsigned int attrs ATTRIBUTE_UNUSED,
 	         bfd_vma pc ATTRIBUTE_UNUSED,
 	         int length ATTRIBUTE_UNUSED)
 {
+  disassemble_info *info = (disassemble_info *) dis_info;
+  unsigned long repeat = value & 7;
+  bfd_boolean setf = (value >> 3) & 1;
+  unsigned long predication = (value >> 4) & 7;
+  unsigned long acc_sru = (value >> 7) & 127;
+  const char *rep_str = "", *pred_str = "";
+
+  switch (repeat)
+    {
+    case 1: rep_str = " REP2"; break;
+    case 2: rep_str = " REP4"; break;
+    case 3: rep_str = " REP8"; break;
+    case 4: rep_str = " REP16"; break;
+    case 5: rep_str = " REP32"; break;
+    case 6: rep_str = " REP64"; break;
+    case 7: rep_str = " REP r0"; break;
+    }
+
+  (*info->fprintf_func) (info->stream, "%s", rep_str);
+
+  if (setf)
+    (*info->fprintf_func) (info->stream, " SETF");
+
+  switch (predication)
+    {
+    case 1: pred_str = " NONE"; break;
+    case 2: pred_str = " IFZ"; break;
+    case 3: pred_str = " IFNZ"; break;
+    case 4: pred_str = " IFN"; break;
+    case 5: pred_str = " IFNN"; break;
+    case 6: pred_str = " IFC"; break;
+    case 7: pred_str = " IFNC"; break;
+    }
+
+  (*info->fprintf_func) (info->stream, "%s", pred_str);
+
+  if (acc_sru & SRU_BIT)
+    {
+      const char *func_str = "";
+      switch ((acc_sru >> 3) & 7)
+        {
+        case 0: func_str = "SUMU"; break;
+        case 1: func_str = "SUMS"; break;
+        case 2: func_str = "max2"; break;
+        case 3: func_str = "IMIN"; break;
+        case 4: func_str = "max4"; break;
+        case 5: func_str = "IMAX"; break;
+        case 6: func_str = "max6"; break;
+        case 7: func_str = "MAX"; break;
+        }
+      (info->fprintf_func) (info->stream, " %s r%u", func_str, acc_sru & 7);
+    }
+  else if (acc_sru & ENA_BIT)
+    {
+      struct
+        {
+          unsigned bitmask;
+          const char *friendly_name;
+        } known[] =
+        {
+          { WBA_BIT,                                 "UACC" },
+          { WBA_BIT | SUB_BIT,                       "UDEC" },
+          { SIGN_BIT | WBA_BIT,                      "SACC" },
+          { SIGN_BIT | WBA_BIT | SUB_BIT,            "SDEC" },
+          { HIGH_BIT | WBA_BIT,                      "UACCH" },
+          { HIGH_BIT | WBA_BIT | SUB_BIT,            "UDECH" },
+          { HIGH_BIT | SIGN_BIT | WBA_BIT,           "SACCH" },
+          { HIGH_BIT | SIGN_BIT | WBA_BIT | SUB_BIT, "SDECH" },
+          { 0,                                       "UADD" },
+          { SUB_BIT,                                 "USUB" },
+          { SIGN_BIT,                                "SADD" },
+          { SIGN_BIT | SUB_BIT,                      "SSUB" },
+          { HIGH_BIT,                                "UADDH" },
+          { HIGH_BIT | SUB_BIT,                      "USUBH" },
+          { HIGH_BIT | SIGN_BIT,                     "SADDH" },
+          { HIGH_BIT | SIGN_BIT | SUB_BIT,           "SSUBH" }
+        };
+      unsigned i;
+
+      if (acc_sru & CLRA_BIT)
+        (*info->fprintf_func) (info->stream, " CLRA");
+
+      for (i = 0; i < 16; i++)
+        if ((acc_sru & ~(ENA_BIT | CLRA_BIT)) == known[i].bitmask)
+          {
+            (info->fprintf_func) (info->stream, " %s",
+                                  known[i].friendly_name);
+            break;
+          }
+
+      /* All cases should be covered above.  */
+      if (i == 16)
+        abort ();
+    }
 }
 
 /* -- */
