@@ -42,6 +42,17 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 
 #define CGEN_VERBOSE_ASSEMBLER_ERRORS
 
+typedef enum
+{
+  H,
+  HX,
+  HY,
+  V,
+  VX,
+  VY,
+  DASH
+} vc4_vec_dir;
+
 /* -- asm.c */
 /* Enum declaration for vc4 instruction types.  */
 typedef enum cgen_insn_type {

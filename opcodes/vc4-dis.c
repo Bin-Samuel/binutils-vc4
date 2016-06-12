@@ -189,33 +189,156 @@ PRINT_SHLN(8)
 /* Vector insn printing.  */
 
 static void
+print_vector_reg (void *dis_info, unsigned long value, bfd_boolean areg_p)
+{
+  vc4_vec_dir vec_dir;
+  unsigned x, y;
+  bfd_boolean do_inc, column_offset;
+  unsigned scalar_reg;
+  disassemble_info *info = (disassemble_info *) dis_info;
+  const char *typename;
+
+  switch ((value >> 6) & 15)
+    {
+    case 0: case 2: case 4: case 6:
+      vec_dir = H;
+      x = ((value >> 7) & 3) << 4;
+      if (areg_p)
+        x |= (value >> 16) & 15;
+      y = value & 63;
+      break;
+    case 8: case 10:
+      vec_dir = HX;
+      x = ((value >> 7) & 1) << 5;
+      if (areg_p)
+        x |= (value >> 16) & 15;
+      y = value & 63;
+      break;
+    case 12:
+      vec_dir = HY;
+      x = 0;
+      if (areg_p)
+        x |= (value >> 16) & 15;
+      y = value & 63;
+      break;
+
+    case 1: case 3: case 5: case 7:
+      vec_dir = V;
+      if (!areg_p)
+        {
+          x = ((value >> 7) & 3) << 4;
+          x |= value & 15;
+          y = value & 0x30;
+        }
+      else
+        {
+          x = ((value >> 7) & 3) << 4;
+          x |= (value >> 16) & 15;
+          y = value & 0x3f;
+        }
+      break;
+    case 9: case 11:
+      vec_dir = VX;
+      if (!areg_p)
+        {
+          x = ((value >> 7) & 1) << 5;
+          x |= value & 15;
+          y = value & 0x30;
+        }
+      else
+        {
+          x = ((value >> 7) & 1) << 5;
+          x |= (value >> 16) & 15;
+          y = value & 0x3f;
+        }
+      break;
+    case 13:
+      vec_dir = VY;
+      if (!areg_p)
+        {
+          x = value & 15;
+          y = value & 0x30;
+        }
+      else
+        {
+          x = (value >> 16) & 15;
+          y = value & 0x3f;
+        }
+      break;
+
+    default:
+      vec_dir = DASH;
+      x = y = 0;
+      break;
+    }
+
+  column_offset = (value >> 10) & 1;
+  do_inc = (value >> 11) & 1;
+  scalar_reg = (value >> 12) & 15;
+
+  switch (vec_dir)
+    {
+    case H: typename = "H"; break;
+    case HX: typename = "HX"; break;
+    case HY: typename = "HY"; break;
+    case V: typename = "V"; break;
+    case VX: typename = "VX"; break;
+    case VY: typename = "VY"; break;
+    case DASH:
+      (*info->fprintf_func) (info->stream, "-");
+      return;
+    }
+
+  (*info->fprintf_func) (info->stream, "%s(%u", typename, y);
+  if ((vec_dir == H || vec_dir == HX || vec_dir == HY)
+      && do_inc)
+    (*info->fprintf_func) (info->stream, "++");
+
+  (*info->fprintf_func) (info->stream, ",%u", x);
+  if ((vec_dir == V || vec_dir == VX || vec_dir == VY)
+      && do_inc)
+    (*info->fprintf_func) (info->stream, "++");
+
+  (*info->fprintf_func) (info->stream, ")");
+
+  if (scalar_reg != 15)
+    (*info->fprintf_func) (info->stream, "+r%u", scalar_reg);
+
+  if (column_offset)
+    (*info->fprintf_func) (info->stream, "*");
+}
+
+static void
 print_vec80aludreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	            void * dis_info ATTRIBUTE_UNUSED,
-	            unsigned long value ATTRIBUTE_UNUSED,
+	            void * dis_info,
+	            unsigned long value,
 	            unsigned int attrs ATTRIBUTE_UNUSED,
 	            bfd_vma pc ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
+  print_vector_reg (dis_info, value, FALSE);
 }
 
 static void
 print_vec80aluareg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	            void * dis_info ATTRIBUTE_UNUSED,
-	            unsigned long value ATTRIBUTE_UNUSED,
+	            void * dis_info,
+	            unsigned long value,
 	            unsigned int attrs ATTRIBUTE_UNUSED,
 	            bfd_vma pc ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
+  print_vector_reg (dis_info, value, TRUE);
 }
 
 static void
 print_vec80alubreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
-	            void * dis_info ATTRIBUTE_UNUSED,
-	            unsigned long value ATTRIBUTE_UNUSED,
+	            void * dis_info,
+	            unsigned long value,
 	            unsigned int attrs ATTRIBUTE_UNUSED,
 	            bfd_vma pc ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
+  print_vector_reg (dis_info, value, FALSE);
 }
 
 static void

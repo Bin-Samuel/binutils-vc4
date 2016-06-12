@@ -430,17 +430,16 @@ parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
   return 0;
 }
 
-typedef enum
-{
-  H,
-  HX,
-  HY,
-  V,
-  VX,
-  VY
-} vc4_vec_dir;
+/* Vector insn parsing.
 
-/* Vector insn parsing.  */
+   This parses a vector operand and encodes bits as:
+
+   19     16 15         10 9                   0
+   [r r r r] [f f f f f f] [v v v v v v v v v v]
+       |           |                 `-encoded coordinate.
+       |            `-added scalar reg, column offset flag & post-inc.
+        `-extra coordinate bits for A operand.
+*/
 
 static const char *
 parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
@@ -524,7 +523,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (ptr[0] == '+' && ptr[1] == 'r')
     {
       unsigned long regno;
-      int scanned, chars_read;
+      int scanned, chars_read = 0;
       ptr += 2;
       scanned = sscanf (ptr, "%lu%n", &regno, &chars_read);
       if (scanned == 0)
@@ -590,6 +589,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
         {
           valbits = y & 63;
           valbits |= (x >> 4) << 7;
+          valbits |= 0x40;
           valbits |= (x & 15) << 16;
         }
      break;
@@ -602,13 +602,13 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
             return "can't encode Y position";
           valbits = y & 0x30;
           valbits |= x & 15;
-          valbits |= 0x200;
+          valbits |= 0x240;
           valbits |= (x >> 5) << 7;
         }
       else
         {
           valbits = y & 63;
-          valbits |= 0x300;
+          valbits |= 0x240;
           valbits |= (x >> 5) << 7;
           valbits |= (x & 15) << 16;
         }
@@ -622,7 +622,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
             return "can't encode Y position";
           valbits = y & 0x30;
           valbits |= x & 15;
-          valbits |= 0x240;
+          valbits |= 0x340;
         }
       else
         {
