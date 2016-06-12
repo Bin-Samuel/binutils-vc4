@@ -60,6 +60,12 @@
                       (sll (ifield f-op63-58) 10)))))
 )
 
+; The "a" (coordinate) part of the operand is split between:
+;  * word 1 (6 bits, 21-16)
+;  * word 2 (4 bits, 47-44)
+; The high-order bits of the 10-bit value (i.e. bits 9-4) go in the first of
+; these, and the low-order bits (3-0) go in the second.
+
 (define-multi-ifield
   (name f-vec80areg)
   (comment "20-bit specifier for A operand")
@@ -68,14 +74,14 @@
   ; Total of 6+4+6+4 = 20 bits.
   (subfields f-op21-16 f-op47-44 f-op57-52 f-op51-48)
   (insert (sequence ()
-            (set (ifield f-op21-16) (and (ifield f-vec80areg) 63))
-            (set (ifield f-op47-44) (and (srl (ifield f-vec80areg) 6) 15))
+            (set (ifield f-op47-44) (and (ifield f-vec80areg) 15))
+            (set (ifield f-op21-16) (and (srl (ifield f-vec80areg) 4) 63))
             (set (ifield f-op57-52) (and (srl (ifield f-vec80areg) 10) 63))
             (set (ifield f-op51-48) (and (srl (ifield f-vec80areg) 16) 15))))
   (extract (sequence ()
              (set (ifield f-vec80areg)
-                  (or (ifield f-op21-16)
-                      (or (sll (ifield f-op47-44) 6)
+                  (or (ifield f-op47-44)
+                      (or (sll (ifield f-op21-16) 4)
                           (or (sll (ifield f-op57-52) 10)
                               (sll (ifield f-op51-48) 16)))))))
 )

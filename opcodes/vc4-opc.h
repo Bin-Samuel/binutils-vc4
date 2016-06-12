@@ -61,6 +61,13 @@ typedef enum
 #define WBA_BIT  0x02
 #define SUB_BIT  0x01
 
+typedef enum
+{
+  OP_D,
+  OP_A,
+  OP_B
+} vc4_operand;
+
 /* -- asm.c */
 /* Enum declaration for vc4 instruction types.  */
 typedef enum cgen_insn_type {

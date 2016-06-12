@@ -920,8 +920,8 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_V80A32REG :
       {
 {
-  FLD (f_op21_16) = ((FLD (f_vec80areg)) & (63));
-  FLD (f_op47_44) = ((((UINT) (FLD (f_vec80areg)) >> (6))) & (15));
+  FLD (f_op47_44) = ((FLD (f_vec80areg)) & (15));
+  FLD (f_op21_16) = ((((UINT) (FLD (f_vec80areg)) >> (4))) & (63));
   FLD (f_op57_52) = ((((UINT) (FLD (f_vec80areg)) >> (10))) & (63));
   FLD (f_op51_48) = ((((UINT) (FLD (f_vec80areg)) >> (16))) & (15));
 }
@@ -1388,7 +1388,7 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         length = extract_normal (cd, ex_info, insn_value, 0, 48, 3, 4, 16, total_length, pc, & fields->f_op51_48);
         if (length <= 0) break;
 {
-  FLD (f_vec80areg) = ((FLD (f_op21_16)) | (((((FLD (f_op47_44)) << (6))) | (((((FLD (f_op57_52)) << (10))) | (((FLD (f_op51_48)) << (16))))))));
+  FLD (f_vec80areg) = ((FLD (f_op47_44)) | (((((FLD (f_op21_16)) << (4))) | (((((FLD (f_op57_52)) << (10))) | (((FLD (f_op51_48)) << (16))))))));
 }
       }
       break;

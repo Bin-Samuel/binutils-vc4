@@ -443,7 +443,7 @@ parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
 
 static const char *
 parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
-                  unsigned long *valuep, bfd_boolean areg_p)
+                  unsigned long *valuep, vc4_operand whichop)
 {
   const char *ptr = *strp;
   vc4_vec_dir vec_dir;
@@ -454,6 +454,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   bfd_boolean column_offset = FALSE;
   bfd_boolean inc_here;
   unsigned scalar_reg = 15;
+  bfd_boolean areg_p = whichop == OP_A;
 
   if ((ptr[0] == 'H' && ptr[1] == 'X')
       || (ptr[0] == 'H' && ptr[1] == '1' && ptr[2] == '6'))
@@ -651,21 +652,21 @@ static const char *
 parse_vec80aludreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, FALSE);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_D);
 }
 
 static const char *
 parse_vec80aluareg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, TRUE);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_A);
 }
 
 static const char *
 parse_vec80alubreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, FALSE);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_B);
 }
 
 static int

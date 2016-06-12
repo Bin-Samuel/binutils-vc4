@@ -189,7 +189,7 @@ PRINT_SHLN(8)
 /* Vector insn printing.  */
 
 static void
-print_vector_reg (void *dis_info, unsigned long value, bfd_boolean areg_p)
+print_vector_reg (void *dis_info, unsigned long value, vc4_operand whichop)
 {
   vc4_vec_dir vec_dir;
   unsigned x, y;
@@ -197,6 +197,7 @@ print_vector_reg (void *dis_info, unsigned long value, bfd_boolean areg_p)
   unsigned scalar_reg;
   disassemble_info *info = (disassemble_info *) dis_info;
   const char *typename;
+  bfd_boolean areg_p = whichop == OP_A;
 
   switch ((value >> 6) & 15)
     {
@@ -289,7 +290,18 @@ print_vector_reg (void *dis_info, unsigned long value, bfd_boolean areg_p)
     case VX: typename = "VX"; break;
     case VY: typename = "VY"; break;
     case DASH:
-      (*info->fprintf_func) (info->stream, "-");
+      if (whichop == OP_D || whichop == OP_A)
+        (*info->fprintf_func) (info->stream, "-");
+      else if (whichop == OP_B)
+        {
+          (*info->fprintf_func) (info->stream, "r%u", scalar_reg);
+          if (scalar_reg == 15)
+            (*info->fprintf_func) (info->stream, "(bad?)");
+          if (do_inc)
+            (*info->fprintf_func) (info->stream, "(inc?)");
+          if (column_offset)
+            (*info->fprintf_func) (info->stream, "(offset?)");
+        }
       return;
     }
 
@@ -320,7 +332,7 @@ print_vec80aludreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	            bfd_vma pc ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
-  print_vector_reg (dis_info, value, FALSE);
+  print_vector_reg (dis_info, value, OP_D);
 }
 
 static void
@@ -331,7 +343,7 @@ print_vec80aluareg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	            bfd_vma pc ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
-  print_vector_reg (dis_info, value, TRUE);
+  print_vector_reg (dis_info, value, OP_A);
 }
 
 static void
@@ -342,7 +354,7 @@ print_vec80alubreg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	            bfd_vma pc ATTRIBUTE_UNUSED,
 	            int length ATTRIBUTE_UNUSED)
 {
-  print_vector_reg (dis_info, value, FALSE);
+  print_vector_reg (dis_info, value, OP_B);
 }
 
 static void
