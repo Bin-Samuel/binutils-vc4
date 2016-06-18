@@ -2670,244 +2670,484 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_MINI48, "mini48", "min.l", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vmov $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32mov $v80d32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MOVD80V32, "movd80v32", "vmov", 80,
+    VC4_INSN_MOVD80V32, "movd80v32", "v32mov", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vbitplanes $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32bitplanes $v80d32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_BITPLANESD80V32, "bitplanesd80v32", "vbitplanes", 80,
+    VC4_INSN_BITPLANESD80V32, "bitplanesd80v32", "v32bitplanes", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* veven $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32even $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_EVEND80V32, "evend80v32", "veven", 80,
+    VC4_INSN_EVEND80V32, "evend80v32", "v32even", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vodd $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32odd $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ODDD80V32, "oddd80v32", "vodd", 80,
+    VC4_INSN_ODDD80V32, "oddd80v32", "v32odd", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vinterl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32interl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_INTERLD80V32, "interld80v32", "vinterl", 80,
+    VC4_INSN_INTERLD80V32, "interld80v32", "v32interl", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vinterh $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32interh $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_INTERHD80V32, "interhd80v32", "vinterh", 80,
+    VC4_INSN_INTERHD80V32, "interhd80v32", "v32interh", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vbitrev $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32bitrev $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_BITREVD80V32, "bitrevd80v32", "vbitrev", 80,
+    VC4_INSN_BITREVD80V32, "bitrevd80v32", "v32bitrev", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vror $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32ror $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_RORD80V32, "rord80v32", "vror", 80,
+    VC4_INSN_RORD80V32, "rord80v32", "v32ror", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vshl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32shl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SHLD80V32, "shld80v32", "vshl", 80,
+    VC4_INSN_SHLD80V32, "shld80v32", "v32shl", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vshls $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32shls $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SHLSD80V32, "shlsd80v32", "vshls", 80,
+    VC4_INSN_SHLSD80V32, "shlsd80v32", "v32shls", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vlsr $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32lsr $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_LSRD80V32, "lsrd80v32", "vlsr", 80,
+    VC4_INSN_LSRD80V32, "lsrd80v32", "v32lsr", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vasr $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32asr $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ASRD80V32, "asrd80v32", "vasr", 80,
+    VC4_INSN_ASRD80V32, "asrd80v32", "v32asr", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsignshl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32signshl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SIGNSHLD80V32, "signshld80v32", "vsignshl", 80,
+    VC4_INSN_SIGNSHLD80V32, "signshld80v32", "v32signshl", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop13 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op13 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP13D80V32, "op13d80v32", "vop13", 80,
+    VC4_INSN_OP13D80V32, "op13d80v32", "v32op13", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsignasl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32signasl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SIGNASLD80V32, "signasld80v32", "vsignasl", 80,
+    VC4_INSN_SIGNASLD80V32, "signasld80v32", "v32signasl", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsignasls $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32signasls $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SIGNASLSD80V32, "signaslsd80v32", "vsignasls", 80,
+    VC4_INSN_SIGNASLSD80V32, "signaslsd80v32", "v32signasls", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vand $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32and $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ANDD80V32, "andd80v32", "vand", 80,
+    VC4_INSN_ANDD80V32, "andd80v32", "v32and", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vor $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32or $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ORD80V32, "ord80v32", "vor", 80,
+    VC4_INSN_ORD80V32, "ord80v32", "v32or", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* veor $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32eor $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_EORD80V32, "eord80v32", "veor", 80,
+    VC4_INSN_EORD80V32, "eord80v32", "v32eor", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vbic $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32bic $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_BICD80V32, "bicd80v32", "vbic", 80,
+    VC4_INSN_BICD80V32, "bicd80v32", "v32bic", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vcount $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32count $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_COUNTD80V32, "countd80v32", "vcount", 80,
+    VC4_INSN_COUNTD80V32, "countd80v32", "v32count", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vmsb $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32msb $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MSBD80V32, "msbd80v32", "vmsb", 80,
+    VC4_INSN_MSBD80V32, "msbd80v32", "v32msb", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop22 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op22 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP22D80V32, "op22d80v32", "vop22", 80,
+    VC4_INSN_OP22D80V32, "op22d80v32", "v32op22", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop23 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op23 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP23D80V32, "op23d80v32", "vop23", 80,
+    VC4_INSN_OP23D80V32, "op23d80v32", "v32op23", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vmin $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32min $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MIND80V32, "mind80v32", "vmin", 80,
+    VC4_INSN_MIND80V32, "mind80v32", "v32min", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vmax $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32max $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MAXD80V32, "maxd80v32", "vmax", 80,
+    VC4_INSN_MAXD80V32, "maxd80v32", "v32max", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vdist $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32dist $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_DISTD80V32, "distd80v32", "vdist", 80,
+    VC4_INSN_DISTD80V32, "distd80v32", "v32dist", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vdists $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32dists $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_DISTSD80V32, "distsd80v32", "vdists", 80,
+    VC4_INSN_DISTSD80V32, "distsd80v32", "v32dists", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vclip $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32clip $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_CLIPD80V32, "clipd80v32", "vclip", 80,
+    VC4_INSN_CLIPD80V32, "clipd80v32", "v32clip", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsign $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32sign $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SIGND80V32, "signd80v32", "vsign", 80,
+    VC4_INSN_SIGND80V32, "signd80v32", "v32sign", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vclips $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32clips $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_CLIPSD80V32, "clipsd80v32", "vclips", 80,
+    VC4_INSN_CLIPSD80V32, "clipsd80v32", "v32clips", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vtestmag $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32testmag $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_TESTMAGD80V32, "testmagd80v32", "vtestmag", 80,
+    VC4_INSN_TESTMAGD80V32, "testmagd80v32", "v32testmag", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vadd $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32add $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ADDD80V32, "addd80v32", "vadd", 80,
+    VC4_INSN_ADDD80V32, "addd80v32", "v32add", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vadds $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32adds $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ADDSD80V32, "addsd80v32", "vadds", 80,
+    VC4_INSN_ADDSD80V32, "addsd80v32", "v32adds", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vaddc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32addc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ADDCD80V32, "addcd80v32", "vaddc", 80,
+    VC4_INSN_ADDCD80V32, "addcd80v32", "v32addc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vaddsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32addsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_ADDSCD80V32, "addscd80v32", "vaddsc", 80,
+    VC4_INSN_ADDSCD80V32, "addscd80v32", "v32addsc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsub $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32sub $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SUBD80V32, "subd80v32", "vsub", 80,
+    VC4_INSN_SUBD80V32, "subd80v32", "v32sub", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsubs $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32subs $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SUBSD80V32, "subsd80v32", "vsubs", 80,
+    VC4_INSN_SUBSD80V32, "subsd80v32", "v32subs", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsubc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32subc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SUBCD80V32, "subcd80v32", "vsubc", 80,
+    VC4_INSN_SUBCD80V32, "subcd80v32", "v32subc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vsubsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32subsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_SUBSCD80V32, "subscd80v32", "vsubsc", 80,
+    VC4_INSN_SUBSCD80V32, "subscd80v32", "v32subsc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vrsub $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32rsub $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_RSUBD80V32, "rsubd80v32", "vrsub", 80,
+    VC4_INSN_RSUBD80V32, "rsubd80v32", "v32rsub", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vrsubs $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32rsubs $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_RSUBSD80V32, "rsubsd80v32", "vrsubs", 80,
+    VC4_INSN_RSUBSD80V32, "rsubsd80v32", "v32rsubs", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vrsubc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32rsubc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_RSUBCD80V32, "rsubcd80v32", "vrsubc", 80,
+    VC4_INSN_RSUBCD80V32, "rsubcd80v32", "v32rsubc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vrsubsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32rsubsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_RSUBSCD80V32, "rsubscd80v32", "vrsubsc", 80,
+    VC4_INSN_RSUBSCD80V32, "rsubscd80v32", "v32rsubsc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop44 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op44 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP44D80V32, "op44d80v32", "vop44", 80,
+    VC4_INSN_OP44D80V32, "op44d80v32", "v32op44", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop45 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op45 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP45D80V32, "op45d80v32", "vop45", 80,
+    VC4_INSN_OP45D80V32, "op45d80v32", "v32op45", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop46 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op46 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP46D80V32, "op46d80v32", "vop46", 80,
+    VC4_INSN_OP46D80V32, "op46d80v32", "v32op46", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vop47 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* v32op47 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP47D80V32, "op47d80v32", "vop47", 80,
+    VC4_INSN_OP47D80V32, "op47d80v32", "v32op47", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16mov $v80d32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_MOVD80V16, "movd80v16", "v16mov", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16bitplanes $v80d32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_BITPLANESD80V16, "bitplanesd80v16", "v16bitplanes", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16even $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_EVEND80V16, "evend80v16", "v16even", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16odd $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ODDD80V16, "oddd80v16", "v16odd", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16interl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_INTERLD80V16, "interld80v16", "v16interl", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16interh $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_INTERHD80V16, "interhd80v16", "v16interh", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16bitrev $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_BITREVD80V16, "bitrevd80v16", "v16bitrev", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16ror $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_RORD80V16, "rord80v16", "v16ror", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16shl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SHLD80V16, "shld80v16", "v16shl", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16shls $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SHLSD80V16, "shlsd80v16", "v16shls", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16lsr $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_LSRD80V16, "lsrd80v16", "v16lsr", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16asr $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ASRD80V16, "asrd80v16", "v16asr", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16signshl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SIGNSHLD80V16, "signshld80v16", "v16signshl", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op13 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP13D80V16, "op13d80v16", "v16op13", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16signasl $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SIGNASLD80V16, "signasld80v16", "v16signasl", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16signasls $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SIGNASLSD80V16, "signaslsd80v16", "v16signasls", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16and $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ANDD80V16, "andd80v16", "v16and", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16or $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ORD80V16, "ord80v16", "v16or", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16eor $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_EORD80V16, "eord80v16", "v16eor", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16bic $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_BICD80V16, "bicd80v16", "v16bic", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16count $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_COUNTD80V16, "countd80v16", "v16count", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16msb $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_MSBD80V16, "msbd80v16", "v16msb", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op22 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP22D80V16, "op22d80v16", "v16op22", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op23 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP23D80V16, "op23d80v16", "v16op23", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16min $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_MIND80V16, "mind80v16", "v16min", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16max $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_MAXD80V16, "maxd80v16", "v16max", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16dist $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_DISTD80V16, "distd80v16", "v16dist", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16dists $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_DISTSD80V16, "distsd80v16", "v16dists", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16clip $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_CLIPD80V16, "clipd80v16", "v16clip", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16sign $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SIGND80V16, "signd80v16", "v16sign", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16clips $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_CLIPSD80V16, "clipsd80v16", "v16clips", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16testmag $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_TESTMAGD80V16, "testmagd80v16", "v16testmag", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16add $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ADDD80V16, "addd80v16", "v16add", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16adds $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ADDSD80V16, "addsd80v16", "v16adds", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16addc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ADDCD80V16, "addcd80v16", "v16addc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16addsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_ADDSCD80V16, "addscd80v16", "v16addsc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16sub $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SUBD80V16, "subd80v16", "v16sub", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16subs $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SUBSD80V16, "subsd80v16", "v16subs", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16subc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SUBCD80V16, "subcd80v16", "v16subc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16subsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_SUBSCD80V16, "subscd80v16", "v16subsc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16rsub $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_RSUBD80V16, "rsubd80v16", "v16rsub", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16rsubs $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_RSUBSD80V16, "rsubsd80v16", "v16rsubs", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16rsubc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_RSUBCD80V16, "rsubcd80v16", "v16rsubc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16rsubsc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_RSUBSCD80V16, "rsubscd80v16", "v16rsubsc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op44 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP44D80V16, "op44d80v16", "v16op44", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op45 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP45D80V16, "op45d80v16", "v16op45", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op46 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP46D80V16, "op46d80v16", "v16op46", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16op47 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_OP47D80V16, "op47d80v16", "v16op47", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vec48 $operand10_0,$operand47_16 */

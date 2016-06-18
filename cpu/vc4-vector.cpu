@@ -34,14 +34,24 @@
 (df2 f-op76-70 "Opcode bits 76-70" () 64 16 12 7 UINT (#f) (#f))
 (df2 f-op79-77 "Opcode bits 79-77" () 64 16 15 3 UINT (#f) (#f))
 
+(define-pmacro opsvec
+  ((MOV 2)     (BITPLANES 2) (EVEN 3)    (ODD 3)
+   (INTERL 3)  (INTERH 3)    (BITREV 3)  (ROR 3)
+   (SHL 3)     (SHLS 3)      (LSR 3)     (ASR 3)
+   (SIGNSHL 3) (OP13 3)      (SIGNASL 3) (SIGNASLS 3)
+   (AND 3)     (OR 3)        (EOR 3)     (BIC 3)
+   (COUNT 3)   (MSB 3)       (OP22 3)    (OP23 3)
+   (MIN 3)     (MAX 3)       (DIST 3)    (DISTS 3)
+   (CLIP 3)    (SIGN 3)      (CLIPS 3)   (TESTMAG 3)
+   (ADD 3)     (ADDS 3)      (ADDC 3)    (ADDSC 3)
+   (SUB 3)     (SUBS 3)      (SUBC 3)    (SUBSC 3)
+   (RSUB 3)    (RSUBS 3)     (RSUBC 3)   (RSUBSC 3)
+   (OP44 3)    (OP45 3)      (OP46 3)    (OP47 3))
+)
+
 (define-normal-insn-enum
   insn-vecops "Vector ops (< 48)" () VECOP_ f-op8-3
-  (MOV  BITPLANES EVEN   ODD    INTERL  INTERH BITREV  ROR
-   SHL  SHLS      LSR    ASR    SIGNSHL OP13   SIGNASL SIGNASLS
-   AND  OR        EOR    BIC    COUNT   MSB    OP22    OP23
-   MIN  MAX       DIST   DISTS  CLIP    SIGN   CLIPS   TESTMAG
-   ADD  ADDS      ADDC   ADDSC  SUB     SUBS   SUBC    SUBSC
-   RSUB RSUBS     RSUBC  RSUBSC OP44    OP45   OP46    OP47)
+  (.map .car opsvec)
 )
 
 (define-multi-ifield
@@ -185,65 +195,37 @@
   (handlers (parse "vec80mods") (print "vec80mods"))
 )
 
-(define-pmacro (vdataop80v32 x-name)
+; For most 80-vector 3-register ops.
+
+(define-pmacro (vecdataop80_3 x-width x-name x-xflag)
   (define-normal-insn
-    (.sym x-name d80v32) (.upcase (.str x-name "D80")) ()
-    (.str "v" x-name " $v80d32reg,$v80a32reg,$v80b32reg$v80mods")
-    (+ (f-op15-10 63) (f-op9 1) (.sym VECOP_ (.upcase x-name))
+    (.sym (.downcase x-name) d80v x-width) (.str x-name "D80V" x-width) ()
+    (.str "v" x-width (.downcase x-name)
+      " $v80d32reg,$v80a32reg,$v80b32reg$v80mods")
+    (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VECOP_ (.upcase x-name))
        v80mods v80d32reg v80a32reg (f-op42 0) v80b32reg)
     () ())
 )
 
-(vdataop80v32 mov)
-(vdataop80v32 bitplanes)
-(vdataop80v32 even)
-(vdataop80v32 odd)
-(vdataop80v32 interl)
-(vdataop80v32 interh)
-(vdataop80v32 bitrev)
-(vdataop80v32 ror)
+; For "vmov" and other insns that omit the A operand.
 
-(vdataop80v32 shl)
-(vdataop80v32 shls)
-(vdataop80v32 lsr)
-(vdataop80v32 asr)
-(vdataop80v32 signshl)
-(vdataop80v32 op13)
-(vdataop80v32 signasl)
-(vdataop80v32 signasls)
+(define-pmacro (vecdataop80_2 x-width x-name x-xflag)
+  (define-normal-insn
+    (.sym (.downcase x-name) d80v x-width) (.str x-name "D80V" x-width) ()
+    (.str "v" x-width (.downcase x-name) " $v80d32reg,$v80b32reg$v80mods")
+    (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VECOP_ (.upcase x-name))
+       v80mods v80d32reg (f-vec80areg 0) (f-op42 0) v80b32reg)
+    () ())
+)
 
-(vdataop80v32 and)
-(vdataop80v32 or)
-(vdataop80v32 eor)
-(vdataop80v32 bic)
-(vdataop80v32 count)
-(vdataop80v32 msb)
-(vdataop80v32 op22)
-(vdataop80v32 op23)
+(define-pmacro (mkvecdataops80 x-width x-xflag)
+  (.for-each (.pmacro (x-opname x-numops)
+               (.if (.eq x-numops 3)
+                 (.exec (vecdataop80_3 x-width x-opname x-xflag))
+                 (.exec (vecdataop80_2 x-width x-opname x-xflag))))
+             (.map .car opsvec)
+             (.map .cadr opsvec))
+)
 
-(vdataop80v32 min)
-(vdataop80v32 max)
-(vdataop80v32 dist)
-(vdataop80v32 dists)
-(vdataop80v32 clip)
-(vdataop80v32 sign)
-(vdataop80v32 clips)
-(vdataop80v32 testmag)
-
-(vdataop80v32 add)
-(vdataop80v32 adds)
-(vdataop80v32 addc)
-(vdataop80v32 addsc)
-(vdataop80v32 sub)
-(vdataop80v32 subs)
-(vdataop80v32 subc)
-(vdataop80v32 subsc)
-
-(vdataop80v32 rsub)
-(vdataop80v32 rsubs)
-(vdataop80v32 rsubc)
-(vdataop80v32 rsubsc)
-(vdataop80v32 op44)
-(vdataop80v32 op45)
-(vdataop80v32 op46)
-(vdataop80v32 op47)
+(mkvecdataops80 32 1)
+(mkvecdataops80 16 0)
