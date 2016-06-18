@@ -205,6 +205,8 @@
 )
 
 ; For "vmov" and other insns that omit the A operand (which is encoded as "-").
+; Note this doesn't use the f-vec80breg multi-ifield because that doesn't work
+; right with CGEN yet.
 
 (define-pmacro (vecdataop80_2 x-width x-name x-xflag)
   (define-normal-insn
