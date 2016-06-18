@@ -1202,6 +1202,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_V80D32REG :
       errmsg = parse_vec80aludreg (cd, strp, VC4_OPERAND_V80D32REG, (unsigned long *) (& fields->f_vec80dreg));
       break;
+    case VC4_OPERAND_V80IMM :
+      errmsg = parse_imm16 (cd, strp, VC4_OPERAND_V80IMM, (long *) (& fields->f_vec80imm));
+      break;
     case VC4_OPERAND_V80MODS :
       errmsg = parse_vec80mods (cd, strp, VC4_OPERAND_V80MODS, (unsigned long *) (& fields->f_vec80mods));
       break;

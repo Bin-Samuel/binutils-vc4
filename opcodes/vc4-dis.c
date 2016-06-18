@@ -698,6 +698,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_V80D32REG :
       print_vec80aludreg (cd, info, fields->f_vec80dreg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
+    case VC4_OPERAND_V80IMM :
+      print_normal (cd, info, fields->f_vec80imm, 0|(1<<CGEN_OPERAND_SIGNED)|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
     case VC4_OPERAND_V80MODS :
       print_vec80mods (cd, info, fields->f_vec80mods, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;

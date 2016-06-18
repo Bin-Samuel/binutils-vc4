@@ -132,6 +132,21 @@
                               (sll (ifield f-op76-70) 7)))))))
 )
 
+(define-multi-ifield
+  (name f-vec80imm)
+  (comment "immediate for 80-bit vector ALU insns")
+  (attrs)
+  (mode UINT)
+  (subfields f-op69-64 f-op41-32)
+  (insert (sequence ()
+            (set (ifield f-op41-32) (and (ifield f-vec80imm) #x3ff))
+            (set (ifield f-op69-64) (and (srl (ifield f-vec80imm) 10) #x3f))))
+  (extract (sequence ()
+             (set (ifield f-vec80imm)
+                  (or (ifield f-op41-32)
+                      (sll (ifield f-op69-64) 10)))))
+)
+
 (define-operand
   (name v80d32reg)
   (comment "vector dest register, 80-bit ALU insn")
@@ -140,15 +155,6 @@
   (index f-vec80dreg)
   (handlers (parse "vec80aludreg") (print "vec80aludreg"))
 )
-
-;(define-operand
-;  (name plusdreg)
-;  (comment "optional added scalar reg for D part")
-;  (attrs)
-;  (type h-uint)
-;  (index f-op63-58)
-;  (handlers (parse "optdregscalar") (print "optdregscalar"))
-;)
 
 (define-operand
   (name v80a32reg)
@@ -159,15 +165,6 @@
   (handlers (parse "vec80aluareg") (print "vec80aluareg"))
 )
 
-;(define-operand
-;  (name plusareg)
-;  (comment "optional added scalar reg for A part")
-;  (attrs)
-;  (type h-uint)
-;  (index f-op57-52)
-;  (handlers (parse "optaregscalar") (print "optaregscalar"))
-;)
-
 (define-operand
   (name v80b32reg)
   (comment "vector B register, 80-bit ALU insn")
@@ -177,14 +174,14 @@
   (handlers (parse "vec80alubreg") (print "vec80alubreg"))
 )
 
-;(define-operand
-;  (name plusbreg)
-;  (comment "optional added scalar reg for B part")
-;  (attrs)
-;  (type h-uint)
-;  (index f-op69-64)
-;  (handlers (parse "optbregscalar") (print "optbregscalar"))
-;)
+(define-operand
+  (name v80imm)
+  (comment "vector immediate, 80-bit ALU insn")
+  (attrs)
+  (type h-sint)
+  (index f-vec80imm)
+  (handlers (parse "imm16"))
+)
 
 (define-operand
   (name v80mods)
@@ -230,3 +227,39 @@
 
 (mkvecdataops80 32 1)
 (mkvecdataops80 16 0)
+
+; For most 80-vector 3-operand/immediate ops.
+
+(define-pmacro (vecdataopi80_3 x-width x-name x-xflag)
+  (define-normal-insn
+    (.sym (.downcase x-name) d80i x-width) (.str x-name "D80I" x-width) ()
+    (.str "v" x-width (.downcase x-name)
+      " $v80d32reg,$v80a32reg,$v80imm$v80mods")
+    (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VECOP_ (.upcase x-name))
+       v80mods v80d32reg v80a32reg (f-op42 1) v80imm)
+    () ())
+)
+
+; For immediate ops with omitted A operand.
+
+(define-pmacro (vecdataopi80_2 x-width x-name x-xflag)
+  (define-normal-insn
+    (.sym (.downcase x-name) d80i x-width) (.str x-name "D80I" x-width) ()
+    (.str "v" x-width (.downcase x-name) " $v80d32reg,$v80imm$v80mods")
+    (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VECOP_ (.upcase x-name))
+       v80mods v80d32reg (f-op21-16 56) (f-op47-44 0) (f-op57-52 60)
+       (f-op51-48 0) (f-op42 1) v80imm)
+    () ())
+)
+
+(define-pmacro (mkvecdataopis80 x-width x-xflag)
+  (.for-each (.pmacro (x-opname x-numops)
+               (.if (.eq x-numops 3)
+                 (.exec (vecdataopi80_3 x-width x-opname x-xflag))
+                 (.exec (vecdataopi80_2 x-width x-opname x-xflag))))
+             (.map .car opsvec)
+             (.map .cadr opsvec))
+)
+
+(mkvecdataopis80 32 1)
+(mkvecdataopis80 16 0)

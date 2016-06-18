@@ -967,6 +967,20 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
           break;
       }
       break;
+    case VC4_OPERAND_V80IMM :
+      {
+{
+  FLD (f_op41_32) = ((FLD (f_vec80imm)) & (1023));
+  FLD (f_op69_64) = ((((UINT) (FLD (f_vec80imm)) >> (10))) & (63));
+}
+        errmsg = insert_normal (cd, fields->f_op69_64, 0, 64, 5, 6, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op41_32, 0, 32, 9, 10, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
     case VC4_OPERAND_V80MODS :
       {
 {
@@ -1414,6 +1428,17 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
 }
       }
       break;
+    case VC4_OPERAND_V80IMM :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 5, 6, 16, total_length, pc, & fields->f_op69_64);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 32, 9, 10, 16, total_length, pc, & fields->f_op41_32);
+        if (length <= 0) break;
+{
+  FLD (f_vec80imm) = ((FLD (f_op41_32)) | (((FLD (f_op69_64)) << (10))));
+}
+      }
+      break;
     case VC4_OPERAND_V80MODS :
       {
         length = extract_normal (cd, ex_info, insn_value, 0, 0, 2, 3, 16, total_length, pc, & fields->f_op2_0);
@@ -1671,6 +1696,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V80D32REG :
       value = fields->f_vec80dreg;
       break;
+    case VC4_OPERAND_V80IMM :
+      value = fields->f_vec80imm;
+      break;
     case VC4_OPERAND_V80MODS :
       value = fields->f_vec80mods;
       break;
@@ -1898,6 +1926,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V80D32REG :
       value = fields->f_vec80dreg;
       break;
+    case VC4_OPERAND_V80IMM :
+      value = fields->f_vec80imm;
+      break;
     case VC4_OPERAND_V80MODS :
       value = fields->f_vec80mods;
       break;
@@ -2124,6 +2155,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V80D32REG :
       fields->f_vec80dreg = value;
       break;
+    case VC4_OPERAND_V80IMM :
+      fields->f_vec80imm = value;
+      break;
     case VC4_OPERAND_V80MODS :
       fields->f_vec80mods = value;
       break;
@@ -2339,6 +2373,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V80D32REG :
       fields->f_vec80dreg = value;
+      break;
+    case VC4_OPERAND_V80IMM :
+      fields->f_vec80imm = value;
       break;
     case VC4_OPERAND_V80MODS :
       fields->f_vec80mods = value;
