@@ -42,7 +42,7 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 /* Maximum size of any insn (in bytes).  */
 #define CGEN_MAX_INSN_SIZE 10
 
-#define CGEN_MAX_EXTRA_OPCODE_OPERANDS 2
+#define CGEN_MAX_EXTRA_OPCODE_OPERANDS 3
 
 #define CGEN_INT_INSN_P 0
 
@@ -55,7 +55,7 @@ This file is part of the GNU Binutils and/or GDB, the GNU debugger.
 #define CGEN_MNEMONIC_OPERANDS
 
 /* Maximum number of fields in an instruction.  */
-#define CGEN_ACTUAL_MAX_IFMT_OPERANDS 8
+#define CGEN_ACTUAL_MAX_IFMT_OPERANDS 11
 
 /* Enums.  */
 

@@ -207,14 +207,15 @@
     () ())
 )
 
-; For "vmov" and other insns that omit the A operand.
+; For "vmov" and other insns that omit the A operand (which is encoded as "-").
 
 (define-pmacro (vecdataop80_2 x-width x-name x-xflag)
   (define-normal-insn
     (.sym (.downcase x-name) d80v x-width) (.str x-name "D80V" x-width) ()
     (.str "v" x-width (.downcase x-name) " $v80d32reg,$v80b32reg$v80mods")
     (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VECOP_ (.upcase x-name))
-       v80mods v80d32reg (f-vec80areg 0) (f-op42 0) v80b32reg)
+       v80mods v80d32reg (f-op21-16 56) (f-op47-44 0) (f-op57-52 60)
+       (f-op51-48 0) (f-op42 0) v80b32reg)
     () ())
 )
 

@@ -286,7 +286,7 @@ static const CGEN_IFMT ifmt_movi48 ATTRIBUTE_UNUSED = {
 };
 
 static const CGEN_IFMT ifmt_movd80v32 ATTRIBUTE_UNUSED = {
-  16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_VEC80DREG) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_VEC80BREG) }, { F (F_VEC80AREG) }, { F (F_VEC80MODS) }, { 0 } }
+  16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_VEC80DREG) }, { F (F_OP47_44) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP57_52) }, { F (F_OP8_3) }, { F (F_OP21_16) }, { F (F_VEC80BREG) }, { F (F_OP51_48) }, { F (F_VEC80MODS) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_evend80v32 ATTRIBUTE_UNUSED = {
@@ -2582,13 +2582,13 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_movd80v32, { 0xfe00, { 0x0, 0x0 }, { 0x0, 0x400 } }
+    & ifmt_movd80v32, { 0xfe00, { 0x38, 0x0, 0x3c0 }, { 0x3f, 0xf400, 0x3ff } }
   },
 /* v32bitplanes $v80d32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_movd80v32, { 0xfe08, { 0x0, 0x0 }, { 0x0, 0x400 } }
+    & ifmt_movd80v32, { 0xfe08, { 0x38, 0x0, 0x3c0 }, { 0x3f, 0xf400, 0x3ff } }
   },
 /* v32even $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
@@ -2870,13 +2870,13 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_movd80v32, { 0xfc00, { 0x0, 0x0 }, { 0x0, 0x400 } }
+    & ifmt_movd80v32, { 0xfc00, { 0x38, 0x0, 0x3c0 }, { 0x3f, 0xf400, 0x3ff } }
   },
 /* v16bitplanes $v80d32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_movd80v32, { 0xfc08, { 0x0, 0x0 }, { 0x0, 0x400 } }
+    & ifmt_movd80v32, { 0xfc08, { 0x38, 0x0, 0x3c0 }, { 0x3f, 0xf400, 0x3ff } }
   },
 /* v16even $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
