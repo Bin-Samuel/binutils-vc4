@@ -213,7 +213,9 @@ typedef enum cgen_insn_type {
  , VC4_INSN_ADDCD80I16, VC4_INSN_ADDSCD80I16, VC4_INSN_SUBD80I16, VC4_INSN_SUBSD80I16
  , VC4_INSN_SUBCD80I16, VC4_INSN_SUBSCD80I16, VC4_INSN_RSUBD80I16, VC4_INSN_RSUBSD80I16
  , VC4_INSN_RSUBCD80I16, VC4_INSN_RSUBSCD80I16, VC4_INSN_OP44D80I16, VC4_INSN_OP45D80I16
- , VC4_INSN_OP46D80I16, VC4_INSN_OP47D80I16, VC4_INSN_VEC48, VC4_INSN_VEC80
+ , VC4_INSN_OP46D80I16, VC4_INSN_OP47D80I16, VC4_INSN_V8LD, VC4_INSN_V16LD
+ , VC4_INSN_V32LD, VC4_INSN_VUNKLD, VC4_INSN_V8ST, VC4_INSN_V16ST
+ , VC4_INSN_V32ST, VC4_INSN_VUNKST, VC4_INSN_VEC48, VC4_INSN_VEC80
 } CGEN_INSN_TYPE;
 
 /* Index of `invalid' insn place holder.  */
@@ -307,22 +309,34 @@ struct cgen_fields
   long f_op9;
   long f_op8_3;
   long f_op2_0;
+  long f_op4_3;
   long f_op31_22;
+  long f_op31_28;
+  long f_op27_22;
+  long f_op21_18;
+  long f_op17_16;
   long f_op41_32;
   long f_op42;
   long f_op43;
   long f_op47_44;
+  long f_op38_32;
+  long f_op41_39;
   long f_op51_48;
   long f_op57_52;
   long f_op63_58;
   long f_op69_64;
   long f_op76_70;
   long f_op79_77;
+  long f_op65_64;
+  long f_op69_66;
   long f_vec80dreg;
   long f_vec80areg;
   long f_vec80breg;
   long f_vec80mods;
+  long f_vec80mods_mem;
   long f_vec80imm;
+  long f_vec80ldaddr;
+  long f_vec80staddr;
 };
 
 #define CGEN_INIT_PARSE(od) \

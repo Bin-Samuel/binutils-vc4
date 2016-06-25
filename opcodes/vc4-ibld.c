@@ -1003,6 +1003,83 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
           break;
       }
       break;
+    case VC4_OPERAND_V80MODS_MEM :
+      {
+{
+  FLD (f_op2_0) = ((FLD (f_vec80mods_mem)) & (7));
+  FLD (f_op43) = ((((UINT) (FLD (f_vec80mods_mem)) >> (3))) & (1));
+  FLD (f_op79_77) = ((((UINT) (FLD (f_vec80mods_mem)) >> (4))) & (7));
+}
+        errmsg = insert_normal (cd, fields->f_op2_0, 0, 0, 2, 3, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op43, 0, 32, 11, 1, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op79_77, 0, 64, 15, 3, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      {
+{
+  FLD (f_op38_32) = ((FLD (f_vec80ldaddr)) & (127));
+  FLD (f_op65_64) = ((((UINT) (FLD (f_vec80ldaddr)) >> (7))) & (3));
+  FLD (f_op76_70) = ((((UINT) (FLD (f_vec80ldaddr)) >> (9))) & (127));
+  FLD (f_op47_44) = ((((UINT) (FLD (f_vec80ldaddr)) >> (16))) & (15));
+  FLD (f_op17_16) = ((((UINT) (FLD (f_vec80ldaddr)) >> (20))) & (3));
+  FLD (f_op69_66) = ((((UINT) (FLD (f_vec80ldaddr)) >> (22))) & (15));
+}
+        errmsg = insert_normal (cd, fields->f_op38_32, 0, 32, 6, 7, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op65_64, 0, 64, 1, 2, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op76_70, 0, 64, 12, 7, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op17_16, 0, 16, 1, 2, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op47_44, 0, 32, 15, 4, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op69_66, 0, 64, 5, 4, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      {
+{
+  FLD (f_op38_32) = ((FLD (f_vec80staddr)) & (127));
+  FLD (f_op65_64) = ((((UINT) (FLD (f_vec80staddr)) >> (7))) & (3));
+  FLD (f_op76_70) = ((((UINT) (FLD (f_vec80staddr)) >> (9))) & (127));
+  FLD (f_op27_22) = ((((UINT) (FLD (f_vec80staddr)) >> (16))) & (63));
+  FLD (f_op69_66) = ((((UINT) (FLD (f_vec80staddr)) >> (22))) & (15));
+}
+        errmsg = insert_normal (cd, fields->f_op38_32, 0, 32, 6, 7, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op65_64, 0, 64, 1, 2, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op76_70, 0, 64, 12, 7, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op27_22, 0, 16, 11, 6, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op69_66, 0, 64, 5, 4, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      errmsg = insert_normal (cd, fields->f_op4_3, 0, 0, 4, 2, 16, total_length, buffer);
+      break;
 
     default :
       /* xgettext:c-format */
@@ -1454,6 +1531,58 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
 }
       }
       break;
+    case VC4_OPERAND_V80MODS_MEM :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 0, 2, 3, 16, total_length, pc, & fields->f_op2_0);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 32, 11, 1, 16, total_length, pc, & fields->f_op43);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 15, 3, 16, total_length, pc, & fields->f_op79_77);
+        if (length <= 0) break;
+{
+  FLD (f_vec80mods_mem) = ((FLD (f_op2_0)) | (((((FLD (f_op43)) << (3))) | (((FLD (f_op79_77)) << (4))))));
+}
+      }
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 32, 6, 7, 16, total_length, pc, & fields->f_op38_32);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 1, 2, 16, total_length, pc, & fields->f_op65_64);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 12, 7, 16, total_length, pc, & fields->f_op76_70);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 1, 2, 16, total_length, pc, & fields->f_op17_16);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 32, 15, 4, 16, total_length, pc, & fields->f_op47_44);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 5, 4, 16, total_length, pc, & fields->f_op69_66);
+        if (length <= 0) break;
+{
+  FLD (f_vec80ldaddr) = ((FLD (f_op38_32)) | (((((FLD (f_op65_64)) << (7))) | (((((FLD (f_op76_70)) << (9))) | (((((FLD (f_op47_44)) << (16))) | (((((FLD (f_op17_16)) << (20))) | (((FLD (f_op69_66)) << (22))))))))))));
+}
+      }
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 32, 6, 7, 16, total_length, pc, & fields->f_op38_32);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 1, 2, 16, total_length, pc, & fields->f_op65_64);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 12, 7, 16, total_length, pc, & fields->f_op76_70);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 11, 6, 16, total_length, pc, & fields->f_op27_22);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 64, 5, 4, 16, total_length, pc, & fields->f_op69_66);
+        if (length <= 0) break;
+{
+  FLD (f_vec80staddr) = ((FLD (f_op38_32)) | (((((FLD (f_op65_64)) << (7))) | (((((FLD (f_op76_70)) << (9))) | (((((FLD (f_op27_22)) << (16))) | (((FLD (f_op69_66)) << (22))))))))));
+}
+      }
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 4, 2, 16, total_length, pc, & fields->f_op4_3);
+      break;
 
     default :
       /* xgettext:c-format */
@@ -1702,6 +1831,18 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V80MODS :
       value = fields->f_vec80mods;
       break;
+    case VC4_OPERAND_V80MODS_MEM :
+      value = fields->f_vec80mods_mem;
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      value = fields->f_vec80ldaddr;
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      value = fields->f_vec80staddr;
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      value = fields->f_op4_3;
+      break;
 
     default :
       /* xgettext:c-format */
@@ -1932,6 +2073,18 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V80MODS :
       value = fields->f_vec80mods;
       break;
+    case VC4_OPERAND_V80MODS_MEM :
+      value = fields->f_vec80mods_mem;
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      value = fields->f_vec80ldaddr;
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      value = fields->f_vec80staddr;
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      value = fields->f_op4_3;
+      break;
 
     default :
       /* xgettext:c-format */
@@ -2161,6 +2314,18 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V80MODS :
       fields->f_vec80mods = value;
       break;
+    case VC4_OPERAND_V80MODS_MEM :
+      fields->f_vec80mods_mem = value;
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      fields->f_vec80ldaddr = value;
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      fields->f_vec80staddr = value;
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      fields->f_op4_3 = value;
+      break;
 
     default :
       /* xgettext:c-format */
@@ -2379,6 +2544,18 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V80MODS :
       fields->f_vec80mods = value;
+      break;
+    case VC4_OPERAND_V80MODS_MEM :
+      fields->f_vec80mods_mem = value;
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      fields->f_vec80ldaddr = value;
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      fields->f_vec80staddr = value;
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      fields->f_op4_3 = value;
       break;
 
     default :

@@ -384,9 +384,9 @@ parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
                                   bfd_boolean *postinc_p)
 {
   int nesting = 0;
-  char *ptr = *strp;
+  char *ptr = (char *) *strp;
   char *term = 0, saved_char;
-  char *errmsg;
+  const char *errmsg;
 
   *postinc_p = FALSE;
 
@@ -426,6 +426,85 @@ parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
       (*strp) += 2;
       *postinc_p = TRUE;
     }
+
+  return 0;
+}
+
+static const char *
+parse_signed_int_maybe_postmod (CGEN_CPU_DESC cd, const char **strp,
+                                int opindex, long *valuep,
+                                bfd_boolean *postmod_p)
+{
+  int nesting = 0;
+  char *ptr = (char *) *strp;
+  char *term = 0, saved_char;
+  const char *errmsg;
+
+  *postmod_p = FALSE;
+
+  while (*ptr != 0)
+    {
+      if (*ptr == '(')
+        nesting++;
+      else if (*ptr == ')')
+        {
+          if (nesting > 0)
+            nesting--;
+          else
+            break;
+        }
+      else if (ptr[0] == '+' && ptr[1] == '=')
+        {
+          /* We have a postmod, but cgen_parse_signed_integer will misparse
+             it.  Insert a zero-terminator temporarily as a workaround.  */
+          term = ptr;
+          saved_char = *ptr;
+          *ptr = 0;
+          break;
+        }
+      ptr++;
+    }
+
+  errmsg = cgen_parse_signed_integer (cd, strp, opindex, valuep);
+  if (term)
+    *ptr = saved_char;
+  if (errmsg)
+    return errmsg;
+
+  if ((*strp)[0] == '+' && (*strp)[1] == '=')
+    {
+      (*strp) += 2;
+      *postmod_p = TRUE;
+    }
+
+  return 0;
+}
+
+static const char *
+parse_vc4_reg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+               const char **strp,
+               int opindex ATTRIBUTE_UNUSED,
+               unsigned int *regno_out,
+               unsigned int maxreg)
+{
+  int scanned, chars_read = 0;
+  unsigned regno;
+
+  if (**strp != 'r')
+    return "expecting register";
+
+  (*strp)++;
+
+  scanned = sscanf (*strp, "%u%n", &regno, &chars_read);
+  if (scanned == 0)
+    return "expecting register number";
+
+  if (regno > maxreg)
+    return "register out of range";
+
+  (*strp) += chars_read;
+
+  *regno_out = regno;
 
   return 0;
 }
@@ -936,6 +1015,82 @@ parse_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
   return 0;
 }
 
+static const char *
+parse_vec80mods_mem (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                     unsigned long *valuep)
+{
+  const char *err = parse_vec80mods (cd, strp, opindex, valuep);
+  if (err)
+    return err;
+  if ((*valuep & 0x7f) != *valuep)
+    return "can't use SRU or ACC modifiers with memory op";
+  return 0;
+}
+
+/* Parses an address with offset & register-modify.
+
+   25     22 21         16 15                              0
+   [s s s s] [a a a a a a] [i i i i i i i i i i i i i i i i]
+       |           |                       `-immediate offset
+       |            `-ra (or rd for stores)
+        `-rs
+*/
+
+static const char *
+parse_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+                  const char **strp,
+                  int opindex ATTRIBUTE_UNUSED,
+                  unsigned long *valuep)
+{
+  unsigned rs, rad = 15;
+  long offset = 0;
+  bfd_boolean postmod = FALSE;
+  const char *errmsg;
+
+  errmsg = parse_vc4_reg (cd, strp, opindex, &rs, 15);
+  if (errmsg)
+    return errmsg;
+
+  if ((*strp)[0] == '+' && (*strp)[1] != '=')
+    {
+      (*strp)++;
+      errmsg = parse_signed_int_maybe_postmod (cd, strp, opindex, &offset,
+                                               &postmod);
+      if (errmsg)
+        return errmsg;
+    }
+  else if ((*strp)[0] == '+' && (*strp)[1] == '=')
+    {
+      (*strp) += 2;
+      postmod = TRUE;
+    }
+
+  if (postmod)
+    {
+      errmsg = parse_vc4_reg (cd, strp, opindex, &rad, 14);
+      if (errmsg)
+        return errmsg;
+    }
+
+  *valuep = (offset & 0xffff) | (rad << 16) | (rs << 22);
+
+  return 0;
+}
+
+static const char *
+parse_vec80ldaddr (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                   unsigned long *valuep)
+{
+  return parse_ld_st_addr (cd, strp, opindex, valuep);
+}
+
+static const char *
+parse_vec80staddr (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                   unsigned long *valuep)
+{
+  return parse_ld_st_addr (cd, strp, opindex, valuep);
+}
+
 /* -- dis.c */
 
 const char * vc4_cgen_parse_operand
@@ -1207,6 +1362,18 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_V80MODS :
       errmsg = parse_vec80mods (cd, strp, VC4_OPERAND_V80MODS, (unsigned long *) (& fields->f_vec80mods));
+      break;
+    case VC4_OPERAND_V80MODS_MEM :
+      errmsg = parse_vec80mods_mem (cd, strp, VC4_OPERAND_V80MODS_MEM, (unsigned long *) (& fields->f_vec80mods_mem));
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      errmsg = parse_vec80ldaddr (cd, strp, VC4_OPERAND_VEC_LDADDR, (unsigned long *) (& fields->f_vec80ldaddr));
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      errmsg = parse_vec80staddr (cd, strp, VC4_OPERAND_VEC_STADDR, (unsigned long *) (& fields->f_vec80staddr));
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_eltsize, & fields->f_op4_3);
       break;
 
     default :

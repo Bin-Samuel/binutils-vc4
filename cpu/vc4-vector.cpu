@@ -1,38 +1,74 @@
+;; Hardware elements
+
+(define-hardware
+  (name h-eltsize)
+  (comment "Vector element size for mem op")
+  (type immediate UQI)
+  (values keyword ""
+    (("8" 0)
+     ("16" 1)
+     ("32" 2)
+     ("unk" 3)))
+)
+
 ;; Fields in 80-bit vector insns.
 
-; Data operations: fields in first 16-bit word.
+; Data operations: fields in first 16-bit word (bits 15-0).
 
 (df f-op15-10 "Opcode bits 15-10" () 15 6 UINT #f #f)
 (df f-op9 "Opcode bit 9" () 9 1 UINT #f #f)
 (df f-op8-3 "Opcode bits 8-3" () 8 6 UINT #f #f)
 (df f-op2-0 "Opcode bits 2-0" () 2 3 UINT #f #f)
 
-; Fields in second 16-bit word.
+; Memory operations: fields in first 16-bit word.
+
+(df f-op4-3 "Opcode bits 4-3" () 4 2 UINT #f #f)
+
+; Fields in second 16-bit word (bits 31-16).
 
 (df2 f-op31-22 "Opcode bits 31-22" () 16 16 15 10 UINT (#f) (#f))
+(df2 f-op31-28 "Opcode bits 31-28" () 16 16 15 4 UINT (#f) (#f))
+(df2 f-op27-22 "Opcode bits 27-22" () 16 16 11 6 UINT (#f) (#f))
 
 ; "A" register field is split over two 16-bit words.
 
 ;(df2 f-op21-16 "Opcode bits 21-16" () 16 16 5 6 UINT (#f) (#f))
 
-; Fields in third 16-bit word.
+(df2 f-op21-18 "Opcode bits 21-18" () 16 16 5 4 UINT (#f) (#f))
+(df2 f-op17-16 "Opcode bits 17-16" () 16 16 1 2 UINT (#f) (#f))
+
+; Fields in third 16-bit word (bits 47-32).
+
+; ALU
 
 (df2 f-op41-32 "Opcode bits 41-32" () 32 16 9 10 UINT (#f) (#f))
 (df2 f-op42 "Opcode bit 42" () 32 16 10 1 UINT (#f) (#f))
 (df2 f-op43 "Opcode bit 43" () 32 16 11 1 UINT (#f) (#f))
 (df2 f-op47-44 "Opcode bits 47-44" () 32 16 15 4 UINT (#f) (#f))
 
-; Fields in fourth 16-bit word.
+; memory
+
+(df2 f-op38-32 "Opcode bits 38-32" () 32 16 6 7 UINT (#f) (#f))
+(df2 f-op41-39 "Opcode bits 41-39" () 32 16 9 3 UINT (#f) (#f))
+
+; Fields in fourth 16-bit word (bits 63-48).
 
 (df2 f-op51-48 "Opcode bits 51-48" () 48 16 3 4 UINT (#f) (#f))
 (df2 f-op57-52 "Opcode bits 57-52" () 48 16 9 6 UINT (#f) (#f))
 (df2 f-op63-58 "Opcode bits 63-58" () 48 16 15 6 UINT (#f) (#f))
 
-; Fields in fifth 16-bit word.
+; Fields in fifth 16-bit word (bits 79-64).
+
+; ALU
 
 (df2 f-op69-64 "Opcode bits 69-64" () 64 16 5 6 UINT (#f) (#f))
 (df2 f-op76-70 "Opcode bits 76-70" () 64 16 12 7 UINT (#f) (#f))
 (df2 f-op79-77 "Opcode bits 79-77" () 64 16 15 3 UINT (#f) (#f))
+
+; memory
+
+(df2 f-op65-64 "Opcode bits 65-64" () 64 16 1 2 UINT (#f) (#f))
+(df2 f-op69-66 "Opcode bits 69-66" () 64 16 5 4 UINT (#f) (#f))
 
 (define-pmacro opsvec
   ((MOV 2)     (BITPLANES 2) (EVEN 3)    (ODD 3)
@@ -52,6 +88,19 @@
 (define-normal-insn-enum
   insn-vecops "Vector ops (< 48)" () VECOP_ f-op8-3
   (.map .car opsvec)
+)
+
+(define-normal-insn-enum
+  insn-vecmemops "Vector memory ops" () VMEMOP_ f-op9-5
+  (LD LOOKUPM LOOKUPML MEM03 ST INDEXWRITEM INDEXWRITEML MEM07
+   MEMREAD MEMWRITE MEM10 MEM11 MEM12 MEM13 MEM14 MEM15
+   MEM16 MEM17 MEM18 MEM19 MEM20 MEM21 MEM22 MEM23
+   GETACC MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
+)
+
+(define-normal-insn-enum
+  insn-memwidth "Vector memory op width" () VMEMWIDTH_ f-op4-3
+  ("8" "16" "32" "unk")
 )
 
 (define-multi-ifield
@@ -133,6 +182,24 @@
 )
 
 (define-multi-ifield
+  (name f-vec80mods-mem)
+  (comment "modifier fields for vector memory insns")
+  (attrs)
+  (mode UINT)
+  ; total of 3+1+3 = 7 bits.
+  (subfields f-op2-0 f-op43 f-op79-77)
+  (insert (sequence ()
+            (set (ifield f-op2-0) (and (ifield f-vec80mods-mem) 7))
+            (set (ifield f-op43) (and (srl (ifield f-vec80mods-mem) 3) 1))
+            (set (ifield f-op79-77) (and (srl (ifield f-vec80mods-mem) 4) 7))))
+  (extract (sequence ()
+             (set (ifield f-vec80mods-mem)
+                  (or (ifield f-op2-0)
+                      (or (sll (ifield f-op43) 3)
+                          (sll (ifield f-op79-77) 4))))))
+)
+
+(define-multi-ifield
   (name f-vec80imm)
   (comment "immediate for 80-bit vector ALU insns")
   (attrs)
@@ -145,6 +212,71 @@
              (set (ifield f-vec80imm)
                   (or (ifield f-op41-32)
                       (sll (ifield f-op69-64) 10)))))
+)
+
+; 16 imm bits:
+;   f-op38-32 (l, imm[6:0])
+;   f-op65-64 (i, imm[8:7])
+;   f-op76-70 (i, imm[15:9])
+; 6 ra bits:
+;   f-op17-16 (ra[5:4])
+;   f-op47-44 (ra[3:0])
+; 4 rs bits:
+;   f-op69-66
+
+(define-multi-ifield
+  (name f-vec80ldaddr)
+  (comment "address for 80-bit vld instruction")
+  (attrs)
+  (mode UINT)
+  ; Total of 7+2+7+4+2+4=26 bits.
+  (subfields f-op38-32 f-op65-64 f-op76-70 f-op17-16 f-op47-44 f-op69-66)
+  (insert (sequence ()
+            (set (ifield f-op38-32) (and (ifield f-vec80ldaddr) #x7f))
+            (set (ifield f-op65-64) (and (srl (ifield f-vec80ldaddr) 7) 3))
+            (set (ifield f-op76-70) (and (srl (ifield f-vec80ldaddr) 9) #x7f))
+            (set (ifield f-op47-44) (and (srl (ifield f-vec80ldaddr) 16) 15))
+            (set (ifield f-op17-16) (and (srl (ifield f-vec80ldaddr) 20) 3))
+            (set (ifield f-op69-66) (and (srl (ifield f-vec80ldaddr) 22) 15))))
+  (extract (sequence ()
+             (set (ifield f-vec80ldaddr)
+                  (or (ifield f-op38-32)
+                      (or (sll (ifield f-op65-64) 7)
+                          (or (sll (ifield f-op76-70) 9)
+                              (or (sll (ifield f-op47-44) 16)
+                                  (or (sll (ifield f-op17-16) 20)
+                                      (sll (ifield f-op69-66) 22)))))))))
+)
+
+; 16 imm bits:
+;   f-op38-32 (l, imm[6:0])
+;   f-op65-64 (i, imm[8:7])
+;   f-op76-70 (i, imm[15:9])
+; 6 rd bits:
+;   f-op27-22 (rd[5:4])
+; 4 rs bits:
+;   f-op69-66
+
+(define-multi-ifield
+  (name f-vec80staddr)
+  (comment "address for 80-bit vst instruction")
+  (attrs)
+  (mode UINT)
+  ; Total of 7+2+7+6+4=26 bits.
+  (subfields f-op38-32 f-op65-64 f-op76-70 f-op27-22 f-op69-66)
+  (insert (sequence ()
+            (set (ifield f-op38-32) (and (ifield f-vec80staddr) #x7f))
+            (set (ifield f-op65-64) (and (srl (ifield f-vec80staddr) 7) 3))
+            (set (ifield f-op76-70) (and (srl (ifield f-vec80staddr) 9) #x7f))
+            (set (ifield f-op27-22) (and (srl (ifield f-vec80staddr) 16) 63))
+            (set (ifield f-op69-66) (and (srl (ifield f-vec80staddr) 22) 15))))
+  (extract (sequence ()
+             (set (ifield f-vec80staddr)
+                  (or (ifield f-op38-32)
+                      (or (sll (ifield f-op65-64) 7)
+                          (or (sll (ifield f-op76-70) 9)
+                              (or (sll (ifield f-op27-22) 16)
+                                  (sll (ifield f-op69-66) 22))))))))
 )
 
 (define-operand
@@ -190,6 +322,41 @@
   (type h-uint)
   (index f-vec80mods)
   (handlers (parse "vec80mods") (print "vec80mods"))
+)
+
+(define-operand
+  (name v80mods_mem)
+  (comment "modifier bits for 80-bit vector memory insns")
+  (attrs)
+  (type h-uint)
+  (index f-vec80mods-mem)
+  (handlers (parse "vec80mods_mem") (print "vec80mods"))
+)
+
+(define-operand
+  (name vmemwidth)
+  (comment "element width for memory operation")
+  (attrs)
+  (type h-eltsize)
+  (index f-op4-3)
+)
+
+(define-operand
+  (name vec_ldaddr)
+  (comment "address for 80-bit vld instruction")
+  (attrs)
+  (type h-uint)
+  (index f-vec80ldaddr)
+  (handlers (parse "vec80ldaddr") (print "vec80ldaddr"))
+)
+
+(define-operand
+  (name vec_staddr)
+  (comment "address for 80-bit vst instruction")
+  (attrs)
+  (type h-uint)
+  (index f-vec80staddr)
+  (handlers (parse "vec80staddr") (print "vec80staddr"))
 )
 
 ; For most 80-vector 3-register ops.
@@ -265,3 +432,33 @@
 
 (mkvecdataopis80 32 1)
 (mkvecdataopis80 16 0)
+
+(define-pmacro (vldinsn x-width)
+  (define-normal-insn
+    (.sym v x-width ld) (.str "V" x-width "LD") ()
+    (.str "v" x-width "ld $v80d32reg,($vec_ldaddr)$v80mods_mem")
+    (+ (f-op15-10 62) VMEMOP_LD (.sym VMEMWIDTH_ x-width) v80mods_mem
+       v80d32reg (f-op21-18 14) (f-op42 0) (f-op41-39 7) (f-op51-48 0)
+       vec_ldaddr (f-op57-52 0))
+    () ())
+)
+
+(vldinsn 8)
+(vldinsn 16)
+(vldinsn 32)
+(vldinsn unk)
+
+(define-pmacro (vstinsn x-width)
+  (define-normal-insn
+    (.sym v x-width st) (.str "V" x-width "ST") ()
+    (.str "v" x-width "st $v80a32reg,($vec_staddr)$v80mods_mem")
+    (+ (f-op15-10 62) VMEMOP_ST (.sym VMEMWIDTH_ x-width) v80mods_mem
+       v80a32reg (f-op31-28 14) (f-op42 0) (f-op41-39 7)
+       vec_staddr (f-op63-58 0))
+    () ())
+)
+
+(vstinsn 8)
+(vstinsn 16)
+(vstinsn 32)
+(vstinsn unk)

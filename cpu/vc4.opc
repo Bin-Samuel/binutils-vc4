@@ -376,9 +376,9 @@ parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
                                   bfd_boolean *postinc_p)
 {
   int nesting = 0;
-  char *ptr = *strp;
+  char *ptr = (char *) *strp;
   char *term = 0, saved_char;
-  char *errmsg;
+  const char *errmsg;
 
   *postinc_p = FALSE;
 
@@ -418,6 +418,85 @@ parse_unsigned_int_maybe_postinc (CGEN_CPU_DESC cd, const char **strp,
       (*strp) += 2;
       *postinc_p = TRUE;
     }
+
+  return 0;
+}
+
+static const char *
+parse_signed_int_maybe_postmod (CGEN_CPU_DESC cd, const char **strp,
+                                int opindex, long *valuep,
+                                bfd_boolean *postmod_p)
+{
+  int nesting = 0;
+  char *ptr = (char *) *strp;
+  char *term = 0, saved_char;
+  const char *errmsg;
+
+  *postmod_p = FALSE;
+
+  while (*ptr != 0)
+    {
+      if (*ptr == '(')
+        nesting++;
+      else if (*ptr == ')')
+        {
+          if (nesting > 0)
+            nesting--;
+          else
+            break;
+        }
+      else if (ptr[0] == '+' && ptr[1] == '=')
+        {
+          /* We have a postmod, but cgen_parse_signed_integer will misparse
+             it.  Insert a zero-terminator temporarily as a workaround.  */
+          term = ptr;
+          saved_char = *ptr;
+          *ptr = 0;
+          break;
+        }
+      ptr++;
+    }
+
+  errmsg = cgen_parse_signed_integer (cd, strp, opindex, valuep);
+  if (term)
+    *ptr = saved_char;
+  if (errmsg)
+    return errmsg;
+
+  if ((*strp)[0] == '+' && (*strp)[1] == '=')
+    {
+      (*strp) += 2;
+      *postmod_p = TRUE;
+    }
+
+  return 0;
+}
+
+static const char *
+parse_vc4_reg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+               const char **strp,
+               int opindex ATTRIBUTE_UNUSED,
+               unsigned int *regno_out,
+               unsigned int maxreg)
+{
+  int scanned, chars_read = 0;
+  unsigned regno;
+
+  if (**strp != 'r')
+    return "expecting register";
+
+  (*strp)++;
+
+  scanned = sscanf (*strp, "%u%n", &regno, &chars_read);
+  if (scanned == 0)
+    return "expecting register number";
+
+  if (regno > maxreg)
+    return "register out of range";
+
+  (*strp) += chars_read;
+
+  *regno_out = regno;
 
   return 0;
 }
@@ -928,6 +1007,82 @@ parse_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
   return 0;
 }
 
+static const char *
+parse_vec80mods_mem (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                     unsigned long *valuep)
+{
+  const char *err = parse_vec80mods (cd, strp, opindex, valuep);
+  if (err)
+    return err;
+  if ((*valuep & 0x7f) != *valuep)
+    return "can't use SRU or ACC modifiers with memory op";
+  return 0;
+}
+
+/* Parses an address with offset & register-modify.
+
+   25     22 21         16 15                              0
+   [s s s s] [a a a a a a] [i i i i i i i i i i i i i i i i]
+       |           |                       `-immediate offset
+       |            `-ra (or rd for stores)
+        `-rs
+*/
+
+static const char *
+parse_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+                  const char **strp,
+                  int opindex ATTRIBUTE_UNUSED,
+                  unsigned long *valuep)
+{
+  unsigned rs, rad = 15;
+  long offset = 0;
+  bfd_boolean postmod = FALSE;
+  const char *errmsg;
+
+  errmsg = parse_vc4_reg (cd, strp, opindex, &rs, 15);
+  if (errmsg)
+    return errmsg;
+
+  if ((*strp)[0] == '+' && (*strp)[1] != '=')
+    {
+      (*strp)++;
+      errmsg = parse_signed_int_maybe_postmod (cd, strp, opindex, &offset,
+                                               &postmod);
+      if (errmsg)
+        return errmsg;
+    }
+  else if ((*strp)[0] == '+' && (*strp)[1] == '=')
+    {
+      (*strp) += 2;
+      postmod = TRUE;
+    }
+
+  if (postmod)
+    {
+      errmsg = parse_vc4_reg (cd, strp, opindex, &rad, 14);
+      if (errmsg)
+        return errmsg;
+    }
+
+  *valuep = (offset & 0xffff) | (rad << 16) | (rs << 22);
+
+  return 0;
+}
+
+static const char *
+parse_vec80ldaddr (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                   unsigned long *valuep)
+{
+  return parse_ld_st_addr (cd, strp, opindex, valuep);
+}
+
+static const char *
+parse_vec80staddr (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                   unsigned long *valuep)
+{
+  return parse_ld_st_addr (cd, strp, opindex, valuep);
+}
+
 /* -- dis.c */
 
 #define CGEN_PRINT_INSN vc4_print_insn
@@ -1329,6 +1484,62 @@ print_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       if (i == 16)
         abort ();
     }
+}
+
+static void
+print_scalar_reg (disassemble_info *info, int regno)
+{
+  (info->fprintf_func) (info->stream, "r%u", regno);
+}
+
+static void
+print_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	          void * dis_info,
+	          unsigned long value,
+	          unsigned int attrs ATTRIBUTE_UNUSED,
+	          bfd_vma pc ATTRIBUTE_UNUSED,
+	          int length ATTRIBUTE_UNUSED)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  unsigned rs = (value >> 22) & 15;
+  unsigned rad = (value >> 16) & 63;
+  long offset = value & 0xfffful;
+
+  print_scalar_reg (info, rs);
+
+  if (offset & 0x8000)
+    offset |= ~0xffffl;
+
+  /* Printing the '+' here for negative numbers too is kind of deliberate --
+     that's how VC4 assembly sources seem to write it, and that's the assembly
+     syntax we accept too.  */
+  if (offset != 0)
+    (info->fprintf_func) (info->stream, "+%ld", offset);
+
+  if ((rad & 15) < 15)
+    {
+      (*info->fprintf_func) (info->stream, "+=");
+      print_scalar_reg (info, rad);
+    }
+
+  /* This seems to be a 4-bit register specifier in a 6-bit field.  Who knows
+     what it means if the extra bits are set.  */
+  if (rad >= 16)
+    (*info->fprintf_func) (info->stream, "?rd/ra=%u?", rad);
+}
+
+static void
+print_vec80ldaddr (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+	           unsigned int attrs, bfd_vma pc, int length)
+{
+  print_ld_st_addr (cd, dis_info, value, attrs, pc, length);
+}
+
+static void
+print_vec80staddr (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+	           unsigned int attrs, bfd_vma pc, int length)
+{
+  print_ld_st_addr (cd, dis_info, value, attrs, pc, length);
 }
 
 /* -- */

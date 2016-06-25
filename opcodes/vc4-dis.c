@@ -461,6 +461,62 @@ print_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     }
 }
 
+static void
+print_scalar_reg (disassemble_info *info, int regno)
+{
+  (info->fprintf_func) (info->stream, "r%u", regno);
+}
+
+static void
+print_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	          void * dis_info,
+	          unsigned long value,
+	          unsigned int attrs ATTRIBUTE_UNUSED,
+	          bfd_vma pc ATTRIBUTE_UNUSED,
+	          int length ATTRIBUTE_UNUSED)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  unsigned rs = (value >> 22) & 15;
+  unsigned rad = (value >> 16) & 63;
+  long offset = value & 0xfffful;
+
+  print_scalar_reg (info, rs);
+
+  if (offset & 0x8000)
+    offset |= ~0xffffl;
+
+  /* Printing the '+' here for negative numbers too is kind of deliberate --
+     that's how VC4 assembly sources seem to write it, and that's the assembly
+     syntax we accept too.  */
+  if (offset != 0)
+    (info->fprintf_func) (info->stream, "+%ld", offset);
+
+  if ((rad & 15) < 15)
+    {
+      (*info->fprintf_func) (info->stream, "+=");
+      print_scalar_reg (info, rad);
+    }
+
+  /* This seems to be a 4-bit register specifier in a 6-bit field.  Who knows
+     what it means if the extra bits are set.  */
+  if (rad >= 16)
+    (*info->fprintf_func) (info->stream, "?rd/ra=%u?", rad);
+}
+
+static void
+print_vec80ldaddr (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+	           unsigned int attrs, bfd_vma pc, int length)
+{
+  print_ld_st_addr (cd, dis_info, value, attrs, pc, length);
+}
+
+static void
+print_vec80staddr (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+	           unsigned int attrs, bfd_vma pc, int length)
+{
+  print_ld_st_addr (cd, dis_info, value, attrs, pc, length);
+}
+
 /* -- */
 
 void vc4_cgen_print_operand
@@ -703,6 +759,18 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_V80MODS :
       print_vec80mods (cd, info, fields->f_vec80mods, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V80MODS_MEM :
+      print_vec80mods (cd, info, fields->f_vec80mods_mem, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_VEC_LDADDR :
+      print_vec80ldaddr (cd, info, fields->f_vec80ldaddr, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_VEC_STADDR :
+      print_vec80staddr (cd, info, fields->f_vec80staddr, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_VMEMWIDTH :
+      print_keyword (cd, info, & vc4_cgen_opval_h_eltsize, fields->f_op4_3, 0);
       break;
 
     default :

@@ -301,6 +301,14 @@ static const CGEN_IFMT ifmt_evend80i32 ATTRIBUTE_UNUSED = {
   16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_VEC80DREG) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_VEC80IMM) }, { F (F_VEC80AREG) }, { F (F_VEC80MODS) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_v8ld ATTRIBUTE_UNUSED = {
+  16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_VEC80DREG) }, { F (F_OP42) }, { F (F_OP9_5) }, { F (F_OP41_39) }, { F (F_OP57_52) }, { F (F_OP21_18) }, { F (F_OP4_3) }, { F (F_OP51_48) }, { F (F_VEC80MODS_MEM) }, { F (F_VEC80LDADDR) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_v8st ATTRIBUTE_UNUSED = {
+  16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_OP31_28) }, { F (F_OP63_58) }, { F (F_OP42) }, { F (F_OP9_5) }, { F (F_OP41_39) }, { F (F_OP4_3) }, { F (F_VEC80AREG) }, { F (F_VEC80MODS_MEM) }, { F (F_VEC80STADDR) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_vec48 ATTRIBUTE_UNUSED = {
   16, 48, 0xf800, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11) }, { F (F_OP10_0) }, { 0 } }
 };
@@ -3737,6 +3745,54 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfd78, { 0x0, 0x400 }, { 0x0, 0x400 } }
+  },
+/* v8ld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), ',', '(', OP (VEC_LDADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8ld, { 0xf800, { 0x38, 0x380, 0x0 }, { 0x3c, 0x780, 0x3ff } }
+  },
+/* v16ld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), ',', '(', OP (VEC_LDADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8ld, { 0xf808, { 0x38, 0x380, 0x0 }, { 0x3c, 0x780, 0x3ff } }
+  },
+/* v32ld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), ',', '(', OP (VEC_LDADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8ld, { 0xf810, { 0x38, 0x380, 0x0 }, { 0x3c, 0x780, 0x3ff } }
+  },
+/* vunkld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80D32REG), ',', '(', OP (VEC_LDADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8ld, { 0xf818, { 0x38, 0x380, 0x0 }, { 0x3c, 0x780, 0x3ff } }
+  },
+/* v8st $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80A32REG), ',', '(', OP (VEC_STADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8st, { 0xf880, { 0xe000, 0x380, 0x0 }, { 0xf000, 0x780, 0xfc00 } }
+  },
+/* v16st $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80A32REG), ',', '(', OP (VEC_STADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8st, { 0xf888, { 0xe000, 0x380, 0x0 }, { 0xf000, 0x780, 0xfc00 } }
+  },
+/* v32st $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80A32REG), ',', '(', OP (VEC_STADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8st, { 0xf890, { 0xe000, 0x380, 0x0 }, { 0xf000, 0x780, 0xfc00 } }
+  },
+/* vunkst $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V80A32REG), ',', '(', OP (VEC_STADDR), ')', OP (V80MODS_MEM), 0 } },
+    & ifmt_v8st, { 0xf898, { 0xe000, 0x380, 0x0 }, { 0xf000, 0x780, 0xfc00 } }
   },
 /* vec48 $operand10_0,$operand47_16 */
   {

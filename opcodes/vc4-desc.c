@@ -283,6 +283,21 @@ CGEN_KEYWORD vc4_cgen_opval_h_dotcond =
   0, 0, 0, 0, ""
 };
 
+static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_eltsize_entries[] =
+{
+  { "8", 0, {0, {{{0, 0}}}}, 0, 0 },
+  { "16", 1, {0, {{{0, 0}}}}, 0, 0 },
+  { "32", 2, {0, {{{0, 0}}}}, 0, 0 },
+  { "unk", 3, {0, {{{0, 0}}}}, 0, 0 }
+};
+
+CGEN_KEYWORD vc4_cgen_opval_h_eltsize =
+{
+  & vc4_cgen_opval_h_eltsize_entries[0],
+  4,
+  0, 0, 0, 0, ""
+};
+
 
 /* The hardware table.  */
 
@@ -302,6 +317,7 @@ const CGEN_HW_ENTRY vc4_cgen_hw_table[] =
   { "h-cond", HW_H_COND, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_cond, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-dotcond", HW_H_DOTCOND, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_dotcond, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-pc", HW_H_PC, CGEN_ASM_NONE, 0, { 0|A(PC), { { { (1<<MACH_BASE), 0 } } } } },
+  { "h-eltsize", HW_H_ELTSIZE, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_eltsize, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { 0, 0, CGEN_ASM_NONE, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
 };
 
@@ -395,22 +411,34 @@ const CGEN_IFLD vc4_cgen_ifld_table[] =
   { VC4_F_OP9, "f-op9", 0, 16, 9, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP8_3, "f-op8-3", 0, 16, 8, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP2_0, "f-op2-0", 0, 16, 2, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP4_3, "f-op4-3", 0, 16, 4, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP31_22, "f-op31-22", 16, 16, 15, 10, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP31_28, "f-op31-28", 16, 16, 15, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP27_22, "f-op27-22", 16, 16, 11, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP21_18, "f-op21-18", 16, 16, 5, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP17_16, "f-op17-16", 16, 16, 1, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP41_32, "f-op41-32", 32, 16, 9, 10, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP42, "f-op42", 32, 16, 10, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP43, "f-op43", 32, 16, 11, 1, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP47_44, "f-op47-44", 32, 16, 15, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP38_32, "f-op38-32", 32, 16, 6, 7, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP41_39, "f-op41-39", 32, 16, 9, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP51_48, "f-op51-48", 48, 16, 3, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP57_52, "f-op57-52", 48, 16, 9, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP63_58, "f-op63-58", 48, 16, 15, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP69_64, "f-op69-64", 64, 16, 5, 6, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP76_70, "f-op76-70", 64, 16, 12, 7, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_OP79_77, "f-op79-77", 64, 16, 15, 3, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP65_64, "f-op65-64", 64, 16, 1, 2, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_OP69_66, "f-op69-66", 64, 16, 5, 4, { 0, { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_VEC80DREG, "f-vec80dreg", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_VEC80AREG, "f-vec80areg", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_VEC80BREG, "f-vec80breg", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_VEC80MODS, "f-vec80mods", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_VEC80MODS_MEM, "f-vec80mods-mem", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { VC4_F_VEC80IMM, "f-vec80imm", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_VEC80LDADDR, "f-vec80ldaddr", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+  { VC4_F_VEC80STADDR, "f-vec80staddr", 0, 0, 0, 0,{ 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
   { 0, 0, 0, 0, 0, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } }
 };
 
@@ -427,7 +455,10 @@ const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80DREG_MULTI_IFIELD [];
 const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80AREG_MULTI_IFIELD [];
 const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80BREG_MULTI_IFIELD [];
 const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80MODS_MULTI_IFIELD [];
+const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80MODS_MEM_MULTI_IFIELD [];
 const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80IMM_MULTI_IFIELD [];
+const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80LDADDR_MULTI_IFIELD [];
+const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80STADDR_MULTI_IFIELD [];
 
 
 /* multi ifield definitions */
@@ -479,10 +510,36 @@ const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80MODS_MULTI_IFIELD [] =
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP76_70] } },
     { 0, { (const PTR) 0 } }
 };
+const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80MODS_MEM_MULTI_IFIELD [] =
+{
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP2_0] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP43] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP79_77] } },
+    { 0, { (const PTR) 0 } }
+};
 const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80IMM_MULTI_IFIELD [] =
 {
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP69_64] } },
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP41_32] } },
+    { 0, { (const PTR) 0 } }
+};
+const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80LDADDR_MULTI_IFIELD [] =
+{
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP38_32] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP65_64] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP76_70] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP17_16] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP47_44] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP69_66] } },
+    { 0, { (const PTR) 0 } }
+};
+const CGEN_MAYBE_MULTI_IFLD VC4_F_VEC80STADDR_MULTI_IFIELD [] =
+{
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP38_32] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP65_64] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP76_70] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP27_22] } },
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP69_66] } },
     { 0, { (const PTR) 0 } }
 };
 
@@ -776,6 +833,22 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* v80mods: modifier bits for 80-bit vector ALU insn */
   { "v80mods", VC4_OPERAND_V80MODS, HW_H_UINT, 2, 14,
     { 4, { (const PTR) &VC4_F_VEC80MODS_MULTI_IFIELD[0] } }, 
+    { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+/* v80mods_mem: modifier bits for 80-bit vector memory insns */
+  { "v80mods_mem", VC4_OPERAND_V80MODS_MEM, HW_H_UINT, 2, 7,
+    { 3, { (const PTR) &VC4_F_VEC80MODS_MEM_MULTI_IFIELD[0] } }, 
+    { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+/* vmemwidth: element width for memory operation */
+  { "vmemwidth", VC4_OPERAND_VMEMWIDTH, HW_H_ELTSIZE, 4, 2,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP4_3] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* vec_ldaddr: address for 80-bit vld instruction */
+  { "vec_ldaddr", VC4_OPERAND_VEC_LDADDR, HW_H_UINT, 1, 26,
+    { 6, { (const PTR) &VC4_F_VEC80LDADDR_MULTI_IFIELD[0] } }, 
+    { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
+/* vec_staddr: address for 80-bit vst instruction */
+  { "vec_staddr", VC4_OPERAND_VEC_STADDR, HW_H_UINT, 1, 26,
+    { 5, { (const PTR) &VC4_F_VEC80STADDR_MULTI_IFIELD[0] } }, 
     { 0|A(VIRTUAL), { { { (1<<MACH_BASE), 0 } } } }  },
 /* sentinel */
   { 0, 0, 0, 0, 0,
@@ -3640,6 +3713,46 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16op47 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     VC4_INSN_OP47D80I16, "op47d80i16", "v16op47", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v8ld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    VC4_INSN_V8LD, "v8ld", "v8ld", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16ld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    VC4_INSN_V16LD, "v16ld", "v16ld", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v32ld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    VC4_INSN_V32LD, "v32ld", "v32ld", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vunkld $v80d32reg,($vec_ldaddr)$v80mods_mem */
+  {
+    VC4_INSN_VUNKLD, "vunkld", "vunkld", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v8st $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    VC4_INSN_V8ST, "v8st", "v8st", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v16st $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    VC4_INSN_V16ST, "v16st", "v16st", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* v32st $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    VC4_INSN_V32ST, "v32st", "v32st", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vunkst $v80a32reg,($vec_staddr)$v80mods_mem */
+  {
+    VC4_INSN_VUNKST, "vunkst", "vunkst", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vec48 $operand10_0,$operand47_16 */
