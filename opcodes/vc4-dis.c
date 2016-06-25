@@ -274,6 +274,7 @@ print_vector_reg (void *dis_info, unsigned long value, vc4_operand whichop)
 
     case 15:
       (*info->fprintf_func) (info->stream, "?15?");
+      vec_dir = DASH;
       return;
     }
 

@@ -98,6 +98,13 @@
    GETACC MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
 )
 
+(define-pmacro genmemops
+  (MEM03 MEM07 MEMREAD MEMWRITE
+   MEM10 MEM11 MEM12 MEM13 MEM14 MEM15
+   MEM16 MEM17 MEM18 MEM19 MEM20 MEM21 MEM22 MEM23
+   GETACC MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
+)
+
 (define-normal-insn-enum
   insn-memwidth "Vector memory op width" () VMEMWIDTH_ f-op4-3
   ("8" "16" "32" "unk")
@@ -433,32 +440,92 @@
 (mkvecdataopis80 32 1)
 (mkvecdataopis80 16 0)
 
-(define-pmacro (vldinsn x-width)
+(define-pmacro (vldinsn x-op x-width)
   (define-normal-insn
-    (.sym v x-width ld) (.str "V" x-width "LD") ()
-    (.str "v" x-width "ld $v80d32reg,($vec_ldaddr)$v80mods_mem")
-    (+ (f-op15-10 62) VMEMOP_LD (.sym VMEMWIDTH_ x-width) v80mods_mem
-       v80d32reg (f-op21-18 14) (f-op42 0) (f-op41-39 7) (f-op51-48 0)
-       vec_ldaddr (f-op57-52 0))
+    (.sym v x-width x-op) (.str "V" x-width (.upcase x-op)) ()
+    (.str "v" x-width x-op " $v80d32reg,($vec_ldaddr)$v80mods_mem")
+    (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       v80mods_mem v80d32reg (f-op21-18 14) (f-op42 0) (f-op41-39 7)
+       (f-op51-48 0) vec_ldaddr (f-op57-52 0))
     () ())
 )
 
-(vldinsn 8)
-(vldinsn 16)
-(vldinsn 32)
-(vldinsn unk)
+(vldinsn ld 8)
+(vldinsn ld 16)
+(vldinsn ld 32)
+(vldinsn ld unk)
 
-(define-pmacro (vstinsn x-width)
+(vldinsn lookupm 8)
+(vldinsn lookupm 16)
+(vldinsn lookupm 32)
+(vldinsn lookupm unk)
+
+(vldinsn lookupml 8)
+(vldinsn lookupml 16)
+(vldinsn lookupml 32)
+(vldinsn lookupml unk)
+
+(define-pmacro (vstinsn x-op x-width)
   (define-normal-insn
-    (.sym v x-width st) (.str "V" x-width "ST") ()
-    (.str "v" x-width "st $v80a32reg,($vec_staddr)$v80mods_mem")
-    (+ (f-op15-10 62) VMEMOP_ST (.sym VMEMWIDTH_ x-width) v80mods_mem
-       v80a32reg (f-op31-28 14) (f-op42 0) (f-op41-39 7)
+    (.sym v x-width x-op) (.str "V" x-width (.upcase x-op)) ()
+    (.str "v" x-width x-op " $v80a32reg,($vec_staddr)$v80mods_mem")
+    (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       v80mods_mem v80a32reg (f-op31-28 14) (f-op42 0) (f-op41-39 7)
        vec_staddr (f-op63-58 0))
     () ())
 )
 
-(vstinsn 8)
-(vstinsn 16)
-(vstinsn 32)
-(vstinsn unk)
+(vstinsn st 8)
+(vstinsn st 16)
+(vstinsn st 32)
+(vstinsn st unk)
+
+(vstinsn indexwritem 8)
+(vstinsn indexwritem 16)
+(vstinsn indexwritem 32)
+(vstinsn indexwritem unk)
+
+(vstinsn indexwriteml 8)
+(vstinsn indexwriteml 16)
+(vstinsn indexwriteml 32)
+(vstinsn indexwriteml unk)
+
+(define-pmacro (vgenmeminsn x-op x-width)
+  (define-normal-insn
+    (.sym v x-width (.downcase x-op)) (.str "V" x-width (.upcase x-op)) ()
+    (.str "v" x-width (.downcase x-op)
+          " $v80d32reg,$v80a32reg,$v80b32reg$v80mods_mem")
+    (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       v80mods_mem v80d32reg v80a32reg v80b32reg (f-op42 0) (f-op76-70 0))
+    () ())
+)
+
+(define-pmacro (mkgenmemops x-width)
+  (.for-each (.pmacro (x-opname) (.exec (vgenmeminsn x-opname x-width)))
+             genmemops)
+)
+
+(mkgenmemops 8)
+(mkgenmemops 16)
+(mkgenmemops 32)
+(mkgenmemops unk)
+
+(define-pmacro (vgenmemiinsn x-op x-width)
+  (define-normal-insn
+    (.sym v x-width (.downcase x-op) i) (.str "V" x-width (.upcase x-op) "I") ()
+    (.str "v" x-width (.downcase x-op)
+          " $v80d32reg,$v80a32reg,$v80imm$v80mods_mem")
+    (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       v80mods_mem v80d32reg v80a32reg v80imm (f-op42 1) (f-op76-70 0))
+    () ())
+)
+
+(define-pmacro (mkgenmemiops x-width)
+  (.for-each (.pmacro (x-opname) (.exec (vgenmemiinsn x-opname x-width)))
+             genmemops)
+)
+
+(mkgenmemiops 8)
+(mkgenmemiops 16)
+(mkgenmemiops 32)
+(mkgenmemiops unk)
