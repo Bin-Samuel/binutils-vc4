@@ -1293,14 +1293,10 @@ print_vector_reg (void *dis_info, unsigned long value, vc4_operand whichop)
       break;
 
     case 14:
+    case 15:
       vec_dir = DASH;
       x = y = 0;
       break;
-
-    case 15:
-      (*info->fprintf_func) (info->stream, "?15?");
-      vec_dir = DASH;
-      return;
     }
 
   column_offset = (value >> 10) & 1;
@@ -1320,13 +1316,16 @@ print_vector_reg (void *dis_info, unsigned long value, vc4_operand whichop)
         (*info->fprintf_func) (info->stream, "-");
       else if (whichop == OP_B)
         {
+          /* A scalar reg rN+s9 immediate.  */
+          long offset;
           (*info->fprintf_func) (info->stream, "r%u", scalar_reg);
-          if (scalar_reg == 15)
-            (*info->fprintf_func) (info->stream, "(bad?)");
-          if (do_inc)
-            (*info->fprintf_func) (info->stream, "(inc?)");
-          if (column_offset)
-            (*info->fprintf_func) (info->stream, "(offset?)");
+          offset = value & 127;
+          offset |= ((value >> 10) & 3) << 7;
+          if (offset & 0x100)
+            offset |= ~0xffl;
+          if (offset != 0)
+            (*info->fprintf_func) (info->stream, "%s%d", offset > 0 ? "+" : "",
+                                   offset);
         }
       return;
     }
