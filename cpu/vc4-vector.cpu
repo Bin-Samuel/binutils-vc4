@@ -99,15 +99,49 @@
 )
 
 (define-pmacro genmemops
-  (MEM03 MEM07 MEMREAD MEMWRITE
-   MEM10 MEM11 MEM12 MEM13 MEM14 MEM15
+  (LD LOOKUPM LOOKUPML MEM03 ST INDEXWRITEM INDEXWRITEML MEM07
+   MEMREAD MEMWRITE MEM10 MEM11 MEM12 MEM13 MEM14 MEM15
    MEM16 MEM17 MEM18 MEM19 MEM20 MEM21 MEM22 MEM23
    GETACC MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
+)
+
+(define-pmacro mulopsx0vec
+  ((MULL SS)   (MULLS SS)  (MULM SS)  (MULMS SS)
+   (MULHD SS)  (MULHD SU)  (MULHD US) (MULHD UU)
+   (MULHN SS)  (MULHN SU)  (MULHN US) (MULHN UU)
+   (MULHDT SS) (MULHDT SU) (OP62 "0") (OP63 "0"))
+)
+
+(define-pmacro mulopsx1vec
+  ((OP48 "1") (OP49 "1") (OP50 "1") (OP51 "1")
+   (MUL32 SS) (MUL32 SU) (MUL32 US) (MUL32 UU)
+   (OP56 "1") (OP57 "1") (OP58 "1") (OP59 "1")
+   (OP60 "1") (OP61 "1") (OP62 "1") (OP63 "1"))
 )
 
 (define-normal-insn-enum
   insn-memwidth "Vector memory op width" () VMEMWIDTH_ f-op4-3
   ("8" "16" "32" "unk")
+)
+
+(define-normal-insn-enum
+  insn-mulop "Multiply operations" () VMULXOP_ f-op8-3
+  ((MULLSS 48)   (OP481 48)
+   (MULLSSS 49)  (OP491 49)
+   (MULMSS 50)   (OP501 50)
+   (MULMSSS 51)  (OP511 51)
+   (MULHDSS 52)  (MUL32SS 52)
+   (MULHDSU 53)  (MUL32SU 53)
+   (MULHDUS 54)  (MUL32US 54)
+   (MULHDUU 55)  (MUL32UU 55)
+   (MULHNSS 56)  (OP561 56)
+   (MULHNSU 57)  (OP571 57)
+   (MULHNUS 58)  (OP581 58)
+   (MULHNUU 59)  (OP591 59)
+   (MULHDTSS 60) (OP601 60)
+   (MULHDTSU 61) (OP611 61)
+   (OP620 62)    (OP621 62)
+   (OP630 63)    (OP631 63))
 )
 
 (define-multi-ifield
@@ -404,6 +438,34 @@
 (mkvecdataops80 32 1)
 (mkvecdataops80 16 0)
 
+(define-pmacro (vecmulop80 x-width x-name x-signs x-xflag)
+  (define-normal-insn
+    (.sym (.downcase x-name) (.downcase x-signs) d80v x-width)
+    (.str x-name x-signs "D80V" x-width) ()
+    (.str "v" x-width (.downcase x-name) "." (.downcase x-signs)
+      " $v80d32reg,$v80a32reg,$v80b32reg$v80mods")
+    (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
+       v80mods v80d32reg v80a32reg (f-op42 0) v80b32reg)
+    () ())
+)
+
+(define-pmacro (mkvecmulops80 x-width x-xflag)
+  (.for-each (.pmacro (x-opname x-signs)
+               (.exec (vecmulop80 x-width x-opname x-signs x-xflag)))
+             (.map .car (.sym mulopsx x-xflag vec))
+             (.map .cadr (.sym mulopsx x-xflag vec)))
+)
+
+(mkvecmulops80 8 0)
+(mkvecmulops80 16 0)
+(mkvecmulops80 32 0)
+(mkvecmulops80 unk 0)
+
+(mkvecmulops80 8 1)
+(mkvecmulops80 16 1)
+(mkvecmulops80 32 1)
+(mkvecmulops80 unk 1)
+
 ; For most 80-vector 3-operand/immediate ops.
 
 (define-pmacro (vecdataopi80_3 x-width x-name x-xflag)
@@ -439,6 +501,34 @@
 
 (mkvecdataopis80 32 1)
 (mkvecdataopis80 16 0)
+
+(define-pmacro (vecmulopi80 x-width x-name x-signs x-xflag)
+  (define-normal-insn
+    (.sym (.downcase x-name) (.downcase x-signs) d80i x-width)
+    (.str x-name x-signs "D80I" x-width) ()
+    (.str "v" x-width (.downcase x-name) "." (.downcase x-signs)
+      " $v80d32reg,$v80a32reg,$v80imm$v80mods")
+    (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
+       v80mods v80d32reg v80a32reg (f-op42 1) v80imm)
+    () ())
+)
+
+(define-pmacro (mkvecmulopis80 x-width x-xflag)
+  (.for-each (.pmacro (x-opname x-signs)
+               (.exec (vecmulopi80 x-width x-opname x-signs x-xflag)))
+             (.map .car (.sym mulopsx x-xflag vec))
+             (.map .cadr (.sym mulopsx x-xflag vec)))
+)
+
+(mkvecmulopis80 8 0)
+(mkvecmulopis80 16 0)
+(mkvecmulopis80 32 0)
+(mkvecmulopis80 unk 0)
+
+(mkvecmulopis80 8 1)
+(mkvecmulopis80 16 1)
+(mkvecmulopis80 32 1)
+(mkvecmulopis80 unk 1)
 
 (define-pmacro (vldinsn x-op x-width)
   (define-normal-insn
@@ -492,7 +582,7 @@
 
 (define-pmacro (vgenmeminsn x-op x-width)
   (define-normal-insn
-    (.sym v x-width (.downcase x-op)) (.str "V" x-width (.upcase x-op)) ()
+    (.sym v x-width (.downcase x-op) gen) (.str "V" x-width (.upcase x-op)) ()
     (.str "v" x-width (.downcase x-op)
           " $v80d32reg,$v80a32reg,$v80b32reg$v80mods_mem")
     (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
@@ -512,7 +602,8 @@
 
 (define-pmacro (vgenmemiinsn x-op x-width)
   (define-normal-insn
-    (.sym v x-width (.downcase x-op) i) (.str "V" x-width (.upcase x-op) "I") ()
+    (.sym v x-width (.downcase x-op) igen)
+    (.str "V" x-width (.upcase x-op) "I") ()
     (.str "v" x-width (.downcase x-op)
           " $v80d32reg,$v80a32reg,$v80imm$v80mods_mem")
     (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
