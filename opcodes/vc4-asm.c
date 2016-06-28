@@ -1091,6 +1091,14 @@ parse_vec80staddr (CGEN_CPU_DESC cd, const char **strp, int opindex,
   return parse_ld_st_addr (cd, strp, opindex, valuep);
 }
 
+static const char *
+parse_dummy (CGEN_CPU_DESC cd, const char **strp, int opindex,
+             unsigned long *valuep)
+{
+  *valuep = 0;
+  return 0;
+}
+
 /* -- dis.c */
 
 const char * vc4_cgen_parse_operand
@@ -1184,6 +1192,12 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_DISP5 :
       errmsg = parse_uimm5 (cd, strp, VC4_OPERAND_DISP5, (unsigned long *) (& fields->f_op20_16));
+      break;
+    case VC4_OPERAND_DUMMYABITS :
+      errmsg = parse_dummy (cd, strp, VC4_OPERAND_DUMMYABITS, (unsigned long *) (& fields->f_dummyabits));
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      errmsg = parse_dummy (cd, strp, VC4_OPERAND_DUMMYDBITS, (unsigned long *) (& fields->f_op27_22));
       break;
     case VC4_OPERAND_FLOATIMM6 :
       errmsg = parse_floatimm6 (cd, strp, VC4_OPERAND_FLOATIMM6, (unsigned long *) (& fields->f_op21_16));

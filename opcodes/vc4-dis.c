@@ -491,16 +491,16 @@ print_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
   if (offset != 0)
     (info->fprintf_func) (info->stream, "+%ld", offset);
 
+  if ((rad & 3) != 0)
+    (*info->fprintf_func) (info->stream, "[ra/d low bits %d?]", rad & 3);
+
+  rad >>= 2;
+
   if ((rad & 15) < 15)
     {
       (*info->fprintf_func) (info->stream, "+=");
       print_scalar_reg (info, rad);
     }
-
-  /* This seems to be a 4-bit register specifier in a 6-bit field.  Who knows
-     what it means if the extra bits are set.  */
-  if (rad >= 16)
-    (*info->fprintf_func) (info->stream, "?rd/ra=%u?", rad);
 }
 
 static void
@@ -515,6 +515,16 @@ print_vec80staddr (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
 	           unsigned int attrs, bfd_vma pc, int length)
 {
   print_ld_st_addr (cd, dis_info, value, attrs, pc, length);
+}
+
+static void
+print_extraldstbits (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+	            unsigned int attrs, bfd_vma pc, int length)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  if (value != 0)
+    (*info->fprintf_func) (info->stream, "\t; A/D extra: %lx (r%d%s%s)", value,
+      value >> 2, (value & 2) ? "++" : "", (value & 1) ? "*" : "");
 }
 
 /* -- */
@@ -609,6 +619,12 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_DISP5 :
       print_normal (cd, info, fields->f_op20_16, 0, pc, length);
+      break;
+    case VC4_OPERAND_DUMMYABITS :
+      print_extraldstbits (cd, info, fields->f_dummyabits, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      print_extraldstbits (cd, info, fields->f_op27_22, 0, pc, length);
       break;
     case VC4_OPERAND_FLOATIMM6 :
       print_normal (cd, info, fields->f_op21_16, 0, pc, length);

@@ -1083,6 +1083,14 @@ parse_vec80staddr (CGEN_CPU_DESC cd, const char **strp, int opindex,
   return parse_ld_st_addr (cd, strp, opindex, valuep);
 }
 
+static const char *
+parse_dummy (CGEN_CPU_DESC cd, const char **strp, int opindex,
+             unsigned long *valuep)
+{
+  *valuep = 0;
+  return 0;
+}
+
 /* -- dis.c */
 
 #define CGEN_PRINT_INSN vc4_print_insn
@@ -1516,16 +1524,16 @@ print_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
   if (offset != 0)
     (info->fprintf_func) (info->stream, "+%ld", offset);
 
+  if ((rad & 3) != 0)
+    (*info->fprintf_func) (info->stream, "[ra/d low bits %d?]", rad & 3);
+
+  rad >>= 2;
+
   if ((rad & 15) < 15)
     {
       (*info->fprintf_func) (info->stream, "+=");
       print_scalar_reg (info, rad);
     }
-
-  /* This seems to be a 4-bit register specifier in a 6-bit field.  Who knows
-     what it means if the extra bits are set.  */
-  if (rad >= 16)
-    (*info->fprintf_func) (info->stream, "?rd/ra=%u?", rad);
 }
 
 static void
@@ -1540,6 +1548,16 @@ print_vec80staddr (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
 	           unsigned int attrs, bfd_vma pc, int length)
 {
   print_ld_st_addr (cd, dis_info, value, attrs, pc, length);
+}
+
+static void
+print_extraldstbits (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+	            unsigned int attrs, bfd_vma pc, int length)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  if (value != 0)
+    (*info->fprintf_func) (info->stream, "\t; A/D extra: %lx (r%d%s%s)", value,
+      value >> 2, (value & 2) ? "++" : "", (value & 1) ? "*" : "");
 }
 
 /* -- */

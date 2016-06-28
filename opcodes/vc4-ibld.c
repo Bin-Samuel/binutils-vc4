@@ -659,6 +659,27 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_DISP5 :
       errmsg = insert_normal (cd, fields->f_op20_16, 0, 16, 4, 5, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_DUMMYABITS :
+      {
+{
+  FLD (f_op47_44) = ((FLD (f_dummyabits)) & (15));
+  FLD (f_op17_16) = ((((UINT) (FLD (f_dummyabits)) >> (4))) & (3));
+  FLD (f_op51_48) = ((((UINT) (FLD (f_dummyabits)) >> (6))) & (15));
+}
+        errmsg = insert_normal (cd, fields->f_op51_48, 0, 48, 3, 4, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op47_44, 0, 32, 15, 4, 16, total_length, buffer);
+        if (errmsg)
+          break;
+        errmsg = insert_normal (cd, fields->f_op17_16, 0, 16, 1, 2, 16, total_length, buffer);
+        if (errmsg)
+          break;
+      }
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      errmsg = insert_normal (cd, fields->f_op27_22, 0, 16, 11, 6, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_FLOATIMM6 :
       errmsg = insert_normal (cd, fields->f_op21_16, 0, 16, 5, 6, 16, total_length, buffer);
       break;
@@ -1027,8 +1048,7 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
   FLD (f_op38_32) = ((FLD (f_vec80ldaddr)) & (127));
   FLD (f_op65_64) = ((((UINT) (FLD (f_vec80ldaddr)) >> (7))) & (3));
   FLD (f_op76_70) = ((((UINT) (FLD (f_vec80ldaddr)) >> (9))) & (127));
-  FLD (f_op47_44) = ((((UINT) (FLD (f_vec80ldaddr)) >> (16))) & (15));
-  FLD (f_op17_16) = ((((UINT) (FLD (f_vec80ldaddr)) >> (20))) & (3));
+  FLD (f_op57_52) = ((((UINT) (FLD (f_vec80ldaddr)) >> (16))) & (63));
   FLD (f_op69_66) = ((((UINT) (FLD (f_vec80ldaddr)) >> (22))) & (15));
 }
         errmsg = insert_normal (cd, fields->f_op38_32, 0, 32, 6, 7, 16, total_length, buffer);
@@ -1040,10 +1060,7 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
         errmsg = insert_normal (cd, fields->f_op76_70, 0, 64, 12, 7, 16, total_length, buffer);
         if (errmsg)
           break;
-        errmsg = insert_normal (cd, fields->f_op17_16, 0, 16, 1, 2, 16, total_length, buffer);
-        if (errmsg)
-          break;
-        errmsg = insert_normal (cd, fields->f_op47_44, 0, 32, 15, 4, 16, total_length, buffer);
+        errmsg = insert_normal (cd, fields->f_op57_52, 0, 48, 9, 6, 16, total_length, buffer);
         if (errmsg)
           break;
         errmsg = insert_normal (cd, fields->f_op69_66, 0, 64, 5, 4, 16, total_length, buffer);
@@ -1057,7 +1074,7 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
   FLD (f_op38_32) = ((FLD (f_vec80staddr)) & (127));
   FLD (f_op65_64) = ((((UINT) (FLD (f_vec80staddr)) >> (7))) & (3));
   FLD (f_op76_70) = ((((UINT) (FLD (f_vec80staddr)) >> (9))) & (127));
-  FLD (f_op27_22) = ((((UINT) (FLD (f_vec80staddr)) >> (16))) & (63));
+  FLD (f_op63_58) = ((((UINT) (FLD (f_vec80staddr)) >> (16))) & (63));
   FLD (f_op69_66) = ((((UINT) (FLD (f_vec80staddr)) >> (22))) & (15));
 }
         errmsg = insert_normal (cd, fields->f_op38_32, 0, 32, 6, 7, 16, total_length, buffer);
@@ -1069,7 +1086,7 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
         errmsg = insert_normal (cd, fields->f_op76_70, 0, 64, 12, 7, 16, total_length, buffer);
         if (errmsg)
           break;
-        errmsg = insert_normal (cd, fields->f_op27_22, 0, 16, 11, 6, 16, total_length, buffer);
+        errmsg = insert_normal (cd, fields->f_op63_58, 0, 48, 15, 6, 16, total_length, buffer);
         if (errmsg)
           break;
         errmsg = insert_normal (cd, fields->f_op69_66, 0, 64, 5, 4, 16, total_length, buffer);
@@ -1197,6 +1214,22 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_DISP5 :
       length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & fields->f_op20_16);
+      break;
+    case VC4_OPERAND_DUMMYABITS :
+      {
+        length = extract_normal (cd, ex_info, insn_value, 0, 48, 3, 4, 16, total_length, pc, & fields->f_op51_48);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 32, 15, 4, 16, total_length, pc, & fields->f_op47_44);
+        if (length <= 0) break;
+        length = extract_normal (cd, ex_info, insn_value, 0, 16, 1, 2, 16, total_length, pc, & fields->f_op17_16);
+        if (length <= 0) break;
+{
+  FLD (f_dummyabits) = ((FLD (f_op47_44)) | (((((FLD (f_op17_16)) << (4))) | (((FLD (f_op51_48)) << (6))))));
+}
+      }
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      length = extract_normal (cd, ex_info, insn_value, 0, 16, 11, 6, 16, total_length, pc, & fields->f_op27_22);
       break;
     case VC4_OPERAND_FLOATIMM6 :
       length = extract_normal (cd, ex_info, insn_value, 0, 16, 5, 6, 16, total_length, pc, & fields->f_op21_16);
@@ -1552,14 +1585,12 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         if (length <= 0) break;
         length = extract_normal (cd, ex_info, insn_value, 0, 64, 12, 7, 16, total_length, pc, & fields->f_op76_70);
         if (length <= 0) break;
-        length = extract_normal (cd, ex_info, insn_value, 0, 16, 1, 2, 16, total_length, pc, & fields->f_op17_16);
-        if (length <= 0) break;
-        length = extract_normal (cd, ex_info, insn_value, 0, 32, 15, 4, 16, total_length, pc, & fields->f_op47_44);
+        length = extract_normal (cd, ex_info, insn_value, 0, 48, 9, 6, 16, total_length, pc, & fields->f_op57_52);
         if (length <= 0) break;
         length = extract_normal (cd, ex_info, insn_value, 0, 64, 5, 4, 16, total_length, pc, & fields->f_op69_66);
         if (length <= 0) break;
 {
-  FLD (f_vec80ldaddr) = ((FLD (f_op38_32)) | (((((FLD (f_op65_64)) << (7))) | (((((FLD (f_op76_70)) << (9))) | (((((FLD (f_op47_44)) << (16))) | (((((FLD (f_op17_16)) << (20))) | (((FLD (f_op69_66)) << (22))))))))))));
+  FLD (f_vec80ldaddr) = ((FLD (f_op38_32)) | (((((FLD (f_op65_64)) << (7))) | (((((FLD (f_op76_70)) << (9))) | (((((FLD (f_op57_52)) << (16))) | (((FLD (f_op69_66)) << (22))))))))));
 }
       }
       break;
@@ -1571,12 +1602,12 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         if (length <= 0) break;
         length = extract_normal (cd, ex_info, insn_value, 0, 64, 12, 7, 16, total_length, pc, & fields->f_op76_70);
         if (length <= 0) break;
-        length = extract_normal (cd, ex_info, insn_value, 0, 16, 11, 6, 16, total_length, pc, & fields->f_op27_22);
+        length = extract_normal (cd, ex_info, insn_value, 0, 48, 15, 6, 16, total_length, pc, & fields->f_op63_58);
         if (length <= 0) break;
         length = extract_normal (cd, ex_info, insn_value, 0, 64, 5, 4, 16, total_length, pc, & fields->f_op69_66);
         if (length <= 0) break;
 {
-  FLD (f_vec80staddr) = ((FLD (f_op38_32)) | (((((FLD (f_op65_64)) << (7))) | (((((FLD (f_op76_70)) << (9))) | (((((FLD (f_op27_22)) << (16))) | (((FLD (f_op69_66)) << (22))))))))));
+  FLD (f_vec80staddr) = ((FLD (f_op38_32)) | (((((FLD (f_op65_64)) << (7))) | (((((FLD (f_op76_70)) << (9))) | (((((FLD (f_op63_58)) << (16))) | (((FLD (f_op69_66)) << (22))))))))));
 }
       }
       break;
@@ -1680,6 +1711,12 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5 :
       value = fields->f_op20_16;
+      break;
+    case VC4_OPERAND_DUMMYABITS :
+      value = fields->f_dummyabits;
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      value = fields->f_op27_22;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       value = fields->f_op21_16;
@@ -1922,6 +1959,12 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5 :
       value = fields->f_op20_16;
+      break;
+    case VC4_OPERAND_DUMMYABITS :
+      value = fields->f_dummyabits;
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      value = fields->f_op27_22;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       value = fields->f_op21_16;
@@ -2172,6 +2215,12 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_DISP5 :
       fields->f_op20_16 = value;
       break;
+    case VC4_OPERAND_DUMMYABITS :
+      fields->f_dummyabits = value;
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      fields->f_op27_22 = value;
+      break;
     case VC4_OPERAND_FLOATIMM6 :
       fields->f_op21_16 = value;
       break;
@@ -2402,6 +2451,12 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_DISP5 :
       fields->f_op20_16 = value;
+      break;
+    case VC4_OPERAND_DUMMYABITS :
+      fields->f_dummyabits = value;
+      break;
+    case VC4_OPERAND_DUMMYDBITS :
+      fields->f_op27_22 = value;
       break;
     case VC4_OPERAND_FLOATIMM6 :
       fields->f_op21_16 = value;

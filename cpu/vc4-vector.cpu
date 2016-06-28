@@ -99,7 +99,11 @@
 )
 
 (define-pmacro genmemops
-  (LD LOOKUPM LOOKUPML MEM03 ST INDEXWRITEM INDEXWRITEML MEM07
+  (
+   ;LD LOOKUPM LOOKUPML
+   MEM03
+   ;ST INDEXWRITEM INDEXWRITEML
+   MEM07
    MEMREAD MEMWRITE MEM10 MEM11 MEM12 MEM13 MEM14 MEM15
    MEM16 MEM17 MEM18 MEM19 MEM20 MEM21 MEM22 MEM23
    GETACC MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
@@ -260,8 +264,7 @@
 ;   f-op65-64 (i, imm[8:7])
 ;   f-op76-70 (i, imm[15:9])
 ; 6 ra bits:
-;   f-op17-16 (ra[5:4])
-;   f-op47-44 (ra[3:0])
+;   f-op57-52 (f_a[5:0])
 ; 4 rs bits:
 ;   f-op69-66
 
@@ -270,23 +273,21 @@
   (comment "address for 80-bit vld instruction")
   (attrs)
   (mode UINT)
-  ; Total of 7+2+7+4+2+4=26 bits.
-  (subfields f-op38-32 f-op65-64 f-op76-70 f-op17-16 f-op47-44 f-op69-66)
+  ; Total of 7+2+7+6+4=26 bits.
+  (subfields f-op38-32 f-op65-64 f-op76-70 f-op57-52 f-op69-66)
   (insert (sequence ()
             (set (ifield f-op38-32) (and (ifield f-vec80ldaddr) #x7f))
             (set (ifield f-op65-64) (and (srl (ifield f-vec80ldaddr) 7) 3))
             (set (ifield f-op76-70) (and (srl (ifield f-vec80ldaddr) 9) #x7f))
-            (set (ifield f-op47-44) (and (srl (ifield f-vec80ldaddr) 16) 15))
-            (set (ifield f-op17-16) (and (srl (ifield f-vec80ldaddr) 20) 3))
+            (set (ifield f-op57-52) (and (srl (ifield f-vec80ldaddr) 16) 63))
             (set (ifield f-op69-66) (and (srl (ifield f-vec80ldaddr) 22) 15))))
   (extract (sequence ()
              (set (ifield f-vec80ldaddr)
                   (or (ifield f-op38-32)
                       (or (sll (ifield f-op65-64) 7)
                           (or (sll (ifield f-op76-70) 9)
-                              (or (sll (ifield f-op47-44) 16)
-                                  (or (sll (ifield f-op17-16) 20)
-                                      (sll (ifield f-op69-66) 22)))))))))
+                              (or (sll (ifield f-op57-52) 16)
+                                  (sll (ifield f-op69-66) 22))))))))
 )
 
 ; 16 imm bits:
@@ -294,7 +295,7 @@
 ;   f-op65-64 (i, imm[8:7])
 ;   f-op76-70 (i, imm[15:9])
 ; 6 rd bits:
-;   f-op27-22 (rd[5:4])
+;   f-op63-58 (f_d[5:0])
 ; 4 rs bits:
 ;   f-op69-66
 
@@ -304,20 +305,38 @@
   (attrs)
   (mode UINT)
   ; Total of 7+2+7+6+4=26 bits.
-  (subfields f-op38-32 f-op65-64 f-op76-70 f-op27-22 f-op69-66)
+  (subfields f-op38-32 f-op65-64 f-op76-70 f-op63-58 f-op69-66)
   (insert (sequence ()
             (set (ifield f-op38-32) (and (ifield f-vec80staddr) #x7f))
             (set (ifield f-op65-64) (and (srl (ifield f-vec80staddr) 7) 3))
             (set (ifield f-op76-70) (and (srl (ifield f-vec80staddr) 9) #x7f))
-            (set (ifield f-op27-22) (and (srl (ifield f-vec80staddr) 16) 63))
+            (set (ifield f-op63-58) (and (srl (ifield f-vec80staddr) 16) 63))
             (set (ifield f-op69-66) (and (srl (ifield f-vec80staddr) 22) 15))))
   (extract (sequence ()
              (set (ifield f-vec80staddr)
                   (or (ifield f-op38-32)
                       (or (sll (ifield f-op65-64) 7)
                           (or (sll (ifield f-op76-70) 9)
-                              (or (sll (ifield f-op27-22) 16)
+                              (or (sll (ifield f-op63-58) 16)
                                   (sll (ifield f-op69-66) 22))))))))
+)
+
+(define-multi-ifield
+  (name f-dummyabits)
+  (comment "unknown/extra A-operand bits for vld instruction")
+  (attrs)
+  (mode UINT)
+  ; Total of 4+4+2=10 bits
+  (subfields f-op51-48 f-op47-44 f-op17-16)
+  (insert (sequence ()
+            (set (ifield f-op47-44) (and (ifield f-dummyabits) 15))
+            (set (ifield f-op17-16) (and (srl (ifield f-dummyabits) 4) 3))
+            (set (ifield f-op51-48) (and (srl (ifield f-dummyabits) 6) 15))))
+  (extract (sequence ()
+             (set (ifield f-dummyabits)
+                  (or (ifield f-op47-44)
+                      (or (sll (ifield f-op17-16) 4)
+                          (sll (ifield f-op51-48) 6))))))
 )
 
 (define-operand
@@ -398,6 +417,24 @@
   (type h-uint)
   (index f-vec80staddr)
   (handlers (parse "vec80staddr") (print "vec80staddr"))
+)
+
+(define-operand
+  (name dummyabits)
+  (comment "extra/unknown A-operand bits for vld instructions")
+  (attrs)
+  (type h-uint)
+  (index f-dummyabits)
+  (handlers (parse "dummy") (print "extraldstbits"))
+)
+
+(define-operand
+  (name dummydbits)
+  (comment "extra/unknown D-operand bits for vst instructions")
+  (attrs)
+  (type h-uint)
+  (index f-op27-22)
+  (handlers (parse "dummy") (print "extraldstbits"))
 )
 
 ; For most 80-vector 3-register ops.
@@ -533,10 +570,11 @@
 (define-pmacro (vldinsn x-op x-width)
   (define-normal-insn
     (.sym v x-width x-op) (.str "V" x-width (.upcase x-op)) ()
-    (.str "v" x-width x-op " $v80d32reg,($vec_ldaddr)$v80mods_mem")
+    (.str "v" x-width x-op " $v80d32reg,($vec_ldaddr)$v80mods_mem$dummyabits")
     (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
        v80mods_mem v80d32reg (f-op21-18 14) (f-op42 0) (f-op41-39 7)
-       (f-op51-48 0) vec_ldaddr (f-op57-52 0))
+       vec_ldaddr dummyabits)
+       ;(f-op51-48 0) (f-op57-52 0)
     () ())
 )
 
@@ -558,10 +596,11 @@
 (define-pmacro (vstinsn x-op x-width)
   (define-normal-insn
     (.sym v x-width x-op) (.str "V" x-width (.upcase x-op)) ()
-    (.str "v" x-width x-op " $v80a32reg,($vec_staddr)$v80mods_mem")
+    (.str "v" x-width x-op " $v80a32reg,($vec_staddr)$v80mods_mem$dummydbits")
     (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
        v80mods_mem v80a32reg (f-op31-28 14) (f-op42 0) (f-op41-39 7)
-       vec_staddr (f-op63-58 0))
+       vec_staddr dummydbits)
+       ;(f-op63-58 0)
     () ())
 )
 
@@ -584,9 +623,9 @@
   (define-normal-insn
     (.sym v x-width (.downcase x-op) gen) (.str "V" x-width (.upcase x-op)) ()
     (.str "v" x-width (.downcase x-op)
-          " $v80d32reg,$v80a32reg,$v80b32reg$v80mods_mem")
+          " $v80d32reg,$v80a32reg,$v80b32reg$v80mods")
     (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
-       v80mods_mem v80d32reg v80a32reg v80b32reg (f-op42 0) (f-op76-70 0))
+       v80mods v80d32reg v80a32reg v80b32reg (f-op42 0))
     () ())
 )
 
@@ -605,9 +644,9 @@
     (.sym v x-width (.downcase x-op) igen)
     (.str "V" x-width (.upcase x-op) "I") ()
     (.str "v" x-width (.downcase x-op)
-          " $v80d32reg,$v80a32reg,$v80imm$v80mods_mem")
+          " $v80d32reg,$v80a32reg,$v80imm$v80mods")
     (+ (f-op15-10 62) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
-       v80mods_mem v80d32reg v80a32reg v80imm (f-op42 1) (f-op76-70 0))
+       v80mods v80d32reg v80a32reg v80imm (f-op42 1))
     () ())
 )
 
