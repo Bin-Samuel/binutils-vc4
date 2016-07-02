@@ -1109,7 +1109,7 @@ parse_plus_sreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
 {
   const char *errmsg;
   unsigned int regno;
-  
+
   if (**strp != '+')
     {
       *valuep = 0;
@@ -1117,7 +1117,7 @@ parse_plus_sreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
     }
 
   (*strp)++;
-  
+
   errmsg = parse_vc4_reg (cd, strp, opindex, &regno, 7);
   if (errmsg)
     return errmsg;

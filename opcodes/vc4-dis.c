@@ -561,7 +561,6 @@ print_vec48aludreg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              bfd_vma pc ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
-  value &= 0x3bf;
   print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_D);
 }
 
@@ -573,7 +572,6 @@ print_vec48aludreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              bfd_vma pc ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
-  value &= 0x3bf;
   print_vector_reg (dis_info, value | 0xf040, OP_D);
 }
 
@@ -585,7 +583,6 @@ print_vec48aluareg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              bfd_vma pc ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
-  value &= 0x3bf;
   print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_A);
 }
 
@@ -597,7 +594,6 @@ print_vec48aluareg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              bfd_vma pc ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
-  value &= 0x3bf;
   print_vector_reg (dis_info, value | 0xf040, OP_A);
 }
 
@@ -609,7 +605,6 @@ print_vec48alubreg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              bfd_vma pc ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
-  value &= 0x3bf;
   print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_B);
 }
 
@@ -621,7 +616,6 @@ print_vec48alubreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              bfd_vma pc ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
-  value &= 0x3bf;
   print_vector_reg (dis_info, value | 0xf040, OP_B);
 }
 
