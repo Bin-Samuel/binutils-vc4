@@ -514,7 +514,8 @@ parse_vc4_reg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
 static const char *
 parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
-                  unsigned long *valuep, vc4_operand whichop)
+                  unsigned long *valuep, vc4_operand whichop,
+                  bfd_boolean extended)
 {
   const char *ptr = *strp;
   vc4_vec_dir vec_dir;
@@ -525,7 +526,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   bfd_boolean column_offset = FALSE;
   bfd_boolean inc_here;
   unsigned scalar_reg = 15;
-  bfd_boolean areg_p = whichop == OP_A;
+  bfd_boolean areg_p = (whichop == OP_A) && extended;
 
   if ((ptr[0] == 'H' && ptr[1] == 'X')
       || (ptr[0] == 'H' && ptr[1] == '1' && ptr[2] == '6'))
@@ -568,7 +569,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (errmsg)
     return errmsg;
 
-  if (vec_dir == H || vec_dir == HX || vec_dir == HY)
+  if (extended && (vec_dir == H || vec_dir == HX || vec_dir == HY))
     do_inc |= inc_here;
   else if (inc_here)
     return "can't increment vertical";
@@ -581,7 +582,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (errmsg)
     return errmsg;
 
-  if (vec_dir == V || vec_dir == VX || vec_dir == VY)
+  if (extended && (vec_dir == V || vec_dir == VX || vec_dir == VY))
     do_inc |= inc_here;
   else if (inc_here)
     return "can't increment horizontal";
@@ -592,7 +593,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   ptr++;
 
-  if (ptr[0] == '+' && ptr[1] == 'r')
+  if (extended && ptr[0] == '+' && ptr[1] == 'r')
     {
       unsigned long regno;
       int scanned, chars_read = 0;
@@ -606,7 +607,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       scalar_reg = regno;
     }
 
-  if (*ptr == '*')
+  if (extended && *ptr == '*')
     {
       ptr++;
       column_offset = TRUE;
@@ -705,13 +706,16 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       break;
     }
 
-  if (column_offset)
-    valbits |= 0x400;
+  if (extended)
+    {
+      if (column_offset)
+        valbits |= 0x400;
 
-  if (do_inc)
-    valbits |= 0x800;
+      if (do_inc)
+        valbits |= 0x800;
 
-  valbits |= scalar_reg << 12;
+      valbits |= scalar_reg << 12;
+    }
 
   *valuep = valbits;
   *strp = ptr;
@@ -723,21 +727,21 @@ static const char *
 parse_vec80aludreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, OP_D);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_D, TRUE);
 }
 
 static const char *
 parse_vec80aluareg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, OP_A);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_A, TRUE);
 }
 
 static const char *
 parse_vec80alubreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, OP_B);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_B, TRUE);
 }
 
 static int
@@ -1089,6 +1093,129 @@ parse_dummy (CGEN_CPU_DESC cd, const char **strp, int opindex,
 {
   *valuep = 0;
   return 0;
+}
+
+static const char *
+parse_plus_sreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep, unsigned whichreg)
+{
+  const char *errmsg;
+  unsigned int regno;
+
+  if (**strp != '+')
+    {
+      *valuep = 0;
+      return 0;
+    }
+
+  (*strp)++;
+
+  errmsg = parse_vc4_reg (cd, strp, opindex, &regno, 7);
+  if (errmsg)
+    return errmsg;
+
+  if (regno != whichreg)
+    return "unexpected register";
+
+  *valuep = 1;
+  return 0;
+}
+
+#define PLUS_SREG(X)                                                    \
+  static const char *                                                   \
+  parse_plus_sr##X (CGEN_CPU_DESC cd, const char **strp, int opindex,   \
+                    unsigned long *valuep)                              \
+  {                                                                     \
+    return parse_plus_sreg (cd, strp, opindex, valuep, (X));            \
+  }
+
+PLUS_SREG(0)
+PLUS_SREG(1)
+PLUS_SREG(2)
+PLUS_SREG(3)
+PLUS_SREG(4)
+PLUS_SREG(5)
+PLUS_SREG(6)
+PLUS_SREG(7)
+
+static const char *
+parse_vec48hvec (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep, vc4_operand whichop)
+{
+  const char *errmsg = parse_vector_reg (cd, strp, opindex, valuep, whichop,
+                                         FALSE);
+
+  if (errmsg)
+    return errmsg;
+
+  if ((*valuep & 0x3ff) != *valuep)
+    return "too complicated for 48-bit insn";
+
+  if ((*valuep & 0x40) != 0)
+    return "not an H reg";
+
+  return 0;
+}
+
+static const char *
+parse_vec48vvec (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep, vc4_operand whichop)
+{
+  const char *errmsg = parse_vector_reg (cd, strp, opindex, valuep, whichop,
+                                         FALSE);
+
+  if (errmsg)
+    return errmsg;
+
+  if ((*valuep & 0x3ff) != *valuep)
+    return "too complicated for 48-bit insn";
+
+  if ((*valuep & 0x40) == 0)
+    return "not a V reg";
+
+  return 0;
+}
+
+static const char *
+parse_vec48aludreg_h (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48hvec (cd, strp, opindex, valuep, OP_D);
+}
+
+static const char *
+parse_vec48aludreg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48vvec (cd, strp, opindex, valuep, OP_D);
+}
+
+static const char *
+parse_vec48aluareg_h (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48hvec (cd, strp, opindex, valuep, OP_A);
+}
+
+static const char *
+parse_vec48aluareg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48vvec (cd, strp, opindex, valuep, OP_A);
+}
+
+static const char *
+parse_vec48alubreg_h (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48hvec (cd, strp, opindex, valuep, OP_B);
+}
+
+static const char *
+parse_vec48alubreg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48vvec (cd, strp, opindex, valuep, OP_B);
 }
 
 /* -- dis.c */
@@ -1558,6 +1685,98 @@ print_extraldstbits (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
   if (value != 0)
     (*info->fprintf_func) (info->stream, "\t; A/D extra: %lx (r%d%s%s)", value,
       value >> 2, (value & 2) ? "++" : "", (value & 1) ? "*" : "");
+}
+
+static void
+print_plus_sreg (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+                 unsigned int attrs, bfd_vma pc, int length, unsigned sreg)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  if (value != 0)
+    (*info->fprintf_func) (info->stream, "+r%u", sreg);
+}
+
+#define PRINT_SREG(X)                                                   \
+  static void print_plus_sr##X (CGEN_CPU_DESC cd, void * dis_info,      \
+                                unsigned long value, unsigned int attrs,\
+                                bfd_vma pc, int length)                 \
+  {                                                                     \
+    print_plus_sreg (cd, dis_info, value, attrs, pc, length, (X));      \
+  }
+
+PRINT_SREG(0)
+PRINT_SREG(1)
+PRINT_SREG(2)
+PRINT_SREG(3)
+PRINT_SREG(4)
+PRINT_SREG(5)
+PRINT_SREG(6)
+PRINT_SREG(7)
+
+static void
+print_vec48aludreg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_D);
+}
+
+static void
+print_vec48aludreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  print_vector_reg (dis_info, value | 0xf040, OP_D);
+}
+
+static void
+print_vec48aluareg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_A);
+}
+
+static void
+print_vec48aluareg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  print_vector_reg (dis_info, value | 0xf040, OP_A);
+}
+
+static void
+print_vec48alubreg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_B);
+}
+
+static void
+print_vec48alubreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  print_vector_reg (dis_info, value | 0xf040, OP_B);
 }
 
 /* -- */

@@ -527,6 +527,104 @@ print_extraldstbits (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
       value >> 2, (value & 2) ? "++" : "", (value & 1) ? "*" : "");
 }
 
+static void
+print_plus_sreg (CGEN_CPU_DESC cd, void * dis_info, unsigned long value,
+                 unsigned int attrs, bfd_vma pc, int length, unsigned sreg)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  if (value != 0)
+    (*info->fprintf_func) (info->stream, "+r%u", sreg);
+}
+
+#define PRINT_SREG(X)                                                   \
+  static void print_plus_sr##X (CGEN_CPU_DESC cd, void * dis_info,      \
+                                unsigned long value, unsigned int attrs,\
+                                bfd_vma pc, int length)                 \
+  {                                                                     \
+    print_plus_sreg (cd, dis_info, value, attrs, pc, length, (X));      \
+  }
+
+PRINT_SREG(0)
+PRINT_SREG(1)
+PRINT_SREG(2)
+PRINT_SREG(3)
+PRINT_SREG(4)
+PRINT_SREG(5)
+PRINT_SREG(6)
+PRINT_SREG(7)
+
+static void
+print_vec48aludreg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  value &= 0x3bf;
+  print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_D);
+}
+
+static void
+print_vec48aludreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  value &= 0x3bf;
+  print_vector_reg (dis_info, value | 0xf040, OP_D);
+}
+
+static void
+print_vec48aluareg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  value &= 0x3bf;
+  print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_A);
+}
+
+static void
+print_vec48aluareg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  value &= 0x3bf;
+  print_vector_reg (dis_info, value | 0xf040, OP_A);
+}
+
+static void
+print_vec48alubreg_h (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  value &= 0x3bf;
+  print_vector_reg (dis_info, (value & ~0x40) | 0xf000, OP_B);
+}
+
+static void
+print_vec48alubreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	              void * dis_info,
+	              unsigned long value,
+	              unsigned int attrs ATTRIBUTE_UNUSED,
+	              bfd_vma pc ATTRIBUTE_UNUSED,
+	              int length ATTRIBUTE_UNUSED)
+{
+  value &= 0x3bf;
+  print_vector_reg (dis_info, value | 0xf040, OP_B);
+}
+
 /* -- */
 
 void vc4_cgen_print_operand
@@ -605,11 +703,59 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU48PCREL :
       print_address (cd, info, fields->f_pcrel32_48, 0|(1<<CGEN_OPERAND_PCREL_ADDR), pc, length);
       break;
+    case VC4_OPERAND_APLUS_SR0 :
+      print_plus_sr0 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR1 :
+      print_plus_sr1 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR2 :
+      print_plus_sr2 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR3 :
+      print_plus_sr3 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR4 :
+      print_plus_sr4 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR5 :
+      print_plus_sr5 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR6 :
+      print_plus_sr6 (cd, info, fields->f_op18, 0, pc, length);
+      break;
+    case VC4_OPERAND_APLUS_SR7 :
+      print_plus_sr7 (cd, info, fields->f_op18, 0, pc, length);
+      break;
     case VC4_OPERAND_BCC32IMM :
       print_normal (cd, info, fields->f_op29_24, 0, pc, length);
       break;
     case VC4_OPERAND_BCC32SREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_fastreg, fields->f_op29_26, 0);
+      break;
+    case VC4_OPERAND_BPLUS_SR0 :
+      print_plus_sr0 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR1 :
+      print_plus_sr1 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR2 :
+      print_plus_sr2 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR3 :
+      print_plus_sr3 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR4 :
+      print_plus_sr4 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR5 :
+      print_plus_sr5 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR6 :
+      print_plus_sr6 (cd, info, fields->f_op38, 0, pc, length);
+      break;
+    case VC4_OPERAND_BPLUS_SR7 :
+      print_plus_sr7 (cd, info, fields->f_op38, 0, pc, length);
       break;
     case VC4_OPERAND_CONDCODE :
       print_keyword (cd, info, & vc4_cgen_opval_h_cond, fields->f_op10_7, 0);
@@ -619,6 +765,30 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_DISP5 :
       print_normal (cd, info, fields->f_op20_16, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR0 :
+      print_plus_sr0 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR1 :
+      print_plus_sr1 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR2 :
+      print_plus_sr2 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR3 :
+      print_plus_sr3 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR4 :
+      print_plus_sr4 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR5 :
+      print_plus_sr5 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR6 :
+      print_plus_sr6 (cd, info, fields->f_op43, 0, pc, length);
+      break;
+    case VC4_OPERAND_DPLUS_SR7 :
+      print_plus_sr7 (cd, info, fields->f_op43, 0, pc, length);
       break;
     case VC4_OPERAND_DUMMYABITS :
       print_extraldstbits (cd, info, fields->f_dummyabits, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
@@ -760,6 +930,24 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_SWI_IMM :
       print_normal (cd, info, fields->f_op5_0, 0, pc, length);
+      break;
+    case VC4_OPERAND_V48AREG_H :
+      print_vec48aluareg_h (cd, info, fields->f_vec48areg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48AREG_V :
+      print_vec48aluareg_v (cd, info, fields->f_vec48areg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48BREG_H :
+      print_vec48alubreg_h (cd, info, fields->f_vec48breg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48BREG_V :
+      print_vec48alubreg_v (cd, info, fields->f_vec48breg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48DREG_H :
+      print_vec48aludreg_h (cd, info, fields->f_vec48dreg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48DREG_V :
+      print_vec48aludreg_v (cd, info, fields->f_vec48dreg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
       break;
     case VC4_OPERAND_V80A32REG :
       print_vec80aluareg (cd, info, fields->f_vec80areg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);

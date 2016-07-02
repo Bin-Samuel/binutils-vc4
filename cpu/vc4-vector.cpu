@@ -28,19 +28,25 @@
 
 (df2 f-op31-22 "Opcode bits 31-22" () 16 16 15 10 UINT (#f) (#f))
 (df2 f-op31-28 "Opcode bits 31-28" () 16 16 15 4 UINT (#f) (#f))
+(df2 f-op31-29 "Opcode bits 31-29" () 16 16 15 3 UINT (#f) (#f))
+(df2 f-op28 "Opcode bit 28" () 16 16 12 1 UINT (#f) (#f))
 (df2 f-op27-22 "Opcode bits 27-22" () 16 16 11 6 UINT (#f) (#f))
 
 ; "A" register field is split over two 16-bit words.
 
 ;(df2 f-op21-16 "Opcode bits 21-16" () 16 16 5 6 UINT (#f) (#f))
 
+(df2 f-op21-19 "Opcode bits 21-19" () 16 16 5 3 UINT (#f) (#f))
 (df2 f-op21-18 "Opcode bits 21-18" () 16 16 5 4 UINT (#f) (#f))
+(df2 f-op18 "Opcode bit 18" () 16 16 2 1 UINT (#f) (#f))
 (df2 f-op17-16 "Opcode bits 17-16" () 16 16 1 2 UINT (#f) (#f))
 
 ; Fields in third 16-bit word (bits 47-32).
 
 ; ALU
 
+(df2 f-op37-32 "Opcode bits 37-32" () 32 16 5 6 UINT (#f) (#f))
+(df2 f-op38 "Opcode bit 38" () 32 16 6 1 UINT (#f) (#f))
 (df2 f-op41-32 "Opcode bits 41-32" () 32 16 9 10 UINT (#f) (#f))
 (df2 f-op42 "Opcode bit 42" () 32 16 10 1 UINT (#f) (#f))
 (df2 f-op43 "Opcode bit 43" () 32 16 11 1 UINT (#f) (#f))
@@ -146,6 +152,16 @@
    (MULHDTSU 61) (OP611 61)
    (OP620 62)    (OP621 62)
    (OP630 63)    (OP631 63))
+)
+
+(define-normal-insn-enum
+  insn-sreg "SREG setting for 48-bit ops" () SREG_ f-op2-0
+  (R0 R1 R2 R3 R4 R5 R6 R7)
+)
+
+(define-normal-insn-enum
+  insn-vec48dir "Vector direction bit for 48-bit ops" () VECDIR_ f-op28
+  (H V)
 )
 
 (define-multi-ifield
@@ -339,6 +355,56 @@
                           (sll (ifield f-op51-48) 6))))))
 )
 
+(define-multi-ifield
+  (name f-vec48dreg)
+  (comment "9-bit specifier for D operand, 48-bit")
+  (attrs)
+  (mode UINT)
+  ; total of 3+6=9 bits. Gap in the middle.
+  (subfields f-op31-29 f-op27-22)
+  (insert (sequence ()
+            (set (ifield f-op27-22) (and (ifield f-vec48dreg) 63))
+            (set (ifield f-op31-29) (and (srl (ifield f-vec48dreg) 7) 7))))
+  (extract (sequence ()
+             (set (ifield f-vec48dreg)
+                  (or (ifield f-op27-22)
+                      (sll (ifield f-op31-29) 7)))))
+)
+
+(define-multi-ifield
+  (name f-vec48areg)
+  (comment "9-bit specifier for A operand, 48-bit")
+  (attrs)
+  (mode UINT)
+  ; total of 3(+1)+2+4 = 9 bits. Gap in the middle.
+  (subfields f-op21-19 f-op17-16 f-op47-44)
+  (insert (sequence ()
+            (set (ifield f-op47-44) (and (ifield f-vec48areg) 15))
+            (set (ifield f-op17-16) (and (srl (ifield f-vec48areg) 4) 3))
+            (set (ifield f-op21-19) (and (srl (ifield f-vec48areg) 7) 7))))
+  (extract (sequence ()
+             (set (ifield f-vec48areg)
+                  (or (ifield f-op47-44)
+                      (or (sll (ifield f-op17-16) 4)
+                          (sll (ifield f-op21-19) 7))))))
+)
+
+(define-multi-ifield
+  (name f-vec48breg)
+  (comment "9-bit specifier for B operand, 48-bit")
+  (attrs)
+  (mode UINT)
+  ; total of 3(+1)+6 = 9 bits. Gap in the middle.
+  (subfields f-op41-39 f-op37-32)
+  (insert (sequence ()
+            (set (ifield f-op37-32) (and (ifield f-vec48breg) 63))
+            (set (ifield f-op41-39) (and (srl (ifield f-vec48breg) 7) 7))))
+  (extract (sequence ()
+             (set (ifield f-vec48breg)
+                  (or (ifield f-op37-32)
+                      (sll (ifield f-op41-39) 7)))))
+)
+
 (define-operand
   (name v80d32reg)
   (comment "vector dest register, 80-bit ALU insn")
@@ -436,6 +502,148 @@
   (index f-op27-22)
   (handlers (parse "dummy") (print "extraldstbits"))
 )
+
+(define-pmacro (mkv48dreg x-dir)
+  (define-operand
+    (name (.sym v48dreg_ x-dir))
+    (comment (.str "vector " (.upcase x-dir) " dest register, 48-bit ALU insn"))
+    (attrs)
+    (type h-uint)
+    (index f-vec48dreg)
+    (handlers (parse (.str "vec48aludreg_" x-dir))
+              (print (.str "vec48aludreg_" x-dir))))
+)
+
+(mkv48dreg h)
+(mkv48dreg v)
+
+(define-pmacro (mkv48areg x-dir)
+  (define-operand
+    (name (.sym v48areg_ x-dir))
+    (comment (.str "vector " (.upcase x-dir) " A register, 48-bit ALU insn"))
+    (attrs)
+    (type h-uint)
+    (index f-vec48areg)
+    (handlers (parse (.str "vec48aluareg_" x-dir))
+              (print (.str "vec48aluareg_" x-dir))))
+)
+
+(mkv48areg h)
+(mkv48areg v)
+
+(define-pmacro (mkv48breg x-dir)
+  (define-operand
+    (name (.sym v48breg_ x-dir))
+    (comment (.str "vector " (.upcase x-dir) " B register, 48-bit ALU insn"))
+    (attrs)
+    (type h-uint)
+    (index f-vec48breg)
+    (handlers (parse (.str "vec48alubreg_" x-dir))
+              (print (.str "vec48alubreg_" x-dir))))
+)
+
+(mkv48breg h)
+(mkv48breg v)
+
+(define-pmacro (mkdplus_reg x-regno)
+  (define-operand
+    (name (.sym dplus_sr x-regno))
+    (comment (.str "Add r" x-regno " for 48-bit D operand"))
+    (attrs)
+    (type h-uint)
+    (index f-op43)
+    (handlers (parse (.str "plus_sr" x-regno))
+              (print (.str "plus_sr" x-regno))))
+)
+
+(define-pmacro (mkaplus_reg x-regno)
+  (define-operand
+    (name (.sym aplus_sr x-regno))
+    (comment (.str "Add r" x-regno " for 48-bit A operand"))
+    (attrs)
+    (type h-uint)
+    (index f-op18)
+    (handlers (parse (.str "plus_sr" x-regno))
+              (print (.str "plus_sr" x-regno))))
+)
+
+(define-pmacro (mkbplus_reg x-regno)
+  (define-operand
+    (name (.sym bplus_sr x-regno))
+    (comment (.str "Add r" x-regno " for 48-bit B operand"))
+    (attrs)
+    (type h-uint)
+    (index f-op38)
+    (handlers (parse (.str "plus_sr" x-regno))
+              (print (.str "plus_sr" x-regno))))
+)
+
+(.for-each (.pmacro (x-regno)
+           (.begin
+             (.exec (mkdplus_reg x-regno))
+             (.exec (mkaplus_reg x-regno))
+             (.exec (mkbplus_reg x-regno))))
+           (.iota 8)
+)
+
+;;;;;;;;;;;;;;;;;;
+;;              ;;
+;; 48-bit insns ;;
+;;              ;;
+;;;;;;;;;;;;;;;;;;
+
+(define-pmacro (vecdataop48_3 x-width x-name x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) x-dir d48v x-width x-sreg)
+    (.str x-name (.upcase x-dir) "D48V" x-width (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-name) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48breg_" x-dir "$bplus_s"
+          x-sreg)
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VECOP_ x-name)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (.sym v48areg_ x-dir)
+       (.sym v48breg_ x-dir) (f-op42 0) (.sym dplus_s x-sreg)
+       (.sym aplus_s x-sreg) (.sym bplus_s x-sreg))
+    () ())
+)
+
+(define-pmacro (vecdataop48_2 x-width x-name x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) x-dir d48v x-width x-sreg)
+    (.str x-name (.upcase x-dir) "D48V" x-width (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-name) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48breg_" x-dir "$bplus_s" x-sreg)
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VECOP_ x-name)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (f-op21-19 7) (f-op17-16 0) (f-op47-44 0)
+       (.sym v48breg_ x-dir) (f-op42 0) (.sym dplus_s x-sreg)
+       (f-op18 0) (.sym bplus_s x-sreg))
+    () ())
+)
+
+(define-pmacro (mkvecdataops48 x-width x-xflag x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.for-each
+        (.pmacro (x-opname x-numops)
+          (.if (.eq x-numops 3)
+            (.exec (vecdataop48_3 x-width x-opname x-xflag x-dir x-sreg))
+            (.exec (vecdataop48_2 x-width x-opname x-xflag x-dir x-sreg))))
+        (.map .car opsvec)
+        (.map .cadr opsvec)))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkvecdataops48 32 1 h)
+(mkvecdataops48 32 1 v)
+(mkvecdataops48 16 0 h)
+(mkvecdataops48 16 0 v)
+
+;;;;;;;;;;;;;;;;;;
+;;              ;;
+;; 80-bit insns ;;
+;;              ;;
+;;;;;;;;;;;;;;;;;;
 
 ; For most 80-vector 3-register ops.
 

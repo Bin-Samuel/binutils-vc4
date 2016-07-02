@@ -285,6 +285,134 @@ static const CGEN_IFMT ifmt_movi48 ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_movhd48v32r0 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r0 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r1 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r1 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r2 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r2 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r3 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r3 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r4 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r4 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r5 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r5 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r6 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r6 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movhd48v32r7 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenhd48v32r7 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r0 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r0 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r1 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r1 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r2 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r2 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r3 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r3 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r4 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r4 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r5 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r5 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r6 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r6 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movvd48v32r7 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP47_44) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_OP21_19) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_OP17_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_evenvd48v32r7 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP15_10) }, { F (F_OP28) }, { F (F_VEC48DREG) }, { F (F_OP43) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP8_3) }, { F (F_OP38) }, { F (F_VEC48BREG) }, { F (F_OP2_0) }, { F (F_OP18) }, { F (F_VEC48AREG) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_movd80v32 ATTRIBUTE_UNUSED = {
   16, 80, 0xfff8, { { F (F_OP15_10) }, { F (F_VEC80DREG) }, { F (F_OP47_44) }, { F (F_OP42) }, { F (F_OP9) }, { F (F_OP57_52) }, { F (F_OP8_3) }, { F (F_OP21_16) }, { F (F_VEC80BREG) }, { F (F_OP51_48) }, { F (F_VEC80MODS) }, { 0 } }
 };
@@ -2601,6 +2729,9222 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48IMMU), 0 } },
     & ifmt_movi48, { 0xea20 }
+  },
+/* v32mov $v48dreg_h$dplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_movhd48v32r0, { 0xf600, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_movhd48v32r0, { 0xf608, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf610, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf618, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf620, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf628, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf630, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf638, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf640, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf648, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf650, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf658, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf660, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf668, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf670, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf678, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf680, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf688, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf690, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf698, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6a0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6a8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6b0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6b8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6c0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6c8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6d0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6d8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6e0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6e8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6f0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf6f8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf700, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf708, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf710, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf718, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf720, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf728, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf730, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf738, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf740, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf748, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf750, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf758, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf760, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf768, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf770, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf778, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_movhd48v32r1, { 0xf601, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_movhd48v32r1, { 0xf609, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf611, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf619, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf621, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf629, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf631, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf639, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf641, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf649, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf651, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf659, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf661, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf669, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf671, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf679, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf681, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf689, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf691, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf699, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6a1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6a9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6b1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6b9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6c1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6c9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6d1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6d9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6e1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6e9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6f1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf6f9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf701, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf709, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf711, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf719, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf721, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf729, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf731, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf739, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf741, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf749, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf751, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf759, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf761, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf769, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf771, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf779, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_movhd48v32r2, { 0xf602, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_movhd48v32r2, { 0xf60a, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf612, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf61a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf622, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf62a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf632, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf63a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf642, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf64a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf652, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf65a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf662, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf66a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf672, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf67a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf682, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf68a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf692, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf69a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6a2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6aa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6b2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6ba, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6c2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6ca, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6d2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6da, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6e2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6ea, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6f2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf6fa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf702, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf70a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf712, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf71a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf722, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf72a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf732, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf73a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf742, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf74a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf752, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf75a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf762, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf76a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf772, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf77a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_movhd48v32r3, { 0xf603, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_movhd48v32r3, { 0xf60b, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf613, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf61b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf623, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf62b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf633, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf63b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf643, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf64b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf653, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf65b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf663, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf66b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf673, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf67b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf683, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf68b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf693, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf69b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6a3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6ab, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6b3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6bb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6c3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6cb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6d3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6db, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6e3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6eb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6f3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf6fb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf703, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf70b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf713, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf71b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf723, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf72b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf733, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf73b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf743, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf74b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf753, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf75b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf763, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf76b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf773, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf77b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_movhd48v32r4, { 0xf604, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_movhd48v32r4, { 0xf60c, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf614, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf61c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf624, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf62c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf634, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf63c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf644, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf64c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf654, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf65c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf664, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf66c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf674, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf67c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf684, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf68c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf694, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf69c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6a4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6ac, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6b4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6bc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6c4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6cc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6d4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6dc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6e4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6ec, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6f4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf6fc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf704, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf70c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf714, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf71c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf724, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf72c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf734, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf73c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf744, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf74c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf754, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf75c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf764, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf76c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf774, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf77c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_movhd48v32r5, { 0xf605, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_movhd48v32r5, { 0xf60d, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf615, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf61d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf625, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf62d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf635, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf63d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf645, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf64d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf655, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf65d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf665, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf66d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf675, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf67d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf685, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf68d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf695, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf69d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6a5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6ad, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6b5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6bd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6c5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6cd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6d5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6dd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6e5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6ed, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6f5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf6fd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf705, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf70d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf715, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf71d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf725, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf72d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf735, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf73d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf745, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf74d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf755, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf75d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf765, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf76d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf775, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf77d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_movhd48v32r6, { 0xf606, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_movhd48v32r6, { 0xf60e, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf616, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf61e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf626, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf62e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf636, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf63e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf646, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf64e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf656, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf65e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf666, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf66e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf676, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf67e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf686, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf68e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf696, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf69e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6a6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6ae, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6b6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6be, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6c6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6ce, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6d6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6de, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6e6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6ee, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6f6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf6fe, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf706, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf70e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf716, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf71e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf726, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf72e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf736, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf73e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf746, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf74e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf756, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf75e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf766, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf76e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf776, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf77e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_h$dplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_movhd48v32r7, { 0xf607, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_h$dplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_movhd48v32r7, { 0xf60f, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf617, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf61f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf627, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf62f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf637, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf63f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf647, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf64f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf657, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf65f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf667, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf66f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf677, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf67f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf687, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf68f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf697, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf69f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6a7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6af, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6b7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6bf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6c7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6cf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6d7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6df, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6e7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6ef, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6f7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf6ff, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf707, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf70f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf717, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf71f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf727, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf72f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf737, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf73f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf747, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf74f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf757, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf75f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf767, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf76f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf777, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf77f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_movvd48v32r0, { 0xf600, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_movvd48v32r0, { 0xf608, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf610, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf618, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf620, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf628, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf630, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf638, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf640, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf648, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf650, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf658, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf660, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf668, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf670, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf678, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf680, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf688, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf690, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf698, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6a0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6a8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6b0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6b8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6c0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6c8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6d0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6d8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6e0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6e8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6f0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf6f8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf700, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf708, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf710, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf718, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf720, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf728, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf730, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf738, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf740, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf748, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf750, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf758, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf760, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf768, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf770, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf778, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_movvd48v32r1, { 0xf601, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_movvd48v32r1, { 0xf609, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf611, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf619, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf621, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf629, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf631, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf639, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf641, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf649, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf651, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf659, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf661, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf669, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf671, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf679, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf681, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf689, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf691, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf699, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6a1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6a9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6b1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6b9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6c1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6c9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6d1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6d9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6e1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6e9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6f1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf6f9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf701, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf709, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf711, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf719, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf721, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf729, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf731, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf739, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf741, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf749, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf751, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf759, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf761, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf769, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf771, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf779, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_movvd48v32r2, { 0xf602, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_movvd48v32r2, { 0xf60a, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf612, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf61a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf622, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf62a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf632, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf63a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf642, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf64a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf652, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf65a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf662, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf66a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf672, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf67a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf682, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf68a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf692, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf69a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6a2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6aa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6b2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6ba, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6c2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6ca, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6d2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6da, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6e2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6ea, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6f2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf6fa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf702, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf70a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf712, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf71a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf722, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf72a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf732, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf73a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf742, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf74a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf752, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf75a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf762, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf76a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf772, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf77a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_movvd48v32r3, { 0xf603, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_movvd48v32r3, { 0xf60b, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf613, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf61b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf623, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf62b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf633, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf63b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf643, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf64b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf653, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf65b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf663, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf66b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf673, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf67b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf683, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf68b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf693, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf69b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6a3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6ab, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6b3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6bb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6c3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6cb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6d3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6db, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6e3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6eb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6f3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf6fb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf703, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf70b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf713, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf71b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf723, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf72b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf733, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf73b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf743, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf74b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf753, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf75b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf763, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf76b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf773, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf77b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_movvd48v32r4, { 0xf604, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_movvd48v32r4, { 0xf60c, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf614, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf61c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf624, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf62c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf634, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf63c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf644, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf64c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf654, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf65c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf664, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf66c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf674, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf67c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf684, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf68c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf694, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf69c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6a4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6ac, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6b4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6bc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6c4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6cc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6d4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6dc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6e4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6ec, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6f4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf6fc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf704, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf70c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf714, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf71c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf724, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf72c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf734, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf73c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf744, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf74c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf754, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf75c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf764, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf76c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf774, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf77c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_movvd48v32r5, { 0xf605, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_movvd48v32r5, { 0xf60d, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf615, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf61d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf625, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf62d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf635, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf63d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf645, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf64d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf655, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf65d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf665, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf66d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf675, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf67d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf685, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf68d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf695, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf69d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6a5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6ad, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6b5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6bd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6c5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6cd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6d5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6dd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6e5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6ed, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6f5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf6fd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf705, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf70d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf715, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf71d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf725, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf72d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf735, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf73d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf745, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf74d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf755, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf75d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf765, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf76d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf775, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf77d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_movvd48v32r6, { 0xf606, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_movvd48v32r6, { 0xf60e, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf616, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf61e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf626, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf62e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf636, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf63e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf646, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf64e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf656, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf65e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf666, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf66e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf676, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf67e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf686, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf68e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf696, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf69e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6a6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6ae, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6b6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6be, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6c6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6ce, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6d6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6de, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6e6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6ee, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6f6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf6fe, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf706, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf70e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf716, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf71e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf726, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf72e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf736, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf73e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf746, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf74e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf756, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf75e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf766, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf76e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf776, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf77e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32mov $v48dreg_v$dplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_movvd48v32r7, { 0xf607, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32bitplanes $v48dreg_v$dplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_movvd48v32r7, { 0xf60f, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v32even $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf617, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32odd $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf61f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf627, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32interh $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf62f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bitrev $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf637, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32ror $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf63f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf647, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32shls $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf64f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32lsr $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf657, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32asr $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf65f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signshl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf667, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op13 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf66f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf677, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32signasls $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf67f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32and $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf687, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32or $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf68f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32eor $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf697, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32bic $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf69f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32count $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6a7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32msb $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6af, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op22 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6b7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op23 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6bf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32min $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6c7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32max $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6cf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dist $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6d7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32dists $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6df, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clip $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6e7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sign $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6ef, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32clips $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6f7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32testmag $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf6ff, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32add $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf707, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32adds $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf70f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf717, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32addsc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf71f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32sub $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf727, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subs $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf72f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf737, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32subsc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf73f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsub $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf747, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubs $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf74f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf757, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32rsubsc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf75f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op44 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf767, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op45 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf76f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op46 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf777, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v32op47 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf77f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_movhd48v32r0, { 0xf400, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_movhd48v32r0, { 0xf408, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf410, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf418, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf420, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf428, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf430, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf438, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf440, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf448, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf450, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf458, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf460, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf468, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf470, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf478, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf480, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf488, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf490, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf498, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4a0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4a8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4b0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4b8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4c0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4c8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4d0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4d8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4e0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4e8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4f0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf4f8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf500, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf508, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf510, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf518, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf520, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf528, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf530, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf538, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf540, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf548, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf550, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf558, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf560, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf568, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf570, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf578, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_movhd48v32r1, { 0xf401, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_movhd48v32r1, { 0xf409, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf411, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf419, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf421, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf429, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf431, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf439, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf441, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf449, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf451, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf459, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf461, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf469, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf471, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf479, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf481, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf489, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf491, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf499, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4a1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4a9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4b1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4b9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4c1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4c9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4d1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4d9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4e1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4e9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4f1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf4f9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf501, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf509, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf511, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf519, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf521, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf529, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf531, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf539, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf541, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf549, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf551, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf559, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf561, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf569, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf571, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf579, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_movhd48v32r2, { 0xf402, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_movhd48v32r2, { 0xf40a, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf412, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf41a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf422, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf42a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf432, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf43a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf442, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf44a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf452, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf45a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf462, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf46a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf472, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf47a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf482, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf48a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf492, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf49a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4a2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4aa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4b2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4ba, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4c2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4ca, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4d2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4da, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4e2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4ea, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4f2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf4fa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf502, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf50a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf512, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf51a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf522, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf52a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf532, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf53a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf542, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf54a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf552, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf55a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf562, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf56a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf572, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf57a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_movhd48v32r3, { 0xf403, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_movhd48v32r3, { 0xf40b, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf413, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf41b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf423, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf42b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf433, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf43b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf443, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf44b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf453, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf45b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf463, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf46b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf473, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf47b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf483, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf48b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf493, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf49b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4a3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4ab, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4b3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4bb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4c3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4cb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4d3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4db, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4e3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4eb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4f3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf4fb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf503, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf50b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf513, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf51b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf523, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf52b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf533, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf53b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf543, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf54b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf553, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf55b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf563, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf56b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf573, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf57b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_movhd48v32r4, { 0xf404, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_movhd48v32r4, { 0xf40c, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf414, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf41c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf424, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf42c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf434, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf43c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf444, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf44c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf454, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf45c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf464, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf46c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf474, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf47c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf484, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf48c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf494, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf49c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4a4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4ac, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4b4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4bc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4c4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4cc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4d4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4dc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4e4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4ec, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4f4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf4fc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf504, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf50c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf514, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf51c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf524, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf52c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf534, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf53c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf544, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf54c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf554, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf55c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf564, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf56c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf574, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf57c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_movhd48v32r5, { 0xf405, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_movhd48v32r5, { 0xf40d, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf415, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf41d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf425, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf42d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf435, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf43d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf445, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf44d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf455, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf45d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf465, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf46d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf475, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf47d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf485, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf48d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf495, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf49d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4a5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4ad, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4b5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4bd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4c5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4cd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4d5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4dd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4e5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4ed, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4f5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf4fd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf505, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf50d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf515, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf51d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf525, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf52d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf535, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf53d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf545, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf54d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf555, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf55d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf565, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf56d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf575, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf57d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_movhd48v32r6, { 0xf406, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_movhd48v32r6, { 0xf40e, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf416, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf41e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf426, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf42e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf436, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf43e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf446, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf44e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf456, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf45e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf466, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf46e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf476, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf47e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf486, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf48e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf496, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf49e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4a6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4ae, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4b6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4be, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4c6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4ce, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4d6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4de, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4e6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4ee, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4f6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf4fe, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf506, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf50e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf516, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf51e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf526, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf52e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf536, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf53e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf546, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf54e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf556, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf55e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf566, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf56e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf576, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf57e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_h$dplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_movhd48v32r7, { 0xf407, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_h$dplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_movhd48v32r7, { 0xf40f, { 0x38, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf417, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf41f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf427, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf42f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf437, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf43f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf447, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf44f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf457, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf45f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf467, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf46f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf477, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf47f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf487, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf48f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf497, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf49f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4a7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4af, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4b7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4bf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4c7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4cf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4d7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4df, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4e7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4ef, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4f7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf4ff, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf507, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf50f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf517, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf51f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf527, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf52f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf537, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf53f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf547, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf54f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf557, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf55f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf567, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf56f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf577, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf57f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_movvd48v32r0, { 0xf400, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_movvd48v32r0, { 0xf408, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf410, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf418, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf420, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf428, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf430, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf438, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf440, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf448, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf450, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf458, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf460, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf468, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf470, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf478, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf480, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf488, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf490, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf498, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4a0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4a8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4b0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4b8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4c0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4c8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4d0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4d8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4e0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4e8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4f0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf4f8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf500, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf508, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf510, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf518, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf520, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf528, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf530, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf538, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf540, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf548, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf550, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf558, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf560, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf568, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf570, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf578, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_movvd48v32r1, { 0xf401, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_movvd48v32r1, { 0xf409, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf411, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf419, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf421, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf429, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf431, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf439, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf441, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf449, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf451, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf459, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf461, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf469, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf471, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf479, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf481, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf489, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf491, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf499, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4a1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4a9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4b1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4b9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4c1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4c9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4d1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4d9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4e1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4e9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4f1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf4f9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf501, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf509, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf511, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf519, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf521, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf529, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf531, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf539, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf541, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf549, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf551, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf559, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf561, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf569, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf571, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf579, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_movvd48v32r2, { 0xf402, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_movvd48v32r2, { 0xf40a, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf412, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf41a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf422, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf42a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf432, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf43a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf442, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf44a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf452, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf45a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf462, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf46a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf472, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf47a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf482, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf48a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf492, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf49a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4a2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4aa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4b2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4ba, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4c2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4ca, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4d2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4da, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4e2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4ea, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4f2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf4fa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf502, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf50a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf512, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf51a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf522, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf52a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf532, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf53a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf542, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf54a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf552, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf55a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf562, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf56a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf572, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf57a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_movvd48v32r3, { 0xf403, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_movvd48v32r3, { 0xf40b, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf413, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf41b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf423, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf42b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf433, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf43b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf443, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf44b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf453, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf45b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf463, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf46b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf473, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf47b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf483, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf48b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf493, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf49b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4a3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4ab, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4b3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4bb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4c3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4cb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4d3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4db, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4e3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4eb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4f3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf4fb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf503, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf50b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf513, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf51b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf523, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf52b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf533, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf53b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf543, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf54b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf553, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf55b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf563, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf56b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf573, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf57b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_movvd48v32r4, { 0xf404, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_movvd48v32r4, { 0xf40c, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf414, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf41c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf424, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf42c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf434, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf43c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf444, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf44c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf454, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf45c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf464, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf46c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf474, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf47c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf484, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf48c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf494, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf49c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4a4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4ac, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4b4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4bc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4c4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4cc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4d4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4dc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4e4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4ec, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4f4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf4fc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf504, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf50c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf514, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf51c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf524, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf52c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf534, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf53c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf544, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf54c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf554, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf55c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf564, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf56c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf574, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf57c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_movvd48v32r5, { 0xf405, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_movvd48v32r5, { 0xf40d, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf415, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf41d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf425, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf42d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf435, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf43d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf445, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf44d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf455, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf45d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf465, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf46d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf475, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf47d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf485, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf48d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf495, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf49d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4a5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4ad, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4b5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4bd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4c5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4cd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4d5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4dd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4e5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4ed, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4f5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf4fd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf505, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf50d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf515, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf51d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf525, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf52d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf535, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf53d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf545, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf54d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf555, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf55d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf565, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf56d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf575, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf57d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_movvd48v32r6, { 0xf406, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_movvd48v32r6, { 0xf40e, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf416, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf41e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf426, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf42e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf436, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf43e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf446, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf44e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf456, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf45e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf466, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf46e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf476, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf47e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf486, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf48e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf496, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf49e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4a6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4ae, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4b6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4be, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4c6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4ce, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4d6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4de, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4e6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4ee, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4f6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf4fe, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf506, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf50e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf516, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf51e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf526, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf52e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf536, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf53e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf546, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf54e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf556, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf55e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf566, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf56e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf576, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf57e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16mov $v48dreg_v$dplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_movvd48v32r7, { 0xf407, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16bitplanes $v48dreg_v$dplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_movvd48v32r7, { 0xf40f, { 0x1038, 0x0 }, { 0x103f, 0xf400 } }
+  },
+/* v16even $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf417, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16odd $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf41f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf427, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16interh $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf42f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bitrev $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf437, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16ror $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf43f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf447, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16shls $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf44f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16lsr $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf457, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16asr $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf45f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signshl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf467, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op13 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf46f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasl $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf477, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16signasls $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf47f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16and $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf487, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16or $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf48f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16eor $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf497, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16bic $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf49f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16count $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4a7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16msb $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4af, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op22 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4b7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op23 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4bf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16min $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4c7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16max $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4cf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dist $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4d7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16dists $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4df, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clip $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4e7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sign $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4ef, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16clips $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4f7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16testmag $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf4ff, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16add $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf507, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16adds $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf50f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf517, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16addsc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf51f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16sub $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf527, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subs $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf52f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf537, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16subsc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf53f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsub $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf547, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubs $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf54f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf557, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16rsubsc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf55f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op44 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf567, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op45 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf56f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op46 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf577, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* v16op47 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf57f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
   },
 /* v32mov $v80d32reg,$v80b32reg$v80mods */
   {

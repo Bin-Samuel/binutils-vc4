@@ -522,7 +522,8 @@ parse_vc4_reg (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 
 static const char *
 parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
-                  unsigned long *valuep, vc4_operand whichop)
+                  unsigned long *valuep, vc4_operand whichop,
+                  bfd_boolean extended)
 {
   const char *ptr = *strp;
   vc4_vec_dir vec_dir;
@@ -533,7 +534,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   bfd_boolean column_offset = FALSE;
   bfd_boolean inc_here;
   unsigned scalar_reg = 15;
-  bfd_boolean areg_p = whichop == OP_A;
+  bfd_boolean areg_p = (whichop == OP_A) && extended;
 
   if ((ptr[0] == 'H' && ptr[1] == 'X')
       || (ptr[0] == 'H' && ptr[1] == '1' && ptr[2] == '6'))
@@ -576,7 +577,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (errmsg)
     return errmsg;
 
-  if (vec_dir == H || vec_dir == HX || vec_dir == HY)
+  if (extended && (vec_dir == H || vec_dir == HX || vec_dir == HY))
     do_inc |= inc_here;
   else if (inc_here)
     return "can't increment vertical";
@@ -589,7 +590,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   if (errmsg)
     return errmsg;
 
-  if (vec_dir == V || vec_dir == VX || vec_dir == VY)
+  if (extended && (vec_dir == V || vec_dir == VX || vec_dir == VY))
     do_inc |= inc_here;
   else if (inc_here)
     return "can't increment horizontal";
@@ -600,7 +601,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
 
   ptr++;
 
-  if (ptr[0] == '+' && ptr[1] == 'r')
+  if (extended && ptr[0] == '+' && ptr[1] == 'r')
     {
       unsigned long regno;
       int scanned, chars_read = 0;
@@ -614,7 +615,7 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       scalar_reg = regno;
     }
 
-  if (*ptr == '*')
+  if (extended && *ptr == '*')
     {
       ptr++;
       column_offset = TRUE;
@@ -713,13 +714,16 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
       break;
     }
 
-  if (column_offset)
-    valbits |= 0x400;
+  if (extended)
+    {
+      if (column_offset)
+        valbits |= 0x400;
 
-  if (do_inc)
-    valbits |= 0x800;
+      if (do_inc)
+        valbits |= 0x800;
 
-  valbits |= scalar_reg << 12;
+      valbits |= scalar_reg << 12;
+    }
 
   *valuep = valbits;
   *strp = ptr;
@@ -731,21 +735,21 @@ static const char *
 parse_vec80aludreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, OP_D);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_D, TRUE);
 }
 
 static const char *
 parse_vec80aluareg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, OP_A);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_A, TRUE);
 }
 
 static const char *
 parse_vec80alubreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
                     unsigned long *valuep)
 {
-  return parse_vector_reg (cd, strp, opindex, valuep, OP_B);
+  return parse_vector_reg (cd, strp, opindex, valuep, OP_B, TRUE);
 }
 
 static int
@@ -1099,6 +1103,129 @@ parse_dummy (CGEN_CPU_DESC cd, const char **strp, int opindex,
   return 0;
 }
 
+static const char *
+parse_plus_sreg (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep, unsigned whichreg)
+{
+  const char *errmsg;
+  unsigned int regno;
+  
+  if (**strp != '+')
+    {
+      *valuep = 0;
+      return 0;
+    }
+
+  (*strp)++;
+  
+  errmsg = parse_vc4_reg (cd, strp, opindex, &regno, 7);
+  if (errmsg)
+    return errmsg;
+
+  if (regno != whichreg)
+    return "unexpected register";
+
+  *valuep = 1;
+  return 0;
+}
+
+#define PLUS_SREG(X)                                                    \
+  static const char *                                                   \
+  parse_plus_sr##X (CGEN_CPU_DESC cd, const char **strp, int opindex,   \
+                    unsigned long *valuep)                              \
+  {                                                                     \
+    return parse_plus_sreg (cd, strp, opindex, valuep, (X));            \
+  }
+
+PLUS_SREG(0)
+PLUS_SREG(1)
+PLUS_SREG(2)
+PLUS_SREG(3)
+PLUS_SREG(4)
+PLUS_SREG(5)
+PLUS_SREG(6)
+PLUS_SREG(7)
+
+static const char *
+parse_vec48hvec (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep, vc4_operand whichop)
+{
+  const char *errmsg = parse_vector_reg (cd, strp, opindex, valuep, whichop,
+                                         FALSE);
+
+  if (errmsg)
+    return errmsg;
+
+  if ((*valuep & 0x3ff) != *valuep)
+    return "too complicated for 48-bit insn";
+
+  if ((*valuep & 0x40) != 0)
+    return "not an H reg";
+
+  return 0;
+}
+
+static const char *
+parse_vec48vvec (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep, vc4_operand whichop)
+{
+  const char *errmsg = parse_vector_reg (cd, strp, opindex, valuep, whichop,
+                                         FALSE);
+
+  if (errmsg)
+    return errmsg;
+
+  if ((*valuep & 0x3ff) != *valuep)
+    return "too complicated for 48-bit insn";
+
+  if ((*valuep & 0x40) == 0)
+    return "not a V reg";
+
+  return 0;
+}
+
+static const char *
+parse_vec48aludreg_h (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48hvec (cd, strp, opindex, valuep, OP_D);
+}
+
+static const char *
+parse_vec48aludreg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48vvec (cd, strp, opindex, valuep, OP_D);
+}
+
+static const char *
+parse_vec48aluareg_h (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48hvec (cd, strp, opindex, valuep, OP_A);
+}
+
+static const char *
+parse_vec48aluareg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48vvec (cd, strp, opindex, valuep, OP_A);
+}
+
+static const char *
+parse_vec48alubreg_h (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48hvec (cd, strp, opindex, valuep, OP_B);
+}
+
+static const char *
+parse_vec48alubreg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                      unsigned long *valuep)
+{
+  return parse_vec48vvec (cd, strp, opindex, valuep, OP_B);
+}
+
 /* -- dis.c */
 
 const char * vc4_cgen_parse_operand
@@ -1178,11 +1305,59 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
         fields->f_pcrel32_48 = value;
       }
       break;
+    case VC4_OPERAND_APLUS_SR0 :
+      errmsg = parse_plus_sr0 (cd, strp, VC4_OPERAND_APLUS_SR0, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR1 :
+      errmsg = parse_plus_sr1 (cd, strp, VC4_OPERAND_APLUS_SR1, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR2 :
+      errmsg = parse_plus_sr2 (cd, strp, VC4_OPERAND_APLUS_SR2, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR3 :
+      errmsg = parse_plus_sr3 (cd, strp, VC4_OPERAND_APLUS_SR3, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR4 :
+      errmsg = parse_plus_sr4 (cd, strp, VC4_OPERAND_APLUS_SR4, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR5 :
+      errmsg = parse_plus_sr5 (cd, strp, VC4_OPERAND_APLUS_SR5, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR6 :
+      errmsg = parse_plus_sr6 (cd, strp, VC4_OPERAND_APLUS_SR6, (unsigned long *) (& fields->f_op18));
+      break;
+    case VC4_OPERAND_APLUS_SR7 :
+      errmsg = parse_plus_sr7 (cd, strp, VC4_OPERAND_APLUS_SR7, (unsigned long *) (& fields->f_op18));
+      break;
     case VC4_OPERAND_BCC32IMM :
       errmsg = parse_uimm5 (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
       break;
     case VC4_OPERAND_BCC32SREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op29_26);
+      break;
+    case VC4_OPERAND_BPLUS_SR0 :
+      errmsg = parse_plus_sr0 (cd, strp, VC4_OPERAND_BPLUS_SR0, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR1 :
+      errmsg = parse_plus_sr1 (cd, strp, VC4_OPERAND_BPLUS_SR1, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR2 :
+      errmsg = parse_plus_sr2 (cd, strp, VC4_OPERAND_BPLUS_SR2, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR3 :
+      errmsg = parse_plus_sr3 (cd, strp, VC4_OPERAND_BPLUS_SR3, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR4 :
+      errmsg = parse_plus_sr4 (cd, strp, VC4_OPERAND_BPLUS_SR4, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR5 :
+      errmsg = parse_plus_sr5 (cd, strp, VC4_OPERAND_BPLUS_SR5, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR6 :
+      errmsg = parse_plus_sr6 (cd, strp, VC4_OPERAND_BPLUS_SR6, (unsigned long *) (& fields->f_op38));
+      break;
+    case VC4_OPERAND_BPLUS_SR7 :
+      errmsg = parse_plus_sr7 (cd, strp, VC4_OPERAND_BPLUS_SR7, (unsigned long *) (& fields->f_op38));
       break;
     case VC4_OPERAND_CONDCODE :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_cond, & fields->f_op10_7);
@@ -1192,6 +1367,30 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_DISP5 :
       errmsg = parse_uimm5 (cd, strp, VC4_OPERAND_DISP5, (unsigned long *) (& fields->f_op20_16));
+      break;
+    case VC4_OPERAND_DPLUS_SR0 :
+      errmsg = parse_plus_sr0 (cd, strp, VC4_OPERAND_DPLUS_SR0, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR1 :
+      errmsg = parse_plus_sr1 (cd, strp, VC4_OPERAND_DPLUS_SR1, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR2 :
+      errmsg = parse_plus_sr2 (cd, strp, VC4_OPERAND_DPLUS_SR2, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR3 :
+      errmsg = parse_plus_sr3 (cd, strp, VC4_OPERAND_DPLUS_SR3, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR4 :
+      errmsg = parse_plus_sr4 (cd, strp, VC4_OPERAND_DPLUS_SR4, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR5 :
+      errmsg = parse_plus_sr5 (cd, strp, VC4_OPERAND_DPLUS_SR5, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR6 :
+      errmsg = parse_plus_sr6 (cd, strp, VC4_OPERAND_DPLUS_SR6, (unsigned long *) (& fields->f_op43));
+      break;
+    case VC4_OPERAND_DPLUS_SR7 :
+      errmsg = parse_plus_sr7 (cd, strp, VC4_OPERAND_DPLUS_SR7, (unsigned long *) (& fields->f_op43));
       break;
     case VC4_OPERAND_DUMMYABITS :
       errmsg = parse_dummy (cd, strp, VC4_OPERAND_DUMMYABITS, (unsigned long *) (& fields->f_dummyabits));
@@ -1361,6 +1560,24 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_SWI_IMM :
       errmsg = cgen_parse_unsigned_integer (cd, strp, VC4_OPERAND_SWI_IMM, (unsigned long *) (& fields->f_op5_0));
+      break;
+    case VC4_OPERAND_V48AREG_H :
+      errmsg = parse_vec48aluareg_h (cd, strp, VC4_OPERAND_V48AREG_H, (unsigned long *) (& fields->f_vec48areg));
+      break;
+    case VC4_OPERAND_V48AREG_V :
+      errmsg = parse_vec48aluareg_v (cd, strp, VC4_OPERAND_V48AREG_V, (unsigned long *) (& fields->f_vec48areg));
+      break;
+    case VC4_OPERAND_V48BREG_H :
+      errmsg = parse_vec48alubreg_h (cd, strp, VC4_OPERAND_V48BREG_H, (unsigned long *) (& fields->f_vec48breg));
+      break;
+    case VC4_OPERAND_V48BREG_V :
+      errmsg = parse_vec48alubreg_v (cd, strp, VC4_OPERAND_V48BREG_V, (unsigned long *) (& fields->f_vec48breg));
+      break;
+    case VC4_OPERAND_V48DREG_H :
+      errmsg = parse_vec48aludreg_h (cd, strp, VC4_OPERAND_V48DREG_H, (unsigned long *) (& fields->f_vec48dreg));
+      break;
+    case VC4_OPERAND_V48DREG_V :
+      errmsg = parse_vec48aludreg_v (cd, strp, VC4_OPERAND_V48DREG_V, (unsigned long *) (& fields->f_vec48dreg));
       break;
     case VC4_OPERAND_V80A32REG :
       errmsg = parse_vec80aluareg (cd, strp, VC4_OPERAND_V80A32REG, (unsigned long *) (& fields->f_vec80areg));
