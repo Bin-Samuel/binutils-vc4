@@ -984,6 +984,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       errmsg = insert_normal (cd, fields->f_op6_5, 0, 0, 6, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_SETF_MOD :
+      errmsg = insert_normal (cd, fields->f_op38, 0, 32, 6, 1, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_SHL1 :
       break;
     case VC4_OPERAND_SHL2 :
@@ -1101,6 +1104,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
         if (errmsg)
           break;
       }
+      break;
+    case VC4_OPERAND_V48SCLR :
+      errmsg = insert_normal (cd, fields->f_op37_32, 0, 32, 5, 6, 16, total_length, buffer);
       break;
     case VC4_OPERAND_V80A32REG :
       {
@@ -1710,6 +1716,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 2, 16, total_length, pc, & fields->f_op6_5);
       break;
+    case VC4_OPERAND_SETF_MOD :
+      length = extract_normal (cd, ex_info, insn_value, 0, 32, 6, 1, 16, total_length, pc, & fields->f_op38);
+      break;
     case VC4_OPERAND_SHL1 :
       break;
     case VC4_OPERAND_SHL2 :
@@ -1806,6 +1815,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
   FLD (f_vec48dreg) = ((FLD (f_op27_22)) | (((FLD (f_op31_29)) << (7))));
 }
       }
+      break;
+    case VC4_OPERAND_V48SCLR :
+      length = extract_normal (cd, ex_info, insn_value, 0, 32, 5, 6, 16, total_length, pc, & fields->f_op37_32);
       break;
     case VC4_OPERAND_V80A32REG :
       {
@@ -2201,6 +2213,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
       break;
+    case VC4_OPERAND_SETF_MOD :
+      value = fields->f_op38;
+      break;
     case VC4_OPERAND_SHL1 :
       value = 0;
       break;
@@ -2248,6 +2263,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V48DREG_V :
       value = fields->f_vec48dreg;
+      break;
+    case VC4_OPERAND_V48SCLR :
+      value = fields->f_op37_32;
       break;
     case VC4_OPERAND_V80A32REG :
       value = fields->f_vec80areg;
@@ -2539,6 +2557,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
       break;
+    case VC4_OPERAND_SETF_MOD :
+      value = fields->f_op38;
+      break;
     case VC4_OPERAND_SHL1 :
       value = 0;
       break;
@@ -2586,6 +2607,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V48DREG_V :
       value = fields->f_vec48dreg;
+      break;
+    case VC4_OPERAND_V48SCLR :
+      value = fields->f_op37_32;
       break;
     case VC4_OPERAND_V80A32REG :
       value = fields->f_vec80areg;
@@ -2884,6 +2908,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
       break;
+    case VC4_OPERAND_SETF_MOD :
+      fields->f_op38 = value;
+      break;
     case VC4_OPERAND_SHL1 :
       break;
     case VC4_OPERAND_SHL2 :
@@ -2923,6 +2950,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V48DREG_V :
       fields->f_vec48dreg = value;
+      break;
+    case VC4_OPERAND_V48SCLR :
+      fields->f_op37_32 = value;
       break;
     case VC4_OPERAND_V80A32REG :
       fields->f_vec80areg = value;
@@ -3211,6 +3241,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
       break;
+    case VC4_OPERAND_SETF_MOD :
+      fields->f_op38 = value;
+      break;
     case VC4_OPERAND_SHL1 :
       break;
     case VC4_OPERAND_SHL2 :
@@ -3250,6 +3283,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V48DREG_V :
       fields->f_vec48dreg = value;
+      break;
+    case VC4_OPERAND_V48SCLR :
+      fields->f_op37_32 = value;
       break;
     case VC4_OPERAND_V80A32REG :
       fields->f_vec80areg = value;

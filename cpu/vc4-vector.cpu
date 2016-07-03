@@ -360,7 +360,7 @@
   (comment "9-bit specifier for D operand, 48-bit")
   (attrs)
   (mode UINT)
-  ; total of 3+6=9 bits. Gap in the middle.
+  ; total of 3(+1)+6=9 bits. Gap in the middle.
   (subfields f-op31-29 f-op27-22)
   (insert (sequence ()
             (set (ifield f-op27-22) (and (ifield f-vec48dreg) 63))
@@ -460,6 +460,15 @@
 )
 
 (define-operand
+  (name setf_mod)
+  (comment "SETF modifier only for 48-bit data ops")
+  (attrs)
+  (type h-uint)
+  (index f-op38)
+  (handlers (parse "vec48mod_setf") (print "vec48mod_setf"))
+)
+
+(define-operand
   (name vmemwidth)
   (comment "element width for memory operation")
   (attrs)
@@ -501,6 +510,15 @@
   (type h-uint)
   (index f-op27-22)
   (handlers (parse "dummy") (print "extraldstbits"))
+)
+
+(define-operand
+  (name v48sclr)
+  (comment "scalar reg B-operand for 48-bit data ops")
+  (attrs)
+  (type h-uint)
+  (index f-op37-32)
+  (handlers (parse "vec48sclr") (print "vec48sclr"))
 )
 
 (define-pmacro (mkv48dreg x-dir)
@@ -592,6 +610,40 @@
 ;;              ;;
 ;;;;;;;;;;;;;;;;;;
 
+; <op> vec,vec,sclr
+
+(define-pmacro (vsclrdataop48_3 x-width x-name x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) x-dir d48s x-width x-sreg)
+    (.str x-name (.upcase x-dir) "D48S" x-width (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-name) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48sclr$setf_mod")
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VECOP_ x-name)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (.sym v48areg_ x-dir) v48sclr
+       (f-op41-39 7) (f-op42 0) (.sym dplus_s x-sreg) (.sym aplus_s x-sreg)
+       setf_mod)
+    () ())
+)
+
+; <op> vec,sclr
+
+(define-pmacro (vsclrdataop48_2 x-width x-name x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) x-dir d48s x-width x-sreg)
+    (.str x-name (.upcase x-dir) "D48S" x-width (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-name) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48sclr$setf_mod")
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VECOP_ x-name)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (f-op21-19 7) (f-op17-16 0) (f-op47-44 0)
+       v48sclr (f-op41-39 7) (f-op42 0) (.sym dplus_s x-sreg) (f-op18 0)
+       setf_mod)
+    () ())
+)
+
+; <op> vec,vec,vec
+
 (define-pmacro (vecdataop48_3 x-width x-name x-xflag x-dir x-sreg)
   (define-normal-insn
     (.sym (.downcase x-name) x-dir d48v x-width x-sreg)
@@ -607,6 +659,8 @@
     () ())
 )
 
+; <op> vec,vec
+
 (define-pmacro (vecdataop48_2 x-width x-name x-xflag x-dir x-sreg)
   (define-normal-insn
     (.sym (.downcase x-name) x-dir d48v x-width x-sreg)
@@ -621,23 +675,30 @@
     () ())
 )
 
-(define-pmacro (mkvecdataops48 x-width x-xflag x-dir)
+(define-pmacro (mkvecdataops48 x-boptype x-width x-xflag x-dir)
   (.for-each
     (.pmacro (x-sreg)
       (.for-each
         (.pmacro (x-opname x-numops)
           (.if (.eq x-numops 3)
-            (.exec (vecdataop48_3 x-width x-opname x-xflag x-dir x-sreg))
-            (.exec (vecdataop48_2 x-width x-opname x-xflag x-dir x-sreg))))
+            (.exec ((.sym x-boptype dataop48_3) x-width x-opname x-xflag x-dir
+                                                x-sreg))
+            (.exec ((.sym x-boptype dataop48_2) x-width x-opname x-xflag x-dir
+                                                x-sreg))))
         (.map .car opsvec)
         (.map .cadr opsvec)))
     (r0 r1 r2 r3 r4 r5 r6 r7))
 )
 
-(mkvecdataops48 32 1 h)
-(mkvecdataops48 32 1 v)
-(mkvecdataops48 16 0 h)
-(mkvecdataops48 16 0 v)
+(mkvecdataops48 vsclr 32 1 h)
+(mkvecdataops48 vsclr 32 1 v)
+(mkvecdataops48 vsclr 16 0 h)
+(mkvecdataops48 vsclr 16 0 v)
+
+(mkvecdataops48 vec 32 1 h)
+(mkvecdataops48 vec 32 1 v)
+(mkvecdataops48 vec 16 0 h)
+(mkvecdataops48 vec 16 0 v)
 
 ;;;;;;;;;;;;;;;;;;
 ;;              ;;

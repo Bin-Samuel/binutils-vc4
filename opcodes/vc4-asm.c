@@ -1031,6 +1031,25 @@ parse_vec80mods_mem (CGEN_CPU_DESC cd, const char **strp, int opindex,
   return 0;
 }
 
+static const char *
+parse_vec48mod_setf (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                     unsigned long *valuep)
+{
+  unsigned long allbits;
+  const char *err = parse_vec80mods (cd, strp, opindex, &allbits);
+  if (err)
+    return err;
+
+  if (allbits == 0x8)
+    *valuep = 1;
+  else if (allbits == 0)
+    *valuep = 0;
+  else
+    return "only setf modifier here";
+
+  return 0;
+}
+
 /* Parses an address with offset & register-modify.
 
    25     22 21         16 15                              0
@@ -1224,6 +1243,18 @@ parse_vec48alubreg_v (CGEN_CPU_DESC cd, const char **strp, int opindex,
                       unsigned long *valuep)
 {
   return parse_vec48vvec (cd, strp, opindex, valuep, OP_B);
+}
+
+static const char *
+parse_vec48sclr (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                 unsigned long *valuep)
+{
+  unsigned reg;
+  const char *errmsg = parse_vc4_reg (cd, strp, opindex, &reg, 15);
+  if (errmsg)
+    return errmsg;
+  *valuep = reg;
+  return 0;
 }
 
 /* -- dis.c */
@@ -1531,6 +1562,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_ppreg, & fields->f_op6_5);
       break;
+    case VC4_OPERAND_SETF_MOD :
+      errmsg = parse_vec48mod_setf (cd, strp, VC4_OPERAND_SETF_MOD, (unsigned long *) (& fields->f_op38));
+      break;
     case VC4_OPERAND_SHL1 :
       errmsg = parse_shl1 (cd, strp, VC4_OPERAND_SHL1, (unsigned long *) (& junk));
       break;
@@ -1578,6 +1612,9 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_V48DREG_V :
       errmsg = parse_vec48aludreg_v (cd, strp, VC4_OPERAND_V48DREG_V, (unsigned long *) (& fields->f_vec48dreg));
+      break;
+    case VC4_OPERAND_V48SCLR :
+      errmsg = parse_vec48sclr (cd, strp, VC4_OPERAND_V48SCLR, (unsigned long *) (& fields->f_op37_32));
       break;
     case VC4_OPERAND_V80A32REG :
       errmsg = parse_vec80aluareg (cd, strp, VC4_OPERAND_V80A32REG, (unsigned long *) (& fields->f_vec80areg));

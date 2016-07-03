@@ -462,6 +462,19 @@ print_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 }
 
 static void
+print_vec48mod_setf (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	             void * dis_info,
+	             unsigned long value,
+	             unsigned int attrs ATTRIBUTE_UNUSED,
+	             bfd_vma pc ATTRIBUTE_UNUSED,
+	             int length ATTRIBUTE_UNUSED)
+{
+  disassemble_info *info = (disassemble_info *) dis_info;
+  if (value)
+    (info->fprintf_func) (info->stream, " SETF");
+}
+
+static void
 print_scalar_reg (disassemble_info *info, int regno)
 {
   (info->fprintf_func) (info->stream, "r%u", regno);
@@ -617,6 +630,17 @@ print_vec48alubreg_v (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	              int length ATTRIBUTE_UNUSED)
 {
   print_vector_reg (dis_info, value | 0xf040, OP_B);
+}
+
+static void
+print_vec48sclr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	         void * dis_info,
+	         unsigned long value,
+	         unsigned int attrs ATTRIBUTE_UNUSED,
+	         bfd_vma pc ATTRIBUTE_UNUSED,
+	         int length ATTRIBUTE_UNUSED)
+{
+  print_scalar_reg (dis_info, value);
 }
 
 /* -- */
@@ -895,6 +919,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_ppreg, fields->f_op6_5, 0);
       break;
+    case VC4_OPERAND_SETF_MOD :
+      print_vec48mod_setf (cd, info, fields->f_op38, 0, pc, length);
+      break;
     case VC4_OPERAND_SHL1 :
       print_shl1 (cd, info, 0, 0, pc, length);
       break;
@@ -942,6 +969,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_V48DREG_V :
       print_vec48aludreg_v (cd, info, fields->f_vec48dreg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48SCLR :
+      print_vec48sclr (cd, info, fields->f_op37_32, 0, pc, length);
       break;
     case VC4_OPERAND_V80A32REG :
       print_vec80aluareg (cd, info, fields->f_vec80areg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
