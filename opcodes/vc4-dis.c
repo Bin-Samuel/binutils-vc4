@@ -475,6 +475,17 @@ print_vec48mod_setf (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 }
 
 static void
+print_vec48imm_mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	             void * dis_info,
+	             unsigned long value,
+	             unsigned int attrs ATTRIBUTE_UNUSED,
+	             bfd_vma pc ATTRIBUTE_UNUSED,
+	             int length ATTRIBUTE_UNUSED)
+{
+  print_vec80mods (cd, dis_info, value << 3, attrs, pc, length);
+}
+
+static void
 print_scalar_reg (disassemble_info *info, int regno)
 {
   (info->fprintf_func) (info->stream, "r%u", regno);
@@ -969,6 +980,12 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_V48DREG_V :
       print_vec48aludreg_v (cd, info, fields->f_vec48dreg, 0|(1<<CGEN_OPERAND_VIRTUAL), pc, length);
+      break;
+    case VC4_OPERAND_V48IMM :
+      print_normal (cd, info, fields->f_op37_32, 0, pc, length);
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      print_vec48imm_mods (cd, info, fields->f_op41_38, 0, pc, length);
       break;
     case VC4_OPERAND_V48SCLR :
       print_vec48sclr (cd, info, fields->f_op37_32, 0, pc, length);

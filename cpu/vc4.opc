@@ -128,6 +128,13 @@ parse_shifted_uimm (CGEN_CPU_DESC cd, const char **strp, int opindex,
 }
 
 static const char *
+parse_uimm6 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+	     unsigned long *valuep)
+{
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 6, 0);
+}
+
+static const char *
 parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 	     unsigned long *valuep)
 {
@@ -848,25 +855,26 @@ parse_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
           predication = 3;
           (*strp) += 4;
         }
-      else if (strncmp (*strp, "IFN", 3) == 0)
-        {
-          predication = 4;
-          (*strp) += 3;
-        }
+      /* This one must come before other "IFN*" predicate checks.  */
       else if (strncmp (*strp, "IFNN", 4) == 0)
         {
           predication = 5;
           (*strp) += 4;
         }
-      else if (strncmp (*strp, "IFC", 3) == 0)
-        {
-          predication = 6;
-          (*strp) += 3;
-        }
       else if (strncmp (*strp, "IFNC", 4) == 0)
         {
           predication = 7;
           (*strp) += 4;
+        }
+      else if (strncmp (*strp, "IFN", 3) == 0)
+        {
+          predication = 4;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "IFC", 3) == 0)
+        {
+          predication = 6;
+          (*strp) += 3;
         }
       else if (strncmp (*strp, "ENA", 3) == 0)
         {
@@ -1039,6 +1047,22 @@ parse_vec48mod_setf (CGEN_CPU_DESC cd, const char **strp, int opindex,
   else
     return "only setf modifier here";
 
+  return 0;
+}
+
+static const char *
+parse_vec48imm_mods (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                     unsigned long *valuep)
+{
+  unsigned long allbits;
+  const char *err = parse_vec80mods (cd, strp, opindex, &allbits);
+  if (err)
+    return err;
+
+  if ((allbits & 0x78) != allbits)
+    return "only setf/predication modifiers here";
+
+  *valuep = (allbits >> 3) & 15;
   return 0;
 }
 
@@ -1663,6 +1687,17 @@ print_vec48mod_setf (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
   disassemble_info *info = (disassemble_info *) dis_info;
   if (value)
     (info->fprintf_func) (info->stream, " SETF");
+}
+
+static void
+print_vec48imm_mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	             void * dis_info,
+	             unsigned long value,
+	             unsigned int attrs ATTRIBUTE_UNUSED,
+	             bfd_vma pc ATTRIBUTE_UNUSED,
+	             int length ATTRIBUTE_UNUSED)
+{
+  print_vec80mods (cd, dis_info, value << 3, attrs, pc, length);
 }
 
 static void

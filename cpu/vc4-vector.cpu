@@ -56,6 +56,7 @@
 
 (df2 f-op38-32 "Opcode bits 38-32" () 32 16 6 7 UINT (#f) (#f))
 (df2 f-op41-39 "Opcode bits 41-39" () 32 16 9 3 UINT (#f) (#f))
+(df2 f-op41-38 "Opcode bits 41-38" () 32 16 9 4 UINT (#f) (#f))
 
 ; Fields in fourth 16-bit word (bits 63-48).
 
@@ -469,6 +470,15 @@
 )
 
 (define-operand
+  (name v48imm_mods)
+  (comment "SETF/predicate modifiers")
+  (attrs)
+  (type h-uint)
+  (index f-op41-38)
+  (handlers (parse "vec48imm_mods") (print "vec48imm_mods"))
+)
+
+(define-operand
   (name vmemwidth)
   (comment "element width for memory operation")
   (attrs)
@@ -519,6 +529,15 @@
   (type h-uint)
   (index f-op37-32)
   (handlers (parse "vec48sclr") (print "vec48sclr"))
+)
+
+(define-operand
+  (name v48imm)
+  (comment "immediate B-operand for 48-bit data ops")
+  (attrs)
+  (type h-uint)
+  (index f-op37-32)
+  (handlers (parse "uimm6"))
 )
 
 (define-pmacro (mkv48dreg x-dir)
@@ -675,6 +694,40 @@
     () ())
 )
 
+; <op> vec,vec,imm
+
+(define-pmacro (vimmdataop48_3 x-width x-name x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) x-dir d48i x-width x-sreg)
+    (.str x-name (.upcase x-dir) "D48I" x-width (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-name) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48imm$v48imm_mods")
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VECOP_ x-name)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (.sym v48areg_ x-dir)
+       v48imm (f-op42 1) (.sym dplus_s x-sreg) (.sym aplus_s x-sreg)
+       v48imm_mods)
+    () ())
+)
+
+; <op> vec,imm
+
+(define-pmacro (vimmdataop48_2 x-width x-name x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) x-dir d48i x-width x-sreg)
+    (.str x-name (.upcase x-dir) "D48I" x-width (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-name) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48imm$v48imm_mods")
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VECOP_ x-name)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (f-op21-19 7) (f-op17-16 0) (f-op47-44 0)
+       v48imm (f-op42 1) (.sym dplus_s x-sreg) (f-op18 0) v48imm_mods)
+    () ())
+)
+
+; This is kind of unfortunate in that it produces rather a large number of
+; physical instructions, but never mind.
+
 (define-pmacro (mkvecdataops48 x-boptype x-width x-xflag x-dir)
   (.for-each
     (.pmacro (x-sreg)
@@ -699,6 +752,11 @@
 (mkvecdataops48 vec 32 1 v)
 (mkvecdataops48 vec 16 0 h)
 (mkvecdataops48 vec 16 0 v)
+
+(mkvecdataops48 vimm 32 1 h)
+(mkvecdataops48 vimm 32 1 v)
+(mkvecdataops48 vimm 16 0 h)
+(mkvecdataops48 vimm 16 0 v)
 
 ;;;;;;;;;;;;;;;;;;
 ;;              ;;

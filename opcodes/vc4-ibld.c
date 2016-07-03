@@ -1105,6 +1105,12 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
           break;
       }
       break;
+    case VC4_OPERAND_V48IMM :
+      errmsg = insert_normal (cd, fields->f_op37_32, 0, 32, 5, 6, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      errmsg = insert_normal (cd, fields->f_op41_38, 0, 32, 9, 4, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_V48SCLR :
       errmsg = insert_normal (cd, fields->f_op37_32, 0, 32, 5, 6, 16, total_length, buffer);
       break;
@@ -1816,6 +1822,12 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
 }
       }
       break;
+    case VC4_OPERAND_V48IMM :
+      length = extract_normal (cd, ex_info, insn_value, 0, 32, 5, 6, 16, total_length, pc, & fields->f_op37_32);
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      length = extract_normal (cd, ex_info, insn_value, 0, 32, 9, 4, 16, total_length, pc, & fields->f_op41_38);
+      break;
     case VC4_OPERAND_V48SCLR :
       length = extract_normal (cd, ex_info, insn_value, 0, 32, 5, 6, 16, total_length, pc, & fields->f_op37_32);
       break;
@@ -2264,6 +2276,12 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V48DREG_V :
       value = fields->f_vec48dreg;
       break;
+    case VC4_OPERAND_V48IMM :
+      value = fields->f_op37_32;
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      value = fields->f_op41_38;
+      break;
     case VC4_OPERAND_V48SCLR :
       value = fields->f_op37_32;
       break;
@@ -2608,6 +2626,12 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V48DREG_V :
       value = fields->f_vec48dreg;
       break;
+    case VC4_OPERAND_V48IMM :
+      value = fields->f_op37_32;
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      value = fields->f_op41_38;
+      break;
     case VC4_OPERAND_V48SCLR :
       value = fields->f_op37_32;
       break;
@@ -2951,6 +2975,12 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_V48DREG_V :
       fields->f_vec48dreg = value;
       break;
+    case VC4_OPERAND_V48IMM :
+      fields->f_op37_32 = value;
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      fields->f_op41_38 = value;
+      break;
     case VC4_OPERAND_V48SCLR :
       fields->f_op37_32 = value;
       break;
@@ -3283,6 +3313,12 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_V48DREG_V :
       fields->f_vec48dreg = value;
+      break;
+    case VC4_OPERAND_V48IMM :
+      fields->f_op37_32 = value;
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      fields->f_op41_38 = value;
       break;
     case VC4_OPERAND_V48SCLR :
       fields->f_op37_32 = value;

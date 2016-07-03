@@ -136,6 +136,13 @@ parse_shifted_uimm (CGEN_CPU_DESC cd, const char **strp, int opindex,
 }
 
 static const char *
+parse_uimm6 (CGEN_CPU_DESC cd, const char **strp, int opindex,
+	     unsigned long *valuep)
+{
+  return parse_shifted_uimm (cd, strp, opindex, valuep, 6, 0);
+}
+
+static const char *
 parse_uimm5 (CGEN_CPU_DESC cd, const char **strp, int opindex,
 	     unsigned long *valuep)
 {
@@ -856,25 +863,26 @@ parse_vec80mods (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
           predication = 3;
           (*strp) += 4;
         }
-      else if (strncmp (*strp, "IFN", 3) == 0)
-        {
-          predication = 4;
-          (*strp) += 3;
-        }
+      /* This one must come before other "IFN*" predicate checks.  */
       else if (strncmp (*strp, "IFNN", 4) == 0)
         {
           predication = 5;
           (*strp) += 4;
         }
-      else if (strncmp (*strp, "IFC", 3) == 0)
-        {
-          predication = 6;
-          (*strp) += 3;
-        }
       else if (strncmp (*strp, "IFNC", 4) == 0)
         {
           predication = 7;
           (*strp) += 4;
+        }
+      else if (strncmp (*strp, "IFN", 3) == 0)
+        {
+          predication = 4;
+          (*strp) += 3;
+        }
+      else if (strncmp (*strp, "IFC", 3) == 0)
+        {
+          predication = 6;
+          (*strp) += 3;
         }
       else if (strncmp (*strp, "ENA", 3) == 0)
         {
@@ -1047,6 +1055,22 @@ parse_vec48mod_setf (CGEN_CPU_DESC cd, const char **strp, int opindex,
   else
     return "only setf modifier here";
 
+  return 0;
+}
+
+static const char *
+parse_vec48imm_mods (CGEN_CPU_DESC cd, const char **strp, int opindex,
+                     unsigned long *valuep)
+{
+  unsigned long allbits;
+  const char *err = parse_vec80mods (cd, strp, opindex, &allbits);
+  if (err)
+    return err;
+
+  if ((allbits & 0x78) != allbits)
+    return "only setf/predication modifiers here";
+
+  *valuep = (allbits >> 3) & 15;
   return 0;
 }
 
@@ -1612,6 +1636,12 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_V48DREG_V :
       errmsg = parse_vec48aludreg_v (cd, strp, VC4_OPERAND_V48DREG_V, (unsigned long *) (& fields->f_vec48dreg));
+      break;
+    case VC4_OPERAND_V48IMM :
+      errmsg = parse_uimm6 (cd, strp, VC4_OPERAND_V48IMM, (unsigned long *) (& fields->f_op37_32));
+      break;
+    case VC4_OPERAND_V48IMM_MODS :
+      errmsg = parse_vec48imm_mods (cd, strp, VC4_OPERAND_V48IMM_MODS, (unsigned long *) (& fields->f_op41_38));
       break;
     case VC4_OPERAND_V48SCLR :
       errmsg = parse_vec48sclr (cd, strp, VC4_OPERAND_V48SCLR, (unsigned long *) (& fields->f_op37_32));
