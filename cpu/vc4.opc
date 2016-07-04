@@ -1866,7 +1866,13 @@ print_vec48sclr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
 	         bfd_vma pc ATTRIBUTE_UNUSED,
 	         int length ATTRIBUTE_UNUSED)
 {
+  disassemble_info *info = (disassemble_info *) dis_info;
   print_scalar_reg (dis_info, value);
+  /* 6 bits seems too many for a simple scalar reg field?  */
+  if (value & 0x10)
+    (info->fprintf_func) (info->stream, "?bit4?");
+  if (value & 0x20)
+    (info->fprintf_func) (info->stream, "?bit5?");
 }
 
 /* -- */

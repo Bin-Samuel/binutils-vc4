@@ -30634,6 +30634,9222 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
     & ifmt_evenvd48i32r7, { 0xf57f, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
   },
+/* vmull.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf580, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf588, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf590, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf598, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5a0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5a8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5b0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5b8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5c0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5c8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5d0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5d8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5e0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5e8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5f0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf5f8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf581, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf589, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf591, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf599, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5a1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5a9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5b1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5b9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5c1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5c9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5d1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5d9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5e1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5e9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5f1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf5f9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf582, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf58a, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf592, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf59a, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5a2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5aa, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5b2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5ba, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5c2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5ca, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5d2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5da, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5e2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5ea, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5f2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf5fa, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf583, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf58b, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf593, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf59b, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5a3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5ab, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5b3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5bb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5c3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5cb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5d3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5db, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5e3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5eb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5f3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf5fb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf584, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf58c, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf594, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf59c, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5a4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5ac, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5b4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5bc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5c4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5cc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5d4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5dc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5e4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5ec, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5f4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf5fc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf585, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf58d, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf595, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf59d, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5a5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5ad, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5b5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5bd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5c5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5cd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5d5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5dd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5e5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5ed, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5f5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf5fd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf586, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf58e, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf596, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf59e, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5a6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5ae, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5b6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5be, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5c6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5ce, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5d6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5de, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5e6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5ee, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5f6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf5fe, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf587, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf58f, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf597, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf59f, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5a7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5af, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5b7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5bf, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5c7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5cf, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5d7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5df, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5e7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5ef, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5f7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf5ff, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf580, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf588, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf590, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf598, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5a0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5a8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5b0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5b8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5c0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5c8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5d0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5d8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5e0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5e8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5f0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf5f8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf581, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf589, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf591, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf599, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5a1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5a9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5b1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5b9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5c1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5c9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5d1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5d9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5e1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5e9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5f1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf5f9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf582, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf58a, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf592, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf59a, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5a2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5aa, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5b2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5ba, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5c2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5ca, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5d2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5da, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5e2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5ea, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5f2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf5fa, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf583, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf58b, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf593, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf59b, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5a3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5ab, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5b3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5bb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5c3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5cb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5d3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5db, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5e3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5eb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5f3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf5fb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf584, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf58c, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf594, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf59c, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5a4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5ac, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5b4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5bc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5c4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5cc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5d4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5dc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5e4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5ec, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5f4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf5fc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf585, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf58d, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf595, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf59d, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5a5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5ad, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5b5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5bd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5c5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5cd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5d5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5dd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5e5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5ed, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5f5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf5fd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf586, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf58e, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf596, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf59e, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5a6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5ae, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5b6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5be, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5c6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5ce, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5d6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5de, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5e6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5ee, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5f6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf5fe, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf587, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf58f, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf597, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf59f, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5a7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5af, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5b7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5bf, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5c7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5cf, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5d7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5df, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5e7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5ef, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5f7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf5ff, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf780, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf788, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf790, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf798, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7a0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7a8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7b0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7b8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7c0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7c8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7d0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7d8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7e0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7e8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7f0, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r0, { 0xf7f8, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf781, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf789, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf791, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf799, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7a1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7a9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7b1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7b9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7c1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7c9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7d1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7d9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7e1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7e9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7f1, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r1, { 0xf7f9, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf782, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf78a, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf792, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf79a, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7a2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7aa, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7b2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7ba, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7c2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7ca, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7d2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7da, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7e2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7ea, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7f2, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r2, { 0xf7fa, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf783, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf78b, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf793, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf79b, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7a3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7ab, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7b3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7bb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7c3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7cb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7d3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7db, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7e3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7eb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7f3, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r3, { 0xf7fb, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf784, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf78c, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf794, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf79c, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7a4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7ac, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7b4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7bc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7c4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7cc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7d4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7dc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7e4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7ec, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7f4, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r4, { 0xf7fc, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf785, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf78d, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf795, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf79d, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7a5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7ad, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7b5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7bd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7c5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7cd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7d5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7dd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7e5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7ed, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7f5, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r5, { 0xf7fd, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf786, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf78e, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf796, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf79e, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7a6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7ae, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7b6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7be, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7c6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7ce, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7d6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7de, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7e6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7ee, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7f6, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r6, { 0xf7fe, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf787, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf78f, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf797, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf79f, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7a7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7af, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7b7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7bf, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7c7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7cf, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7d7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7df, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7e7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7ef, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7f7, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenhd48s32r7, { 0xf7ff, { 0x0, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf780, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf788, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf790, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf798, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7a0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7a8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7b0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7b8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7c0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7c8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7d0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7d8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7e0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7e8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7f0, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r0, { 0xf7f8, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf781, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf789, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf791, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf799, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7a1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7a9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7b1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7b9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7c1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7c9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7d1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7d9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7e1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7e9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7f1, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r1, { 0xf7f9, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf782, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf78a, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf792, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf79a, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7a2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7aa, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7b2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7ba, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7c2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7ca, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7d2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7da, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7e2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7ea, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7f2, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r2, { 0xf7fa, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf783, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf78b, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf793, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf79b, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7a3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7ab, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7b3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7bb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7c3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7cb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7d3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7db, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7e3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7eb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7f3, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r3, { 0xf7fb, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf784, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf78c, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf794, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf79c, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7a4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7ac, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7b4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7bc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7c4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7cc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7d4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7dc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7e4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7ec, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7f4, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r4, { 0xf7fc, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf785, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf78d, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf795, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf79d, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7a5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7ad, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7b5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7bd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7c5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7cd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7d5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7dd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7e5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7ed, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7f5, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r5, { 0xf7fd, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf786, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf78e, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf796, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf79e, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7a6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7ae, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7b6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7be, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7c6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7ce, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7d6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7de, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7e6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7ee, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7f6, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r6, { 0xf7fe, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf787, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf78f, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf797, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf79f, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7a7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7af, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7b7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7bf, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7c7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7cf, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7d7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7df, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7e7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7ef, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7f7, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48SCLR), OP (SETF_MOD), 0 } },
+    & ifmt_evenvd48s32r7, { 0xf7ff, { 0x1000, 0x380 }, { 0x1000, 0x780 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf580, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf588, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf590, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf598, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5a0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5a8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5b0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5b8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5c0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5c8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5d0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5d8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5e0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5e8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5f0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf5f8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf581, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf589, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf591, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf599, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5a1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5a9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5b1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5b9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5c1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5c9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5d1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5d9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5e1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5e9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5f1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf5f9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf582, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf58a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf592, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf59a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5a2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5aa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5b2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5ba, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5c2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5ca, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5d2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5da, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5e2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5ea, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5f2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf5fa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf583, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf58b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf593, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf59b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5a3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5ab, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5b3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5bb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5c3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5cb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5d3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5db, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5e3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5eb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5f3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf5fb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf584, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf58c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf594, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf59c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5a4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5ac, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5b4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5bc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5c4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5cc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5d4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5dc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5e4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5ec, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5f4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf5fc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf585, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf58d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf595, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf59d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5a5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5ad, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5b5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5bd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5c5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5cd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5d5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5dd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5e5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5ed, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5f5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf5fd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf586, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf58e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf596, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf59e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5a6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5ae, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5b6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5be, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5c6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5ce, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5d6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5de, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5e6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5ee, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5f6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf5fe, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf587, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf58f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf597, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf59f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5a7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5af, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5b7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5bf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5c7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5cf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5d7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5df, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5e7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5ef, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5f7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf5ff, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf580, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf588, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf590, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf598, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5a0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5a8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5b0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5b8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5c0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5c8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5d0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5d8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5e0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5e8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5f0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf5f8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf581, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf589, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf591, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf599, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5a1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5a9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5b1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5b9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5c1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5c9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5d1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5d9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5e1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5e9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5f1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf5f9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf582, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf58a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf592, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf59a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5a2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5aa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5b2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5ba, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5c2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5ca, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5d2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5da, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5e2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5ea, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5f2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf5fa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf583, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf58b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf593, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf59b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5a3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5ab, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5b3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5bb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5c3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5cb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5d3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5db, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5e3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5eb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5f3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf5fb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf584, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf58c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf594, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf59c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5a4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5ac, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5b4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5bc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5c4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5cc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5d4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5dc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5e4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5ec, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5f4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf5fc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf585, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf58d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf595, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf59d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5a5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5ad, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5b5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5bd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5c5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5cd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5d5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5dd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5e5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5ed, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5f5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf5fd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf586, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf58e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf596, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf59e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5a6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5ae, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5b6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5be, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5c6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5ce, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5d6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5de, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5e6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5ee, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5f6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf5fe, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf587, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf58f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf597, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf59f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5a7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5af, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5b7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5bf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5c7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5cf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5d7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5df, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5e7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5ef, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5f7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf5ff, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf780, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf788, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf790, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf798, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7a0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7a8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7b0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7b8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7c0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7c8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7d0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7d8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7e0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7e8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7f0, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48BREG_H), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenhd48v32r0, { 0xf7f8, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf781, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf789, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf791, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf799, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7a1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7a9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7b1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7b9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7c1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7c9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7d1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7d9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7e1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7e9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7f1, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48BREG_H), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenhd48v32r1, { 0xf7f9, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf782, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf78a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf792, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf79a, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7a2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7aa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7b2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7ba, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7c2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7ca, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7d2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7da, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7e2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7ea, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7f2, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48BREG_H), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenhd48v32r2, { 0xf7fa, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf783, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf78b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf793, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf79b, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7a3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7ab, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7b3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7bb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7c3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7cb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7d3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7db, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7e3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7eb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7f3, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48BREG_H), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenhd48v32r3, { 0xf7fb, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf784, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf78c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf794, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf79c, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7a4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7ac, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7b4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7bc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7c4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7cc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7d4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7dc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7e4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7ec, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7f4, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48BREG_H), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenhd48v32r4, { 0xf7fc, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf785, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf78d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf795, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf79d, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7a5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7ad, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7b5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7bd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7c5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7cd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7d5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7dd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7e5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7ed, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7f5, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48BREG_H), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenhd48v32r5, { 0xf7fd, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf786, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf78e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf796, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf79e, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7a6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7ae, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7b6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7be, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7c6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7ce, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7d6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7de, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7e6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7ee, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7f6, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48BREG_H), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenhd48v32r6, { 0xf7fe, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf787, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf78f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf797, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf79f, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7a7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7af, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7b7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7bf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7c7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7cf, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7d7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7df, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7e7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7ef, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7f7, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48BREG_H), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenhd48v32r7, { 0xf7ff, { 0x0, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf780, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf788, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf790, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf798, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7a0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7a8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7b0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7b8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7c0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7c8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7d0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7d8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7e0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7e8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7f0, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48BREG_V), OP (BPLUS_SR0), 0 } },
+    & ifmt_evenvd48v32r0, { 0xf7f8, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf781, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf789, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf791, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf799, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7a1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7a9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7b1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7b9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7c1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7c9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7d1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7d9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7e1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7e9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7f1, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48BREG_V), OP (BPLUS_SR1), 0 } },
+    & ifmt_evenvd48v32r1, { 0xf7f9, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf782, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf78a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf792, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf79a, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7a2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7aa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7b2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7ba, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7c2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7ca, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7d2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7da, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7e2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7ea, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7f2, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48BREG_V), OP (BPLUS_SR2), 0 } },
+    & ifmt_evenvd48v32r2, { 0xf7fa, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf783, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf78b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf793, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf79b, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7a3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7ab, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7b3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7bb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7c3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7cb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7d3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7db, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7e3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7eb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7f3, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48BREG_V), OP (BPLUS_SR3), 0 } },
+    & ifmt_evenvd48v32r3, { 0xf7fb, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf784, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf78c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf794, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf79c, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7a4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7ac, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7b4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7bc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7c4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7cc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7d4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7dc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7e4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7ec, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7f4, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48BREG_V), OP (BPLUS_SR4), 0 } },
+    & ifmt_evenvd48v32r4, { 0xf7fc, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf785, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf78d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf795, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf79d, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7a5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7ad, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7b5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7bd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7c5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7cd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7d5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7dd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7e5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7ed, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7f5, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48BREG_V), OP (BPLUS_SR5), 0 } },
+    & ifmt_evenvd48v32r5, { 0xf7fd, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf786, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf78e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf796, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf79e, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7a6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7ae, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7b6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7be, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7c6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7ce, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7d6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7de, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7e6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7ee, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7f6, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48BREG_V), OP (BPLUS_SR6), 0 } },
+    & ifmt_evenvd48v32r6, { 0xf7fe, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf787, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf78f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf797, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf79f, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7a7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7af, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7b7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7bf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7c7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7cf, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7d7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7df, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7e7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7ef, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7f7, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48BREG_V), OP (BPLUS_SR7), 0 } },
+    & ifmt_evenvd48v32r7, { 0xf7ff, { 0x1000, 0x0 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf580, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf588, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf590, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf598, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5a0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5a8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5b0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5b8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5c0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5c8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5d0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5d8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5e0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5e8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5f0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf5f8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf581, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf589, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf591, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf599, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5a1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5a9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5b1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5b9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5c1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5c9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5d1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5d9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5e1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5e9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5f1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf5f9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf582, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf58a, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf592, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf59a, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5a2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5aa, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5b2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5ba, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5c2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5ca, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5d2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5da, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5e2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5ea, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5f2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf5fa, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf583, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf58b, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf593, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf59b, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5a3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5ab, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5b3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5bb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5c3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5cb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5d3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5db, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5e3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5eb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5f3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf5fb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf584, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf58c, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf594, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf59c, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5a4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5ac, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5b4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5bc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5c4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5cc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5d4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5dc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5e4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5ec, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5f4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf5fc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf585, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf58d, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf595, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf59d, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5a5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5ad, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5b5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5bd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5c5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5cd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5d5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5dd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5e5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5ed, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5f5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf5fd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf586, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf58e, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf596, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf59e, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5a6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5ae, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5b6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5be, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5c6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5ce, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5d6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5de, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5e6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5ee, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5f6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf5fe, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf587, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf58f, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf597, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf59f, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5a7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5af, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5b7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5bf, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5c7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5cf, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5d7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5df, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5e7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5ef, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5f7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf5ff, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf580, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf588, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf590, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf598, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5a0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5a8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5b0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5b8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5c0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5c8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5d0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5d8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5e0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5e8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5f0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf5f8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf581, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf589, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf591, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf599, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5a1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5a9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5b1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5b9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5c1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5c9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5d1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5d9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5e1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5e9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5f1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf5f9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf582, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf58a, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf592, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf59a, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5a2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5aa, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5b2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5ba, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5c2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5ca, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5d2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5da, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5e2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5ea, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5f2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf5fa, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf583, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf58b, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf593, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf59b, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5a3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5ab, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5b3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5bb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5c3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5cb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5d3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5db, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5e3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5eb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5f3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf5fb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf584, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf58c, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf594, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf59c, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5a4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5ac, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5b4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5bc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5c4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5cc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5d4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5dc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5e4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5ec, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5f4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf5fc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf585, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf58d, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf595, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf59d, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5a5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5ad, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5b5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5bd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5c5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5cd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5d5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5dd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5e5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5ed, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5f5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf5fd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf586, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf58e, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf596, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf59e, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5a6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5ae, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5b6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5be, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5c6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5ce, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5d6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5de, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5e6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5ee, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5f6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf5fe, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf587, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf58f, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf597, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf59f, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5a7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5af, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5b7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5bf, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5c7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5cf, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5d7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5df, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5e7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5ef, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5f7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf5ff, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf780, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf788, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf790, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf798, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7a0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7a8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7b0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7b8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7c0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7c8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7d0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7d8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7e0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7e8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7f0, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR0), ',', OP (V48AREG_H), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r0, { 0xf7f8, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf781, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf789, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf791, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf799, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7a1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7a9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7b1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7b9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7c1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7c9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7d1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7d9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7e1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7e9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7f1, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR1), ',', OP (V48AREG_H), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r1, { 0xf7f9, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf782, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf78a, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf792, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf79a, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7a2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7aa, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7b2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7ba, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7c2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7ca, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7d2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7da, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7e2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7ea, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7f2, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR2), ',', OP (V48AREG_H), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r2, { 0xf7fa, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf783, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf78b, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf793, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf79b, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7a3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7ab, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7b3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7bb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7c3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7cb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7d3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7db, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7e3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7eb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7f3, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR3), ',', OP (V48AREG_H), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r3, { 0xf7fb, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf784, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf78c, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf794, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf79c, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7a4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7ac, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7b4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7bc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7c4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7cc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7d4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7dc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7e4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7ec, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7f4, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR4), ',', OP (V48AREG_H), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r4, { 0xf7fc, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf785, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf78d, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf795, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf79d, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7a5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7ad, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7b5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7bd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7c5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7cd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7d5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7dd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7e5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7ed, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7f5, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR5), ',', OP (V48AREG_H), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r5, { 0xf7fd, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf786, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf78e, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf796, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf79e, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7a6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7ae, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7b6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7be, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7c6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7ce, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7d6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7de, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7e6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7ee, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7f6, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR6), ',', OP (V48AREG_H), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r6, { 0xf7fe, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf787, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf78f, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf797, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf79f, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7a7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7af, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7b7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7bf, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7c7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7cf, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7d7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7df, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7e7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7ef, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7f7, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_H), OP (DPLUS_SR7), ',', OP (V48AREG_H), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenhd48i32r7, { 0xf7ff, { 0x0, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf780, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf788, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf790, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf798, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7a0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7a8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7b0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7b8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7c0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7c8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7d0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7d8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7e0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7e8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7f0, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR0), ',', OP (V48AREG_V), OP (APLUS_SR0), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r0, { 0xf7f8, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf781, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf789, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf791, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf799, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7a1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7a9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7b1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7b9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7c1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7c9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7d1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7d9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7e1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7e9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7f1, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR1), ',', OP (V48AREG_V), OP (APLUS_SR1), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r1, { 0xf7f9, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf782, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf78a, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf792, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf79a, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7a2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7aa, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7b2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7ba, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7c2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7ca, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7d2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7da, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7e2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7ea, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7f2, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR2), ',', OP (V48AREG_V), OP (APLUS_SR2), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r2, { 0xf7fa, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf783, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf78b, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf793, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf79b, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7a3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7ab, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7b3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7bb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7c3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7cb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7d3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7db, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7e3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7eb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7f3, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR3), ',', OP (V48AREG_V), OP (APLUS_SR3), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r3, { 0xf7fb, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf784, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf78c, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf794, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf79c, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7a4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7ac, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7b4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7bc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7c4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7cc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7d4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7dc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7e4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7ec, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7f4, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR4), ',', OP (V48AREG_V), OP (APLUS_SR4), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r4, { 0xf7fc, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf785, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf78d, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf795, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf79d, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7a5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7ad, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7b5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7bd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7c5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7cd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7d5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7dd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7e5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7ed, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7f5, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR5), ',', OP (V48AREG_V), OP (APLUS_SR5), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r5, { 0xf7fd, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf786, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf78e, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf796, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf79e, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7a6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7ae, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7b6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7be, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7c6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7ce, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7d6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7de, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7e6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7ee, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7f6, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR6), ',', OP (V48AREG_V), OP (APLUS_SR6), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r6, { 0xf7fe, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf787, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf78f, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf797, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf79f, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7a7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7af, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7b7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7bf, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7c7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7cf, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7d7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7df, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7e7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7ef, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7f7, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (V48DREG_V), OP (DPLUS_SR7), ',', OP (V48AREG_V), OP (APLUS_SR7), ',', OP (V48IMM), OP (V48IMM_MODS), 0 } },
+    & ifmt_evenvd48i32r7, { 0xf7ff, { 0x1000, 0x400 }, { 0x1000, 0x400 } }
+  },
 /* v32mov $v80d32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
@@ -31210,769 +40426,193 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfd78, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfd80, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfd88, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfd90, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfd98, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfda0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfda8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfde0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfde8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdf0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfdf8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v16mull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd80, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd88, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd90, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd98, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfda0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfda8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfde0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfde8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdf0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdf8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd80, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd88, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd90, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd98, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfda0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfda8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfde0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfde8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdf0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdf8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd80, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd88, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd90, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfd98, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfda0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfda8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfde0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfde8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdf0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfdf8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v8op48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xff80, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xff88, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xff90, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xff98, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffa0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffa8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8mul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffe0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xffe8, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
     & ifmt_evend80v32, { 0xfff0, { 0x0, 0x0 }, { 0x0, 0x400 } }
   },
-/* v8op63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfff8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff80, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff88, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff90, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff98, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffa0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffa8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffe0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffe8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfff0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v16op63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfff8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff80, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff88, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff90, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff98, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffa0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffa8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffe0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffe8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfff0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* v32op63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfff8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff80, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff88, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff90, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xff98, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffa0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffa8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffb0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffb8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffc0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffc8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffd0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffd8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffe0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xffe8, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
-    & ifmt_evend80v32, { 0xfff0, { 0x0, 0x0 }, { 0x0, 0x400 } }
-  },
-/* vunkop63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80B32REG), OP (V80MODS), 0 } },
@@ -32554,769 +41194,193 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfd78, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfd80, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfd88, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfd90, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfd98, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfda0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfda8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfde0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfde8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdf0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfdf8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v16mull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd80, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd88, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd90, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd98, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfda0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfda8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfde0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfde8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdf0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdf8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd80, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd88, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd90, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd98, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfda0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfda8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfde0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfde8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdf0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdf8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd80, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd88, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd90, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfd98, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfda0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfda8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfde0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfde8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdf0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfdf8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v8op48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xff80, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xff88, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xff90, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xff98, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffa0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffa8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8mul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffe0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xffe8, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
     & ifmt_evend80i32, { 0xfff0, { 0x0, 0x400 }, { 0x0, 0x400 } }
   },
-/* v8op63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfff8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff80, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff88, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff90, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff98, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffa0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffa8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16mul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffe0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffe8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfff0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v16op63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfff8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff80, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff88, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff90, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff98, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffa0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffa8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32mul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffe0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffe8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfff0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* v32op63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfff8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff80, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff88, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff90, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xff98, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffa0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffa8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffb0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkmul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffb8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffc0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffc8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffd0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffd8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffe0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xffe8, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },
-    & ifmt_evend80i32, { 0xfff0, { 0x0, 0x400 }, { 0x0, 0x400 } }
-  },
-/* vunkop63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (V80D32REG), ',', OP (V80A32REG), ',', OP (V80IMM), OP (V80MODS), 0 } },

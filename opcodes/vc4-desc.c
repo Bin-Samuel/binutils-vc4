@@ -25979,6 +25979,7686 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_OP47VD48I16R7, "op47vd48i16r7", "v16op47", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* vmull.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR0, "mullsshd48sr0", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR0, "mullssshd48sr0", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR0, "mulmsshd48sr0", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR0, "mulmssshd48sr0", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR0, "mulhdsshd48sr0", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR0, "mulhdsuhd48sr0", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR0, "mulhdushd48sr0", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR0, "mulhduuhd48sr0", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR0, "mulhnsshd48sr0", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR0, "mulhnsuhd48sr0", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR0, "mulhnushd48sr0", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR0, "mulhnuuhd48sr0", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR0, "mulhdtsshd48sr0", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR0, "mulhdtsuhd48sr0", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR0, "op620hd48sr0", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR0, "op630hd48sr0", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR1, "mullsshd48sr1", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR1, "mullssshd48sr1", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR1, "mulmsshd48sr1", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR1, "mulmssshd48sr1", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR1, "mulhdsshd48sr1", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR1, "mulhdsuhd48sr1", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR1, "mulhdushd48sr1", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR1, "mulhduuhd48sr1", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR1, "mulhnsshd48sr1", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR1, "mulhnsuhd48sr1", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR1, "mulhnushd48sr1", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR1, "mulhnuuhd48sr1", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR1, "mulhdtsshd48sr1", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR1, "mulhdtsuhd48sr1", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR1, "op620hd48sr1", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR1, "op630hd48sr1", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR2, "mullsshd48sr2", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR2, "mullssshd48sr2", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR2, "mulmsshd48sr2", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR2, "mulmssshd48sr2", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR2, "mulhdsshd48sr2", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR2, "mulhdsuhd48sr2", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR2, "mulhdushd48sr2", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR2, "mulhduuhd48sr2", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR2, "mulhnsshd48sr2", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR2, "mulhnsuhd48sr2", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR2, "mulhnushd48sr2", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR2, "mulhnuuhd48sr2", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR2, "mulhdtsshd48sr2", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR2, "mulhdtsuhd48sr2", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR2, "op620hd48sr2", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR2, "op630hd48sr2", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR3, "mullsshd48sr3", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR3, "mullssshd48sr3", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR3, "mulmsshd48sr3", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR3, "mulmssshd48sr3", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR3, "mulhdsshd48sr3", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR3, "mulhdsuhd48sr3", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR3, "mulhdushd48sr3", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR3, "mulhduuhd48sr3", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR3, "mulhnsshd48sr3", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR3, "mulhnsuhd48sr3", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR3, "mulhnushd48sr3", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR3, "mulhnuuhd48sr3", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR3, "mulhdtsshd48sr3", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR3, "mulhdtsuhd48sr3", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR3, "op620hd48sr3", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR3, "op630hd48sr3", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR4, "mullsshd48sr4", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR4, "mullssshd48sr4", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR4, "mulmsshd48sr4", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR4, "mulmssshd48sr4", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR4, "mulhdsshd48sr4", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR4, "mulhdsuhd48sr4", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR4, "mulhdushd48sr4", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR4, "mulhduuhd48sr4", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR4, "mulhnsshd48sr4", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR4, "mulhnsuhd48sr4", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR4, "mulhnushd48sr4", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR4, "mulhnuuhd48sr4", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR4, "mulhdtsshd48sr4", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR4, "mulhdtsuhd48sr4", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR4, "op620hd48sr4", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR4, "op630hd48sr4", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR5, "mullsshd48sr5", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR5, "mullssshd48sr5", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR5, "mulmsshd48sr5", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR5, "mulmssshd48sr5", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR5, "mulhdsshd48sr5", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR5, "mulhdsuhd48sr5", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR5, "mulhdushd48sr5", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR5, "mulhduuhd48sr5", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR5, "mulhnsshd48sr5", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR5, "mulhnsuhd48sr5", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR5, "mulhnushd48sr5", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR5, "mulhnuuhd48sr5", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR5, "mulhdtsshd48sr5", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR5, "mulhdtsuhd48sr5", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR5, "op620hd48sr5", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR5, "op630hd48sr5", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR6, "mullsshd48sr6", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR6, "mullssshd48sr6", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR6, "mulmsshd48sr6", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR6, "mulmssshd48sr6", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR6, "mulhdsshd48sr6", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR6, "mulhdsuhd48sr6", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR6, "mulhdushd48sr6", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR6, "mulhduuhd48sr6", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR6, "mulhnsshd48sr6", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR6, "mulhnsuhd48sr6", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR6, "mulhnushd48sr6", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR6, "mulhnuuhd48sr6", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR6, "mulhdtsshd48sr6", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR6, "mulhdtsuhd48sr6", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR6, "op620hd48sr6", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR6, "op630hd48sr6", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSHD48SR7, "mullsshd48sr7", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSHD48SR7, "mullssshd48sr7", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSHD48SR7, "mulmsshd48sr7", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSHD48SR7, "mulmssshd48sr7", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSHD48SR7, "mulhdsshd48sr7", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUHD48SR7, "mulhdsuhd48sr7", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSHD48SR7, "mulhdushd48sr7", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUHD48SR7, "mulhduuhd48sr7", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSHD48SR7, "mulhnsshd48sr7", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUHD48SR7, "mulhnsuhd48sr7", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSHD48SR7, "mulhnushd48sr7", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUHD48SR7, "mulhnuuhd48sr7", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSHD48SR7, "mulhdtsshd48sr7", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUHD48SR7, "mulhdtsuhd48sr7", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620HD48SR7, "op620hd48sr7", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630HD48SR7, "op630hd48sr7", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR0, "mullssvd48sr0", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR0, "mullsssvd48sr0", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR0, "mulmssvd48sr0", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR0, "mulmsssvd48sr0", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR0, "mulhdssvd48sr0", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR0, "mulhdsuvd48sr0", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR0, "mulhdusvd48sr0", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR0, "mulhduuvd48sr0", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR0, "mulhnssvd48sr0", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR0, "mulhnsuvd48sr0", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR0, "mulhnusvd48sr0", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR0, "mulhnuuvd48sr0", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR0, "mulhdtssvd48sr0", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR0, "mulhdtsuvd48sr0", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR0, "op620vd48sr0", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR0, "op630vd48sr0", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR1, "mullssvd48sr1", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR1, "mullsssvd48sr1", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR1, "mulmssvd48sr1", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR1, "mulmsssvd48sr1", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR1, "mulhdssvd48sr1", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR1, "mulhdsuvd48sr1", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR1, "mulhdusvd48sr1", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR1, "mulhduuvd48sr1", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR1, "mulhnssvd48sr1", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR1, "mulhnsuvd48sr1", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR1, "mulhnusvd48sr1", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR1, "mulhnuuvd48sr1", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR1, "mulhdtssvd48sr1", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR1, "mulhdtsuvd48sr1", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR1, "op620vd48sr1", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR1, "op630vd48sr1", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR2, "mullssvd48sr2", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR2, "mullsssvd48sr2", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR2, "mulmssvd48sr2", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR2, "mulmsssvd48sr2", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR2, "mulhdssvd48sr2", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR2, "mulhdsuvd48sr2", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR2, "mulhdusvd48sr2", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR2, "mulhduuvd48sr2", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR2, "mulhnssvd48sr2", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR2, "mulhnsuvd48sr2", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR2, "mulhnusvd48sr2", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR2, "mulhnuuvd48sr2", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR2, "mulhdtssvd48sr2", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR2, "mulhdtsuvd48sr2", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR2, "op620vd48sr2", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR2, "op630vd48sr2", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR3, "mullssvd48sr3", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR3, "mullsssvd48sr3", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR3, "mulmssvd48sr3", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR3, "mulmsssvd48sr3", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR3, "mulhdssvd48sr3", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR3, "mulhdsuvd48sr3", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR3, "mulhdusvd48sr3", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR3, "mulhduuvd48sr3", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR3, "mulhnssvd48sr3", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR3, "mulhnsuvd48sr3", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR3, "mulhnusvd48sr3", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR3, "mulhnuuvd48sr3", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR3, "mulhdtssvd48sr3", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR3, "mulhdtsuvd48sr3", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR3, "op620vd48sr3", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR3, "op630vd48sr3", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR4, "mullssvd48sr4", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR4, "mullsssvd48sr4", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR4, "mulmssvd48sr4", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR4, "mulmsssvd48sr4", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR4, "mulhdssvd48sr4", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR4, "mulhdsuvd48sr4", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR4, "mulhdusvd48sr4", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR4, "mulhduuvd48sr4", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR4, "mulhnssvd48sr4", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR4, "mulhnsuvd48sr4", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR4, "mulhnusvd48sr4", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR4, "mulhnuuvd48sr4", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR4, "mulhdtssvd48sr4", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR4, "mulhdtsuvd48sr4", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR4, "op620vd48sr4", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR4, "op630vd48sr4", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR5, "mullssvd48sr5", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR5, "mullsssvd48sr5", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR5, "mulmssvd48sr5", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR5, "mulmsssvd48sr5", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR5, "mulhdssvd48sr5", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR5, "mulhdsuvd48sr5", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR5, "mulhdusvd48sr5", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR5, "mulhduuvd48sr5", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR5, "mulhnssvd48sr5", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR5, "mulhnsuvd48sr5", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR5, "mulhnusvd48sr5", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR5, "mulhnuuvd48sr5", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR5, "mulhdtssvd48sr5", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR5, "mulhdtsuvd48sr5", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR5, "op620vd48sr5", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR5, "op630vd48sr5", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR6, "mullssvd48sr6", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR6, "mullsssvd48sr6", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR6, "mulmssvd48sr6", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR6, "mulmsssvd48sr6", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR6, "mulhdssvd48sr6", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR6, "mulhdsuvd48sr6", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR6, "mulhdusvd48sr6", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR6, "mulhduuvd48sr6", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR6, "mulhnssvd48sr6", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR6, "mulhnsuvd48sr6", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR6, "mulhnusvd48sr6", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR6, "mulhnuuvd48sr6", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR6, "mulhdtssvd48sr6", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR6, "mulhdtsuvd48sr6", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR6, "op620vd48sr6", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR6, "op630vd48sr6", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSVD48SR7, "mullssvd48sr7", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULLSSSVD48SR7, "mullsssvd48sr7", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSVD48SR7, "mulmssvd48sr7", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULMSSSVD48SR7, "mulmsssvd48sr7", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSSVD48SR7, "mulhdssvd48sr7", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDSUVD48SR7, "mulhdsuvd48sr7", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUSVD48SR7, "mulhdusvd48sr7", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDUUVD48SR7, "mulhduuvd48sr7", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSSVD48SR7, "mulhnssvd48sr7", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNSUVD48SR7, "mulhnsuvd48sr7", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUSVD48SR7, "mulhnusvd48sr7", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHNUUVD48SR7, "mulhnuuvd48sr7", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSSVD48SR7, "mulhdtssvd48sr7", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MULHDTSUVD48SR7, "mulhdtsuvd48sr7", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP620VD48SR7, "op620vd48sr7", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP630VD48SR7, "op630vd48sr7", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR0, "op481hd48sr0", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR0, "op491hd48sr0", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR0, "op501hd48sr0", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR0, "op511hd48sr0", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR0, "mul32sshd48sr0", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR0, "mul32suhd48sr0", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR0, "mul32ushd48sr0", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR0, "mul32uuhd48sr0", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR0, "op561hd48sr0", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR0, "op571hd48sr0", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR0, "op581hd48sr0", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR0, "op591hd48sr0", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR0, "op601hd48sr0", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR0, "op611hd48sr0", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR0, "op621hd48sr0", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR0, "op631hd48sr0", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR1, "op481hd48sr1", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR1, "op491hd48sr1", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR1, "op501hd48sr1", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR1, "op511hd48sr1", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR1, "mul32sshd48sr1", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR1, "mul32suhd48sr1", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR1, "mul32ushd48sr1", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR1, "mul32uuhd48sr1", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR1, "op561hd48sr1", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR1, "op571hd48sr1", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR1, "op581hd48sr1", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR1, "op591hd48sr1", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR1, "op601hd48sr1", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR1, "op611hd48sr1", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR1, "op621hd48sr1", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR1, "op631hd48sr1", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR2, "op481hd48sr2", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR2, "op491hd48sr2", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR2, "op501hd48sr2", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR2, "op511hd48sr2", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR2, "mul32sshd48sr2", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR2, "mul32suhd48sr2", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR2, "mul32ushd48sr2", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR2, "mul32uuhd48sr2", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR2, "op561hd48sr2", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR2, "op571hd48sr2", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR2, "op581hd48sr2", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR2, "op591hd48sr2", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR2, "op601hd48sr2", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR2, "op611hd48sr2", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR2, "op621hd48sr2", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR2, "op631hd48sr2", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR3, "op481hd48sr3", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR3, "op491hd48sr3", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR3, "op501hd48sr3", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR3, "op511hd48sr3", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR3, "mul32sshd48sr3", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR3, "mul32suhd48sr3", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR3, "mul32ushd48sr3", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR3, "mul32uuhd48sr3", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR3, "op561hd48sr3", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR3, "op571hd48sr3", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR3, "op581hd48sr3", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR3, "op591hd48sr3", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR3, "op601hd48sr3", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR3, "op611hd48sr3", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR3, "op621hd48sr3", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR3, "op631hd48sr3", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR4, "op481hd48sr4", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR4, "op491hd48sr4", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR4, "op501hd48sr4", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR4, "op511hd48sr4", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR4, "mul32sshd48sr4", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR4, "mul32suhd48sr4", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR4, "mul32ushd48sr4", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR4, "mul32uuhd48sr4", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR4, "op561hd48sr4", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR4, "op571hd48sr4", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR4, "op581hd48sr4", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR4, "op591hd48sr4", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR4, "op601hd48sr4", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR4, "op611hd48sr4", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR4, "op621hd48sr4", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR4, "op631hd48sr4", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR5, "op481hd48sr5", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR5, "op491hd48sr5", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR5, "op501hd48sr5", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR5, "op511hd48sr5", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR5, "mul32sshd48sr5", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR5, "mul32suhd48sr5", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR5, "mul32ushd48sr5", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR5, "mul32uuhd48sr5", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR5, "op561hd48sr5", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR5, "op571hd48sr5", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR5, "op581hd48sr5", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR5, "op591hd48sr5", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR5, "op601hd48sr5", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR5, "op611hd48sr5", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR5, "op621hd48sr5", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR5, "op631hd48sr5", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR6, "op481hd48sr6", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR6, "op491hd48sr6", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR6, "op501hd48sr6", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR6, "op511hd48sr6", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR6, "mul32sshd48sr6", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR6, "mul32suhd48sr6", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR6, "mul32ushd48sr6", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR6, "mul32uuhd48sr6", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR6, "op561hd48sr6", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR6, "op571hd48sr6", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR6, "op581hd48sr6", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR6, "op591hd48sr6", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR6, "op601hd48sr6", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR6, "op611hd48sr6", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR6, "op621hd48sr6", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR6, "op631hd48sr6", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481HD48SR7, "op481hd48sr7", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491HD48SR7, "op491hd48sr7", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501HD48SR7, "op501hd48sr7", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511HD48SR7, "op511hd48sr7", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSHD48SR7, "mul32sshd48sr7", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUHD48SR7, "mul32suhd48sr7", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USHD48SR7, "mul32ushd48sr7", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUHD48SR7, "mul32uuhd48sr7", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561HD48SR7, "op561hd48sr7", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571HD48SR7, "op571hd48sr7", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581HD48SR7, "op581hd48sr7", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591HD48SR7, "op591hd48sr7", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601HD48SR7, "op601hd48sr7", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611HD48SR7, "op611hd48sr7", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621HD48SR7, "op621hd48sr7", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631HD48SR7, "op631hd48sr7", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR0, "op481vd48sr0", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR0, "op491vd48sr0", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR0, "op501vd48sr0", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR0, "op511vd48sr0", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR0, "mul32ssvd48sr0", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR0, "mul32suvd48sr0", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR0, "mul32usvd48sr0", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR0, "mul32uuvd48sr0", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR0, "op561vd48sr0", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR0, "op571vd48sr0", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR0, "op581vd48sr0", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR0, "op591vd48sr0", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR0, "op601vd48sr0", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR0, "op611vd48sr0", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR0, "op621vd48sr0", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR0, "op631vd48sr0", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR1, "op481vd48sr1", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR1, "op491vd48sr1", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR1, "op501vd48sr1", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR1, "op511vd48sr1", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR1, "mul32ssvd48sr1", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR1, "mul32suvd48sr1", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR1, "mul32usvd48sr1", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR1, "mul32uuvd48sr1", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR1, "op561vd48sr1", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR1, "op571vd48sr1", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR1, "op581vd48sr1", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR1, "op591vd48sr1", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR1, "op601vd48sr1", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR1, "op611vd48sr1", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR1, "op621vd48sr1", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR1, "op631vd48sr1", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR2, "op481vd48sr2", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR2, "op491vd48sr2", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR2, "op501vd48sr2", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR2, "op511vd48sr2", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR2, "mul32ssvd48sr2", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR2, "mul32suvd48sr2", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR2, "mul32usvd48sr2", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR2, "mul32uuvd48sr2", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR2, "op561vd48sr2", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR2, "op571vd48sr2", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR2, "op581vd48sr2", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR2, "op591vd48sr2", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR2, "op601vd48sr2", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR2, "op611vd48sr2", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR2, "op621vd48sr2", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR2, "op631vd48sr2", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR3, "op481vd48sr3", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR3, "op491vd48sr3", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR3, "op501vd48sr3", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR3, "op511vd48sr3", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR3, "mul32ssvd48sr3", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR3, "mul32suvd48sr3", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR3, "mul32usvd48sr3", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR3, "mul32uuvd48sr3", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR3, "op561vd48sr3", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR3, "op571vd48sr3", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR3, "op581vd48sr3", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR3, "op591vd48sr3", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR3, "op601vd48sr3", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR3, "op611vd48sr3", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR3, "op621vd48sr3", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR3, "op631vd48sr3", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR4, "op481vd48sr4", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR4, "op491vd48sr4", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR4, "op501vd48sr4", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR4, "op511vd48sr4", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR4, "mul32ssvd48sr4", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR4, "mul32suvd48sr4", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR4, "mul32usvd48sr4", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR4, "mul32uuvd48sr4", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR4, "op561vd48sr4", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR4, "op571vd48sr4", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR4, "op581vd48sr4", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR4, "op591vd48sr4", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR4, "op601vd48sr4", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR4, "op611vd48sr4", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR4, "op621vd48sr4", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR4, "op631vd48sr4", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR5, "op481vd48sr5", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR5, "op491vd48sr5", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR5, "op501vd48sr5", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR5, "op511vd48sr5", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR5, "mul32ssvd48sr5", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR5, "mul32suvd48sr5", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR5, "mul32usvd48sr5", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR5, "mul32uuvd48sr5", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR5, "op561vd48sr5", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR5, "op571vd48sr5", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR5, "op581vd48sr5", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR5, "op591vd48sr5", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR5, "op601vd48sr5", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR5, "op611vd48sr5", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR5, "op621vd48sr5", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR5, "op631vd48sr5", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR6, "op481vd48sr6", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR6, "op491vd48sr6", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR6, "op501vd48sr6", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR6, "op511vd48sr6", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR6, "mul32ssvd48sr6", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR6, "mul32suvd48sr6", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR6, "mul32usvd48sr6", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR6, "mul32uuvd48sr6", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR6, "op561vd48sr6", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR6, "op571vd48sr6", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR6, "op581vd48sr6", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR6, "op591vd48sr6", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR6, "op601vd48sr6", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR6, "op611vd48sr6", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR6, "op621vd48sr6", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR6, "op631vd48sr6", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP481VD48SR7, "op481vd48sr7", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP491VD48SR7, "op491vd48sr7", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP501VD48SR7, "op501vd48sr7", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP511VD48SR7, "op511vd48sr7", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SSVD48SR7, "mul32ssvd48sr7", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32SUVD48SR7, "mul32suvd48sr7", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32USVD48SR7, "mul32usvd48sr7", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_MUL32UUVD48SR7, "mul32uuvd48sr7", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP561VD48SR7, "op561vd48sr7", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP571VD48SR7, "op571vd48sr7", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP581VD48SR7, "op581vd48sr7", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP591VD48SR7, "op591vd48sr7", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP601VD48SR7, "op601vd48sr7", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP611VD48SR7, "op611vd48sr7", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP621VD48SR7, "op621vd48sr7", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48sclr$setf_mod */
+  {
+    VC4_INSN_OP631VD48SR7, "op631vd48sr7", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULLSSHD48VR0, "mullsshd48vr0", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULLSSSHD48VR0, "mullssshd48vr0", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULMSSHD48VR0, "mulmsshd48vr0", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULMSSSHD48VR0, "mulmssshd48vr0", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHDSSHD48VR0, "mulhdsshd48vr0", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHDSUHD48VR0, "mulhdsuhd48vr0", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHDUSHD48VR0, "mulhdushd48vr0", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHDUUHD48VR0, "mulhduuhd48vr0", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHNSSHD48VR0, "mulhnsshd48vr0", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHNSUHD48VR0, "mulhnsuhd48vr0", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHNUSHD48VR0, "mulhnushd48vr0", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHNUUHD48VR0, "mulhnuuhd48vr0", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHDTSSHD48VR0, "mulhdtsshd48vr0", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MULHDTSUHD48VR0, "mulhdtsuhd48vr0", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP620HD48VR0, "op620hd48vr0", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP630HD48VR0, "op630hd48vr0", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULLSSHD48VR1, "mullsshd48vr1", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULLSSSHD48VR1, "mullssshd48vr1", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULMSSHD48VR1, "mulmsshd48vr1", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULMSSSHD48VR1, "mulmssshd48vr1", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHDSSHD48VR1, "mulhdsshd48vr1", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHDSUHD48VR1, "mulhdsuhd48vr1", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHDUSHD48VR1, "mulhdushd48vr1", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHDUUHD48VR1, "mulhduuhd48vr1", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHNSSHD48VR1, "mulhnsshd48vr1", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHNSUHD48VR1, "mulhnsuhd48vr1", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHNUSHD48VR1, "mulhnushd48vr1", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHNUUHD48VR1, "mulhnuuhd48vr1", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHDTSSHD48VR1, "mulhdtsshd48vr1", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MULHDTSUHD48VR1, "mulhdtsuhd48vr1", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP620HD48VR1, "op620hd48vr1", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP630HD48VR1, "op630hd48vr1", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULLSSHD48VR2, "mullsshd48vr2", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULLSSSHD48VR2, "mullssshd48vr2", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULMSSHD48VR2, "mulmsshd48vr2", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULMSSSHD48VR2, "mulmssshd48vr2", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHDSSHD48VR2, "mulhdsshd48vr2", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHDSUHD48VR2, "mulhdsuhd48vr2", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHDUSHD48VR2, "mulhdushd48vr2", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHDUUHD48VR2, "mulhduuhd48vr2", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHNSSHD48VR2, "mulhnsshd48vr2", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHNSUHD48VR2, "mulhnsuhd48vr2", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHNUSHD48VR2, "mulhnushd48vr2", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHNUUHD48VR2, "mulhnuuhd48vr2", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHDTSSHD48VR2, "mulhdtsshd48vr2", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MULHDTSUHD48VR2, "mulhdtsuhd48vr2", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP620HD48VR2, "op620hd48vr2", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP630HD48VR2, "op630hd48vr2", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULLSSHD48VR3, "mullsshd48vr3", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULLSSSHD48VR3, "mullssshd48vr3", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULMSSHD48VR3, "mulmsshd48vr3", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULMSSSHD48VR3, "mulmssshd48vr3", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHDSSHD48VR3, "mulhdsshd48vr3", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHDSUHD48VR3, "mulhdsuhd48vr3", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHDUSHD48VR3, "mulhdushd48vr3", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHDUUHD48VR3, "mulhduuhd48vr3", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHNSSHD48VR3, "mulhnsshd48vr3", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHNSUHD48VR3, "mulhnsuhd48vr3", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHNUSHD48VR3, "mulhnushd48vr3", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHNUUHD48VR3, "mulhnuuhd48vr3", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHDTSSHD48VR3, "mulhdtsshd48vr3", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MULHDTSUHD48VR3, "mulhdtsuhd48vr3", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP620HD48VR3, "op620hd48vr3", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP630HD48VR3, "op630hd48vr3", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULLSSHD48VR4, "mullsshd48vr4", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULLSSSHD48VR4, "mullssshd48vr4", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULMSSHD48VR4, "mulmsshd48vr4", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULMSSSHD48VR4, "mulmssshd48vr4", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHDSSHD48VR4, "mulhdsshd48vr4", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHDSUHD48VR4, "mulhdsuhd48vr4", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHDUSHD48VR4, "mulhdushd48vr4", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHDUUHD48VR4, "mulhduuhd48vr4", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHNSSHD48VR4, "mulhnsshd48vr4", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHNSUHD48VR4, "mulhnsuhd48vr4", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHNUSHD48VR4, "mulhnushd48vr4", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHNUUHD48VR4, "mulhnuuhd48vr4", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHDTSSHD48VR4, "mulhdtsshd48vr4", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MULHDTSUHD48VR4, "mulhdtsuhd48vr4", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP620HD48VR4, "op620hd48vr4", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP630HD48VR4, "op630hd48vr4", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULLSSHD48VR5, "mullsshd48vr5", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULLSSSHD48VR5, "mullssshd48vr5", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULMSSHD48VR5, "mulmsshd48vr5", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULMSSSHD48VR5, "mulmssshd48vr5", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHDSSHD48VR5, "mulhdsshd48vr5", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHDSUHD48VR5, "mulhdsuhd48vr5", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHDUSHD48VR5, "mulhdushd48vr5", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHDUUHD48VR5, "mulhduuhd48vr5", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHNSSHD48VR5, "mulhnsshd48vr5", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHNSUHD48VR5, "mulhnsuhd48vr5", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHNUSHD48VR5, "mulhnushd48vr5", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHNUUHD48VR5, "mulhnuuhd48vr5", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHDTSSHD48VR5, "mulhdtsshd48vr5", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MULHDTSUHD48VR5, "mulhdtsuhd48vr5", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP620HD48VR5, "op620hd48vr5", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP630HD48VR5, "op630hd48vr5", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULLSSHD48VR6, "mullsshd48vr6", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULLSSSHD48VR6, "mullssshd48vr6", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULMSSHD48VR6, "mulmsshd48vr6", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULMSSSHD48VR6, "mulmssshd48vr6", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHDSSHD48VR6, "mulhdsshd48vr6", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHDSUHD48VR6, "mulhdsuhd48vr6", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHDUSHD48VR6, "mulhdushd48vr6", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHDUUHD48VR6, "mulhduuhd48vr6", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHNSSHD48VR6, "mulhnsshd48vr6", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHNSUHD48VR6, "mulhnsuhd48vr6", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHNUSHD48VR6, "mulhnushd48vr6", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHNUUHD48VR6, "mulhnuuhd48vr6", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHDTSSHD48VR6, "mulhdtsshd48vr6", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MULHDTSUHD48VR6, "mulhdtsuhd48vr6", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP620HD48VR6, "op620hd48vr6", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP630HD48VR6, "op630hd48vr6", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULLSSHD48VR7, "mullsshd48vr7", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULLSSSHD48VR7, "mullssshd48vr7", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULMSSHD48VR7, "mulmsshd48vr7", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULMSSSHD48VR7, "mulmssshd48vr7", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHDSSHD48VR7, "mulhdsshd48vr7", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHDSUHD48VR7, "mulhdsuhd48vr7", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHDUSHD48VR7, "mulhdushd48vr7", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHDUUHD48VR7, "mulhduuhd48vr7", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHNSSHD48VR7, "mulhnsshd48vr7", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHNSUHD48VR7, "mulhnsuhd48vr7", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHNUSHD48VR7, "mulhnushd48vr7", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHNUUHD48VR7, "mulhnuuhd48vr7", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHDTSSHD48VR7, "mulhdtsshd48vr7", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MULHDTSUHD48VR7, "mulhdtsuhd48vr7", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP620HD48VR7, "op620hd48vr7", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP630HD48VR7, "op630hd48vr7", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULLSSVD48VR0, "mullssvd48vr0", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULLSSSVD48VR0, "mullsssvd48vr0", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULMSSVD48VR0, "mulmssvd48vr0", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULMSSSVD48VR0, "mulmsssvd48vr0", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHDSSVD48VR0, "mulhdssvd48vr0", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHDSUVD48VR0, "mulhdsuvd48vr0", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHDUSVD48VR0, "mulhdusvd48vr0", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHDUUVD48VR0, "mulhduuvd48vr0", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHNSSVD48VR0, "mulhnssvd48vr0", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHNSUVD48VR0, "mulhnsuvd48vr0", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHNUSVD48VR0, "mulhnusvd48vr0", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHNUUVD48VR0, "mulhnuuvd48vr0", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHDTSSVD48VR0, "mulhdtssvd48vr0", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MULHDTSUVD48VR0, "mulhdtsuvd48vr0", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP620VD48VR0, "op620vd48vr0", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP630VD48VR0, "op630vd48vr0", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULLSSVD48VR1, "mullssvd48vr1", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULLSSSVD48VR1, "mullsssvd48vr1", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULMSSVD48VR1, "mulmssvd48vr1", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULMSSSVD48VR1, "mulmsssvd48vr1", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHDSSVD48VR1, "mulhdssvd48vr1", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHDSUVD48VR1, "mulhdsuvd48vr1", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHDUSVD48VR1, "mulhdusvd48vr1", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHDUUVD48VR1, "mulhduuvd48vr1", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHNSSVD48VR1, "mulhnssvd48vr1", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHNSUVD48VR1, "mulhnsuvd48vr1", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHNUSVD48VR1, "mulhnusvd48vr1", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHNUUVD48VR1, "mulhnuuvd48vr1", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHDTSSVD48VR1, "mulhdtssvd48vr1", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MULHDTSUVD48VR1, "mulhdtsuvd48vr1", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP620VD48VR1, "op620vd48vr1", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP630VD48VR1, "op630vd48vr1", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULLSSVD48VR2, "mullssvd48vr2", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULLSSSVD48VR2, "mullsssvd48vr2", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULMSSVD48VR2, "mulmssvd48vr2", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULMSSSVD48VR2, "mulmsssvd48vr2", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHDSSVD48VR2, "mulhdssvd48vr2", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHDSUVD48VR2, "mulhdsuvd48vr2", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHDUSVD48VR2, "mulhdusvd48vr2", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHDUUVD48VR2, "mulhduuvd48vr2", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHNSSVD48VR2, "mulhnssvd48vr2", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHNSUVD48VR2, "mulhnsuvd48vr2", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHNUSVD48VR2, "mulhnusvd48vr2", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHNUUVD48VR2, "mulhnuuvd48vr2", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHDTSSVD48VR2, "mulhdtssvd48vr2", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MULHDTSUVD48VR2, "mulhdtsuvd48vr2", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP620VD48VR2, "op620vd48vr2", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP630VD48VR2, "op630vd48vr2", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULLSSVD48VR3, "mullssvd48vr3", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULLSSSVD48VR3, "mullsssvd48vr3", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULMSSVD48VR3, "mulmssvd48vr3", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULMSSSVD48VR3, "mulmsssvd48vr3", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHDSSVD48VR3, "mulhdssvd48vr3", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHDSUVD48VR3, "mulhdsuvd48vr3", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHDUSVD48VR3, "mulhdusvd48vr3", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHDUUVD48VR3, "mulhduuvd48vr3", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHNSSVD48VR3, "mulhnssvd48vr3", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHNSUVD48VR3, "mulhnsuvd48vr3", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHNUSVD48VR3, "mulhnusvd48vr3", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHNUUVD48VR3, "mulhnuuvd48vr3", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHDTSSVD48VR3, "mulhdtssvd48vr3", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MULHDTSUVD48VR3, "mulhdtsuvd48vr3", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP620VD48VR3, "op620vd48vr3", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP630VD48VR3, "op630vd48vr3", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULLSSVD48VR4, "mullssvd48vr4", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULLSSSVD48VR4, "mullsssvd48vr4", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULMSSVD48VR4, "mulmssvd48vr4", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULMSSSVD48VR4, "mulmsssvd48vr4", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHDSSVD48VR4, "mulhdssvd48vr4", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHDSUVD48VR4, "mulhdsuvd48vr4", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHDUSVD48VR4, "mulhdusvd48vr4", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHDUUVD48VR4, "mulhduuvd48vr4", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHNSSVD48VR4, "mulhnssvd48vr4", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHNSUVD48VR4, "mulhnsuvd48vr4", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHNUSVD48VR4, "mulhnusvd48vr4", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHNUUVD48VR4, "mulhnuuvd48vr4", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHDTSSVD48VR4, "mulhdtssvd48vr4", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MULHDTSUVD48VR4, "mulhdtsuvd48vr4", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP620VD48VR4, "op620vd48vr4", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP630VD48VR4, "op630vd48vr4", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULLSSVD48VR5, "mullssvd48vr5", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULLSSSVD48VR5, "mullsssvd48vr5", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULMSSVD48VR5, "mulmssvd48vr5", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULMSSSVD48VR5, "mulmsssvd48vr5", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHDSSVD48VR5, "mulhdssvd48vr5", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHDSUVD48VR5, "mulhdsuvd48vr5", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHDUSVD48VR5, "mulhdusvd48vr5", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHDUUVD48VR5, "mulhduuvd48vr5", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHNSSVD48VR5, "mulhnssvd48vr5", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHNSUVD48VR5, "mulhnsuvd48vr5", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHNUSVD48VR5, "mulhnusvd48vr5", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHNUUVD48VR5, "mulhnuuvd48vr5", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHDTSSVD48VR5, "mulhdtssvd48vr5", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MULHDTSUVD48VR5, "mulhdtsuvd48vr5", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP620VD48VR5, "op620vd48vr5", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP630VD48VR5, "op630vd48vr5", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULLSSVD48VR6, "mullssvd48vr6", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULLSSSVD48VR6, "mullsssvd48vr6", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULMSSVD48VR6, "mulmssvd48vr6", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULMSSSVD48VR6, "mulmsssvd48vr6", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHDSSVD48VR6, "mulhdssvd48vr6", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHDSUVD48VR6, "mulhdsuvd48vr6", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHDUSVD48VR6, "mulhdusvd48vr6", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHDUUVD48VR6, "mulhduuvd48vr6", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHNSSVD48VR6, "mulhnssvd48vr6", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHNSUVD48VR6, "mulhnsuvd48vr6", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHNUSVD48VR6, "mulhnusvd48vr6", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHNUUVD48VR6, "mulhnuuvd48vr6", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHDTSSVD48VR6, "mulhdtssvd48vr6", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MULHDTSUVD48VR6, "mulhdtsuvd48vr6", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP620VD48VR6, "op620vd48vr6", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP630VD48VR6, "op630vd48vr6", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULLSSVD48VR7, "mullssvd48vr7", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULLSSSVD48VR7, "mullsssvd48vr7", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULMSSVD48VR7, "mulmssvd48vr7", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULMSSSVD48VR7, "mulmsssvd48vr7", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHDSSVD48VR7, "mulhdssvd48vr7", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHDSUVD48VR7, "mulhdsuvd48vr7", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHDUSVD48VR7, "mulhdusvd48vr7", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHDUUVD48VR7, "mulhduuvd48vr7", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHNSSVD48VR7, "mulhnssvd48vr7", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHNSUVD48VR7, "mulhnsuvd48vr7", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHNUSVD48VR7, "mulhnusvd48vr7", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHNUUVD48VR7, "mulhnuuvd48vr7", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHDTSSVD48VR7, "mulhdtssvd48vr7", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MULHDTSUVD48VR7, "mulhdtsuvd48vr7", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP620VD48VR7, "op620vd48vr7", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP630VD48VR7, "op630vd48vr7", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP481HD48VR0, "op481hd48vr0", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP491HD48VR0, "op491hd48vr0", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP501HD48VR0, "op501hd48vr0", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP511HD48VR0, "op511hd48vr0", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MUL32SSHD48VR0, "mul32sshd48vr0", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MUL32SUHD48VR0, "mul32suhd48vr0", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MUL32USHD48VR0, "mul32ushd48vr0", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_MUL32UUHD48VR0, "mul32uuhd48vr0", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP561HD48VR0, "op561hd48vr0", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP571HD48VR0, "op571hd48vr0", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP581HD48VR0, "op581hd48vr0", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP591HD48VR0, "op591hd48vr0", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP601HD48VR0, "op601hd48vr0", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP611HD48VR0, "op611hd48vr0", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP621HD48VR0, "op621hd48vr0", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_OP631HD48VR0, "op631hd48vr0", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP481HD48VR1, "op481hd48vr1", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP491HD48VR1, "op491hd48vr1", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP501HD48VR1, "op501hd48vr1", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP511HD48VR1, "op511hd48vr1", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MUL32SSHD48VR1, "mul32sshd48vr1", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MUL32SUHD48VR1, "mul32suhd48vr1", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MUL32USHD48VR1, "mul32ushd48vr1", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_MUL32UUHD48VR1, "mul32uuhd48vr1", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP561HD48VR1, "op561hd48vr1", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP571HD48VR1, "op571hd48vr1", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP581HD48VR1, "op581hd48vr1", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP591HD48VR1, "op591hd48vr1", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP601HD48VR1, "op601hd48vr1", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP611HD48VR1, "op611hd48vr1", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP621HD48VR1, "op621hd48vr1", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_OP631HD48VR1, "op631hd48vr1", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP481HD48VR2, "op481hd48vr2", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP491HD48VR2, "op491hd48vr2", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP501HD48VR2, "op501hd48vr2", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP511HD48VR2, "op511hd48vr2", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MUL32SSHD48VR2, "mul32sshd48vr2", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MUL32SUHD48VR2, "mul32suhd48vr2", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MUL32USHD48VR2, "mul32ushd48vr2", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_MUL32UUHD48VR2, "mul32uuhd48vr2", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP561HD48VR2, "op561hd48vr2", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP571HD48VR2, "op571hd48vr2", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP581HD48VR2, "op581hd48vr2", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP591HD48VR2, "op591hd48vr2", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP601HD48VR2, "op601hd48vr2", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP611HD48VR2, "op611hd48vr2", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP621HD48VR2, "op621hd48vr2", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_OP631HD48VR2, "op631hd48vr2", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP481HD48VR3, "op481hd48vr3", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP491HD48VR3, "op491hd48vr3", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP501HD48VR3, "op501hd48vr3", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP511HD48VR3, "op511hd48vr3", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MUL32SSHD48VR3, "mul32sshd48vr3", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MUL32SUHD48VR3, "mul32suhd48vr3", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MUL32USHD48VR3, "mul32ushd48vr3", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_MUL32UUHD48VR3, "mul32uuhd48vr3", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP561HD48VR3, "op561hd48vr3", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP571HD48VR3, "op571hd48vr3", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP581HD48VR3, "op581hd48vr3", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP591HD48VR3, "op591hd48vr3", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP601HD48VR3, "op601hd48vr3", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP611HD48VR3, "op611hd48vr3", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP621HD48VR3, "op621hd48vr3", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_OP631HD48VR3, "op631hd48vr3", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP481HD48VR4, "op481hd48vr4", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP491HD48VR4, "op491hd48vr4", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP501HD48VR4, "op501hd48vr4", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP511HD48VR4, "op511hd48vr4", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MUL32SSHD48VR4, "mul32sshd48vr4", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MUL32SUHD48VR4, "mul32suhd48vr4", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MUL32USHD48VR4, "mul32ushd48vr4", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_MUL32UUHD48VR4, "mul32uuhd48vr4", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP561HD48VR4, "op561hd48vr4", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP571HD48VR4, "op571hd48vr4", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP581HD48VR4, "op581hd48vr4", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP591HD48VR4, "op591hd48vr4", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP601HD48VR4, "op601hd48vr4", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP611HD48VR4, "op611hd48vr4", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP621HD48VR4, "op621hd48vr4", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_OP631HD48VR4, "op631hd48vr4", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP481HD48VR5, "op481hd48vr5", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP491HD48VR5, "op491hd48vr5", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP501HD48VR5, "op501hd48vr5", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP511HD48VR5, "op511hd48vr5", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MUL32SSHD48VR5, "mul32sshd48vr5", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MUL32SUHD48VR5, "mul32suhd48vr5", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MUL32USHD48VR5, "mul32ushd48vr5", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_MUL32UUHD48VR5, "mul32uuhd48vr5", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP561HD48VR5, "op561hd48vr5", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP571HD48VR5, "op571hd48vr5", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP581HD48VR5, "op581hd48vr5", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP591HD48VR5, "op591hd48vr5", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP601HD48VR5, "op601hd48vr5", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP611HD48VR5, "op611hd48vr5", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP621HD48VR5, "op621hd48vr5", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_OP631HD48VR5, "op631hd48vr5", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP481HD48VR6, "op481hd48vr6", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP491HD48VR6, "op491hd48vr6", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP501HD48VR6, "op501hd48vr6", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP511HD48VR6, "op511hd48vr6", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MUL32SSHD48VR6, "mul32sshd48vr6", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MUL32SUHD48VR6, "mul32suhd48vr6", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MUL32USHD48VR6, "mul32ushd48vr6", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_MUL32UUHD48VR6, "mul32uuhd48vr6", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP561HD48VR6, "op561hd48vr6", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP571HD48VR6, "op571hd48vr6", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP581HD48VR6, "op581hd48vr6", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP591HD48VR6, "op591hd48vr6", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP601HD48VR6, "op601hd48vr6", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP611HD48VR6, "op611hd48vr6", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP621HD48VR6, "op621hd48vr6", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_OP631HD48VR6, "op631hd48vr6", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP481HD48VR7, "op481hd48vr7", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP491HD48VR7, "op491hd48vr7", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP501HD48VR7, "op501hd48vr7", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP511HD48VR7, "op511hd48vr7", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MUL32SSHD48VR7, "mul32sshd48vr7", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MUL32SUHD48VR7, "mul32suhd48vr7", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MUL32USHD48VR7, "mul32ushd48vr7", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_MUL32UUHD48VR7, "mul32uuhd48vr7", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP561HD48VR7, "op561hd48vr7", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP571HD48VR7, "op571hd48vr7", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP581HD48VR7, "op581hd48vr7", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP591HD48VR7, "op591hd48vr7", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP601HD48VR7, "op601hd48vr7", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP611HD48VR7, "op611hd48vr7", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP621HD48VR7, "op621hd48vr7", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_OP631HD48VR7, "op631hd48vr7", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP481VD48VR0, "op481vd48vr0", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP491VD48VR0, "op491vd48vr0", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP501VD48VR0, "op501vd48vr0", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP511VD48VR0, "op511vd48vr0", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MUL32SSVD48VR0, "mul32ssvd48vr0", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MUL32SUVD48VR0, "mul32suvd48vr0", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MUL32USVD48VR0, "mul32usvd48vr0", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_MUL32UUVD48VR0, "mul32uuvd48vr0", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP561VD48VR0, "op561vd48vr0", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP571VD48VR0, "op571vd48vr0", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP581VD48VR0, "op581vd48vr0", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP591VD48VR0, "op591vd48vr0", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP601VD48VR0, "op601vd48vr0", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP611VD48VR0, "op611vd48vr0", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP621VD48VR0, "op621vd48vr0", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_OP631VD48VR0, "op631vd48vr0", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP481VD48VR1, "op481vd48vr1", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP491VD48VR1, "op491vd48vr1", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP501VD48VR1, "op501vd48vr1", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP511VD48VR1, "op511vd48vr1", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MUL32SSVD48VR1, "mul32ssvd48vr1", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MUL32SUVD48VR1, "mul32suvd48vr1", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MUL32USVD48VR1, "mul32usvd48vr1", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_MUL32UUVD48VR1, "mul32uuvd48vr1", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP561VD48VR1, "op561vd48vr1", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP571VD48VR1, "op571vd48vr1", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP581VD48VR1, "op581vd48vr1", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP591VD48VR1, "op591vd48vr1", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP601VD48VR1, "op601vd48vr1", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP611VD48VR1, "op611vd48vr1", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP621VD48VR1, "op621vd48vr1", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_OP631VD48VR1, "op631vd48vr1", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP481VD48VR2, "op481vd48vr2", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP491VD48VR2, "op491vd48vr2", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP501VD48VR2, "op501vd48vr2", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP511VD48VR2, "op511vd48vr2", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MUL32SSVD48VR2, "mul32ssvd48vr2", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MUL32SUVD48VR2, "mul32suvd48vr2", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MUL32USVD48VR2, "mul32usvd48vr2", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_MUL32UUVD48VR2, "mul32uuvd48vr2", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP561VD48VR2, "op561vd48vr2", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP571VD48VR2, "op571vd48vr2", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP581VD48VR2, "op581vd48vr2", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP591VD48VR2, "op591vd48vr2", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP601VD48VR2, "op601vd48vr2", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP611VD48VR2, "op611vd48vr2", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP621VD48VR2, "op621vd48vr2", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_OP631VD48VR2, "op631vd48vr2", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP481VD48VR3, "op481vd48vr3", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP491VD48VR3, "op491vd48vr3", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP501VD48VR3, "op501vd48vr3", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP511VD48VR3, "op511vd48vr3", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MUL32SSVD48VR3, "mul32ssvd48vr3", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MUL32SUVD48VR3, "mul32suvd48vr3", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MUL32USVD48VR3, "mul32usvd48vr3", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_MUL32UUVD48VR3, "mul32uuvd48vr3", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP561VD48VR3, "op561vd48vr3", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP571VD48VR3, "op571vd48vr3", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP581VD48VR3, "op581vd48vr3", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP591VD48VR3, "op591vd48vr3", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP601VD48VR3, "op601vd48vr3", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP611VD48VR3, "op611vd48vr3", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP621VD48VR3, "op621vd48vr3", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_OP631VD48VR3, "op631vd48vr3", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP481VD48VR4, "op481vd48vr4", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP491VD48VR4, "op491vd48vr4", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP501VD48VR4, "op501vd48vr4", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP511VD48VR4, "op511vd48vr4", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MUL32SSVD48VR4, "mul32ssvd48vr4", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MUL32SUVD48VR4, "mul32suvd48vr4", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MUL32USVD48VR4, "mul32usvd48vr4", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_MUL32UUVD48VR4, "mul32uuvd48vr4", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP561VD48VR4, "op561vd48vr4", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP571VD48VR4, "op571vd48vr4", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP581VD48VR4, "op581vd48vr4", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP591VD48VR4, "op591vd48vr4", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP601VD48VR4, "op601vd48vr4", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP611VD48VR4, "op611vd48vr4", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP621VD48VR4, "op621vd48vr4", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_OP631VD48VR4, "op631vd48vr4", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP481VD48VR5, "op481vd48vr5", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP491VD48VR5, "op491vd48vr5", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP501VD48VR5, "op501vd48vr5", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP511VD48VR5, "op511vd48vr5", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MUL32SSVD48VR5, "mul32ssvd48vr5", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MUL32SUVD48VR5, "mul32suvd48vr5", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MUL32USVD48VR5, "mul32usvd48vr5", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_MUL32UUVD48VR5, "mul32uuvd48vr5", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP561VD48VR5, "op561vd48vr5", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP571VD48VR5, "op571vd48vr5", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP581VD48VR5, "op581vd48vr5", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP591VD48VR5, "op591vd48vr5", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP601VD48VR5, "op601vd48vr5", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP611VD48VR5, "op611vd48vr5", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP621VD48VR5, "op621vd48vr5", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_OP631VD48VR5, "op631vd48vr5", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP481VD48VR6, "op481vd48vr6", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP491VD48VR6, "op491vd48vr6", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP501VD48VR6, "op501vd48vr6", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP511VD48VR6, "op511vd48vr6", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MUL32SSVD48VR6, "mul32ssvd48vr6", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MUL32SUVD48VR6, "mul32suvd48vr6", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MUL32USVD48VR6, "mul32usvd48vr6", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_MUL32UUVD48VR6, "mul32uuvd48vr6", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP561VD48VR6, "op561vd48vr6", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP571VD48VR6, "op571vd48vr6", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP581VD48VR6, "op581vd48vr6", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP591VD48VR6, "op591vd48vr6", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP601VD48VR6, "op601vd48vr6", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP611VD48VR6, "op611vd48vr6", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP621VD48VR6, "op621vd48vr6", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_OP631VD48VR6, "op631vd48vr6", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP481VD48VR7, "op481vd48vr7", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP491VD48VR7, "op491vd48vr7", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP501VD48VR7, "op501vd48vr7", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP511VD48VR7, "op511vd48vr7", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MUL32SSVD48VR7, "mul32ssvd48vr7", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MUL32SUVD48VR7, "mul32suvd48vr7", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MUL32USVD48VR7, "mul32usvd48vr7", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_MUL32UUVD48VR7, "mul32uuvd48vr7", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP561VD48VR7, "op561vd48vr7", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP571VD48VR7, "op571vd48vr7", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP581VD48VR7, "op581vd48vr7", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP591VD48VR7, "op591vd48vr7", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP601VD48VR7, "op601vd48vr7", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP611VD48VR7, "op611vd48vr7", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP621VD48VR7, "op621vd48vr7", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_OP631VD48VR7, "op631vd48vr7", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR0, "mullsshd48ir0", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR0, "mullssshd48ir0", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR0, "mulmsshd48ir0", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR0, "mulmssshd48ir0", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR0, "mulhdsshd48ir0", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR0, "mulhdsuhd48ir0", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR0, "mulhdushd48ir0", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR0, "mulhduuhd48ir0", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR0, "mulhnsshd48ir0", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR0, "mulhnsuhd48ir0", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR0, "mulhnushd48ir0", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR0, "mulhnuuhd48ir0", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR0, "mulhdtsshd48ir0", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR0, "mulhdtsuhd48ir0", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR0, "op620hd48ir0", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR0, "op630hd48ir0", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR1, "mullsshd48ir1", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR1, "mullssshd48ir1", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR1, "mulmsshd48ir1", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR1, "mulmssshd48ir1", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR1, "mulhdsshd48ir1", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR1, "mulhdsuhd48ir1", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR1, "mulhdushd48ir1", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR1, "mulhduuhd48ir1", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR1, "mulhnsshd48ir1", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR1, "mulhnsuhd48ir1", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR1, "mulhnushd48ir1", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR1, "mulhnuuhd48ir1", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR1, "mulhdtsshd48ir1", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR1, "mulhdtsuhd48ir1", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR1, "op620hd48ir1", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR1, "op630hd48ir1", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR2, "mullsshd48ir2", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR2, "mullssshd48ir2", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR2, "mulmsshd48ir2", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR2, "mulmssshd48ir2", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR2, "mulhdsshd48ir2", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR2, "mulhdsuhd48ir2", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR2, "mulhdushd48ir2", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR2, "mulhduuhd48ir2", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR2, "mulhnsshd48ir2", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR2, "mulhnsuhd48ir2", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR2, "mulhnushd48ir2", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR2, "mulhnuuhd48ir2", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR2, "mulhdtsshd48ir2", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR2, "mulhdtsuhd48ir2", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR2, "op620hd48ir2", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR2, "op630hd48ir2", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR3, "mullsshd48ir3", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR3, "mullssshd48ir3", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR3, "mulmsshd48ir3", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR3, "mulmssshd48ir3", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR3, "mulhdsshd48ir3", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR3, "mulhdsuhd48ir3", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR3, "mulhdushd48ir3", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR3, "mulhduuhd48ir3", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR3, "mulhnsshd48ir3", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR3, "mulhnsuhd48ir3", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR3, "mulhnushd48ir3", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR3, "mulhnuuhd48ir3", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR3, "mulhdtsshd48ir3", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR3, "mulhdtsuhd48ir3", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR3, "op620hd48ir3", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR3, "op630hd48ir3", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR4, "mullsshd48ir4", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR4, "mullssshd48ir4", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR4, "mulmsshd48ir4", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR4, "mulmssshd48ir4", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR4, "mulhdsshd48ir4", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR4, "mulhdsuhd48ir4", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR4, "mulhdushd48ir4", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR4, "mulhduuhd48ir4", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR4, "mulhnsshd48ir4", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR4, "mulhnsuhd48ir4", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR4, "mulhnushd48ir4", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR4, "mulhnuuhd48ir4", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR4, "mulhdtsshd48ir4", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR4, "mulhdtsuhd48ir4", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR4, "op620hd48ir4", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR4, "op630hd48ir4", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR5, "mullsshd48ir5", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR5, "mullssshd48ir5", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR5, "mulmsshd48ir5", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR5, "mulmssshd48ir5", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR5, "mulhdsshd48ir5", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR5, "mulhdsuhd48ir5", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR5, "mulhdushd48ir5", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR5, "mulhduuhd48ir5", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR5, "mulhnsshd48ir5", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR5, "mulhnsuhd48ir5", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR5, "mulhnushd48ir5", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR5, "mulhnuuhd48ir5", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR5, "mulhdtsshd48ir5", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR5, "mulhdtsuhd48ir5", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR5, "op620hd48ir5", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR5, "op630hd48ir5", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR6, "mullsshd48ir6", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR6, "mullssshd48ir6", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR6, "mulmsshd48ir6", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR6, "mulmssshd48ir6", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR6, "mulhdsshd48ir6", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR6, "mulhdsuhd48ir6", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR6, "mulhdushd48ir6", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR6, "mulhduuhd48ir6", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR6, "mulhnsshd48ir6", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR6, "mulhnsuhd48ir6", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR6, "mulhnushd48ir6", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR6, "mulhnuuhd48ir6", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR6, "mulhdtsshd48ir6", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR6, "mulhdtsuhd48ir6", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR6, "op620hd48ir6", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR6, "op630hd48ir6", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSHD48IR7, "mullsshd48ir7", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSHD48IR7, "mullssshd48ir7", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSHD48IR7, "mulmsshd48ir7", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSHD48IR7, "mulmssshd48ir7", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSHD48IR7, "mulhdsshd48ir7", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUHD48IR7, "mulhdsuhd48ir7", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSHD48IR7, "mulhdushd48ir7", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUHD48IR7, "mulhduuhd48ir7", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSHD48IR7, "mulhnsshd48ir7", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUHD48IR7, "mulhnsuhd48ir7", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSHD48IR7, "mulhnushd48ir7", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUHD48IR7, "mulhnuuhd48ir7", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSHD48IR7, "mulhdtsshd48ir7", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUHD48IR7, "mulhdtsuhd48ir7", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620HD48IR7, "op620hd48ir7", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630HD48IR7, "op630hd48ir7", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR0, "mullssvd48ir0", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR0, "mullsssvd48ir0", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR0, "mulmssvd48ir0", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR0, "mulmsssvd48ir0", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR0, "mulhdssvd48ir0", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR0, "mulhdsuvd48ir0", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR0, "mulhdusvd48ir0", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR0, "mulhduuvd48ir0", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR0, "mulhnssvd48ir0", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR0, "mulhnsuvd48ir0", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR0, "mulhnusvd48ir0", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR0, "mulhnuuvd48ir0", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR0, "mulhdtssvd48ir0", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR0, "mulhdtsuvd48ir0", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR0, "op620vd48ir0", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR0, "op630vd48ir0", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR1, "mullssvd48ir1", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR1, "mullsssvd48ir1", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR1, "mulmssvd48ir1", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR1, "mulmsssvd48ir1", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR1, "mulhdssvd48ir1", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR1, "mulhdsuvd48ir1", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR1, "mulhdusvd48ir1", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR1, "mulhduuvd48ir1", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR1, "mulhnssvd48ir1", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR1, "mulhnsuvd48ir1", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR1, "mulhnusvd48ir1", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR1, "mulhnuuvd48ir1", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR1, "mulhdtssvd48ir1", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR1, "mulhdtsuvd48ir1", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR1, "op620vd48ir1", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR1, "op630vd48ir1", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR2, "mullssvd48ir2", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR2, "mullsssvd48ir2", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR2, "mulmssvd48ir2", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR2, "mulmsssvd48ir2", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR2, "mulhdssvd48ir2", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR2, "mulhdsuvd48ir2", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR2, "mulhdusvd48ir2", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR2, "mulhduuvd48ir2", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR2, "mulhnssvd48ir2", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR2, "mulhnsuvd48ir2", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR2, "mulhnusvd48ir2", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR2, "mulhnuuvd48ir2", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR2, "mulhdtssvd48ir2", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR2, "mulhdtsuvd48ir2", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR2, "op620vd48ir2", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR2, "op630vd48ir2", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR3, "mullssvd48ir3", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR3, "mullsssvd48ir3", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR3, "mulmssvd48ir3", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR3, "mulmsssvd48ir3", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR3, "mulhdssvd48ir3", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR3, "mulhdsuvd48ir3", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR3, "mulhdusvd48ir3", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR3, "mulhduuvd48ir3", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR3, "mulhnssvd48ir3", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR3, "mulhnsuvd48ir3", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR3, "mulhnusvd48ir3", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR3, "mulhnuuvd48ir3", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR3, "mulhdtssvd48ir3", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR3, "mulhdtsuvd48ir3", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR3, "op620vd48ir3", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR3, "op630vd48ir3", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR4, "mullssvd48ir4", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR4, "mullsssvd48ir4", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR4, "mulmssvd48ir4", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR4, "mulmsssvd48ir4", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR4, "mulhdssvd48ir4", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR4, "mulhdsuvd48ir4", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR4, "mulhdusvd48ir4", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR4, "mulhduuvd48ir4", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR4, "mulhnssvd48ir4", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR4, "mulhnsuvd48ir4", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR4, "mulhnusvd48ir4", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR4, "mulhnuuvd48ir4", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR4, "mulhdtssvd48ir4", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR4, "mulhdtsuvd48ir4", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR4, "op620vd48ir4", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR4, "op630vd48ir4", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR5, "mullssvd48ir5", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR5, "mullsssvd48ir5", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR5, "mulmssvd48ir5", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR5, "mulmsssvd48ir5", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR5, "mulhdssvd48ir5", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR5, "mulhdsuvd48ir5", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR5, "mulhdusvd48ir5", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR5, "mulhduuvd48ir5", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR5, "mulhnssvd48ir5", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR5, "mulhnsuvd48ir5", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR5, "mulhnusvd48ir5", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR5, "mulhnuuvd48ir5", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR5, "mulhdtssvd48ir5", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR5, "mulhdtsuvd48ir5", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR5, "op620vd48ir5", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR5, "op630vd48ir5", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR6, "mullssvd48ir6", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR6, "mullsssvd48ir6", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR6, "mulmssvd48ir6", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR6, "mulmsssvd48ir6", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR6, "mulhdssvd48ir6", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR6, "mulhdsuvd48ir6", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR6, "mulhdusvd48ir6", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR6, "mulhduuvd48ir6", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR6, "mulhnssvd48ir6", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR6, "mulhnsuvd48ir6", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR6, "mulhnusvd48ir6", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR6, "mulhnuuvd48ir6", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR6, "mulhdtssvd48ir6", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR6, "mulhdtsuvd48ir6", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR6, "op620vd48ir6", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR6, "op630vd48ir6", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmull.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSVD48IR7, "mullssvd48ir7", "vmull.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulls.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULLSSSVD48IR7, "mullsssvd48ir7", "vmulls.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulm.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSVD48IR7, "mulmssvd48ir7", "vmulm.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulms.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULMSSSVD48IR7, "mulmsssvd48ir7", "vmulms.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSSVD48IR7, "mulhdssvd48ir7", "vmulhd.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDSUVD48IR7, "mulhdsuvd48ir7", "vmulhd.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUSVD48IR7, "mulhdusvd48ir7", "vmulhd.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhd.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDUUVD48IR7, "mulhduuvd48ir7", "vmulhd.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSSVD48IR7, "mulhnssvd48ir7", "vmulhn.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNSUVD48IR7, "mulhnsuvd48ir7", "vmulhn.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUSVD48IR7, "mulhnusvd48ir7", "vmulhn.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhn.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHNUUVD48IR7, "mulhnuuvd48ir7", "vmulhn.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSSVD48IR7, "mulhdtssvd48ir7", "vmulhdt.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmulhdt.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MULHDTSUVD48IR7, "mulhdtsuvd48ir7", "vmulhdt.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP620VD48IR7, "op620vd48ir7", "vop62.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.0 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP630VD48IR7, "op630vd48ir7", "vop63.0", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR0, "op481hd48ir0", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR0, "op491hd48ir0", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR0, "op501hd48ir0", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR0, "op511hd48ir0", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR0, "mul32sshd48ir0", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR0, "mul32suhd48ir0", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR0, "mul32ushd48ir0", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR0, "mul32uuhd48ir0", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR0, "op561hd48ir0", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR0, "op571hd48ir0", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR0, "op581hd48ir0", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR0, "op591hd48ir0", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR0, "op601hd48ir0", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR0, "op611hd48ir0", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR0, "op621hd48ir0", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR0, "op631hd48ir0", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR1, "op481hd48ir1", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR1, "op491hd48ir1", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR1, "op501hd48ir1", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR1, "op511hd48ir1", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR1, "mul32sshd48ir1", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR1, "mul32suhd48ir1", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR1, "mul32ushd48ir1", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR1, "mul32uuhd48ir1", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR1, "op561hd48ir1", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR1, "op571hd48ir1", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR1, "op581hd48ir1", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR1, "op591hd48ir1", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR1, "op601hd48ir1", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR1, "op611hd48ir1", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR1, "op621hd48ir1", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR1, "op631hd48ir1", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR2, "op481hd48ir2", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR2, "op491hd48ir2", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR2, "op501hd48ir2", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR2, "op511hd48ir2", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR2, "mul32sshd48ir2", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR2, "mul32suhd48ir2", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR2, "mul32ushd48ir2", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR2, "mul32uuhd48ir2", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR2, "op561hd48ir2", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR2, "op571hd48ir2", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR2, "op581hd48ir2", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR2, "op591hd48ir2", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR2, "op601hd48ir2", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR2, "op611hd48ir2", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR2, "op621hd48ir2", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR2, "op631hd48ir2", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR3, "op481hd48ir3", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR3, "op491hd48ir3", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR3, "op501hd48ir3", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR3, "op511hd48ir3", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR3, "mul32sshd48ir3", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR3, "mul32suhd48ir3", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR3, "mul32ushd48ir3", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR3, "mul32uuhd48ir3", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR3, "op561hd48ir3", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR3, "op571hd48ir3", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR3, "op581hd48ir3", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR3, "op591hd48ir3", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR3, "op601hd48ir3", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR3, "op611hd48ir3", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR3, "op621hd48ir3", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR3, "op631hd48ir3", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR4, "op481hd48ir4", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR4, "op491hd48ir4", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR4, "op501hd48ir4", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR4, "op511hd48ir4", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR4, "mul32sshd48ir4", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR4, "mul32suhd48ir4", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR4, "mul32ushd48ir4", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR4, "mul32uuhd48ir4", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR4, "op561hd48ir4", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR4, "op571hd48ir4", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR4, "op581hd48ir4", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR4, "op591hd48ir4", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR4, "op601hd48ir4", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR4, "op611hd48ir4", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR4, "op621hd48ir4", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR4, "op631hd48ir4", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR5, "op481hd48ir5", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR5, "op491hd48ir5", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR5, "op501hd48ir5", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR5, "op511hd48ir5", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR5, "mul32sshd48ir5", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR5, "mul32suhd48ir5", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR5, "mul32ushd48ir5", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR5, "mul32uuhd48ir5", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR5, "op561hd48ir5", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR5, "op571hd48ir5", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR5, "op581hd48ir5", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR5, "op591hd48ir5", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR5, "op601hd48ir5", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR5, "op611hd48ir5", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR5, "op621hd48ir5", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR5, "op631hd48ir5", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR6, "op481hd48ir6", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR6, "op491hd48ir6", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR6, "op501hd48ir6", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR6, "op511hd48ir6", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR6, "mul32sshd48ir6", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR6, "mul32suhd48ir6", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR6, "mul32ushd48ir6", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR6, "mul32uuhd48ir6", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR6, "op561hd48ir6", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR6, "op571hd48ir6", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR6, "op581hd48ir6", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR6, "op591hd48ir6", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR6, "op601hd48ir6", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR6, "op611hd48ir6", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR6, "op621hd48ir6", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR6, "op631hd48ir6", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481HD48IR7, "op481hd48ir7", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491HD48IR7, "op491hd48ir7", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501HD48IR7, "op501hd48ir7", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511HD48IR7, "op511hd48ir7", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSHD48IR7, "mul32sshd48ir7", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUHD48IR7, "mul32suhd48ir7", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USHD48IR7, "mul32ushd48ir7", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUHD48IR7, "mul32uuhd48ir7", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561HD48IR7, "op561hd48ir7", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571HD48IR7, "op571hd48ir7", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581HD48IR7, "op581hd48ir7", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591HD48IR7, "op591hd48ir7", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601HD48IR7, "op601hd48ir7", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611HD48IR7, "op611hd48ir7", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621HD48IR7, "op621hd48ir7", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631HD48IR7, "op631hd48ir7", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR0, "op481vd48ir0", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR0, "op491vd48ir0", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR0, "op501vd48ir0", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR0, "op511vd48ir0", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR0, "mul32ssvd48ir0", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR0, "mul32suvd48ir0", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR0, "mul32usvd48ir0", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR0, "mul32uuvd48ir0", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR0, "op561vd48ir0", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR0, "op571vd48ir0", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR0, "op581vd48ir0", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR0, "op591vd48ir0", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR0, "op601vd48ir0", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR0, "op611vd48ir0", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR0, "op621vd48ir0", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR0, "op631vd48ir0", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR1, "op481vd48ir1", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR1, "op491vd48ir1", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR1, "op501vd48ir1", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR1, "op511vd48ir1", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR1, "mul32ssvd48ir1", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR1, "mul32suvd48ir1", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR1, "mul32usvd48ir1", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR1, "mul32uuvd48ir1", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR1, "op561vd48ir1", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR1, "op571vd48ir1", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR1, "op581vd48ir1", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR1, "op591vd48ir1", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR1, "op601vd48ir1", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR1, "op611vd48ir1", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR1, "op621vd48ir1", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR1, "op631vd48ir1", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR2, "op481vd48ir2", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR2, "op491vd48ir2", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR2, "op501vd48ir2", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR2, "op511vd48ir2", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR2, "mul32ssvd48ir2", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR2, "mul32suvd48ir2", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR2, "mul32usvd48ir2", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR2, "mul32uuvd48ir2", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR2, "op561vd48ir2", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR2, "op571vd48ir2", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR2, "op581vd48ir2", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR2, "op591vd48ir2", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR2, "op601vd48ir2", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR2, "op611vd48ir2", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR2, "op621vd48ir2", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR2, "op631vd48ir2", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR3, "op481vd48ir3", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR3, "op491vd48ir3", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR3, "op501vd48ir3", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR3, "op511vd48ir3", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR3, "mul32ssvd48ir3", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR3, "mul32suvd48ir3", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR3, "mul32usvd48ir3", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR3, "mul32uuvd48ir3", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR3, "op561vd48ir3", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR3, "op571vd48ir3", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR3, "op581vd48ir3", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR3, "op591vd48ir3", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR3, "op601vd48ir3", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR3, "op611vd48ir3", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR3, "op621vd48ir3", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR3, "op631vd48ir3", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR4, "op481vd48ir4", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR4, "op491vd48ir4", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR4, "op501vd48ir4", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR4, "op511vd48ir4", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR4, "mul32ssvd48ir4", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR4, "mul32suvd48ir4", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR4, "mul32usvd48ir4", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR4, "mul32uuvd48ir4", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR4, "op561vd48ir4", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR4, "op571vd48ir4", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR4, "op581vd48ir4", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR4, "op591vd48ir4", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR4, "op601vd48ir4", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR4, "op611vd48ir4", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR4, "op621vd48ir4", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR4, "op631vd48ir4", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR5, "op481vd48ir5", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR5, "op491vd48ir5", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR5, "op501vd48ir5", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR5, "op511vd48ir5", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR5, "mul32ssvd48ir5", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR5, "mul32suvd48ir5", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR5, "mul32usvd48ir5", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR5, "mul32uuvd48ir5", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR5, "op561vd48ir5", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR5, "op571vd48ir5", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR5, "op581vd48ir5", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR5, "op591vd48ir5", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR5, "op601vd48ir5", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR5, "op611vd48ir5", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR5, "op621vd48ir5", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR5, "op631vd48ir5", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR6, "op481vd48ir6", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR6, "op491vd48ir6", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR6, "op501vd48ir6", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR6, "op511vd48ir6", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR6, "mul32ssvd48ir6", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR6, "mul32suvd48ir6", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR6, "mul32usvd48ir6", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR6, "mul32uuvd48ir6", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR6, "op561vd48ir6", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR6, "op571vd48ir6", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR6, "op581vd48ir6", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR6, "op591vd48ir6", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR6, "op601vd48ir6", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR6, "op611vd48ir6", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR6, "op621vd48ir6", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR6, "op631vd48ir6", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop48.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP481VD48IR7, "op481vd48ir7", "vop48.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop49.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP491VD48IR7, "op491vd48ir7", "vop49.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop50.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP501VD48IR7, "op501vd48ir7", "vop50.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop51.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP511VD48IR7, "op511vd48ir7", "vop51.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.ss $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SSVD48IR7, "mul32ssvd48ir7", "vmul32.ss", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.su $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32SUVD48IR7, "mul32suvd48ir7", "vmul32.su", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.us $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32USVD48IR7, "mul32usvd48ir7", "vmul32.us", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vmul32.uu $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_MUL32UUVD48IR7, "mul32uuvd48ir7", "vmul32.uu", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop56.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP561VD48IR7, "op561vd48ir7", "vop56.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop57.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP571VD48IR7, "op571vd48ir7", "vop57.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop58.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP581VD48IR7, "op581vd48ir7", "vop58.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop59.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP591VD48IR7, "op591vd48ir7", "vop59.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop60.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP601VD48IR7, "op601vd48ir7", "vop60.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop61.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP611VD48IR7, "op611vd48ir7", "vop61.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop62.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP621VD48IR7, "op621vd48ir7", "vop62.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vop63.1 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_OP631VD48IR7, "op631vd48ir7", "vop63.1", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* v32mov $v80d32reg,$v80b32reg$v80mods */
   {
     VC4_INSN_MOVD80V32, "movd80v32", "v32mov", 80,
@@ -26459,644 +34139,164 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_OP47D80V16, "op47d80v16", "v16op47", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULLSSD80V8, "mullssd80v8", "v8mull.ss", 80,
+    VC4_INSN_MULLSSD80V, "mullssd80v", "vmull.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULLSSSD80V8, "mullsssd80v8", "v8mulls.ss", 80,
+    VC4_INSN_MULLSSSD80V, "mullsssd80v", "vmulls.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULMSSD80V8, "mulmssd80v8", "v8mulm.ss", 80,
+    VC4_INSN_MULMSSD80V, "mulmssd80v", "vmulm.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULMSSSD80V8, "mulmsssd80v8", "v8mulms.ss", 80,
+    VC4_INSN_MULMSSSD80V, "mulmsssd80v", "vmulms.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDSSD80V8, "mulhdssd80v8", "v8mulhd.ss", 80,
+    VC4_INSN_MULHDSSD80V, "mulhdssd80v", "vmulhd.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDSUD80V8, "mulhdsud80v8", "v8mulhd.su", 80,
+    VC4_INSN_MULHDSUD80V, "mulhdsud80v", "vmulhd.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDUSD80V8, "mulhdusd80v8", "v8mulhd.us", 80,
+    VC4_INSN_MULHDUSD80V, "mulhdusd80v", "vmulhd.us", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDUUD80V8, "mulhduud80v8", "v8mulhd.uu", 80,
+    VC4_INSN_MULHDUUD80V, "mulhduud80v", "vmulhd.uu", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNSSD80V8, "mulhnssd80v8", "v8mulhn.ss", 80,
+    VC4_INSN_MULHNSSD80V, "mulhnssd80v", "vmulhn.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNSUD80V8, "mulhnsud80v8", "v8mulhn.su", 80,
+    VC4_INSN_MULHNSUD80V, "mulhnsud80v", "vmulhn.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNUSD80V8, "mulhnusd80v8", "v8mulhn.us", 80,
+    VC4_INSN_MULHNUSD80V, "mulhnusd80v", "vmulhn.us", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNUUD80V8, "mulhnuud80v8", "v8mulhn.uu", 80,
+    VC4_INSN_MULHNUUD80V, "mulhnuud80v", "vmulhn.uu", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDTSSD80V8, "mulhdtssd80v8", "v8mulhdt.ss", 80,
+    VC4_INSN_MULHDTSSD80V, "mulhdtssd80v", "vmulhdt.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDTSUD80V8, "mulhdtsud80v8", "v8mulhdt.su", 80,
+    VC4_INSN_MULHDTSUD80V, "mulhdtsud80v", "vmulhdt.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8op62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP620D80V8, "op620d80v8", "v8op62.0", 80,
+    VC4_INSN_OP620D80V, "op620d80v", "vop62.0", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8op63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP630D80V8, "op630d80v8", "v8op63.0", 80,
+    VC4_INSN_OP630D80V, "op630d80v", "vop63.0", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULLSSD80V16, "mullssd80v16", "v16mull.ss", 80,
+    VC4_INSN_OP481D80V, "op481d80v", "vop48.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULLSSSD80V16, "mullsssd80v16", "v16mulls.ss", 80,
+    VC4_INSN_OP491D80V, "op491d80v", "vop49.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULMSSD80V16, "mulmssd80v16", "v16mulm.ss", 80,
+    VC4_INSN_OP501D80V, "op501d80v", "vop50.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULMSSSD80V16, "mulmsssd80v16", "v16mulms.ss", 80,
+    VC4_INSN_OP511D80V, "op511d80v", "vop51.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDSSD80V16, "mulhdssd80v16", "v16mulhd.ss", 80,
+    VC4_INSN_MUL32SSD80V, "mul32ssd80v", "vmul32.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDSUD80V16, "mulhdsud80v16", "v16mulhd.su", 80,
+    VC4_INSN_MUL32SUD80V, "mul32sud80v", "vmul32.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDUSD80V16, "mulhdusd80v16", "v16mulhd.us", 80,
+    VC4_INSN_MUL32USD80V, "mul32usd80v", "vmul32.us", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vmul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDUUD80V16, "mulhduud80v16", "v16mulhd.uu", 80,
+    VC4_INSN_MUL32UUD80V, "mul32uud80v", "vmul32.uu", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNSSD80V16, "mulhnssd80v16", "v16mulhn.ss", 80,
+    VC4_INSN_OP561D80V, "op561d80v", "vop56.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNSUD80V16, "mulhnsud80v16", "v16mulhn.su", 80,
+    VC4_INSN_OP571D80V, "op571d80v", "vop57.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNUSD80V16, "mulhnusd80v16", "v16mulhn.us", 80,
+    VC4_INSN_OP581D80V, "op581d80v", "vop58.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHNUUD80V16, "mulhnuud80v16", "v16mulhn.uu", 80,
+    VC4_INSN_OP591D80V, "op591d80v", "vop59.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDTSSD80V16, "mulhdtssd80v16", "v16mulhdt.ss", 80,
+    VC4_INSN_OP601D80V, "op601d80v", "vop60.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_MULHDTSUD80V16, "mulhdtsud80v16", "v16mulhdt.su", 80,
+    VC4_INSN_OP611D80V, "op611d80v", "vop61.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16op62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP620D80V16, "op620d80v16", "v16op62.0", 80,
+    VC4_INSN_OP621D80V, "op621d80v", "vop62.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16op63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+/* vop63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
-    VC4_INSN_OP630D80V16, "op630d80v16", "v16op63.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULLSSD80V32, "mullssd80v32", "v32mull.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULLSSSD80V32, "mullsssd80v32", "v32mulls.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULMSSD80V32, "mulmssd80v32", "v32mulm.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULMSSSD80V32, "mulmsssd80v32", "v32mulms.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDSSD80V32, "mulhdssd80v32", "v32mulhd.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDSUD80V32, "mulhdsud80v32", "v32mulhd.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDUSD80V32, "mulhdusd80v32", "v32mulhd.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDUUD80V32, "mulhduud80v32", "v32mulhd.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNSSD80V32, "mulhnssd80v32", "v32mulhn.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNSUD80V32, "mulhnsud80v32", "v32mulhn.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNUSD80V32, "mulhnusd80v32", "v32mulhn.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNUUD80V32, "mulhnuud80v32", "v32mulhn.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDTSSD80V32, "mulhdtssd80v32", "v32mulhdt.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDTSUD80V32, "mulhdtsud80v32", "v32mulhdt.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP620D80V32, "op620d80v32", "v32op62.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP630D80V32, "op630d80v32", "v32op63.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmull.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULLSSD80VUNK, "mullssd80vunk", "vunkmull.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulls.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULLSSSD80VUNK, "mullsssd80vunk", "vunkmulls.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulm.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULMSSD80VUNK, "mulmssd80vunk", "vunkmulm.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulms.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULMSSSD80VUNK, "mulmsssd80vunk", "vunkmulms.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDSSD80VUNK, "mulhdssd80vunk", "vunkmulhd.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDSUD80VUNK, "mulhdsud80vunk", "vunkmulhd.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDUSD80VUNK, "mulhdusd80vunk", "vunkmulhd.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDUUD80VUNK, "mulhduud80vunk", "vunkmulhd.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNSSD80VUNK, "mulhnssd80vunk", "vunkmulhn.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNSUD80VUNK, "mulhnsud80vunk", "vunkmulhn.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNUSD80VUNK, "mulhnusd80vunk", "vunkmulhn.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHNUUD80VUNK, "mulhnuud80vunk", "vunkmulhn.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhdt.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDTSSD80VUNK, "mulhdtssd80vunk", "vunkmulhdt.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhdt.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MULHDTSUD80VUNK, "mulhdtsud80vunk", "vunkmulhdt.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop62.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP620D80VUNK, "op620d80vunk", "vunkop62.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop63.0 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP630D80VUNK, "op630d80vunk", "vunkop63.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP481D80V8, "op481d80v8", "v8op48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP491D80V8, "op491d80v8", "v8op49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP501D80V8, "op501d80v8", "v8op50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP511D80V8, "op511d80v8", "v8op51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SSD80V8, "mul32ssd80v8", "v8mul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SUD80V8, "mul32sud80v8", "v8mul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32USD80V8, "mul32usd80v8", "v8mul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32UUD80V8, "mul32uud80v8", "v8mul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP561D80V8, "op561d80v8", "v8op56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP571D80V8, "op571d80v8", "v8op57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP581D80V8, "op581d80v8", "v8op58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP591D80V8, "op591d80v8", "v8op59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP601D80V8, "op601d80v8", "v8op60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP611D80V8, "op611d80v8", "v8op61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP621D80V8, "op621d80v8", "v8op62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP631D80V8, "op631d80v8", "v8op63.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP481D80V16, "op481d80v16", "v16op48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP491D80V16, "op491d80v16", "v16op49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP501D80V16, "op501d80v16", "v16op50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP511D80V16, "op511d80v16", "v16op51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SSD80V16, "mul32ssd80v16", "v16mul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SUD80V16, "mul32sud80v16", "v16mul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32USD80V16, "mul32usd80v16", "v16mul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32UUD80V16, "mul32uud80v16", "v16mul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP561D80V16, "op561d80v16", "v16op56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP571D80V16, "op571d80v16", "v16op57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP581D80V16, "op581d80v16", "v16op58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP591D80V16, "op591d80v16", "v16op59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP601D80V16, "op601d80v16", "v16op60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP611D80V16, "op611d80v16", "v16op61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP621D80V16, "op621d80v16", "v16op62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP631D80V16, "op631d80v16", "v16op63.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP481D80V32, "op481d80v32", "v32op48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP491D80V32, "op491d80v32", "v32op49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP501D80V32, "op501d80v32", "v32op50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP511D80V32, "op511d80v32", "v32op51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SSD80V32, "mul32ssd80v32", "v32mul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SUD80V32, "mul32sud80v32", "v32mul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32USD80V32, "mul32usd80v32", "v32mul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32UUD80V32, "mul32uud80v32", "v32mul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP561D80V32, "op561d80v32", "v32op56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP571D80V32, "op571d80v32", "v32op57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP581D80V32, "op581d80v32", "v32op58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP591D80V32, "op591d80v32", "v32op59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP601D80V32, "op601d80v32", "v32op60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP611D80V32, "op611d80v32", "v32op61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP621D80V32, "op621d80v32", "v32op62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP631D80V32, "op631d80v32", "v32op63.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop48.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP481D80VUNK, "op481d80vunk", "vunkop48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop49.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP491D80VUNK, "op491d80vunk", "vunkop49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop50.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP501D80VUNK, "op501d80vunk", "vunkop50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop51.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP511D80VUNK, "op511d80vunk", "vunkop51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.ss $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SSD80VUNK, "mul32ssd80vunk", "vunkmul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.su $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32SUD80VUNK, "mul32sud80vunk", "vunkmul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.us $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32USD80VUNK, "mul32usd80vunk", "vunkmul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.uu $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_MUL32UUD80VUNK, "mul32uud80vunk", "vunkmul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop56.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP561D80VUNK, "op561d80vunk", "vunkop56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop57.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP571D80VUNK, "op571d80vunk", "vunkop57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop58.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP581D80VUNK, "op581d80vunk", "vunkop58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop59.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP591D80VUNK, "op591d80vunk", "vunkop59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop60.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP601D80VUNK, "op601d80vunk", "vunkop60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop61.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP611D80VUNK, "op611d80vunk", "vunkop61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop62.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP621D80VUNK, "op621d80vunk", "vunkop62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop63.1 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_OP631D80VUNK, "op631d80vunk", "vunkop63.1", 80,
+    VC4_INSN_OP631D80V, "op631d80v", "vop63.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mov $v80d32reg,$v80imm$v80mods */
@@ -27579,644 +34779,164 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_OP47D80I16, "op47d80i16", "v16op47", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULLSSD80I8, "mullssd80i8", "v8mull.ss", 80,
+    VC4_INSN_MULLSSD80I, "mullssd80i", "vmull.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULLSSSD80I8, "mullsssd80i8", "v8mulls.ss", 80,
+    VC4_INSN_MULLSSSD80I, "mullsssd80i", "vmulls.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULMSSD80I8, "mulmssd80i8", "v8mulm.ss", 80,
+    VC4_INSN_MULMSSD80I, "mulmssd80i", "vmulm.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULMSSSD80I8, "mulmsssd80i8", "v8mulms.ss", 80,
+    VC4_INSN_MULMSSSD80I, "mulmsssd80i", "vmulms.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDSSD80I8, "mulhdssd80i8", "v8mulhd.ss", 80,
+    VC4_INSN_MULHDSSD80I, "mulhdssd80i", "vmulhd.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDSUD80I8, "mulhdsud80i8", "v8mulhd.su", 80,
+    VC4_INSN_MULHDSUD80I, "mulhdsud80i", "vmulhd.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDUSD80I8, "mulhdusd80i8", "v8mulhd.us", 80,
+    VC4_INSN_MULHDUSD80I, "mulhdusd80i", "vmulhd.us", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDUUD80I8, "mulhduud80i8", "v8mulhd.uu", 80,
+    VC4_INSN_MULHDUUD80I, "mulhduud80i", "vmulhd.uu", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNSSD80I8, "mulhnssd80i8", "v8mulhn.ss", 80,
+    VC4_INSN_MULHNSSD80I, "mulhnssd80i", "vmulhn.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNSUD80I8, "mulhnsud80i8", "v8mulhn.su", 80,
+    VC4_INSN_MULHNSUD80I, "mulhnsud80i", "vmulhn.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNUSD80I8, "mulhnusd80i8", "v8mulhn.us", 80,
+    VC4_INSN_MULHNUSD80I, "mulhnusd80i", "vmulhn.us", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNUUD80I8, "mulhnuud80i8", "v8mulhn.uu", 80,
+    VC4_INSN_MULHNUUD80I, "mulhnuud80i", "vmulhn.uu", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDTSSD80I8, "mulhdtssd80i8", "v8mulhdt.ss", 80,
+    VC4_INSN_MULHDTSSD80I, "mulhdtssd80i", "vmulhdt.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8mulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDTSUD80I8, "mulhdtsud80i8", "v8mulhdt.su", 80,
+    VC4_INSN_MULHDTSUD80I, "mulhdtsud80i", "vmulhdt.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8op62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_OP620D80I8, "op620d80i8", "v8op62.0", 80,
+    VC4_INSN_OP620D80I, "op620d80i", "vop62.0", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8op63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_OP630D80I8, "op630d80i8", "v8op63.0", 80,
+    VC4_INSN_OP630D80I, "op630d80i", "vop63.0", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULLSSD80I16, "mullssd80i16", "v16mull.ss", 80,
+    VC4_INSN_OP481D80I, "op481d80i", "vop48.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULLSSSD80I16, "mullsssd80i16", "v16mulls.ss", 80,
+    VC4_INSN_OP491D80I, "op491d80i", "vop49.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULMSSD80I16, "mulmssd80i16", "v16mulm.ss", 80,
+    VC4_INSN_OP501D80I, "op501d80i", "vop50.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULMSSSD80I16, "mulmsssd80i16", "v16mulms.ss", 80,
+    VC4_INSN_OP511D80I, "op511d80i", "vop51.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDSSD80I16, "mulhdssd80i16", "v16mulhd.ss", 80,
+    VC4_INSN_MUL32SSD80I, "mul32ssd80i", "vmul32.ss", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDSUD80I16, "mulhdsud80i16", "v16mulhd.su", 80,
+    VC4_INSN_MUL32SUD80I, "mul32sud80i", "vmul32.su", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDUSD80I16, "mulhdusd80i16", "v16mulhd.us", 80,
+    VC4_INSN_MUL32USD80I, "mul32usd80i", "vmul32.us", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vmul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDUUD80I16, "mulhduud80i16", "v16mulhd.uu", 80,
+    VC4_INSN_MUL32UUD80I, "mul32uud80i", "vmul32.uu", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNSSD80I16, "mulhnssd80i16", "v16mulhn.ss", 80,
+    VC4_INSN_OP561D80I, "op561d80i", "vop56.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNSUD80I16, "mulhnsud80i16", "v16mulhn.su", 80,
+    VC4_INSN_OP571D80I, "op571d80i", "vop57.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNUSD80I16, "mulhnusd80i16", "v16mulhn.us", 80,
+    VC4_INSN_OP581D80I, "op581d80i", "vop58.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHNUUD80I16, "mulhnuud80i16", "v16mulhn.uu", 80,
+    VC4_INSN_OP591D80I, "op591d80i", "vop59.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDTSSD80I16, "mulhdtssd80i16", "v16mulhdt.ss", 80,
+    VC4_INSN_OP601D80I, "op601d80i", "vop60.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16mulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_MULHDTSUD80I16, "mulhdtsud80i16", "v16mulhdt.su", 80,
+    VC4_INSN_OP611D80I, "op611d80i", "vop61.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16op62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_OP620D80I16, "op620d80i16", "v16op62.0", 80,
+    VC4_INSN_OP621D80I, "op621d80i", "vop62.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16op63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+/* vop63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
-    VC4_INSN_OP630D80I16, "op630d80i16", "v16op63.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULLSSD80I32, "mullssd80i32", "v32mull.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULLSSSD80I32, "mullsssd80i32", "v32mulls.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULMSSD80I32, "mulmssd80i32", "v32mulm.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULMSSSD80I32, "mulmsssd80i32", "v32mulms.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDSSD80I32, "mulhdssd80i32", "v32mulhd.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDSUD80I32, "mulhdsud80i32", "v32mulhd.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDUSD80I32, "mulhdusd80i32", "v32mulhd.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDUUD80I32, "mulhduud80i32", "v32mulhd.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNSSD80I32, "mulhnssd80i32", "v32mulhn.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNSUD80I32, "mulhnsud80i32", "v32mulhn.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNUSD80I32, "mulhnusd80i32", "v32mulhn.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNUUD80I32, "mulhnuud80i32", "v32mulhn.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDTSSD80I32, "mulhdtssd80i32", "v32mulhdt.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDTSUD80I32, "mulhdtsud80i32", "v32mulhdt.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP620D80I32, "op620d80i32", "v32op62.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP630D80I32, "op630d80i32", "v32op63.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmull.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULLSSD80IUNK, "mullssd80iunk", "vunkmull.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulls.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULLSSSD80IUNK, "mullsssd80iunk", "vunkmulls.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulm.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULMSSD80IUNK, "mulmssd80iunk", "vunkmulm.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulms.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULMSSSD80IUNK, "mulmsssd80iunk", "vunkmulms.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDSSD80IUNK, "mulhdssd80iunk", "vunkmulhd.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDSUD80IUNK, "mulhdsud80iunk", "vunkmulhd.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDUSD80IUNK, "mulhdusd80iunk", "vunkmulhd.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhd.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDUUD80IUNK, "mulhduud80iunk", "vunkmulhd.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNSSD80IUNK, "mulhnssd80iunk", "vunkmulhn.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNSUD80IUNK, "mulhnsud80iunk", "vunkmulhn.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNUSD80IUNK, "mulhnusd80iunk", "vunkmulhn.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhn.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHNUUD80IUNK, "mulhnuud80iunk", "vunkmulhn.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhdt.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDTSSD80IUNK, "mulhdtssd80iunk", "vunkmulhdt.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmulhdt.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MULHDTSUD80IUNK, "mulhdtsud80iunk", "vunkmulhdt.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop62.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP620D80IUNK, "op620d80iunk", "vunkop62.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop63.0 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP630D80IUNK, "op630d80iunk", "vunkop63.0", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP481D80I8, "op481d80i8", "v8op48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP491D80I8, "op491d80i8", "v8op49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP501D80I8, "op501d80i8", "v8op50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP511D80I8, "op511d80i8", "v8op51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SSD80I8, "mul32ssd80i8", "v8mul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SUD80I8, "mul32sud80i8", "v8mul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32USD80I8, "mul32usd80i8", "v8mul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8mul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32UUD80I8, "mul32uud80i8", "v8mul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP561D80I8, "op561d80i8", "v8op56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP571D80I8, "op571d80i8", "v8op57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP581D80I8, "op581d80i8", "v8op58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP591D80I8, "op591d80i8", "v8op59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP601D80I8, "op601d80i8", "v8op60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP611D80I8, "op611d80i8", "v8op61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP621D80I8, "op621d80i8", "v8op62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8op63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP631D80I8, "op631d80i8", "v8op63.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP481D80I16, "op481d80i16", "v16op48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP491D80I16, "op491d80i16", "v16op49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP501D80I16, "op501d80i16", "v16op50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP511D80I16, "op511d80i16", "v16op51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SSD80I16, "mul32ssd80i16", "v16mul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SUD80I16, "mul32sud80i16", "v16mul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32USD80I16, "mul32usd80i16", "v16mul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16mul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32UUD80I16, "mul32uud80i16", "v16mul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP561D80I16, "op561d80i16", "v16op56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP571D80I16, "op571d80i16", "v16op57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP581D80I16, "op581d80i16", "v16op58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP591D80I16, "op591d80i16", "v16op59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP601D80I16, "op601d80i16", "v16op60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP611D80I16, "op611d80i16", "v16op61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP621D80I16, "op621d80i16", "v16op62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16op63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP631D80I16, "op631d80i16", "v16op63.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP481D80I32, "op481d80i32", "v32op48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP491D80I32, "op491d80i32", "v32op49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP501D80I32, "op501d80i32", "v32op50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP511D80I32, "op511d80i32", "v32op51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SSD80I32, "mul32ssd80i32", "v32mul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SUD80I32, "mul32sud80i32", "v32mul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32USD80I32, "mul32usd80i32", "v32mul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32mul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32UUD80I32, "mul32uud80i32", "v32mul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP561D80I32, "op561d80i32", "v32op56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP571D80I32, "op571d80i32", "v32op57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP581D80I32, "op581d80i32", "v32op58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP591D80I32, "op591d80i32", "v32op59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP601D80I32, "op601d80i32", "v32op60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP611D80I32, "op611d80i32", "v32op61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP621D80I32, "op621d80i32", "v32op62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32op63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP631D80I32, "op631d80i32", "v32op63.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop48.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP481D80IUNK, "op481d80iunk", "vunkop48.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop49.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP491D80IUNK, "op491d80iunk", "vunkop49.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop50.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP501D80IUNK, "op501d80iunk", "vunkop50.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop51.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP511D80IUNK, "op511d80iunk", "vunkop51.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.ss $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SSD80IUNK, "mul32ssd80iunk", "vunkmul32.ss", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.su $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32SUD80IUNK, "mul32sud80iunk", "vunkmul32.su", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.us $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32USD80IUNK, "mul32usd80iunk", "vunkmul32.us", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkmul32.uu $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_MUL32UUD80IUNK, "mul32uud80iunk", "vunkmul32.uu", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop56.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP561D80IUNK, "op561d80iunk", "vunkop56.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop57.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP571D80IUNK, "op571d80iunk", "vunkop57.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop58.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP581D80IUNK, "op581d80iunk", "vunkop58.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop59.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP591D80IUNK, "op591d80iunk", "vunkop59.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop60.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP601D80IUNK, "op601d80iunk", "vunkop60.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop61.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP611D80IUNK, "op611d80iunk", "vunkop61.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop62.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP621D80IUNK, "op621d80iunk", "vunkop62.1", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkop63.1 $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_OP631D80IUNK, "op631d80iunk", "vunkop63.1", 80,
+    VC4_INSN_OP631D80I, "op631d80i", "vop63.1", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8ld $v80d32reg,($vec_ldaddr)$v80mods_mem$dummyabits */

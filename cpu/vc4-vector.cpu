@@ -758,6 +758,84 @@
 (mkvecdataops48 vimm 16 0 h)
 (mkvecdataops48 vimm 16 0 v)
 
+; <mulop> vec,vec,sclr [SETF]
+
+(define-pmacro (vsclrmulop48 x-name x-signs x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) (.downcase x-signs) x-dir d48s x-sreg)
+    (.str x-name x-signs (.upcase x-dir) "D48S" (.upcase x-sreg)) ()
+    (.str "v" (.downcase x-name) "." (.downcase x-signs)
+          " $v48dreg_" x-dir "$dplus_s" x-sreg ",$v48areg_" x-dir "$aplus_s"
+          x-sreg ",$v48sclr$setf_mod")
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (.sym v48areg_ x-dir)
+       v48sclr (f-op42 0) (.sym dplus_s x-sreg) (.sym aplus_s x-sreg)
+       (f-op41-39 7) setf_mod)
+    () ())
+)
+
+; <mulop> vec,vec,vec
+
+(define-pmacro (vecmulop48 x-name x-signs x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) (.downcase x-signs) x-dir d48v x-sreg)
+    (.str x-name x-signs (.upcase x-dir) "D48V" (.upcase x-sreg)) ()
+    (.str "v" (.downcase x-name) "." (.downcase x-signs)
+          " $v48dreg_" x-dir "$dplus_s" x-sreg ",$v48areg_" x-dir "$aplus_s"
+          x-sreg ",$v48breg_" x-dir "$bplus_s" x-sreg)
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (.sym v48areg_ x-dir)
+       (.sym v48breg_ x-dir) (f-op42 0) (.sym dplus_s x-sreg)
+       (.sym aplus_s x-sreg) (.sym bplus_s x-sreg))
+    () ())
+)
+
+; <mulop> vec,vec,imm [setf] [ifxx]
+
+(define-pmacro (vimmmulop48 x-name x-signs x-xflag x-dir x-sreg)
+  (define-normal-insn
+    (.sym (.downcase x-name) (.downcase x-signs) x-dir d48i x-sreg)
+    (.str x-name x-signs (.upcase x-dir) "D48I" (.upcase x-sreg)) ()
+    (.str "v" (.downcase x-name) "." (.downcase x-signs)
+          " $v48dreg_" x-dir "$dplus_s" x-sreg ",$v48areg_" x-dir "$aplus_s"
+          x-sreg ",$v48imm$v48imm_mods")
+    (+ (f-op15-10 61) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir)
+       (.sym VECDIR_ (.upcase x-dir)) (.sym v48areg_ x-dir)
+       v48imm (f-op42 1) (.sym dplus_s x-sreg) (.sym aplus_s x-sreg)
+       v48imm_mods)
+    () ())
+)
+
+(define-pmacro (mkvecmulops48 x-boptype x-xflag x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.for-each
+        (.pmacro (x-opname x-signs)
+          (.exec ((.sym x-boptype mulop48) x-opname x-signs x-xflag x-dir
+                                           x-sreg)))
+        (.map .car (.sym mulopsx x-xflag vec))
+        (.map .cadr (.sym mulopsx x-xflag vec))))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkvecmulops48 vsclr 0 h)
+(mkvecmulops48 vsclr 0 v)
+(mkvecmulops48 vsclr 1 h)
+(mkvecmulops48 vsclr 1 v)
+
+(mkvecmulops48 vec 0 h)
+(mkvecmulops48 vec 0 v)
+(mkvecmulops48 vec 1 h)
+(mkvecmulops48 vec 1 v)
+
+(mkvecmulops48 vimm 0 h)
+(mkvecmulops48 vimm 0 v)
+(mkvecmulops48 vimm 1 h)
+(mkvecmulops48 vimm 1 v)
+
 ;;;;;;;;;;;;;;;;;;
 ;;              ;;
 ;; 80-bit insns ;;
@@ -802,33 +880,26 @@
 (mkvecdataops80 32 1)
 (mkvecdataops80 16 0)
 
-(define-pmacro (vecmulop80 x-width x-name x-signs x-xflag)
+(define-pmacro (vecmulop80 x-name x-signs x-xflag)
   (define-normal-insn
-    (.sym (.downcase x-name) (.downcase x-signs) d80v x-width)
-    (.str x-name x-signs "D80V" x-width) ()
-    (.str "v" x-width (.downcase x-name) "." (.downcase x-signs)
+    (.sym (.downcase x-name) (.downcase x-signs) d80v)
+    (.str x-name x-signs "D80V") ()
+    (.str "v" (.downcase x-name) "." (.downcase x-signs)
       " $v80d32reg,$v80a32reg,$v80b32reg$v80mods")
     (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
        v80mods v80d32reg v80a32reg (f-op42 0) v80b32reg)
     () ())
 )
 
-(define-pmacro (mkvecmulops80 x-width x-xflag)
+(define-pmacro (mkvecmulops80 x-xflag)
   (.for-each (.pmacro (x-opname x-signs)
-               (.exec (vecmulop80 x-width x-opname x-signs x-xflag)))
+               (.exec (vecmulop80 x-opname x-signs x-xflag)))
              (.map .car (.sym mulopsx x-xflag vec))
              (.map .cadr (.sym mulopsx x-xflag vec)))
 )
 
-(mkvecmulops80 8 0)
-(mkvecmulops80 16 0)
-(mkvecmulops80 32 0)
-(mkvecmulops80 unk 0)
-
-(mkvecmulops80 8 1)
-(mkvecmulops80 16 1)
-(mkvecmulops80 32 1)
-(mkvecmulops80 unk 1)
+(mkvecmulops80 0)
+(mkvecmulops80 1)
 
 ; For most 80-vector 3-operand/immediate ops.
 
@@ -866,33 +937,26 @@
 (mkvecdataopis80 32 1)
 (mkvecdataopis80 16 0)
 
-(define-pmacro (vecmulopi80 x-width x-name x-signs x-xflag)
+(define-pmacro (vecmulopi80 x-name x-signs x-xflag)
   (define-normal-insn
-    (.sym (.downcase x-name) (.downcase x-signs) d80i x-width)
-    (.str x-name x-signs "D80I" x-width) ()
-    (.str "v" x-width (.downcase x-name) "." (.downcase x-signs)
+    (.sym (.downcase x-name) (.downcase x-signs) d80i)
+    (.str x-name x-signs "D80I") ()
+    (.str "v" (.downcase x-name) "." (.downcase x-signs)
       " $v80d32reg,$v80a32reg,$v80imm$v80mods")
     (+ (f-op15-10 63) (f-op9 x-xflag) (.sym VMULXOP_ x-name x-signs)
        v80mods v80d32reg v80a32reg (f-op42 1) v80imm)
     () ())
 )
 
-(define-pmacro (mkvecmulopis80 x-width x-xflag)
+(define-pmacro (mkvecmulopis80 x-xflag)
   (.for-each (.pmacro (x-opname x-signs)
-               (.exec (vecmulopi80 x-width x-opname x-signs x-xflag)))
+               (.exec (vecmulopi80 x-opname x-signs x-xflag)))
              (.map .car (.sym mulopsx x-xflag vec))
              (.map .cadr (.sym mulopsx x-xflag vec)))
 )
 
-(mkvecmulopis80 8 0)
-(mkvecmulopis80 16 0)
-(mkvecmulopis80 32 0)
-(mkvecmulopis80 unk 0)
-
-(mkvecmulopis80 8 1)
-(mkvecmulopis80 16 1)
-(mkvecmulopis80 32 1)
-(mkvecmulopis80 unk 1)
+(mkvecmulopis80 0)
+(mkvecmulopis80 1)
 
 (define-pmacro (vldinsn x-op x-width)
   (define-normal-insn
