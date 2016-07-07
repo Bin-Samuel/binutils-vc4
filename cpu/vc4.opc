@@ -1875,5 +1875,15 @@ print_vec48sclr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     (info->fprintf_func) (info->stream, "?bit5?");
 }
 
+static void
+print_dummy (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	         void * dis_info ATTRIBUTE_UNUSED,
+	         unsigned long value ATTRIBUTE_UNUSED,
+	         unsigned int attrs ATTRIBUTE_UNUSED,
+	         bfd_vma pc ATTRIBUTE_UNUSED,
+	         int length ATTRIBUTE_UNUSED)
+{
+}
+
 /* -- */
 

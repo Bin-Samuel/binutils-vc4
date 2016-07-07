@@ -738,6 +738,15 @@
   f-op31-27
 )
 
+(define-operand
+  (name alu32missingareg)
+  (comment "omitted A operand")
+  (attrs)
+  (type h-uint)
+  (index f-op31-27)
+  (handlers (parse "dummy") (print "dummy"))
+)
+
 (define-normal-operand
   alu32cond
   "" ()
@@ -1881,9 +1890,9 @@
 (define-pmacro (clmpcntr2 x-name x-opcode x-op11-8 x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,$alu32breg")
+    (.str x-opcode "$alu32cond $alu32dreg$alu32missingareg,$alu32breg")
     (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
-       (f-op31-27 0) alu32cond OP22_21_0 alu32breg)
+       alu32missingareg alu32cond OP22_21_0 alu32breg)
     () ())
 )
 

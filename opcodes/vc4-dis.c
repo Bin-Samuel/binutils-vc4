@@ -660,6 +660,16 @@ print_vec48sclr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     (info->fprintf_func) (info->stream, "?bit5?");
 }
 
+static void
+print_dummy (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
+	         void * dis_info ATTRIBUTE_UNUSED,
+	         unsigned long value ATTRIBUTE_UNUSED,
+	         unsigned int attrs ATTRIBUTE_UNUSED,
+	         bfd_vma pc ATTRIBUTE_UNUSED,
+	         int length ATTRIBUTE_UNUSED)
+{
+}
+
 /* -- */
 
 void vc4_cgen_print_operand
@@ -725,6 +735,9 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_ALU32DREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0, 0);
+      break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      print_dummy (cd, info, fields->f_op31_27, 0, pc, length);
       break;
     case VC4_OPERAND_ALU48IDREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_reg, fields->f_op4_0, 0);

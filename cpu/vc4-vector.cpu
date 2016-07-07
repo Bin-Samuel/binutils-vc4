@@ -836,6 +836,171 @@
 (mkvecmulops48 vimm 1 h)
 (mkvecmulops48 vimm 1 v)
 
+; 48-bit vld variants, encoding - for hidden A operand.
+
+(define-pmacro (vld48insn x-op x-width x-dir x-sreg)
+  (define-normal-insn
+    (.sym v x-width x-op x-dir x-sreg)
+    (.str "V" x-width (.upcase x-op) (.upcase x-dir) (.upcase x-sreg)) ()
+    (.str "v" x-width x-op " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",($v48sclr)$setf_mod")
+    (+ (f-op15-10 60) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       (.sym SREG_ (.upcase x-sreg)) (.sym VECDIR_ (.upcase x-dir))
+       (.sym v48dreg_ x-dir) (.sym dplus_s x-sreg)
+       (f-op21-18 14) (f-op17-16 0) (f-op47-44 0) (f-op41-39 7) (f-op42 0)
+       v48sclr setf_mod)
+    () ())
+)
+
+(define-pmacro (mkld48op x-op x-width x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.exec (vld48insn x-op x-width x-dir x-sreg)))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkld48op ld 8 h)
+(mkld48op ld 8 v)
+(mkld48op ld 16 h)
+(mkld48op ld 16 v)
+(mkld48op ld 32 h)
+(mkld48op ld 32 v)
+(mkld48op ld unk h)
+(mkld48op ld unk v)
+
+(mkld48op lookupm 8 h)
+(mkld48op lookupm 8 v)
+(mkld48op lookupm 16 h)
+(mkld48op lookupm 16 v)
+(mkld48op lookupm 32 h)
+(mkld48op lookupm 32 v)
+(mkld48op lookupm unk h)
+(mkld48op lookupm unk v)
+
+(mkld48op lookupml 8 h)
+(mkld48op lookupml 8 v)
+(mkld48op lookupml 16 h)
+(mkld48op lookupml 16 v)
+(mkld48op lookupml 32 h)
+(mkld48op lookupml 32 v)
+(mkld48op lookupml unk h)
+(mkld48op lookupml unk v)
+
+; 48-bit store variants, omitted D operand.
+
+(define-pmacro (vst48insn x-op x-width x-dir x-sreg)
+  (define-normal-insn
+    (.sym v x-width x-op x-dir x-sreg)
+    (.str "V" x-width (.upcase x-op) (.upcase x-dir) (.upcase x-sreg)) ()
+    (.str "v" x-width x-op " $v48areg_" x-dir "$aplus_s" x-sreg
+          ",($v48sclr)$setf_mod")
+    (+ (f-op15-10 60) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       (.sym SREG_ (.upcase x-sreg)) (.sym VECDIR_ (.upcase x-dir))
+       (f-op31-29 7) (f-op27-22 0)
+       (.sym v48areg_ x-dir) (.sym aplus_s x-sreg) (f-op41-39 7) (f-op42 0)
+       (f-op43 0) v48sclr setf_mod)
+    () ())
+)
+
+(define-pmacro (mkst48op x-op x-width x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.exec (vst48insn x-op x-width x-dir x-sreg)))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkst48op st 8 h)
+(mkst48op st 8 v)
+(mkst48op st 16 h)
+(mkst48op st 16 v)
+(mkst48op st 32 h)
+(mkst48op st 32 v)
+(mkst48op st unk h)
+(mkst48op st unk v)
+
+(mkst48op indexwritem 8 h)
+(mkst48op indexwritem 8 v)
+(mkst48op indexwritem 16 h)
+(mkst48op indexwritem 16 v)
+(mkst48op indexwritem 32 h)
+(mkst48op indexwritem 32 v)
+(mkst48op indexwritem unk h)
+(mkst48op indexwritem unk v)
+
+(mkst48op indexwriteml 8 h)
+(mkst48op indexwriteml 8 v)
+(mkst48op indexwriteml 16 h)
+(mkst48op indexwriteml 16 v)
+(mkst48op indexwriteml 32 h)
+(mkst48op indexwriteml 32 v)
+(mkst48op indexwriteml unk h)
+(mkst48op indexwriteml unk v)
+
+(define-pmacro (vgenmem48insn x-op x-width x-dir x-sreg)
+  (define-normal-insn
+    (.sym v x-width (.downcase x-op) x-dir 48gen x-sreg)
+    (.str "V" x-width (.upcase x-op) (.upcase x-dir) 48GEN (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-op) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48breg_" x-dir "$bplus_s"
+          x-sreg)
+    (+ (f-op15-10 60) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir) (.sym v48areg_ x-dir)
+       (.sym v48breg_ x-dir) (.sym VECDIR_ (.upcase x-dir)) (f-op42 0)
+       (.sym dplus_s x-sreg) (.sym aplus_s x-sreg) (.sym bplus_s x-sreg))
+    () ())
+)
+
+(define-pmacro (mkgenmem48ops x-width x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.for-each
+        (.pmacro (x-opname)
+                 (.exec (vgenmem48insn x-opname x-width x-dir x-sreg)))
+        genmemops))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkgenmem48ops 8 h)
+(mkgenmem48ops 8 v)
+(mkgenmem48ops 16 h)
+(mkgenmem48ops 16 v)
+(mkgenmem48ops 32 h)
+(mkgenmem48ops 32 v)
+(mkgenmem48ops unk h)
+(mkgenmem48ops unk v)
+
+(define-pmacro (vgenmemi48insn x-op x-width x-dir x-sreg)
+  (define-normal-insn
+    (.sym v x-width (.downcase x-op) x-dir 48geni x-sreg)
+    (.str "V" x-width (.upcase x-op) (.upcase x-dir) 48GENI (.upcase x-sreg)) ()
+    (.str "v" x-width (.downcase x-op) " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48imm$v48imm_mods")
+    (+ (f-op15-10 60) (.sym VMEMOP_ (.upcase x-op)) (.sym VMEMWIDTH_ x-width)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir) (.sym v48areg_ x-dir)
+       v48imm (.sym VECDIR_ (.upcase x-dir)) (f-op42 1)
+       (.sym dplus_s x-sreg) (.sym aplus_s x-sreg) v48imm_mods)
+    () ())
+)
+
+(define-pmacro (mkgenmemi48ops x-width x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.for-each
+        (.pmacro (x-opname)
+                 (.exec (vgenmemi48insn x-opname x-width x-dir x-sreg)))
+        genmemops))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkgenmemi48ops 8 h)
+(mkgenmemi48ops 8 v)
+(mkgenmemi48ops 16 h)
+(mkgenmemi48ops 16 v)
+(mkgenmemi48ops 32 h)
+(mkgenmemi48ops 32 v)
+(mkgenmemi48ops unk h)
+(mkgenmemi48ops unk v)
+
 ;;;;;;;;;;;;;;;;;;
 ;;              ;;
 ;; 80-bit insns ;;

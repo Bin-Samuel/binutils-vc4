@@ -628,6 +628,9 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU32DREG :
       errmsg = insert_normal (cd, fields->f_op4_0, 0, 0, 4, 5, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      errmsg = insert_normal (cd, fields->f_op31_27, 0, 16, 15, 5, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_ALU48IDREG :
       errmsg = insert_normal (cd, fields->f_op4_0, 0, 0, 4, 5, 16, total_length, buffer);
       break;
@@ -1359,6 +1362,9 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_ALU32DREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 4, 5, 16, total_length, pc, & fields->f_op4_0);
       break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      length = extract_normal (cd, ex_info, insn_value, 0, 16, 15, 5, 16, total_length, pc, & fields->f_op31_27);
+      break;
     case VC4_OPERAND_ALU48IDREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 4, 5, 16, total_length, pc, & fields->f_op4_0);
       break;
@@ -2015,6 +2021,9 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU32DREG :
       value = fields->f_op4_0;
       break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      value = fields->f_op31_27;
+      break;
     case VC4_OPERAND_ALU48IDREG :
       value = fields->f_op4_0;
       break;
@@ -2364,6 +2373,9 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU32DREG :
       value = fields->f_op4_0;
+      break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      value = fields->f_op31_27;
       break;
     case VC4_OPERAND_ALU48IDREG :
       value = fields->f_op4_0;
@@ -2722,6 +2734,9 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_ALU32DREG :
       fields->f_op4_0 = value;
       break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      fields->f_op31_27 = value;
+      break;
     case VC4_OPERAND_ALU48IDREG :
       fields->f_op4_0 = value;
       break;
@@ -3060,6 +3075,9 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_ALU32DREG :
       fields->f_op4_0 = value;
+      break;
+    case VC4_OPERAND_ALU32MISSINGAREG :
+      fields->f_op31_27 = value;
       break;
     case VC4_OPERAND_ALU48IDREG :
       fields->f_op4_0 = value;
