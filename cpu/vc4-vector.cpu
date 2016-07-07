@@ -113,7 +113,8 @@
    MEM07
    MEMREAD MEMWRITE MEM10 MEM11 MEM12 MEM13 MEM14 MEM15
    MEM16 MEM17 MEM18 MEM19 MEM20 MEM21 MEM22 MEM23
-   GETACC MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
+   ;GETACC
+   MEM25 MEM26 MEM27 MEM28 MEM29 MEM30 MEM31)
 )
 
 (define-pmacro mulopsx0vec
@@ -133,6 +134,11 @@
 (define-normal-insn-enum
   insn-memwidth "Vector memory op width" () VMEMWIDTH_ f-op4-3
   ("8" "16" "32" "unk")
+)
+
+(define-normal-insn-enum
+  insn-memsat "Vector memory op saturation" () VMEMSAT_ f-op4-3
+  ("" "s32" "unk" "s16")
 )
 
 (define-normal-insn-enum
@@ -969,6 +975,36 @@
 (mkgenmem48ops unk h)
 (mkgenmem48ops unk v)
 
+(define-pmacro (vgetacc48insn x-sat x-dir x-sreg)
+  (define-normal-insn
+    (.sym vgetacc48 x-sat x-dir x-sreg)
+    (.str "VGETACC48" (.upcase x-sat) (.upcase x-dir) (.upcase x-sreg)) ()
+    (.str "vgetacc" x-sat " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48breg_" x-dir "$bplus_s"
+          x-sreg)
+    (+ (f-op15-10 60) VMEMOP_GETACC (.sym VMEMSAT_ x-sat)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir) (.sym v48areg_ x-dir)
+       (.sym v48breg_ x-dir) (.sym VECDIR_ (.upcase x-dir)) (f-op42 0)
+       (.sym dplus_s x-sreg) (.sym aplus_s x-sreg) (.sym bplus_s x-sreg))
+    () ())
+)
+
+(define-pmacro (mkgetacc48ops x-sat x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.exec (vgetacc48insn x-sat x-dir x-sreg)))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkgetacc48ops "" h)
+(mkgetacc48ops "" v)
+(mkgetacc48ops "s32" h)
+(mkgetacc48ops "s32" v)
+(mkgetacc48ops "unk" h)
+(mkgetacc48ops "unk" v)
+(mkgetacc48ops "s16" h)
+(mkgetacc48ops "s16" v)
+
 (define-pmacro (vgenmemi48insn x-op x-width x-dir x-sreg)
   (define-normal-insn
     (.sym v x-width (.downcase x-op) x-dir 48geni x-sreg)
@@ -1000,6 +1036,35 @@
 (mkgenmemi48ops 32 v)
 (mkgenmemi48ops unk h)
 (mkgenmemi48ops unk v)
+
+(define-pmacro (vgetacci48insn x-sat x-dir x-sreg)
+  (define-normal-insn
+    (.sym vgetacci48 x-sat x-dir x-sreg)
+    (.str "VGETACCI" (.upcase x-sat) (.upcase x-dir) (.upcase x-sreg)) ()
+    (.str "vgetacc" x-sat " $v48dreg_" x-dir "$dplus_s" x-sreg
+          ",$v48areg_" x-dir "$aplus_s" x-sreg ",$v48imm$v48imm_mods")
+    (+ (f-op15-10 60) VMEMOP_GETACC (.sym VMEMSAT_ x-sat)
+       (.sym SREG_ (.upcase x-sreg)) (.sym v48dreg_ x-dir) (.sym v48areg_ x-dir)
+       v48imm (.sym VECDIR_ (.upcase x-dir)) (f-op42 1)
+       (.sym dplus_s x-sreg) (.sym aplus_s x-sreg) v48imm_mods)
+    () ())
+)
+
+(define-pmacro (mkgetacci48ops x-sat x-dir)
+  (.for-each
+    (.pmacro (x-sreg)
+      (.exec (vgetacci48insn x-sat x-dir x-sreg)))
+    (r0 r1 r2 r3 r4 r5 r6 r7))
+)
+
+(mkgetacci48ops "" h)
+(mkgetacci48ops "" v)
+(mkgetacci48ops "s32" h)
+(mkgetacci48ops "s32" v)
+(mkgetacci48ops "unk" h)
+(mkgetacci48ops "unk" v)
+(mkgetacci48ops "s16" h)
+(mkgetacci48ops "s16" v)
 
 ;;;;;;;;;;;;;;;;;;
 ;;              ;;
@@ -1195,6 +1260,21 @@
 (mkgenmemops 32)
 (mkgenmemops unk)
 
+(define-pmacro (vgetaccinsn x-sat)
+  (define-normal-insn
+    (.sym vgetacc x-sat) (.str "VGETACC" (.upcase x-sat)) ()
+    (.str "vgetacc" x-sat
+          " $v80d32reg,$v80a32reg,$v80b32reg$v80mods")
+    (+ (f-op15-10 62) VMEMOP_GETACC (.sym VMEMSAT_ x-sat)
+       v80mods v80d32reg v80a32reg v80b32reg (f-op42 0))
+    () ())
+)
+
+(vgetaccinsn "")
+(vgetaccinsn "s32")
+(vgetaccinsn "unk")
+(vgetaccinsn "s16")
+
 (define-pmacro (vgenmemiinsn x-op x-width)
   (define-normal-insn
     (.sym v x-width (.downcase x-op) igen)
@@ -1215,3 +1295,19 @@
 (mkgenmemiops 16)
 (mkgenmemiops 32)
 (mkgenmemiops unk)
+
+(define-pmacro (vgetacciinsn x-sat)
+  (define-normal-insn
+    (.sym vgetacci x-sat)
+    (.str "VGETACCI" (.upcase x-sat)) ()
+    (.str "vgetacc" x-sat
+          " $v80d32reg,$v80a32reg,$v80imm$v80mods")
+    (+ (f-op15-10 62) VMEMOP_GETACC (.sym VMEMSAT_ x-sat)
+       v80mods v80d32reg v80a32reg v80imm (f-op42 1))
+    () ())
+)
+
+(vgetacciinsn "")
+(vgetacciinsn "s32")
+(vgetacciinsn "unk")
+(vgetacciinsn "s16")

@@ -35673,11 +35673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENR0, "v8mem23h48genr0", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
-  {
-    VC4_INSN_V8GETACCH48GENR0, "v8getacch48genr0", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
   {
     VC4_INSN_V8MEM25H48GENR0, "v8mem25h48genr0", "v8mem25", 48,
@@ -35801,11 +35796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
   {
     VC4_INSN_V8MEM23H48GENR1, "v8mem23h48genr1", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
-  {
-    VC4_INSN_V8GETACCH48GENR1, "v8getacch48genr1", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
@@ -35933,11 +35923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENR2, "v8mem23h48genr2", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
-  {
-    VC4_INSN_V8GETACCH48GENR2, "v8getacch48genr2", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
   {
     VC4_INSN_V8MEM25H48GENR2, "v8mem25h48genr2", "v8mem25", 48,
@@ -36061,11 +36046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
   {
     VC4_INSN_V8MEM23H48GENR3, "v8mem23h48genr3", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
-  {
-    VC4_INSN_V8GETACCH48GENR3, "v8getacch48genr3", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
@@ -36193,11 +36173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENR4, "v8mem23h48genr4", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
-  {
-    VC4_INSN_V8GETACCH48GENR4, "v8getacch48genr4", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
   {
     VC4_INSN_V8MEM25H48GENR4, "v8mem25h48genr4", "v8mem25", 48,
@@ -36321,11 +36296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
   {
     VC4_INSN_V8MEM23H48GENR5, "v8mem23h48genr5", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
-  {
-    VC4_INSN_V8GETACCH48GENR5, "v8getacch48genr5", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
@@ -36453,11 +36423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENR6, "v8mem23h48genr6", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
-  {
-    VC4_INSN_V8GETACCH48GENR6, "v8getacch48genr6", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
   {
     VC4_INSN_V8MEM25H48GENR6, "v8mem25h48genr6", "v8mem25", 48,
@@ -36581,11 +36546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
   {
     VC4_INSN_V8MEM23H48GENR7, "v8mem23h48genr7", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
-  {
-    VC4_INSN_V8GETACCH48GENR7, "v8getacch48genr7", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
@@ -36713,11 +36673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENR0, "v8mem23v48genr0", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
-  {
-    VC4_INSN_V8GETACCV48GENR0, "v8getaccv48genr0", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
   {
     VC4_INSN_V8MEM25V48GENR0, "v8mem25v48genr0", "v8mem25", 48,
@@ -36841,11 +36796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
   {
     VC4_INSN_V8MEM23V48GENR1, "v8mem23v48genr1", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
-  {
-    VC4_INSN_V8GETACCV48GENR1, "v8getaccv48genr1", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
@@ -36973,11 +36923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENR2, "v8mem23v48genr2", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
-  {
-    VC4_INSN_V8GETACCV48GENR2, "v8getaccv48genr2", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
   {
     VC4_INSN_V8MEM25V48GENR2, "v8mem25v48genr2", "v8mem25", 48,
@@ -37101,11 +37046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
   {
     VC4_INSN_V8MEM23V48GENR3, "v8mem23v48genr3", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
-  {
-    VC4_INSN_V8GETACCV48GENR3, "v8getaccv48genr3", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
@@ -37233,11 +37173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENR4, "v8mem23v48genr4", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
-  {
-    VC4_INSN_V8GETACCV48GENR4, "v8getaccv48genr4", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
   {
     VC4_INSN_V8MEM25V48GENR4, "v8mem25v48genr4", "v8mem25", 48,
@@ -37361,11 +37296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
   {
     VC4_INSN_V8MEM23V48GENR5, "v8mem23v48genr5", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
-  {
-    VC4_INSN_V8GETACCV48GENR5, "v8getaccv48genr5", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
@@ -37493,11 +37423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENR6, "v8mem23v48genr6", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
-  {
-    VC4_INSN_V8GETACCV48GENR6, "v8getaccv48genr6", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
   {
     VC4_INSN_V8MEM25V48GENR6, "v8mem25v48genr6", "v8mem25", 48,
@@ -37621,11 +37546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
   {
     VC4_INSN_V8MEM23V48GENR7, "v8mem23v48genr7", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
-  {
-    VC4_INSN_V8GETACCV48GENR7, "v8getaccv48genr7", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
@@ -37753,11 +37673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENR0, "v16mem23h48genr0", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
-  {
-    VC4_INSN_V16GETACCH48GENR0, "v16getacch48genr0", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
   {
     VC4_INSN_V16MEM25H48GENR0, "v16mem25h48genr0", "v16mem25", 48,
@@ -37881,11 +37796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
   {
     VC4_INSN_V16MEM23H48GENR1, "v16mem23h48genr1", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
-  {
-    VC4_INSN_V16GETACCH48GENR1, "v16getacch48genr1", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
@@ -38013,11 +37923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENR2, "v16mem23h48genr2", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
-  {
-    VC4_INSN_V16GETACCH48GENR2, "v16getacch48genr2", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
   {
     VC4_INSN_V16MEM25H48GENR2, "v16mem25h48genr2", "v16mem25", 48,
@@ -38141,11 +38046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
   {
     VC4_INSN_V16MEM23H48GENR3, "v16mem23h48genr3", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
-  {
-    VC4_INSN_V16GETACCH48GENR3, "v16getacch48genr3", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
@@ -38273,11 +38173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENR4, "v16mem23h48genr4", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
-  {
-    VC4_INSN_V16GETACCH48GENR4, "v16getacch48genr4", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
   {
     VC4_INSN_V16MEM25H48GENR4, "v16mem25h48genr4", "v16mem25", 48,
@@ -38401,11 +38296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
   {
     VC4_INSN_V16MEM23H48GENR5, "v16mem23h48genr5", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
-  {
-    VC4_INSN_V16GETACCH48GENR5, "v16getacch48genr5", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
@@ -38533,11 +38423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENR6, "v16mem23h48genr6", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
-  {
-    VC4_INSN_V16GETACCH48GENR6, "v16getacch48genr6", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
   {
     VC4_INSN_V16MEM25H48GENR6, "v16mem25h48genr6", "v16mem25", 48,
@@ -38661,11 +38546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
   {
     VC4_INSN_V16MEM23H48GENR7, "v16mem23h48genr7", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
-  {
-    VC4_INSN_V16GETACCH48GENR7, "v16getacch48genr7", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
@@ -38793,11 +38673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENR0, "v16mem23v48genr0", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
-  {
-    VC4_INSN_V16GETACCV48GENR0, "v16getaccv48genr0", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
   {
     VC4_INSN_V16MEM25V48GENR0, "v16mem25v48genr0", "v16mem25", 48,
@@ -38921,11 +38796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
   {
     VC4_INSN_V16MEM23V48GENR1, "v16mem23v48genr1", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
-  {
-    VC4_INSN_V16GETACCV48GENR1, "v16getaccv48genr1", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
@@ -39053,11 +38923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENR2, "v16mem23v48genr2", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
-  {
-    VC4_INSN_V16GETACCV48GENR2, "v16getaccv48genr2", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
   {
     VC4_INSN_V16MEM25V48GENR2, "v16mem25v48genr2", "v16mem25", 48,
@@ -39181,11 +39046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
   {
     VC4_INSN_V16MEM23V48GENR3, "v16mem23v48genr3", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
-  {
-    VC4_INSN_V16GETACCV48GENR3, "v16getaccv48genr3", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
@@ -39313,11 +39173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENR4, "v16mem23v48genr4", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
-  {
-    VC4_INSN_V16GETACCV48GENR4, "v16getaccv48genr4", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
   {
     VC4_INSN_V16MEM25V48GENR4, "v16mem25v48genr4", "v16mem25", 48,
@@ -39441,11 +39296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
   {
     VC4_INSN_V16MEM23V48GENR5, "v16mem23v48genr5", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
-  {
-    VC4_INSN_V16GETACCV48GENR5, "v16getaccv48genr5", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
@@ -39573,11 +39423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENR6, "v16mem23v48genr6", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
-  {
-    VC4_INSN_V16GETACCV48GENR6, "v16getaccv48genr6", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
   {
     VC4_INSN_V16MEM25V48GENR6, "v16mem25v48genr6", "v16mem25", 48,
@@ -39701,11 +39546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
   {
     VC4_INSN_V16MEM23V48GENR7, "v16mem23v48genr7", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
-  {
-    VC4_INSN_V16GETACCV48GENR7, "v16getaccv48genr7", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
@@ -39833,11 +39673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENR0, "v32mem23h48genr0", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
-  {
-    VC4_INSN_V32GETACCH48GENR0, "v32getacch48genr0", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
   {
     VC4_INSN_V32MEM25H48GENR0, "v32mem25h48genr0", "v32mem25", 48,
@@ -39961,11 +39796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
   {
     VC4_INSN_V32MEM23H48GENR1, "v32mem23h48genr1", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
-  {
-    VC4_INSN_V32GETACCH48GENR1, "v32getacch48genr1", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
@@ -40093,11 +39923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENR2, "v32mem23h48genr2", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
-  {
-    VC4_INSN_V32GETACCH48GENR2, "v32getacch48genr2", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
   {
     VC4_INSN_V32MEM25H48GENR2, "v32mem25h48genr2", "v32mem25", 48,
@@ -40221,11 +40046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
   {
     VC4_INSN_V32MEM23H48GENR3, "v32mem23h48genr3", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
-  {
-    VC4_INSN_V32GETACCH48GENR3, "v32getacch48genr3", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
@@ -40353,11 +40173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENR4, "v32mem23h48genr4", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
-  {
-    VC4_INSN_V32GETACCH48GENR4, "v32getacch48genr4", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
   {
     VC4_INSN_V32MEM25H48GENR4, "v32mem25h48genr4", "v32mem25", 48,
@@ -40481,11 +40296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
   {
     VC4_INSN_V32MEM23H48GENR5, "v32mem23h48genr5", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
-  {
-    VC4_INSN_V32GETACCH48GENR5, "v32getacch48genr5", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
@@ -40613,11 +40423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENR6, "v32mem23h48genr6", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
-  {
-    VC4_INSN_V32GETACCH48GENR6, "v32getacch48genr6", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
   {
     VC4_INSN_V32MEM25H48GENR6, "v32mem25h48genr6", "v32mem25", 48,
@@ -40741,11 +40546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
   {
     VC4_INSN_V32MEM23H48GENR7, "v32mem23h48genr7", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
-  {
-    VC4_INSN_V32GETACCH48GENR7, "v32getacch48genr7", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
@@ -40873,11 +40673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENR0, "v32mem23v48genr0", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
-  {
-    VC4_INSN_V32GETACCV48GENR0, "v32getaccv48genr0", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
   {
     VC4_INSN_V32MEM25V48GENR0, "v32mem25v48genr0", "v32mem25", 48,
@@ -41001,11 +40796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
   {
     VC4_INSN_V32MEM23V48GENR1, "v32mem23v48genr1", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
-  {
-    VC4_INSN_V32GETACCV48GENR1, "v32getaccv48genr1", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
@@ -41133,11 +40923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENR2, "v32mem23v48genr2", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
-  {
-    VC4_INSN_V32GETACCV48GENR2, "v32getaccv48genr2", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
   {
     VC4_INSN_V32MEM25V48GENR2, "v32mem25v48genr2", "v32mem25", 48,
@@ -41261,11 +41046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
   {
     VC4_INSN_V32MEM23V48GENR3, "v32mem23v48genr3", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
-  {
-    VC4_INSN_V32GETACCV48GENR3, "v32getaccv48genr3", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
@@ -41393,11 +41173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENR4, "v32mem23v48genr4", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
-  {
-    VC4_INSN_V32GETACCV48GENR4, "v32getaccv48genr4", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
   {
     VC4_INSN_V32MEM25V48GENR4, "v32mem25v48genr4", "v32mem25", 48,
@@ -41521,11 +41296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
   {
     VC4_INSN_V32MEM23V48GENR5, "v32mem23v48genr5", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
-  {
-    VC4_INSN_V32GETACCV48GENR5, "v32getaccv48genr5", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
@@ -41653,11 +41423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENR6, "v32mem23v48genr6", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
-  {
-    VC4_INSN_V32GETACCV48GENR6, "v32getaccv48genr6", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
   {
     VC4_INSN_V32MEM25V48GENR6, "v32mem25v48genr6", "v32mem25", 48,
@@ -41781,11 +41546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
   {
     VC4_INSN_V32MEM23V48GENR7, "v32mem23v48genr7", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
-  {
-    VC4_INSN_V32GETACCV48GENR7, "v32getaccv48genr7", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
@@ -41913,11 +41673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENR0, "vunkmem23h48genr0", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR0, "vunkgetacch48genr0", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
   {
     VC4_INSN_VUNKMEM25H48GENR0, "vunkmem25h48genr0", "vunkmem25", 48,
@@ -42041,11 +41796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
   {
     VC4_INSN_VUNKMEM23H48GENR1, "vunkmem23h48genr1", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR1, "vunkgetacch48genr1", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
@@ -42173,11 +41923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENR2, "vunkmem23h48genr2", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR2, "vunkgetacch48genr2", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
   {
     VC4_INSN_VUNKMEM25H48GENR2, "vunkmem25h48genr2", "vunkmem25", 48,
@@ -42301,11 +42046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
   {
     VC4_INSN_VUNKMEM23H48GENR3, "vunkmem23h48genr3", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR3, "vunkgetacch48genr3", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
@@ -42433,11 +42173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENR4, "vunkmem23h48genr4", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR4, "vunkgetacch48genr4", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
   {
     VC4_INSN_VUNKMEM25H48GENR4, "vunkmem25h48genr4", "vunkmem25", 48,
@@ -42561,11 +42296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
   {
     VC4_INSN_VUNKMEM23H48GENR5, "vunkmem23h48genr5", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR5, "vunkgetacch48genr5", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
@@ -42693,11 +42423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENR6, "vunkmem23h48genr6", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR6, "vunkgetacch48genr6", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
   {
     VC4_INSN_VUNKMEM25H48GENR6, "vunkmem25h48genr6", "vunkmem25", 48,
@@ -42821,11 +42546,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
   {
     VC4_INSN_VUNKMEM23H48GENR7, "vunkmem23h48genr7", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
-  {
-    VC4_INSN_VUNKGETACCH48GENR7, "vunkgetacch48genr7", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
@@ -42953,11 +42673,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENR0, "vunkmem23v48genr0", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR0, "vunkgetaccv48genr0", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
   {
     VC4_INSN_VUNKMEM25V48GENR0, "vunkmem25v48genr0", "vunkmem25", 48,
@@ -43081,11 +42796,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
   {
     VC4_INSN_VUNKMEM23V48GENR1, "vunkmem23v48genr1", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR1, "vunkgetaccv48genr1", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
@@ -43213,11 +42923,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENR2, "vunkmem23v48genr2", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR2, "vunkgetaccv48genr2", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
   {
     VC4_INSN_VUNKMEM25V48GENR2, "vunkmem25v48genr2", "vunkmem25", 48,
@@ -43341,11 +43046,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
   {
     VC4_INSN_VUNKMEM23V48GENR3, "vunkmem23v48genr3", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR3, "vunkgetaccv48genr3", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
@@ -43473,11 +43173,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENR4, "vunkmem23v48genr4", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR4, "vunkgetaccv48genr4", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
   {
     VC4_INSN_VUNKMEM25V48GENR4, "vunkmem25v48genr4", "vunkmem25", 48,
@@ -43601,11 +43296,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
   {
     VC4_INSN_VUNKMEM23V48GENR5, "vunkmem23v48genr5", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR5, "vunkgetaccv48genr5", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
@@ -43733,11 +43423,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENR6, "vunkmem23v48genr6", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR6, "vunkgetaccv48genr6", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
   {
     VC4_INSN_VUNKMEM25V48GENR6, "vunkmem25v48genr6", "vunkmem25", 48,
@@ -43863,11 +43548,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENR7, "vunkmem23v48genr7", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
-  {
-    VC4_INSN_VUNKGETACCV48GENR7, "vunkgetaccv48genr7", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
   {
     VC4_INSN_VUNKMEM25V48GENR7, "vunkmem25v48genr7", "vunkmem25", 48,
@@ -43901,6 +43581,326 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem31 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
   {
     VC4_INSN_VUNKMEM31V48GENR7, "vunkmem31v48genr7", "vunkmem31", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48HR0, "vgetacc48hr0", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48HR1, "vgetacc48hr1", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48HR2, "vgetacc48hr2", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48HR3, "vgetacc48hr3", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48HR4, "vgetacc48hr4", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48HR5, "vgetacc48hr5", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48HR6, "vgetacc48hr6", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48HR7, "vgetacc48hr7", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48VR0, "vgetacc48vr0", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48VR1, "vgetacc48vr1", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48VR2, "vgetacc48vr2", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48VR3, "vgetacc48vr3", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48VR4, "vgetacc48vr4", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48VR5, "vgetacc48vr5", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48VR6, "vgetacc48vr6", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48VR7, "vgetacc48vr7", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48S32HR0, "vgetacc48s32hr0", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48S32HR1, "vgetacc48s32hr1", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48S32HR2, "vgetacc48s32hr2", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48S32HR3, "vgetacc48s32hr3", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48S32HR4, "vgetacc48s32hr4", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48S32HR5, "vgetacc48s32hr5", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48S32HR6, "vgetacc48s32hr6", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48S32HR7, "vgetacc48s32hr7", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48S32VR0, "vgetacc48s32vr0", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48S32VR1, "vgetacc48s32vr1", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48S32VR2, "vgetacc48s32vr2", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48S32VR3, "vgetacc48s32vr3", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48S32VR4, "vgetacc48s32vr4", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48S32VR5, "vgetacc48s32vr5", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48S32VR6, "vgetacc48s32vr6", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48S32VR7, "vgetacc48s32vr7", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48UNKHR0, "vgetacc48unkhr0", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48UNKHR1, "vgetacc48unkhr1", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48UNKHR2, "vgetacc48unkhr2", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48UNKHR3, "vgetacc48unkhr3", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48UNKHR4, "vgetacc48unkhr4", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48UNKHR5, "vgetacc48unkhr5", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48UNKHR6, "vgetacc48unkhr6", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48UNKHR7, "vgetacc48unkhr7", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48UNKVR0, "vgetacc48unkvr0", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48UNKVR1, "vgetacc48unkvr1", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48UNKVR2, "vgetacc48unkvr2", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48UNKVR3, "vgetacc48unkvr3", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48UNKVR4, "vgetacc48unkvr4", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48UNKVR5, "vgetacc48unkvr5", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48UNKVR6, "vgetacc48unkvr6", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48UNKVR7, "vgetacc48unkvr7", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48breg_h$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48S16HR0, "vgetacc48s16hr0", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48breg_h$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48S16HR1, "vgetacc48s16hr1", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48breg_h$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48S16HR2, "vgetacc48s16hr2", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48breg_h$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48S16HR3, "vgetacc48s16hr3", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48breg_h$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48S16HR4, "vgetacc48s16hr4", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48breg_h$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48S16HR5, "vgetacc48s16hr5", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48breg_h$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48S16HR6, "vgetacc48s16hr6", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48breg_h$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48S16HR7, "vgetacc48s16hr7", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48breg_v$bplus_sr0 */
+  {
+    VC4_INSN_VGETACC48S16VR0, "vgetacc48s16vr0", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48breg_v$bplus_sr1 */
+  {
+    VC4_INSN_VGETACC48S16VR1, "vgetacc48s16vr1", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48breg_v$bplus_sr2 */
+  {
+    VC4_INSN_VGETACC48S16VR2, "vgetacc48s16vr2", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48breg_v$bplus_sr3 */
+  {
+    VC4_INSN_VGETACC48S16VR3, "vgetacc48s16vr3", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48breg_v$bplus_sr4 */
+  {
+    VC4_INSN_VGETACC48S16VR4, "vgetacc48s16vr4", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48breg_v$bplus_sr5 */
+  {
+    VC4_INSN_VGETACC48S16VR5, "vgetacc48s16vr5", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48breg_v$bplus_sr6 */
+  {
+    VC4_INSN_VGETACC48S16VR6, "vgetacc48s16vr6", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48breg_v$bplus_sr7 */
+  {
+    VC4_INSN_VGETACC48S16VR7, "vgetacc48s16vr7", "vgetaccs16", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem03 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
@@ -43991,11 +43991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23H48GENIR0, "v8mem23h48genir0", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR0, "v8getacch48genir0", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
@@ -44123,11 +44118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENIR1, "v8mem23h48genir1", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR1, "v8getacch48genir1", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25H48GENIR1, "v8mem25h48genir1", "v8mem25", 48,
@@ -44251,11 +44241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23H48GENIR2, "v8mem23h48genir2", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR2, "v8getacch48genir2", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
@@ -44383,11 +44368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENIR3, "v8mem23h48genir3", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR3, "v8getacch48genir3", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25H48GENIR3, "v8mem25h48genir3", "v8mem25", 48,
@@ -44511,11 +44491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23H48GENIR4, "v8mem23h48genir4", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR4, "v8getacch48genir4", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
@@ -44643,11 +44618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENIR5, "v8mem23h48genir5", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR5, "v8getacch48genir5", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25H48GENIR5, "v8mem25h48genir5", "v8mem25", 48,
@@ -44771,11 +44741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23H48GENIR6, "v8mem23h48genir6", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR6, "v8getacch48genir6", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
@@ -44903,11 +44868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23H48GENIR7, "v8mem23h48genir7", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCH48GENIR7, "v8getacch48genir7", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25H48GENIR7, "v8mem25h48genir7", "v8mem25", 48,
@@ -45031,11 +44991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23V48GENIR0, "v8mem23v48genir0", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR0, "v8getaccv48genir0", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
@@ -45163,11 +45118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENIR1, "v8mem23v48genir1", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR1, "v8getaccv48genir1", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25V48GENIR1, "v8mem25v48genir1", "v8mem25", 48,
@@ -45291,11 +45241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23V48GENIR2, "v8mem23v48genir2", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR2, "v8getaccv48genir2", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
@@ -45423,11 +45368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENIR3, "v8mem23v48genir3", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR3, "v8getaccv48genir3", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25V48GENIR3, "v8mem25v48genir3", "v8mem25", 48,
@@ -45551,11 +45491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23V48GENIR4, "v8mem23v48genir4", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR4, "v8getaccv48genir4", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
@@ -45683,11 +45618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENIR5, "v8mem23v48genir5", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR5, "v8getaccv48genir5", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25V48GENIR5, "v8mem25v48genir5", "v8mem25", 48,
@@ -45811,11 +45741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM23V48GENIR6, "v8mem23v48genir6", "v8mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR6, "v8getaccv48genir6", "v8getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
@@ -45943,11 +45868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23V48GENIR7, "v8mem23v48genir7", "v8mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V8GETACCV48GENIR7, "v8getaccv48genir7", "v8getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_V8MEM25V48GENIR7, "v8mem25v48genir7", "v8mem25", 48,
@@ -46071,11 +45991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23H48GENIR0, "v16mem23h48genir0", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR0, "v16getacch48genir0", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
@@ -46203,11 +46118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENIR1, "v16mem23h48genir1", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR1, "v16getacch48genir1", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25H48GENIR1, "v16mem25h48genir1", "v16mem25", 48,
@@ -46331,11 +46241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23H48GENIR2, "v16mem23h48genir2", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR2, "v16getacch48genir2", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
@@ -46463,11 +46368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENIR3, "v16mem23h48genir3", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR3, "v16getacch48genir3", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25H48GENIR3, "v16mem25h48genir3", "v16mem25", 48,
@@ -46591,11 +46491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23H48GENIR4, "v16mem23h48genir4", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR4, "v16getacch48genir4", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
@@ -46723,11 +46618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENIR5, "v16mem23h48genir5", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR5, "v16getacch48genir5", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25H48GENIR5, "v16mem25h48genir5", "v16mem25", 48,
@@ -46851,11 +46741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23H48GENIR6, "v16mem23h48genir6", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR6, "v16getacch48genir6", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
@@ -46983,11 +46868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23H48GENIR7, "v16mem23h48genir7", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCH48GENIR7, "v16getacch48genir7", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25H48GENIR7, "v16mem25h48genir7", "v16mem25", 48,
@@ -47111,11 +46991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23V48GENIR0, "v16mem23v48genir0", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR0, "v16getaccv48genir0", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
@@ -47243,11 +47118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENIR1, "v16mem23v48genir1", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR1, "v16getaccv48genir1", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25V48GENIR1, "v16mem25v48genir1", "v16mem25", 48,
@@ -47371,11 +47241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23V48GENIR2, "v16mem23v48genir2", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR2, "v16getaccv48genir2", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
@@ -47503,11 +47368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENIR3, "v16mem23v48genir3", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR3, "v16getaccv48genir3", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25V48GENIR3, "v16mem25v48genir3", "v16mem25", 48,
@@ -47631,11 +47491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23V48GENIR4, "v16mem23v48genir4", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR4, "v16getaccv48genir4", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
@@ -47763,11 +47618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENIR5, "v16mem23v48genir5", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR5, "v16getaccv48genir5", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25V48GENIR5, "v16mem25v48genir5", "v16mem25", 48,
@@ -47891,11 +47741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM23V48GENIR6, "v16mem23v48genir6", "v16mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR6, "v16getaccv48genir6", "v16getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
@@ -48023,11 +47868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23V48GENIR7, "v16mem23v48genir7", "v16mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V16GETACCV48GENIR7, "v16getaccv48genir7", "v16getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_V16MEM25V48GENIR7, "v16mem25v48genir7", "v16mem25", 48,
@@ -48151,11 +47991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23H48GENIR0, "v32mem23h48genir0", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR0, "v32getacch48genir0", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
@@ -48283,11 +48118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENIR1, "v32mem23h48genir1", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR1, "v32getacch48genir1", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25H48GENIR1, "v32mem25h48genir1", "v32mem25", 48,
@@ -48411,11 +48241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23H48GENIR2, "v32mem23h48genir2", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR2, "v32getacch48genir2", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
@@ -48543,11 +48368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENIR3, "v32mem23h48genir3", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR3, "v32getacch48genir3", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25H48GENIR3, "v32mem25h48genir3", "v32mem25", 48,
@@ -48671,11 +48491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23H48GENIR4, "v32mem23h48genir4", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR4, "v32getacch48genir4", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
@@ -48803,11 +48618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENIR5, "v32mem23h48genir5", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR5, "v32getacch48genir5", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25H48GENIR5, "v32mem25h48genir5", "v32mem25", 48,
@@ -48931,11 +48741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23H48GENIR6, "v32mem23h48genir6", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR6, "v32getacch48genir6", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
@@ -49063,11 +48868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23H48GENIR7, "v32mem23h48genir7", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCH48GENIR7, "v32getacch48genir7", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25H48GENIR7, "v32mem25h48genir7", "v32mem25", 48,
@@ -49191,11 +48991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23V48GENIR0, "v32mem23v48genir0", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR0, "v32getaccv48genir0", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
@@ -49323,11 +49118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENIR1, "v32mem23v48genir1", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR1, "v32getaccv48genir1", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25V48GENIR1, "v32mem25v48genir1", "v32mem25", 48,
@@ -49451,11 +49241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23V48GENIR2, "v32mem23v48genir2", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR2, "v32getaccv48genir2", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
@@ -49583,11 +49368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENIR3, "v32mem23v48genir3", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR3, "v32getaccv48genir3", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25V48GENIR3, "v32mem25v48genir3", "v32mem25", 48,
@@ -49711,11 +49491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23V48GENIR4, "v32mem23v48genir4", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR4, "v32getaccv48genir4", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
@@ -49843,11 +49618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENIR5, "v32mem23v48genir5", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR5, "v32getaccv48genir5", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25V48GENIR5, "v32mem25v48genir5", "v32mem25", 48,
@@ -49971,11 +49741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM23V48GENIR6, "v32mem23v48genir6", "v32mem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR6, "v32getaccv48genir6", "v32getacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
@@ -50103,11 +49868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23V48GENIR7, "v32mem23v48genir7", "v32mem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_V32GETACCV48GENIR7, "v32getaccv48genir7", "v32getacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_V32MEM25V48GENIR7, "v32mem25v48genir7", "v32mem25", 48,
@@ -50231,11 +49991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23H48GENIR0, "vunkmem23h48genir0", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR0, "vunkgetacch48genir0", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
@@ -50363,11 +50118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENIR1, "vunkmem23h48genir1", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR1, "vunkgetacch48genir1", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25H48GENIR1, "vunkmem25h48genir1", "vunkmem25", 48,
@@ -50491,11 +50241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23H48GENIR2, "vunkmem23h48genir2", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR2, "vunkgetacch48genir2", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
@@ -50623,11 +50368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENIR3, "vunkmem23h48genir3", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR3, "vunkgetacch48genir3", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25H48GENIR3, "vunkmem25h48genir3", "vunkmem25", 48,
@@ -50751,11 +50491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23H48GENIR4, "vunkmem23h48genir4", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR4, "vunkgetacch48genir4", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
@@ -50883,11 +50618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENIR5, "vunkmem23h48genir5", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR5, "vunkgetacch48genir5", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25H48GENIR5, "vunkmem25h48genir5", "vunkmem25", 48,
@@ -51011,11 +50741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23H48GENIR6, "vunkmem23h48genir6", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR6, "vunkgetacch48genir6", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
@@ -51143,11 +50868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23H48GENIR7, "vunkmem23h48genir7", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCH48GENIR7, "vunkgetacch48genir7", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25H48GENIR7, "vunkmem25h48genir7", "vunkmem25", 48,
@@ -51271,11 +50991,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23V48GENIR0, "vunkmem23v48genir0", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR0, "vunkgetaccv48genir0", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
@@ -51403,11 +51118,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENIR1, "vunkmem23v48genir1", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR1, "vunkgetaccv48genir1", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25V48GENIR1, "vunkmem25v48genir1", "vunkmem25", 48,
@@ -51531,11 +51241,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23V48GENIR2, "vunkmem23v48genir2", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR2, "vunkgetaccv48genir2", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
@@ -51663,11 +51368,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENIR3, "vunkmem23v48genir3", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR3, "vunkgetaccv48genir3", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25V48GENIR3, "vunkmem25v48genir3", "vunkmem25", 48,
@@ -51791,11 +51491,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23V48GENIR4, "vunkmem23v48genir4", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR4, "vunkgetaccv48genir4", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
@@ -51923,11 +51618,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENIR5, "vunkmem23v48genir5", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR5, "vunkgetaccv48genir5", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25V48GENIR5, "vunkmem25v48genir5", "vunkmem25", 48,
@@ -52051,11 +51741,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem23 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM23V48GENIR6, "vunkmem23v48genir6", "vunkmem23", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* vunkgetacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR6, "vunkgetaccv48genir6", "vunkgetacc", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vunkmem25 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
@@ -52183,11 +51868,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23V48GENIR7, "vunkmem23v48genir7", "vunkmem23", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
-  {
-    VC4_INSN_VUNKGETACCV48GENIR7, "vunkgetaccv48genir7", "vunkgetacc", 48,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM25V48GENIR7, "vunkmem25v48genir7", "vunkmem25", 48,
@@ -52221,6 +51901,326 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem31 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
   {
     VC4_INSN_VUNKMEM31V48GENIR7, "vunkmem31v48genir7", "vunkmem31", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR0, "vgetacci48hr0", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR1, "vgetacci48hr1", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR2, "vgetacci48hr2", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR3, "vgetacci48hr3", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR4, "vgetacci48hr4", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR5, "vgetacci48hr5", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR6, "vgetacci48hr6", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48HR7, "vgetacci48hr7", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR0, "vgetacci48vr0", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR1, "vgetacci48vr1", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR2, "vgetacci48vr2", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR3, "vgetacci48vr3", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR4, "vgetacci48vr4", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR5, "vgetacci48vr5", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR6, "vgetacci48vr6", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48VR7, "vgetacci48vr7", "vgetacc", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR0, "vgetacci48s32hr0", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR1, "vgetacci48s32hr1", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR2, "vgetacci48s32hr2", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR3, "vgetacci48s32hr3", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR4, "vgetacci48s32hr4", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR5, "vgetacci48s32hr5", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR6, "vgetacci48s32hr6", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32HR7, "vgetacci48s32hr7", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR0, "vgetacci48s32vr0", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR1, "vgetacci48s32vr1", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR2, "vgetacci48s32vr2", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR3, "vgetacci48s32vr3", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR4, "vgetacci48s32vr4", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR5, "vgetacci48s32vr5", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR6, "vgetacci48s32vr6", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S32VR7, "vgetacci48s32vr7", "vgetaccs32", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR0, "vgetacci48unkhr0", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR1, "vgetacci48unkhr1", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR2, "vgetacci48unkhr2", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR3, "vgetacci48unkhr3", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR4, "vgetacci48unkhr4", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR5, "vgetacci48unkhr5", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR6, "vgetacci48unkhr6", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKHR7, "vgetacci48unkhr7", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR0, "vgetacci48unkvr0", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR1, "vgetacci48unkvr1", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR2, "vgetacci48unkvr2", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR3, "vgetacci48unkvr3", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR4, "vgetacci48unkvr4", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR5, "vgetacci48unkvr5", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR6, "vgetacci48unkvr6", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48UNKVR7, "vgetacci48unkvr7", "vgetaccunk", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr0,$v48areg_h$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR0, "vgetacci48s16hr0", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr1,$v48areg_h$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR1, "vgetacci48s16hr1", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr2,$v48areg_h$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR2, "vgetacci48s16hr2", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr3,$v48areg_h$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR3, "vgetacci48s16hr3", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr4,$v48areg_h$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR4, "vgetacci48s16hr4", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr5,$v48areg_h$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR5, "vgetacci48s16hr5", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr6,$v48areg_h$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR6, "vgetacci48s16hr6", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_h$dplus_sr7,$v48areg_h$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16HR7, "vgetacci48s16hr7", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr0,$v48areg_v$aplus_sr0,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR0, "vgetacci48s16vr0", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr1,$v48areg_v$aplus_sr1,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR1, "vgetacci48s16vr1", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr2,$v48areg_v$aplus_sr2,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR2, "vgetacci48s16vr2", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr3,$v48areg_v$aplus_sr3,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR3, "vgetacci48s16vr3", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr4,$v48areg_v$aplus_sr4,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR4, "vgetacci48s16vr4", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr5,$v48areg_v$aplus_sr5,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR5, "vgetacci48s16vr5", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr6,$v48areg_v$aplus_sr6,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR6, "vgetacci48s16vr6", "vgetaccs16", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v48dreg_v$dplus_sr7,$v48areg_v$aplus_sr7,$v48imm$v48imm_mods */
+  {
+    VC4_INSN_VGETACCI48S16VR7, "vgetacci48s16vr7", "vgetaccs16", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mov $v80d32reg,$v80b32reg$v80mods */
@@ -53713,11 +53713,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V8MEM23GEN, "v8mem23gen", "v8mem23", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v8getacc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_V8GETACCGEN, "v8getaccgen", "v8getacc", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v8mem25 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     VC4_INSN_V8MEM25GEN, "v8mem25gen", "v8mem25", 80,
@@ -53841,11 +53836,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v16mem23 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     VC4_INSN_V16MEM23GEN, "v16mem23gen", "v16mem23", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v16getacc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_V16GETACCGEN, "v16getaccgen", "v16getacc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v16mem25 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
@@ -53973,11 +53963,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V32MEM23GEN, "v32mem23gen", "v32mem23", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v32getacc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_V32GETACCGEN, "v32getaccgen", "v32getacc", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v32mem25 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     VC4_INSN_V32MEM25GEN, "v32mem25gen", "v32mem25", 80,
@@ -54103,11 +54088,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23GEN, "vunkmem23gen", "vunkmem23", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
-  {
-    VC4_INSN_VUNKGETACCGEN, "vunkgetaccgen", "vunkgetacc", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     VC4_INSN_VUNKMEM25GEN, "vunkmem25gen", "vunkmem25", 80,
@@ -54141,6 +54121,26 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem31 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
   {
     VC4_INSN_VUNKMEM31GEN, "vunkmem31gen", "vunkmem31", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_VGETACC, "vgetacc", "vgetacc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_VGETACCS32, "vgetaccs32", "vgetaccs32", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_VGETACCUNK, "vgetaccunk", "vgetaccunk", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v80d32reg,$v80a32reg,$v80b32reg$v80mods */
+  {
+    VC4_INSN_VGETACCS16, "vgetaccs16", "vgetaccs16", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem03 $v80d32reg,$v80a32reg,$v80imm$v80mods */
@@ -54231,11 +54231,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v8mem23 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     VC4_INSN_V8MEM23IGEN, "v8mem23igen", "v8mem23", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v8getacc $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_V8GETACCIGEN, "v8getaccigen", "v8getacc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v8mem25 $v80d32reg,$v80a32reg,$v80imm$v80mods */
@@ -54363,11 +54358,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_V16MEM23IGEN, "v16mem23igen", "v16mem23", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* v16getacc $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_V16GETACCIGEN, "v16getaccigen", "v16getacc", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* v16mem25 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     VC4_INSN_V16MEM25IGEN, "v16mem25igen", "v16mem25", 80,
@@ -54491,11 +54481,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* v32mem23 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     VC4_INSN_V32MEM23IGEN, "v32mem23igen", "v32mem23", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* v32getacc $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_V32GETACCIGEN, "v32getaccigen", "v32getacc", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* v32mem25 $v80d32reg,$v80a32reg,$v80imm$v80mods */
@@ -54623,11 +54608,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_VUNKMEM23IGEN, "vunkmem23igen", "vunkmem23", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* vunkgetacc $v80d32reg,$v80a32reg,$v80imm$v80mods */
-  {
-    VC4_INSN_VUNKGETACCIGEN, "vunkgetaccigen", "vunkgetacc", 80,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
 /* vunkmem25 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     VC4_INSN_VUNKMEM25IGEN, "vunkmem25igen", "vunkmem25", 80,
@@ -54661,6 +54641,26 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* vunkmem31 $v80d32reg,$v80a32reg,$v80imm$v80mods */
   {
     VC4_INSN_VUNKMEM31IGEN, "vunkmem31igen", "vunkmem31", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetacc $v80d32reg,$v80a32reg,$v80imm$v80mods */
+  {
+    VC4_INSN_VGETACCI, "vgetacci", "vgetacc", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs32 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+  {
+    VC4_INSN_VGETACCIS32, "vgetaccis32", "vgetaccs32", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccunk $v80d32reg,$v80a32reg,$v80imm$v80mods */
+  {
+    VC4_INSN_VGETACCIUNK, "vgetacciunk", "vgetaccunk", 80,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* vgetaccs16 $v80d32reg,$v80a32reg,$v80imm$v80mods */
+  {
+    VC4_INSN_VGETACCIS16, "vgetaccis16", "vgetaccs16", 80,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* vec48 $operand10_0,$operand47_16 */

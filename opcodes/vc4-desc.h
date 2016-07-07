@@ -245,6 +245,11 @@ typedef enum insn_memwidth {
   VMEMWIDTH_8, VMEMWIDTH_16, VMEMWIDTH_32, VMEMWIDTH_UNK
 } INSN_MEMWIDTH;
 
+/* Enum declaration for Vector memory op saturation.  */
+typedef enum insn_memsat {
+  VMEMSAT_, VMEMSAT_S32, VMEMSAT_UNK, VMEMSAT_S16
+} INSN_MEMSAT;
+
 /* Enum declaration for Multiply operations.  */
 typedef enum insn_mulop {
   VMULXOP_MULLSS = 48, VMULXOP_OP481 = 48, VMULXOP_MULLSSS = 49, VMULXOP_OP491 = 49
