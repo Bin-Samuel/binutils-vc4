@@ -129,7 +129,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL23_MUL2",  /* name */
 	 FALSE,			/* partial_inplace */
-	 0x007fffff,		/* src_mask */
+	 0x0,			/* src_mask */
 	 0x007fffff,		/* dst_mask */
 	 TRUE),			/* pcrel_offset */
 
@@ -159,7 +159,7 @@ static reloc_howto_type vc4_elf_howto_table[] =
 	 bfd_elf_generic_reloc,	/* special_function */
 	 "R_VC4_PCREL27_MUL2",  /* name */
 	 FALSE,			/* partial_inplace */
-	 0x07ffffff,		/* src_mask */
+	 0x0,			/* src_mask */
 	 0x07ffffff,		/* dst_mask */
 	 TRUE),			/* pcrel_offset */
 
