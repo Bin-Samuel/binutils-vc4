@@ -265,8 +265,20 @@ static const CGEN_IFMT ifmt_faddi ATTRIBUTE_UNUSED = {
   16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_9) }, { F (F_OP26_23) }, { F (F_OP8_5) }, { F (F_OP22) }, { F (F_OP21_16) }, { F (F_OP4_0) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_movpdra ATTRIBUTE_UNUSED = {
+  16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_8) }, { F (F_OP26_23) }, { F (F_OP7_5) }, { F (F_OP22_21) }, { F (F_OP4_0) }, { F (F_OP20_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_movrdpa ATTRIBUTE_UNUSED = {
+  16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_8) }, { F (F_OP26_23) }, { F (F_OP7_5) }, { F (F_OP22_21) }, { F (F_OP4_0) }, { F (F_OP20_16) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_lea48 ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_PCREL32_48) }, { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_j48 ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OP47_16) }, { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
 static const CGEN_IFMT ifmt_ldpcrel27 ATTRIBUTE_UNUSED = {
@@ -3056,11 +3068,35 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', 's', 'a', 's', 'r', OP (IMM6), 0 } },
     & ifmt_mulhdiss, { 0xca60, { 0x40 }, { 0x40 } }
   },
+/* mov $pregdst,$alu32breg */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (PREGDST), ',', OP (ALU32BREG), 0 } },
+    & ifmt_movpdra, { 0xcc00, { 0x0 }, { 0xffe0 } }
+  },
+/* mov $alu32dreg,$pregsrc */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU32DREG), ',', OP (PREGSRC), 0 } },
+    & ifmt_movrdpa, { 0xcc20, { 0x0 }, { 0xffe0 } }
+  },
 /* lea.l $alu48idreg,$alu48pcrel */
   {
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48PCREL), 0 } },
     & ifmt_lea48, { 0xe500 }
+  },
+/* j.l $alu48immu */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU48IMMU), 0 } },
+    & ifmt_j48, { 0xe000 }
+  },
+/* jl.l $alu48immu */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU48IMMU), 0 } },
+    & ifmt_j48, { 0xe200 }
   },
 /* ld $alu48idreg,$mem48pcrel27 */
   {
@@ -66092,6 +66128,14 @@ static const CGEN_IFMT ifmt_lea48_relaxed ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { F (F_PCREL32_48) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_j48_nosuf ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { F (F_OP47_16) }, { 0 } }
+};
+
+static const CGEN_IFMT ifmt_jl48_nosuf ATTRIBUTE_UNUSED = {
+  16, 48, 0xffff, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { F (F_OP47_16) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_ldoff27_nosuf ATTRIBUTE_UNUSED = {
   16, 48, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_8) }, { F (F_OP7_5) }, { F (F_OP4_0) }, { F (F_OP47_43) }, { F (F_OFFSET27_48) }, { 0 } }
 };
@@ -67147,6 +67191,16 @@ static const CGEN_IBASE vc4_cgen_macro_insn_table[] =
   {
     -1, "lea48_relaxed", "lea", 48,
     { 0|A(RELAXED)|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* j $alu48immu */
+  {
+    -1, "j48_nosuf", "j", 48,
+    { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* jl $alu48immu */
+  {
+    -1, "jl48_nosuf", "jl", 48,
+    { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ld $alu48idreg,($mem48sreg+$mem48offset27) */
   {
@@ -68409,6 +68463,18 @@ static const CGEN_OPCODE vc4_cgen_macro_insn_opcode_table[] =
     { 0, 0, 0, 0 },
     { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48PCREL), 0 } },
     & ifmt_lea48_relaxed, { 0xe500 }
+  },
+/* j $alu48immu */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU48IMMU), 0 } },
+    & ifmt_j48_nosuf, { 0xe000 }
+  },
+/* jl $alu48immu */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU48IMMU), 0 } },
+    & ifmt_jl48_nosuf, { 0xe200 }
   },
 /* ld $alu48idreg,($mem48sreg+$mem48offset27) */
   {

@@ -1589,6 +1589,12 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_ppreg, & fields->f_op6_5);
       break;
+    case VC4_OPERAND_PREGDST :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_preg, & fields->f_op4_0);
+      break;
+    case VC4_OPERAND_PREGSRC :
+      errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_preg, & fields->f_op20_16);
+      break;
     case VC4_OPERAND_SETF_MOD :
       errmsg = parse_vec48mod_setf (cd, strp, VC4_OPERAND_SETF_MOD, (unsigned long *) (& fields->f_op38));
       break;

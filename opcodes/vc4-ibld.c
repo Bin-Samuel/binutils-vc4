@@ -987,6 +987,12 @@ vc4_cgen_insert_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       errmsg = insert_normal (cd, fields->f_op6_5, 0, 0, 6, 2, 16, total_length, buffer);
       break;
+    case VC4_OPERAND_PREGDST :
+      errmsg = insert_normal (cd, fields->f_op4_0, 0, 0, 4, 5, 16, total_length, buffer);
+      break;
+    case VC4_OPERAND_PREGSRC :
+      errmsg = insert_normal (cd, fields->f_op20_16, 0, 16, 4, 5, 16, total_length, buffer);
+      break;
     case VC4_OPERAND_SETF_MOD :
       errmsg = insert_normal (cd, fields->f_op38, 0, 32, 6, 1, 16, total_length, buffer);
       break;
@@ -1587,7 +1593,7 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
         length = extract_normal (cd, ex_info, insn_value, 0, 16, 10, 11, 16, total_length, pc, & fields->f_op26_16);
         if (length <= 0) break;
 {
-  FLD (f_offset12) = ((((FLD (f_op8)) << (11))) | (FLD (f_op26_16)));
+  FLD (f_offset12) = ((INT) (((((((FLD (f_op8)) << (11))) | (FLD (f_op26_16)))) << (20))) >> (20));
 }
       }
       break;
@@ -1727,6 +1733,12 @@ vc4_cgen_extract_operand (CGEN_CPU_DESC cd,
       break;
     case VC4_OPERAND_PPSTARTREG :
       length = extract_normal (cd, ex_info, insn_value, 0, 0, 6, 2, 16, total_length, pc, & fields->f_op6_5);
+      break;
+    case VC4_OPERAND_PREGDST :
+      length = extract_normal (cd, ex_info, insn_value, 0, 0, 4, 5, 16, total_length, pc, & fields->f_op4_0);
+      break;
+    case VC4_OPERAND_PREGSRC :
+      length = extract_normal (cd, ex_info, insn_value, 0, 16, 4, 5, 16, total_length, pc, & fields->f_op20_16);
       break;
     case VC4_OPERAND_SETF_MOD :
       length = extract_normal (cd, ex_info, insn_value, 0, 32, 6, 1, 16, total_length, pc, & fields->f_op38);
@@ -2234,6 +2246,12 @@ vc4_cgen_get_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
       break;
+    case VC4_OPERAND_PREGDST :
+      value = fields->f_op4_0;
+      break;
+    case VC4_OPERAND_PREGSRC :
+      value = fields->f_op20_16;
+      break;
     case VC4_OPERAND_SETF_MOD :
       value = fields->f_op38;
       break;
@@ -2586,6 +2604,12 @@ vc4_cgen_get_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       value = fields->f_op6_5;
+      break;
+    case VC4_OPERAND_PREGDST :
+      value = fields->f_op4_0;
+      break;
+    case VC4_OPERAND_PREGSRC :
+      value = fields->f_op20_16;
       break;
     case VC4_OPERAND_SETF_MOD :
       value = fields->f_op38;
@@ -2947,6 +2971,12 @@ vc4_cgen_set_int_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
       break;
+    case VC4_OPERAND_PREGDST :
+      fields->f_op4_0 = value;
+      break;
+    case VC4_OPERAND_PREGSRC :
+      fields->f_op20_16 = value;
+      break;
     case VC4_OPERAND_SETF_MOD :
       fields->f_op38 = value;
       break;
@@ -3288,6 +3318,12 @@ vc4_cgen_set_vma_operand (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
       break;
     case VC4_OPERAND_PPSTARTREG :
       fields->f_op6_5 = value;
+      break;
+    case VC4_OPERAND_PREGDST :
+      fields->f_op4_0 = value;
+      break;
+    case VC4_OPERAND_PREGSRC :
+      fields->f_op20_16 = value;
       break;
     case VC4_OPERAND_SETF_MOD :
       fields->f_op38 = value;

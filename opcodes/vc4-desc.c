@@ -195,6 +195,49 @@ CGEN_KEYWORD vc4_cgen_opval_h_fastreg =
   0, 0, 0, 0, ""
 };
 
+static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_preg_entries[] =
+{
+  { "p0", 0, {0, {{{0, 0}}}}, 0, 0 },
+  { "p1", 1, {0, {{{0, 0}}}}, 0, 0 },
+  { "p2", 2, {0, {{{0, 0}}}}, 0, 0 },
+  { "p3", 3, {0, {{{0, 0}}}}, 0, 0 },
+  { "p4", 4, {0, {{{0, 0}}}}, 0, 0 },
+  { "p5", 5, {0, {{{0, 0}}}}, 0, 0 },
+  { "p6", 6, {0, {{{0, 0}}}}, 0, 0 },
+  { "p7", 7, {0, {{{0, 0}}}}, 0, 0 },
+  { "p8", 8, {0, {{{0, 0}}}}, 0, 0 },
+  { "p9", 9, {0, {{{0, 0}}}}, 0, 0 },
+  { "p10", 10, {0, {{{0, 0}}}}, 0, 0 },
+  { "p11", 11, {0, {{{0, 0}}}}, 0, 0 },
+  { "p12", 12, {0, {{{0, 0}}}}, 0, 0 },
+  { "p13", 13, {0, {{{0, 0}}}}, 0, 0 },
+  { "p14", 14, {0, {{{0, 0}}}}, 0, 0 },
+  { "p15", 15, {0, {{{0, 0}}}}, 0, 0 },
+  { "p16", 16, {0, {{{0, 0}}}}, 0, 0 },
+  { "p17", 17, {0, {{{0, 0}}}}, 0, 0 },
+  { "p18", 18, {0, {{{0, 0}}}}, 0, 0 },
+  { "p19", 19, {0, {{{0, 0}}}}, 0, 0 },
+  { "p20", 20, {0, {{{0, 0}}}}, 0, 0 },
+  { "p21", 21, {0, {{{0, 0}}}}, 0, 0 },
+  { "p22", 22, {0, {{{0, 0}}}}, 0, 0 },
+  { "p23", 23, {0, {{{0, 0}}}}, 0, 0 },
+  { "p24", 24, {0, {{{0, 0}}}}, 0, 0 },
+  { "p25", 25, {0, {{{0, 0}}}}, 0, 0 },
+  { "p26", 26, {0, {{{0, 0}}}}, 0, 0 },
+  { "p27", 27, {0, {{{0, 0}}}}, 0, 0 },
+  { "p28", 28, {0, {{{0, 0}}}}, 0, 0 },
+  { "p29", 29, {0, {{{0, 0}}}}, 0, 0 },
+  { "p30", 30, {0, {{{0, 0}}}}, 0, 0 },
+  { "p31", 31, {0, {{{0, 0}}}}, 0, 0 }
+};
+
+CGEN_KEYWORD vc4_cgen_opval_h_preg =
+{
+  & vc4_cgen_opval_h_preg_entries[0],
+  32,
+  0, 0, 0, 0, ""
+};
+
 static CGEN_KEYWORD_ENTRY vc4_cgen_opval_h_ppreg_entries[] =
 {
   { "r0", 0, {0, {{{0, 0}}}}, 0, 0 },
@@ -312,6 +355,7 @@ const CGEN_HW_ENTRY vc4_cgen_hw_table[] =
   { "h-iaddr", HW_H_IADDR, CGEN_ASM_NONE, 0, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-reg", HW_H_REG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_reg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-fastreg", HW_H_FASTREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_fastreg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
+  { "h-preg", HW_H_PREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_preg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-ppreg", HW_H_PPREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_ppreg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-basereg", HW_H_BASEREG, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_basereg, { 0, { { { (1<<MACH_BASE), 0 } } } } },
   { "h-cond", HW_H_COND, CGEN_ASM_KEYWORD, (PTR) & vc4_cgen_opval_h_cond, { 0, { { { (1<<MACH_BASE), 0 } } } } },
@@ -625,6 +669,14 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
 /* alu32dreg:  */
   { "alu32dreg", VC4_OPERAND_ALU32DREG, HW_H_REG, 4, 5,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP4_0] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* pregdst:  */
+  { "pregdst", VC4_OPERAND_PREGDST, HW_H_PREG, 4, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP4_0] } }, 
+    { 0, { { { (1<<MACH_BASE), 0 } } } }  },
+/* pregsrc:  */
+  { "pregsrc", VC4_OPERAND_PREGSRC, HW_H_PREG, 4, 5,
+    { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP20_16] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },
 /* disp5: 5-bit unsigned displacement */
   { "disp5", VC4_OPERAND_DISP5, HW_H_UINT, 4, 5,
@@ -2788,9 +2840,29 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_FLTUI, "fltui", "fltu", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* mov $pregdst,$alu32breg */
+  {
+    VC4_INSN_MOVPDRA, "movpdra", "mov", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mov $alu32dreg,$pregsrc */
+  {
+    VC4_INSN_MOVRDPA, "movrdpa", "mov", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* lea.l $alu48idreg,$alu48pcrel */
   {
     VC4_INSN_LEA48, "lea48", "lea.l", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* j.l $alu48immu */
+  {
+    VC4_INSN_J48, "j48", "j.l", 48,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* jl.l $alu48immu */
+  {
+    VC4_INSN_JL48, "jl48", "jl.l", 48,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* ld $alu48idreg,$mem48pcrel27 */

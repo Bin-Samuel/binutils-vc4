@@ -88,6 +88,20 @@
 )
 
 (define-hardware
+  (name h-preg)
+  (comment "System control 'P' registers")
+  (type register SI (32))
+  (indices keyword "" (("p0"  0)  ("p1"  1)  ("p2"  2)  ("p3"  3)
+                       ("p4"  4)  ("p5"  5)  ("p6"  6)  ("p7"  7)
+                       ("p8"  8)  ("p9"  9)  ("p10" 10) ("p11" 11)
+                       ("p12" 12) ("p13" 13) ("p14" 14) ("p15" 15)
+                       ("p16" 16) ("p17" 17) ("p18" 18) ("p19" 19)
+                       ("p20" 20) ("p21" 21) ("p22" 22) ("p23" 23)
+                       ("p24" 24) ("p25" 25) ("p26" 26) ("p27" 27)
+                       ("p28" 28) ("p29" 29) ("p30" 30) ("p31" 31)))
+)
+
+(define-hardware
   (name h-ppreg)
   (comment "Push/pop start registers")
   (type register SI (4))
@@ -440,8 +454,9 @@
 	    (set (ifield f-op8) (and (srl (ifield f-offset12) 11) 1))
 	    (set (ifield f-op26-16) (and (ifield f-offset12) #x7ff))))
   (extract (sequence ()
-	     (set (ifield f-offset12) (or (sll (ifield f-op8) 11)
-					  (ifield f-op26-16)))))
+	     (set (ifield f-offset12)
+                  (sra (sll (or (sll (ifield f-op8) 11)
+				(ifield f-op26-16)) 20) 20))))
 )
 
 (define-normal-insn-enum
@@ -633,6 +648,20 @@
   "" ()
   h-reg
   f-op4-0
+)
+
+(define-normal-operand
+  pregdst
+  "" ()
+  h-preg
+  f-op4-0
+)
+
+(define-normal-operand
+  pregsrc
+  "" ()
+  h-preg
+  f-op20-16
 )
 
 (define-operand
@@ -2165,6 +2194,24 @@
 (convopi "fltsi"   "flts"   "sasr" OP7_5_2)
 (convopi "fltui"   "fltu"   "sasr" OP7_5_3)
 
+;; Processor control register access (mov pd, ra and mov rd, pa).
+
+(define-normal-insn
+  movpdra "MOVPDRA" ()
+  "mov $pregdst,$alu32breg"
+  (+ OPLEN_12 OP11_8_12 OP7_5_0 pregdst
+     (f-op31-27 0) (f-op26-23 0) (f-op22-21 0) alu32breg)
+  () ()
+)
+
+(define-normal-insn
+  movrdpa "MOVRDPA" ()
+  "mov $alu32dreg,$pregsrc"
+  (+ OPLEN_12 OP11_8_12 OP7_5_1 alu32dreg
+     (f-op31-27 0) (f-op26-23 0) (f-op22-21 0) pregsrc)
+  () ()
+)
+
 ;; 48-bit scalar instructions.
 
 (define-normal-insn
@@ -2179,6 +2226,32 @@
   lea48_relaxed "LEA48_RELAXED" (RELAXED)
   "lea $alu48idreg,$alu48pcrel"
   (emit lea48 alu48idreg alu48pcrel)
+)
+
+(define-normal-insn
+  j48 "J48" ()
+  "j.l $alu48immu"
+  (+ OPLEN_14 OP11_8_0 OP7_5_0 OP4_0_0 alu48immu)
+  () ()
+)
+
+(define-normal-macro-insn
+  j48_nosuf "J48_NOSUF" ()
+  "j $alu48immu"
+  (emit j48 alu48immu)
+)
+
+(define-normal-insn
+  jl48 "JL48" ()
+  "jl.l $alu48immu"
+  (+ OPLEN_14 OP11_8_2 OP7_5_0 OP4_0_0 alu48immu)
+  () ()
+)
+
+(define-normal-macro-insn
+  jl48_nosuf "JL48_NOSUF" ()
+  "jl $alu48immu"
+  (emit jl48 alu48immu)
 )
 
 (define-pmacro (ldstpcrel27op x-access)

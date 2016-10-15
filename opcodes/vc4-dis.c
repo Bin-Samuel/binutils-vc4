@@ -949,6 +949,12 @@ vc4_cgen_print_operand (CGEN_CPU_DESC cd,
     case VC4_OPERAND_PPSTARTREG :
       print_keyword (cd, info, & vc4_cgen_opval_h_ppreg, fields->f_op6_5, 0);
       break;
+    case VC4_OPERAND_PREGDST :
+      print_keyword (cd, info, & vc4_cgen_opval_h_preg, fields->f_op4_0, 0);
+      break;
+    case VC4_OPERAND_PREGSRC :
+      print_keyword (cd, info, & vc4_cgen_opval_h_preg, fields->f_op20_16, 0);
+      break;
     case VC4_OPERAND_SETF_MOD :
       print_vec48mod_setf (cd, info, fields->f_op38, 0, pc, length);
       break;
