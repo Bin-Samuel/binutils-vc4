@@ -1098,6 +1098,24 @@
   () ()
 )
 
+;; Processor control register access (mov pd, ra and mov rd, pa).
+
+(define-normal-insn
+  movpdra "MOVPDRA" ()
+  "mov.m $pregdst,$alu32breg"
+  (+ OPLEN_12 OP11_8_12 OP7_5_0 pregdst
+     (f-op31-27 0) (f-op26-23 0) (f-op22-21 0) alu32breg)
+  () ()
+)
+
+(define-normal-insn
+  movrdpa "MOVRDPA" ()
+  "mov.m $alu32dreg,$pregsrc"
+  (+ OPLEN_12 OP11_8_12 OP7_5_1 alu32dreg
+     (f-op31-27 0) (f-op26-23 0) (f-op22-21 0) pregsrc)
+  () ()
+)
+
 (define-normal-insn
   swiimm "SWIIMM" ()
   "swi $swi_imm"
@@ -2193,24 +2211,6 @@
 (convopi "floori"  "floor"  "sasl" OP7_5_1)
 (convopi "fltsi"   "flts"   "sasr" OP7_5_2)
 (convopi "fltui"   "fltu"   "sasr" OP7_5_3)
-
-;; Processor control register access (mov pd, ra and mov rd, pa).
-
-(define-normal-insn
-  movpdra "MOVPDRA" ()
-  "mov $pregdst,$alu32breg"
-  (+ OPLEN_12 OP11_8_12 OP7_5_0 pregdst
-     (f-op31-27 0) (f-op26-23 0) (f-op22-21 0) alu32breg)
-  () ()
-)
-
-(define-normal-insn
-  movrdpa "MOVRDPA" ()
-  "mov $alu32dreg,$pregsrc"
-  (+ OPLEN_12 OP11_8_12 OP7_5_1 alu32dreg
-     (f-op31-27 0) (f-op26-23 0) (f-op22-21 0) pregsrc)
-  () ()
-)
 
 ;; 48-bit scalar instructions.
 

@@ -1200,6 +1200,16 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_MOVCPUID, "movcpuid", "version", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
+/* mov.m $pregdst,$alu32breg */
+  {
+    VC4_INSN_MOVPDRA, "movpdra", "mov.m", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* mov.m $alu32dreg,$pregsrc */
+  {
+    VC4_INSN_MOVRDPA, "movrdpa", "mov.m", 32,
+    { 0, { { { (1<<MACH_BASE), 0 } } } }
+  },
 /* swi $swi_imm */
   {
     VC4_INSN_SWIIMM, "swiimm", "swi", 16,
@@ -2838,16 +2848,6 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
 /* fltu$alu32cond $alu32dreg,$alu32areg,sasr$imm6 */
   {
     VC4_INSN_FLTUI, "fltui", "fltu", 32,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* mov $pregdst,$alu32breg */
-  {
-    VC4_INSN_MOVPDRA, "movpdra", "mov", 32,
-    { 0, { { { (1<<MACH_BASE), 0 } } } }
-  },
-/* mov $alu32dreg,$pregsrc */
-  {
-    VC4_INSN_MOVRDPA, "movrdpa", "mov", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* lea.l $alu48idreg,$alu48pcrel */
