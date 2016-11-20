@@ -1119,7 +1119,7 @@ parse_ld_st_addr (CGEN_CPU_DESC cd ATTRIBUTE_UNUSED,
         return errmsg;
     }
 
-  *valuep = (offset & 0xffff) | (rad << 16) | (rs << 22);
+  *valuep = (offset & 0xffff) | (rad << 18) | (rs << 22);
 
   return 0;
 }
