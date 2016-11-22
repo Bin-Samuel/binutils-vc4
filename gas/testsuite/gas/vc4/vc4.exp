@@ -24,4 +24,5 @@ if [istarget vc4-*-*] then {
     run_dump_test "switch4"
     run_dump_test "switch5"
     run_dump_test "vldst"
+    run_dump_test "dash"
 }

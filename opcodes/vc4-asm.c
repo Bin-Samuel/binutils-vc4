@@ -561,6 +561,15 @@ parse_vector_reg (CGEN_CPU_DESC cd, const char **strp, int opindex,
   else if (ptr[0] == 'V'
            || (ptr[0] == 'V' && ptr[1] == '8'))
     vec_dir = V;
+  else if (ptr[0] == '-')
+    {
+      /* This is a special case.  Just hard-wire the "dash" encoding and
+         return.  */
+      *valuep = 0x380;
+      *strp = ptr + 1;
+
+      return 0;
+    }
   else
     return "expected H/HX/HY/V/VX/VY";
 
