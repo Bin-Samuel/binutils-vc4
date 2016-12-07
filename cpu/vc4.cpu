@@ -1290,6 +1290,18 @@
 )
 
 (define-normal-macro-insn
+  ldspind "LDSPIND" (NO-DIS)
+  "ld.s $alu16dreg,(sp)"
+  (emit ldsp alu16dreg (spoffset 0))
+)
+
+(define-normal-macro-insn
+  stspind "STSPIND" (NO-DIS)
+  "st.s $alu16dreg,(sp)"
+  (emit stsp alu16dreg (spoffset 0))
+)
+
+(define-normal-macro-insn
   ldsp_nosuf "LDSP_NOSUF" ()
   "ld $alu16dreg,(sp+$spoffset)"
   (emit ldsp alu16dreg spoffset)
@@ -1299,6 +1311,18 @@
   stsp_nosuf "STSP_NOSUF" ()
   "st $alu16dreg,(sp+$spoffset)"
   (emit stsp alu16dreg spoffset)
+)
+
+(define-normal-macro-insn
+  ldspind_nosuf "LDSPIND_NOSUF" ()
+  "ld $alu16dreg,(sp)"
+  (emit ldsp alu16dreg (spoffset 0))
+)
+
+(define-normal-macro-insn
+  stspind_nosuf "STSPIND_NOSUF" ()
+  "st $alu16dreg,(sp)"
+  (emit stsp alu16dreg (spoffset 0))
 )
 
 (define-pmacro (ldstoff12op x-access)
@@ -1325,12 +1349,21 @@
 
 (define-pmacro (ldstoffzeroop x-access)
   (define-normal-macro-insn
-    (.sym x-access offzero) (.sym (.upcase x-access) "OFFZERO") ()
-    (.str x-access " $alu32dreg,($alu32areg)")
+    (.sym x-access offzero) (.sym (.upcase x-access) "OFFZERO") (NO-DIS)
+    (.str x-access ".m $alu32dreg,($alu32areg)")
     (emit (.sym x-access off12) alu32dreg alu32areg (offset12 0)))
 )
 
 (expandldst ldstoffzeroop)
+
+(define-pmacro (ldstoffzeroopnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access offzero_nosuf) (.sym (.upcase x-access) "OFFZERO_NOSUF") ()
+    (.str x-access " $alu32dreg,($alu32areg)")
+    (emit (.sym x-access off12) alu32dreg alu32areg (offset12 0)))
+)
+
+(expandldst ldstoffzeroopnsf)
 
 (define-pmacro (ldstoff16op x-access)
   (define-normal-insn
