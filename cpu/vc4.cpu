@@ -2318,6 +2318,17 @@
 
 (expandldst ldstoff27opnsf)
 
+; If you really want a 48-bit register-indirect insn, you can have it...
+
+(define-pmacro (ldstoffzero27op x-access)
+  (define-normal-macro-insn
+    (.sym x-access offzero27) (.str (.upcase x-access) "OFFZERO27") (NO-DIS)
+    (.str x-access ".l $alu48idreg,($mem48sreg)")
+    (emit (.sym x-access off27) alu48idreg mem48sreg (mem48offset27 0)))
+)
+
+(expandldst ldstoffzero27op)
+
 (define-normal-insn
   add48i "ADD48I" ()
   "add.l $alu48idreg,$alu48isreg,$alu48immu"
