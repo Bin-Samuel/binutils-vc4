@@ -1388,7 +1388,7 @@
 (define-pmacro (ldstcndidx x-access x-shift)
   (define-normal-insn
     (.sym x-access cndidx) (.str (.upcase x-access) "CNDIDX") ()
-    (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$alu32breg"
+    (.str x-access "${alu32cond}.m $alu32dreg,($alu32areg+$alu32breg"
 	  x-shift ")")
     (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
@@ -1405,10 +1405,28 @@
 (ldstcndidx "stb"  "")
 (ldstcndidx "ldsb" "")
 
+(define-pmacro (ldstcndidxnsf x-access x-shift)
+  (define-normal-macro-insn
+    (.sym x-access cndidx "_nosuf") (.str (.upcase x-access) "CNDIDX_NOSUF") ()
+    (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$alu32breg"
+	  x-shift ")")
+    (emit (.sym x-access cndidx) alu32cond alu32dreg alu32areg alu32breg))
+)
+
+(ldstcndidxnsf "ld"   "$shl2")
+(ldstcndidxnsf "ldh"  "$shl1")
+(ldstcndidxnsf "ldb"  "")
+(ldstcndidxnsf "ldsh" "$shl1")
+
+(ldstcndidxnsf "st"   "$shl2")
+(ldstcndidxnsf "sth"  "$shl1")
+(ldstcndidxnsf "stb"  "")
+(ldstcndidxnsf "ldsb" "")
+
 (define-pmacro (ldstcnddisp x-access)
   (define-normal-insn
     (.sym x-access cnddisp) (.str (.upcase x-access) "CNDDISP") ()
-    (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$disp5)")
+    (.str x-access "${alu32cond}.m $alu32dreg,($alu32areg+$disp5)")
     (+ OPLEN_10 OP11_8_0 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
        alu32areg alu32cond (f-op22-21 2) disp5)
     () ())
@@ -1416,10 +1434,21 @@
 
 (expandldst ldstcnddisp)
 
+(define-pmacro (ldstcnddispnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access cnddisp "_nosuf") (.str (.upcase x-access) "CNDDISP_NOSUF")
+    ()
+    (.str x-access "${alu32cond} $alu32dreg,($alu32areg+$disp5)")
+    (emit (.sym x-access cnddisp) alu32cond alu32dreg alu32areg disp5))
+)
+
+(expandldst ldstcnddispnsf)
+
 (define-pmacro (ldstincdec x-name x-access x-bits11-8 x-pre x-post)
   (define-normal-insn
     (.sym x-access x-name) (.str (.upcase x-access) (.upcase x-name)) ()
-    (.str x-access "${alu32cond} $alu32dreg,(" x-pre "${alu32areg}" x-post ")")
+    (.str x-access "${alu32cond}.m $alu32dreg,(" x-pre "${alu32areg}" x-post
+	  ")")
     (+ OPLEN_10 x-bits11-8 (.sym ACCSZ7_5_ (.upcase x-access)) alu32dreg
        alu32areg alu32cond OP22_21_0 (f-op20-16 0))
     () ())
@@ -1444,6 +1473,34 @@
 (ldstincdec postinc "sth"  OP11_8_5 "" "++")
 (ldstincdec postinc "stb"  OP11_8_5 "" "++")
 (ldstincdec postinc "ldsb" OP11_8_5 "" "++")
+
+(define-pmacro (ldstincdecnsf x-name x-access x-pre x-post)
+  (define-normal-macro-insn
+    (.sym x-access x-name "_nosuf") (.str (.upcase x-access) (.upcase x-name)
+                                          "_NOSUF") ()
+    (.str x-access "${alu32cond} $alu32dreg,(" x-pre "${alu32areg}" x-post ")")
+    (emit (.sym x-access x-name) alu32cond alu32dreg alu32areg))
+)
+
+(ldstincdecnsf predec  "ld"   "--" "")
+(ldstincdecnsf predec  "ldh"  "--" "")
+(ldstincdecnsf predec  "ldb"  "--" "")
+(ldstincdecnsf predec  "ldsh" "--" "")
+
+(ldstincdecnsf predec  "st"   "--" "")
+(ldstincdecnsf predec  "sth"  "--" "")
+(ldstincdecnsf predec  "stb"  "--" "")
+(ldstincdecnsf predec  "ldsb" "--" "")
+
+(ldstincdecnsf postinc "ld"   "" "++")
+(ldstincdecnsf postinc "ldh"  "" "++")
+(ldstincdecnsf postinc "ldb"  "" "++")
+(ldstincdecnsf postinc "ldsh" "" "++")
+
+(ldstincdecnsf postinc "st"   "" "++")
+(ldstincdecnsf postinc "sth"  "" "++")
+(ldstincdecnsf postinc "stb"  "" "++")
+(ldstincdecnsf postinc "ldsb" "" "++")
 
 (define-normal-insn
   addsp "ADDSP" ()
@@ -2287,17 +2344,6 @@
   (emit jl48 alu48immu)
 )
 
-(define-pmacro (ldstpcrel27op x-access)
-  (define-normal-insn
-    (.sym x-access pcrel27) (.str (.upcase x-access) "PCREL27") ()
-    (.str x-access " $alu48idreg,$mem48pcrel27")
-    (+ OPLEN_14 OP11_8_7 (.sym ACCSZ7_5_ (.upcase x-access)) alu48idreg
-       (f-op47-43 31) mem48pcrel27)
-    () ())
-)
-
-(expandldst ldstpcrel27op)
-
 (define-pmacro (ldstoff27op x-access)
   (define-normal-insn
     (.sym x-access off27) (.str (.upcase x-access) "OFF27") ()
@@ -2328,6 +2374,26 @@
 )
 
 (expandldst ldstoffzero27op)
+
+(define-pmacro (ldstpcrel27op x-access)
+  (define-normal-insn
+    (.sym x-access pcrel27) (.str (.upcase x-access) "PCREL27") ()
+    (.str x-access ".l $alu48idreg,$mem48pcrel27")
+    (+ OPLEN_14 OP11_8_7 (.sym ACCSZ7_5_ (.upcase x-access)) alu48idreg
+       (f-op47-43 31) mem48pcrel27)
+    () ())
+)
+
+(expandldst ldstpcrel27op)
+
+(define-pmacro (ldstpcrel27opnsf x-access)
+  (define-normal-macro-insn
+    (.sym x-access pcrel27_nosuf) (.str (.upcase x-access) "PCREL27_NOSUF") ()
+    (.str x-access " $alu48idreg,$mem48pcrel27")
+    (emit (.sym x-access pcrel27) alu48idreg mem48pcrel27))
+)
+
+(expandldst ldstpcrel27opnsf)
 
 (define-normal-insn
   add48i "ADD48I" ()
