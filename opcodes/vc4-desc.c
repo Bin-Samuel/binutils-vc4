@@ -2480,9 +2480,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_COUNTI, "counti", "count", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* lea $alu48idreg,($alu48isreg+$offset16) */
+/* add.m $alu48idreg,$alu48isreg,$offset16 */
   {
-    VC4_INSN_LEA32R, "lea32r", "lea", 32,
+    VC4_INSN_ADD16I, "add16i", "add.m", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* lea.m $alu48idreg,$pcrel16 */

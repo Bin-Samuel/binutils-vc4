@@ -237,7 +237,7 @@ static const CGEN_IFMT ifmt_subs4i ATTRIBUTE_UNUSED = {
   16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP31_27) }, { F (F_OP11_8) }, { F (F_OP26_23) }, { F (F_OP7_5) }, { F (F_OP22) }, { F (F_OP21_16S_SHL4) }, { F (F_OP4_0) }, { 0 } }
 };
 
-static const CGEN_IFMT ifmt_lea32r ATTRIBUTE_UNUSED = {
+static const CGEN_IFMT ifmt_add16i ATTRIBUTE_UNUSED = {
   16, 32, 0xfc00, { { F (F_OPLEN) }, { F (F_OP31_16S) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { 0 } }
 };
 
@@ -2636,11 +2636,11 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (IMM6), 0 } },
     & ifmt_mulhdiss, { 0xc600, { 0x40 }, { 0x40 } }
   },
-/* lea $alu48idreg,($alu48isreg+$offset16) */
+/* add.m $alu48idreg,$alu48isreg,$offset16 */
   {
     { 0, 0, 0, 0 },
-    { { MNEM, ' ', OP (ALU48IDREG), ',', '(', OP (ALU48ISREG), '+', OP (OFFSET16), ')', 0 } },
-    & ifmt_lea32r, { 0xb400 }
+    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48ISREG), ',', OP (OFFSET16), 0 } },
+    & ifmt_add16i, { 0xb400 }
   },
 /* lea.m $alu48idreg,$pcrel16 */
   {
@@ -66168,6 +66168,10 @@ static const CGEN_IFMT ifmt_absi32_nosuf ATTRIBUTE_UNUSED = {
   16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { F (F_OP31_27) }, { F (F_OP26_23) }, { F (F_OP22) }, { F (F_OP21_16S) }, { 0 } }
 };
 
+static const CGEN_IFMT ifmt_add16i_nosuf ATTRIBUTE_UNUSED = {
+  16, 32, 0xfc00, { { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { F (F_OP31_16S) }, { 0 } }
+};
+
 static const CGEN_IFMT ifmt_lea32pc_relaxable ATTRIBUTE_UNUSED = {
   16, 32, 0xffe0, { { F (F_OPLEN) }, { F (F_OP11_10) }, { F (F_OP9_5) }, { F (F_OP4_0) }, { F (F_PCREL16) }, { 0 } }
 };
@@ -67480,6 +67484,11 @@ static const CGEN_IBASE vc4_cgen_macro_insn_table[] =
 /* abs${alu32cond} $alu32dreg,$imm6 */
   {
     -1, "absi32_nosuf", "abs", 32,
+    { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
+  },
+/* add $alu48idreg,$alu48isreg,$offset16 */
+  {
+    -1, "add16i_nosuf", "add", 32,
     { 0|A(ALIAS), { { { (1<<MACH_BASE), 0 } } } }
   },
 /* lea $alu48idreg,$pcrel16 */
@@ -69063,6 +69072,12 @@ static const CGEN_OPCODE vc4_cgen_macro_insn_opcode_table[] =
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (IMM6), 0 } },
     & ifmt_absi32_nosuf, { 0xc3e0, { 0x40 }, { 0xf840 } }
+  },
+/* add $alu48idreg,$alu48isreg,$offset16 */
+  {
+    { 0, 0, 0, 0 },
+    { { MNEM, ' ', OP (ALU48IDREG), ',', OP (ALU48ISREG), ',', OP (OFFSET16), 0 } },
+    & ifmt_add16i_nosuf, { 0xb400 }
   },
 /* lea $alu48idreg,$pcrel16 */
   {

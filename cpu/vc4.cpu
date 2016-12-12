@@ -2073,15 +2073,18 @@
 (clmpcnti2 "clamp16i" "clamp16" 5 3)
 (clmpcnti2 "counti"   "count"   6 0)
 
-; These ones aren't on the Programmer's Manual wiki page, but are in
-; videocoreiv.arch.
-
 (define-normal-insn
-  lea32r "LEA32R" ()
-  "lea $alu48idreg,($alu48isreg+$offset16)"
+  add16i "ADD16I" ()
+  "add.m $alu48idreg,$alu48isreg,$offset16"
   (+ OPLEN_11 (f-op11-10 1) alu48isreg alu48idreg
      offset16)
   () ()
+)
+
+(define-normal-macro-insn
+  add16i_nosuf "ADD16I_NOSUF" ()
+  "add $alu48idreg,$alu48isreg,$offset16"
+  (emit add16i alu48idreg alu48isreg offset16)
 )
 
 (define-normal-insn

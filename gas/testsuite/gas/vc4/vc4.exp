@@ -28,4 +28,5 @@ if [istarget vc4-*-*] then {
     run_dump_test "ldst"
     run_dump_test "ldsthiregind"
     run_dump_test "pcrel"
+    run_dump_test "add16i"
 }
