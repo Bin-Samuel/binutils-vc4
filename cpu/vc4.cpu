@@ -1636,7 +1636,7 @@
 (alu16opi bseti16    "BSETI16"    "bitset"   ""       ALU16OPI_BSET)
 (alu16opi bclri16    "BCLRI16"    "bitclear" ""       ALU16OPI_BCLR)
 (alu16opi bchgi16    "BCHGI16"    "bitflip"  ""       ALU16OPI_BCHG)
-(alu16opi adds8i16   "ADDS8I16"   "addscale" "_shl3"  ALU16OPI_ADDS8)
+(alu16opi adds8i16   "ADDS8I16"   "add"      "_shl3"  ALU16OPI_ADDS8)
 (alu16opi signexti16 "SIGNEXTI16" "signext"  ""       ALU16OPI_SIGNEXT)
 (alu16opi lsri16     "LSRI16"     "lsr"      ""       ALU16OPI_LSR)
 (alu16opi shli16     "SHLI16"     "shl"      ""       ALU16OPI_SHL)
@@ -1653,7 +1653,7 @@
 (alu16opinsf bseti16    "BSETI16"    "bitset"   "")
 (alu16opinsf bclri16    "BCLRI16"    "bitclear" "")
 (alu16opinsf bchgi16    "BCHGI16"    "bitflip"  "")
-(alu16opinsf adds8i16   "ADDS8I16"   "addscale" "_shl3")
+(alu16opinsf adds8i16   "ADDS8I16"   "add"      "_shl3")
 (alu16opinsf signexti16 "SIGNEXTI16" "signext"  "")
 (alu16opinsf lsri16     "LSRI16"     "lsr"      "")
 (alu16opinsf shli16     "SHLI16"     "shl"      "")
@@ -2039,7 +2039,7 @@
 (define-pmacro (satscli3 x-name x-opcode x-suffix x-op11-8 x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$imm6" x-suffix)
+    (.str x-opcode "$alu32cond.m $alu32dreg,$alu32areg,$imm6" x-suffix)
     (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
        alu32areg alu32cond (f-op22 1) (.sym imm6 x-suffix))
     () ())
@@ -2060,6 +2060,29 @@
 (satscli3 "subs6i"  "sub"    "_shl6" 6 6)
 (satscli3 "subs7i"  "sub"    "_shl7" 6 7)
 (satscli3 "subs8i"  "sub"    "_shl8" 7 0)
+
+(define-pmacro (satscli3_nosuf x-name x-opcode x-suffix)
+  (define-normal-macro-insn
+    (.sym x-name "_nosuf") (.str (.upcase x-name) "_NOSUF") ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$imm6" x-suffix)
+    (emit (.sym x-name) alu32cond alu32dreg alu32areg (.sym imm6 x-suffix)))
+)
+
+(satscli3_nosuf "addsati" "adds"  "")
+(satscli3_nosuf "subsati" "subs"  "")
+(satscli3_nosuf "shlsati" "shls"  "")
+(satscli3_nosuf "adds5i"  "add"   "_shl5")
+(satscli3_nosuf "adds6i"  "add"   "_shl6")
+(satscli3_nosuf "adds7i"  "add"   "_shl7")
+(satscli3_nosuf "adds8i"  "add"   "_shl8")
+(satscli3_nosuf "subs1i"  "sub"   "_shl1")
+(satscli3_nosuf "subs2i"  "sub"   "_shl2")
+(satscli3_nosuf "subs3i"  "sub"   "_shl3")
+(satscli3_nosuf "subs4i"  "sub"   "_shl4")
+(satscli3_nosuf "subs5i"  "sub"   "_shl5")
+(satscli3_nosuf "subs6i"  "sub"   "_shl6")
+(satscli3_nosuf "subs7i"  "sub"   "_shl7")
+(satscli3_nosuf "subs8i"  "sub"   "_shl8")
 
 (define-pmacro (clmpcnti2 x-name x-opcode x-op11-8 x-op7-5)
   (define-normal-insn
