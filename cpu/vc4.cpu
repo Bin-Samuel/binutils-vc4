@@ -2002,7 +2002,7 @@
 (define-pmacro (satsclr3 x-name x-opcode x-suffix x-op11-8 x-op7-5)
   (define-normal-insn
     x-name (.str (.upcase x-name)) ()
-    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$alu32breg" x-suffix)
+    (.str x-opcode "$alu32cond.m $alu32dreg,$alu32areg,$alu32breg" x-suffix)
     (+ OPLEN_12 (f-op11-8 x-op11-8) (f-op7-5 x-op7-5) alu32dreg
        alu32areg alu32cond OP22_21_0 alu32breg)
     () ())
@@ -2023,6 +2023,29 @@
 (satsclr3 "subs6r"  "subscale" "$shl6" 6 6)
 (satsclr3 "subs7r"  "subscale" "$shl7" 6 7)
 (satsclr3 "subs8r"  "subscale" "$shl8" 7 0)
+
+(define-pmacro (satsclr3_nosuf x-name x-opcode x-suffix)
+  (define-normal-macro-insn
+    (.sym x-name "_nosuf") (.str (.upcase x-name) "_NOSUF") ()
+    (.str x-opcode "$alu32cond $alu32dreg,$alu32areg,$alu32breg" x-suffix)
+    (emit (.sym x-name) alu32cond alu32dreg alu32areg alu32breg))
+)
+
+(satsclr3_nosuf "addsatr" "adds"     "")
+(satsclr3_nosuf "subsatr" "subs"     "")
+(satsclr3_nosuf "shlsatr" "shls"     "")
+(satsclr3_nosuf "adds5r"  "addscale" "$shl5")
+(satsclr3_nosuf "adds6r"  "addscale" "$shl6")
+(satsclr3_nosuf "adds7r"  "addscale" "$shl7")
+(satsclr3_nosuf "adds8r"  "addscale" "$shl8")
+(satsclr3_nosuf "subs1r"  "subscale" "$shl1")
+(satsclr3_nosuf "subs2r"  "subscale" "$shl2")
+(satsclr3_nosuf "subs3r"  "subscale" "$shl3")
+(satsclr3_nosuf "subs4r"  "subscale" "$shl4")
+(satsclr3_nosuf "subs5r"  "subscale" "$shl5")
+(satsclr3_nosuf "subs6r"  "subscale" "$shl6")
+(satsclr3_nosuf "subs7r"  "subscale" "$shl7")
+(satsclr3_nosuf "subs8r"  "subscale" "$shl8")
 
 (define-pmacro (clmpcntr2 x-name x-opcode x-op11-8 x-op7-5)
   (define-normal-insn

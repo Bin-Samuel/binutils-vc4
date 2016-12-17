@@ -2310,77 +2310,77 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_DIVIUU, "diviuu", "div", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* adds$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+/* adds$alu32cond.m $alu32dreg,$alu32areg,$alu32breg */
   {
     VC4_INSN_ADDSATR, "addsatr", "adds", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subs$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+/* subs$alu32cond.m $alu32dreg,$alu32areg,$alu32breg */
   {
     VC4_INSN_SUBSATR, "subsatr", "subs", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* shls$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+/* shls$alu32cond.m $alu32dreg,$alu32areg,$alu32breg */
   {
     VC4_INSN_SHLSATR, "shlsatr", "shls", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* addscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl5 */
+/* addscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl5 */
   {
     VC4_INSN_ADDS5R, "adds5r", "addscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* addscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl6 */
+/* addscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl6 */
   {
     VC4_INSN_ADDS6R, "adds6r", "addscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* addscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl7 */
+/* addscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl7 */
   {
     VC4_INSN_ADDS7R, "adds7r", "addscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* addscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl8 */
+/* addscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl8 */
   {
     VC4_INSN_ADDS8R, "adds8r", "addscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl1 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl1 */
   {
     VC4_INSN_SUBS1R, "subs1r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl2 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl2 */
   {
     VC4_INSN_SUBS2R, "subs2r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl3 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl3 */
   {
     VC4_INSN_SUBS3R, "subs3r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl4 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl4 */
   {
     VC4_INSN_SUBS4R, "subs4r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl5 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl5 */
   {
     VC4_INSN_SUBS5R, "subs5r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl6 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl6 */
   {
     VC4_INSN_SUBS6R, "subs6r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl7 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl7 */
   {
     VC4_INSN_SUBS7R, "subs7r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* subscale$alu32cond $alu32dreg,$alu32areg,$alu32breg$shl8 */
+/* subscale$alu32cond.m $alu32dreg,$alu32areg,$alu32breg$shl8 */
   {
     VC4_INSN_SUBS8R, "subs8r", "subscale", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
