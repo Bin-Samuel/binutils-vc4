@@ -1690,9 +1690,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_RSUB16, "rsub16", "rsub.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* btst.s $alu16dreg,$alu16sreg */
+/* btest.s $alu16dreg,$alu16sreg */
   {
-    VC4_INSN_BTST16, "btst16", "btst.s", 16,
+    VC4_INSN_BTEST16, "btest16", "btest.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* or.s $alu16dreg,$alu16sreg */
@@ -1820,9 +1820,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_CMPI16, "cmpi16", "cmp.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* btst.s $alu16dreg,$alu16imm */
+/* btest.s $alu16dreg,$alu16imm */
   {
-    VC4_INSN_BTSTI16, "btsti16", "btst.s", 16,
+    VC4_INSN_BTESTI16, "btesti16", "btest.s", 16,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* bmask.s $alu16dreg,$alu16imm */
@@ -1970,9 +1970,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_RSUB32, "rsub32", "rsub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* btst${alu32cond}.m $alu32areg,$alu32breg */
+/* btest${alu32cond}.m $alu32areg,$alu32breg */
   {
-    VC4_INSN_BTST32, "btst32", "btst", 32,
+    VC4_INSN_BTEST32, "btest32", "btest", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* or${alu32cond}.m $alu32dreg,$alu32areg,$alu32breg */
@@ -2130,9 +2130,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_RSUBI32, "rsubi32", "rsub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* btst${alu32cond}.m $alu32areg,$imm6 */
+/* btest${alu32cond}.m $alu32areg,$imm6 */
   {
-    VC4_INSN_BTSTI32, "btsti32", "btst", 32,
+    VC4_INSN_BTESTI32, "btesti32", "btest", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* or${alu32cond}.m $alu32dreg,$alu32areg,$imm6 */
@@ -2550,9 +2550,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_RSUBIU32, "rsubiu32", "rsub.m", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* btst.m $alu48idreg,$offset16 */
+/* btest.m $alu48idreg,$offset16 */
   {
-    VC4_INSN_BTSTIU32, "btstiu32", "btst.m", 32,
+    VC4_INSN_BTESTIU32, "btestiu32", "btest.m", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* or.m $alu48idreg,$offset16 */

@@ -471,13 +471,13 @@
 
 (define-pmacro ops5bit
   (MOV CMN ADD BIC MUL EOR SUB AND
-   NOT ROR CMP RSUB BTST OR BMASK MAX
+   NOT ROR CMP RSUB BTEST OR BMASK MAX
    BSET MIN BCLR ADDS2 BCHG ADDS4 ADDS8 ADDS16
    SIGNEXT NEG LSR MSB SHL BITREV ASR ABS)
 )
 
 (define-pmacro ops4bit
-  (MOV ADD MUL SUB NOT CMP BTST BMASK
+  (MOV ADD MUL SUB NOT CMP BTEST BMASK
    BSET BCLR BCHG ADDS8 SIGNEXT LSR SHL ASR)
 )
 
@@ -1556,7 +1556,7 @@
 (alu16opr ror16     "ROR16"     "ror"      ""      ALU16OP_ROR)
 (alu16opr cmp16     "CMP16"     "cmp"      ""      ALU16OP_CMP)
 (alu16opr rsub16    "RSUB16"    "rsub"     ""      ALU16OP_RSUB)
-(alu16opr btst16    "BTST16"    "btst"     ""      ALU16OP_BTST)
+(alu16opr btest16   "BTEST16"   "btest"    ""      ALU16OP_BTEST)
 (alu16opr or16      "OR16"      "or"       ""      ALU16OP_OR)
 (alu16opr bmask16   "BMASK16"   "bmask"    ""      ALU16OP_BMASK)
 (alu16opr max16     "MAX16"     "max"      ""      ALU16OP_MAX)
@@ -1589,7 +1589,7 @@
 (alu16oprnsf ror16     "ROR16"     "ror"      "")
 (alu16oprnsf cmp16     "CMP16"     "cmp"      "")
 (alu16oprnsf rsub16    "RSUB16"    "rsub"     "")
-(alu16oprnsf btst16    "BTST16"    "btst"     "")
+(alu16oprnsf btest16   "BTEST16"   "btest"    "")
 (alu16oprnsf or16      "OR16"      "or"       "")
 (alu16oprnsf bmask16   "BMASK16"   "bmask"    "")
 (alu16oprnsf max16     "MAX16"     "max"      "")
@@ -1631,7 +1631,7 @@
 (alu16opi subi16     "SUBI16"     "sub"      ""       ALU16OPI_SUB)
 (alu16opi noti16     "NOTI16"     "not"      ""       ALU16OPI_NOT)
 (alu16opi cmpi16     "CMPI16"     "cmp"      ""       ALU16OPI_CMP)
-(alu16opi btsti16    "BTSTI16"    "btst"     ""       ALU16OPI_BTST)
+(alu16opi btesti16   "BTESTI16"   "btest"    ""       ALU16OPI_BTEST)
 (alu16opi bmaski16   "BMASKI16"   "bmask"    ""       ALU16OPI_BMASK)
 (alu16opi bseti16    "BSETI16"    "bitset"   ""       ALU16OPI_BSET)
 (alu16opi bclri16    "BCLRI16"    "bitclear" ""       ALU16OPI_BCLR)
@@ -1648,7 +1648,7 @@
 (alu16opinsf subi16     "SUBI16"     "sub"      "")
 (alu16opinsf noti16     "NOTI16"     "not"      "")
 (alu16opinsf cmpi16     "CMPI16"     "cmp"      "")
-(alu16opinsf btsti16    "BTSTI16"    "btst"     "")
+(alu16opinsf btesti16   "BTESTI16"   "btest"    "")
 (alu16opinsf bmaski16   "BMASKI16"   "bmask"    "")
 (alu16opinsf bseti16    "BSETI16"    "bitset"   "")
 (alu16opinsf bclri16    "BCLRI16"    "bitclear" "")
@@ -1789,7 +1789,7 @@
 (alu32opr3 ror32     "ROR32"     "ror"      ""      ROR)
 (alu32oprc cmp32     "CMP32"     "cmp"              CMP)
 (alu32opr3 rsub32    "RSUB32"    "rsub"     ""      RSUB)
-(alu32oprc btst32    "BTST32"    "btst"             BTST)
+(alu32oprc btest32   "BTEST32"   "btest"            BTEST)
 (alu32opr3 or32      "OR32"      "or"       ""      OR)
 (alu32opr3 bmask32   "BMASK32"   "bmask"    ""      BMASK)
 (alu32opr3 max32     "MAX32"     "max"      ""      MAX)
@@ -1822,7 +1822,7 @@
 (alu32opr3nsf ror32     "ROR32"     "ror"      "")
 (alu32oprcnsf cmp32     "CMP32"     "cmp")
 (alu32opr3nsf rsub32    "RSUB32"    "rsub"     "")
-(alu32oprcnsf btst32    "BTST32"    "btst")
+(alu32oprcnsf btest32   "BTEST32"   "btest")
 (alu32opr3nsf or32      "OR32"      "or"       "")
 (alu32opr3nsf bmask32   "BMASK32"   "bmask"    "")
 (alu32opr3nsf max32     "MAX32"     "max"      "")
@@ -1909,7 +1909,7 @@
 (alu32opi3 rori32     "RORI32"     "ror"     ""      ROR)
 (alu32opic cmpi32     "CMPI32"     "cmp"             CMP)
 (alu32opi3 rsubi32    "RSUBI32"    "rsub"    ""      RSUB)
-(alu32opic btsti32    "BTSTI32"    "btst"            BTST)
+(alu32opic btesti32   "BTESTI32"   "btest"           BTEST)
 (alu32opi3 ori32      "ORI32"      "or"      ""      OR)
 (alu32opi3 bmaski32   "BMASKI32"   "bmask"   ""      BMASK)
 (alu32opi3 maxi32     "MAXI32"     "max"     ""      MAX)
@@ -1942,7 +1942,7 @@
 (alu32opi3nsf rori32     "RORI32"     "ror"      "")
 (alu32opicnsf cmpi32     "CMPI32"     "cmp")
 (alu32opi3nsf rsubi32    "RSUBI32"    "rsub"     "")
-(alu32opicnsf btsti32    "BTSTI32"    "btst")
+(alu32opicnsf btesti32   "BTESTI32"   "btest")
 (alu32opi3nsf ori32      "ORI32"      "or"       "")
 (alu32opi3nsf bmaski32   "BMASKI32"   "bmask"    "")
 (alu32opi3nsf maxi32     "MAXI32"     "max"      "")
@@ -2177,13 +2177,13 @@
 (alu32uni roriu32     "ror"     ""      ROR)
 (alu32uni cmpiu32     "cmp"     ""      CMP)
 (alu32uni rsubiu32    "rsub"    ""      RSUB)
-(alu32uni btstiu32    "btst"    ""      BTST)
+(alu32uni btestiu32   "btest"   ""      BTEST)
 (alu32uni oriu32      "or"      ""      OR)
 (alu32uni bmaskiu32   "bmask"   ""      BMASK)
 (alu32uni maxiu32     "max"     ""      MAX)
 (alu32uni bsetiu32    "bitset"  ""      BSET)
 (alu32uni miniu32     "min"     ""      MIN)
-(alu32uni bclriu32    "bitclear" ""      BCLR)
+(alu32uni bclriu32    "bitclear" ""     BCLR)
 (alu32uni adds2iu32   "add"     "_shl1" ADDS2)
 (alu32uni bchgiu32    "bitflip" ""      BCHG)
 (alu32uni adds4iu32   "add"     "_shl2" ADDS4)
@@ -2210,7 +2210,7 @@
 (alu32uninsf roriu32     "ror"     "")
 (alu32uninsf cmpiu32     "cmp"     "")
 (alu32uninsf rsubiu32    "rsub"    "")
-(alu32uninsf btstiu32    "btst"    "")
+(alu32uninsf btestiu32   "btest"   "")
 (alu32uninsf oriu32      "or"      "")
 (alu32uninsf bmaskiu32   "bmask"   "")
 (alu32uninsf maxiu32     "max"     "")
