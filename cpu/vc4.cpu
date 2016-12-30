@@ -483,7 +483,7 @@
 
 (define-normal-insn-enum
   insn-floatops "insn float ops" () ALUFOP_ f-op8-5
-  (FADD FSUB FMUL FDIV FCMP FABS FRSB FMAX
+  (FADD FSUB FMUL FDIV FCMP FABS FRSUB FMAX
    FRCP FRSQRT FNMUL FMIN FCEIL FFLOOR FLOG2 FEXP2)
 )
 
@@ -2266,7 +2266,7 @@
 (floatopr3 "fdivr"   "fdiv"   ALUFOP_FDIV)
 (floatoprc "fcmpr"   "fcmp"   ALUFOP_FCMP)
 (floatopr2 "fabsr"   "fabs"   ALUFOP_FABS)
-(floatopr3 "frsbr"   "frsb"   ALUFOP_FRSB)
+(floatopr3 "frsubr"  "frsub"  ALUFOP_FRSUB)
 (floatopr3 "fmaxr"   "fmax"   ALUFOP_FMAX)
 (floatopr2 "frcpr"   "frcp"   ALUFOP_FRCP)
 (floatopr2 "frsqrtr" "frsqrt" ALUFOP_FRSQRT)
@@ -2310,7 +2310,7 @@
 (floatopi3 "fdivi"   "fdiv"   ALUFOP_FDIV)
 (floatopic "fcmpi"   "fcmp"   ALUFOP_FCMP)
 (floatopi2 "fabsi"   "fabs"   ALUFOP_FABS)
-(floatopi3 "frsbi"   "frsb"   ALUFOP_FRSB)
+(floatopi3 "frsubi"  "frsub"  ALUFOP_FRSUB)
 (floatopi3 "fmaxi"   "fmax"   ALUFOP_FMAX)
 (floatopi2 "frcpi"   "frcp"   ALUFOP_FRCP)
 (floatopi2 "frsqrti" "frsqrt" ALUFOP_FRSQRT)

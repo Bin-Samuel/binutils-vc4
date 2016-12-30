@@ -2876,7 +2876,7 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32BREG), 0 } },
     & ifmt_faddr, { 0xc8a0, { 0x0 }, { 0x60 } }
   },
-/* frsb$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+/* frsub$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (ALU32BREG), 0 } },
@@ -2972,7 +2972,7 @@ static const CGEN_OPCODE vc4_cgen_insn_opcode_table[MAX_INSNS] =
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (FLOATIMM6), 0 } },
     & ifmt_faddi, { 0xc8a0, { 0x40 }, { 0x40 } }
   },
-/* frsb$alu32cond $alu32dreg,$alu32areg,$floatimm6 */
+/* frsub$alu32cond $alu32dreg,$alu32areg,$floatimm6 */
   {
     { 0, 0, 0, 0 },
     { { MNEM, OP (ALU32COND), ' ', OP (ALU32DREG), ',', OP (ALU32AREG), ',', OP (FLOATIMM6), 0 } },

@@ -2680,9 +2680,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_FABSR, "fabsr", "fabs", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* frsb$alu32cond $alu32dreg,$alu32areg,$alu32breg */
+/* frsub$alu32cond $alu32dreg,$alu32areg,$alu32breg */
   {
-    VC4_INSN_FRSBR, "frsbr", "frsb", 32,
+    VC4_INSN_FRSUBR, "frsubr", "frsub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* fmax$alu32cond $alu32dreg,$alu32areg,$alu32breg */
@@ -2760,9 +2760,9 @@ static const CGEN_IBASE vc4_cgen_insn_table[MAX_INSNS] =
     VC4_INSN_FABSI, "fabsi", "fabs", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
-/* frsb$alu32cond $alu32dreg,$alu32areg,$floatimm6 */
+/* frsub$alu32cond $alu32dreg,$alu32areg,$floatimm6 */
   {
-    VC4_INSN_FRSBI, "frsbi", "frsb", 32,
+    VC4_INSN_FRSUBI, "frsubi", "frsub", 32,
     { 0, { { { (1<<MACH_BASE), 0 } } } }
   },
 /* fmax$alu32cond $alu32dreg,$alu32areg,$floatimm6 */
