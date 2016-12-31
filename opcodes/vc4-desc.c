@@ -814,7 +814,7 @@ const CGEN_OPERAND vc4_cgen_operand_table[] =
   { "pcrel8bits", VC4_OPERAND_PCREL8BITS, HW_H_IADDR, 7, 8,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_PCREL8] } }, 
     { 0|A(PCREL_ADDR), { { { (1<<MACH_BASE), 0 } } } }  },
-/* bcc32imm: 5-bit unsigned immediate in compare-branch insn */
+/* bcc32imm: 6-bit unsigned immediate in compare-branch insn */
   { "bcc32imm", VC4_OPERAND_BCC32IMM, HW_H_UINT, 13, 6,
     { 0, { (const PTR) &vc4_cgen_ifld_table[VC4_F_OP29_24] } }, 
     { 0, { { { (1<<MACH_BASE), 0 } } } }  },

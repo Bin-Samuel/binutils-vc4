@@ -1397,7 +1397,7 @@ vc4_cgen_parse_operand (CGEN_CPU_DESC cd,
       errmsg = parse_plus_sr7 (cd, strp, VC4_OPERAND_APLUS_SR7, (unsigned long *) (& fields->f_op18));
       break;
     case VC4_OPERAND_BCC32IMM :
-      errmsg = parse_uimm5 (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
+      errmsg = parse_uimm6 (cd, strp, VC4_OPERAND_BCC32IMM, (unsigned long *) (& fields->f_op29_24));
       break;
     case VC4_OPERAND_BCC32SREG :
       errmsg = cgen_parse_keyword (cd, strp, & vc4_cgen_opval_h_fastreg, & fields->f_op29_26);

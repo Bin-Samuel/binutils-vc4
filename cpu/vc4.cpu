@@ -882,11 +882,11 @@
 
 (define-operand
   (name bcc32imm)
-  (comment "5-bit unsigned immediate in compare-branch insn")
+  (comment "6-bit unsigned immediate in compare-branch insn")
   (attrs)
   (type h-uint)
   (index f-op29-24)
-  (handlers (parse "uimm5"))
+  (handlers (parse "uimm6"))
 )
 
 (define-normal-operand
